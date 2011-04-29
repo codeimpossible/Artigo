@@ -1,0 +1,22 @@
+<em>
+	<%= page_entries_info @posts %> <% if admin? %> (<%= link_to "Why not create a new post?", new_post_path %>) <% end %>
+</em>
+
+<% @posts.each do |post| %>
+<% if !post.published %>
+<div class="unpublished">
+<% end %>
+	<h2><%= link_to post.title, post_permalink(post) %></h2>
+	<span><%=h post.created_at.strftime("%m/%d/%Y") %></span><% if logged_in? %>, <% if post.published %><strong style="color: green">public</strong><% else %><strong style="color: red">private</strong><% end %><% end %>
+	<div id="summary"><%= post.summary %></div>
+	<% if logged_in? %>
+	<em><%= link_to "Destroy", post, :confirm => "Are you sure?", :method => :delete %></em>
+	<% end %>
+<% if !post.published %>
+</div>
+<% end %>	
+<% end %>
+<br />
+
+<%= will_paginate @posts, :params => { :controller => "posts", :action => "page" } %>
+<br />

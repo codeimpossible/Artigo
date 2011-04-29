@@ -1,0 +1,13 @@
+<h1>Configure Artigo</h1>
+<p>Here is where you can change all the settings for Artigo.</p>
+
+<% form_tag "/admin/config/save" do -%>
+	<p><big>Site Options</big></p>
+	<label>Site Title:</label><input type="text" name="site_title" value="<%= @options['site_title'] %>" />
+	<br />
+	<label>&lt;HEAD&gt; Title:</label><input type="text" name="head_title" value="<%= @options['head_title'] || '' %>" />
+	<hr />
+	<p>
+	Please, <input type="submit" value="save" /> my changes.
+	</p>
+<% end %>

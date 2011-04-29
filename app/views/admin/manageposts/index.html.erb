@@ -1,0 +1,51 @@
+<h1>Manage your posts</h1>
+
+<p>Below are all your posts sorted by the date they were created, newer posts are on the top. 
+From this page you can Publish, Unpublish, and Delete your posts.</p>
+
+<% form_tag "/admin/manageposts/manage" do -%>
+	<table id="posts" width="100%; clear: both;">
+		<thead>
+			<tr>
+				<th>Post Title</th>
+				<th>Date Created</th>
+				<th>Status</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<% @posts.each do |post| %>
+			<tr>
+				<td style="text-align: left;"><label for="posts"><input type="checkbox" name="posts[]" value="<%= post.id %>" /><%= post.title %></label> (<%= link_to "view", post_permalink(post), :target => "_blank" %>)</td>
+				<td><%= post.created_at %></td>
+				<td><%= post.published ? "<span style='color: green;'>Public" : "<span style='color: red;'>Private" %></span></td>
+			</tr>		
+			<% end %>
+		</tbody>
+	</table>
+	<hr />
+	<p><a href="#" class="checkall">Select All</a> / <a href="#" class="checknone">Deselect All</a></p>
+	<p>I would like to <select name="act"><option value="publish">Publish</option><option value="unpublish">Unpublish</option><option value="delete">Delete</option></select> the selected posts.</p>
+	<p>Please, <input type="submit" value="Save these changes" />. <em>You <strong>will</strong> be asked for confirmation before any actions are taken but you should know that
+if you delete something it will be deleted <u><big>permanently</big></u></em></p>
+<% end %>
+
+<% content_for :foot do %>
+	<script type="text/javascript">
+		(function($) {
+			$(function() {
+				$('form').submit(function(e) {
+					return confirm("Are you sure you want to save these changes?");
+				});
+			
+				$('.checkall').click(function() {
+					$(this).parents('form').find('input[type="checkbox"]').attr('checked','checked');
+				});
+				
+				$('.checknone').click(function() {
+					$(this).parents('form').find('input[type="checkbox"]').removeAttr('checked');
+				});
+			});
+		})(jQuery);
+	</script>
+<% end %>

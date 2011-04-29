@@ -1,0 +1,11 @@
+<h1>Tidy-up your blog</h1>
+<p>I try to keep you blog tidy and neat, but sometimes you just need to go in and tidy up a bit.</p>
+
+<% form_tag "/admin/tidyup/tidyposts" do -%>
+    <input type="hidden" name="post_type" value="all" />
+    You can use the <strong style="color: red">nuke from orbit</strong> approach and <%= submit_tag "delete all the posts", :confirm => "Are you sure?" %> from your blog.
+	<br /><em>Note: this <strong>will</strong> delete all the posts from your blog. USE WITH CAUTION!</em>
+<% end -%>
+<br />
+<hr />
+<p>You know, on second thought... I'll just go back to the <a href="/admin">Admin dashboard.</a></p>

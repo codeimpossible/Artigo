@@ -1,0 +1,23 @@
+<h1>Change your password</h1>
+<p>So, you want to change your password, huh?</p>
+<p>Changing your password is a <big>big deal</big> as picking poor password
+can leave your site vulnerable, but if you pick too good a password you run
+the risk of forgetting it.</p>
+<p>Basic tips for picking a strong password:
+<ul>
+	<li>Use at least eight characters, the more characters the better really</li>
+	<li>Use a random mixture of characters, upper and lower case, numbers, punctuation, spaces and symbols.</li>
+	<li>Don't use a word found in a dictionary, English or foreign.</li>
+	<li>Never use the same password twice.</li>
+</ul>
+</p>
+
+<% form_tag "/admin/changepassword/save" do -%>
+    <p>Okay, I've read all that stuff above and I'd like to change my password.</p>
+    <p>My <strong>old password</strong> was <input type="password" name="old_password" /> but I'd like my <strong>new password</strong> to be <input type="password" name="password" />. 
+        Again, my <strong>new password</strong> should be <input type="password" name="password_confirmation" />.
+    </p>
+    <p>
+        Please, <input type="submit" value="save" /> these changes.
+    </p>
+<% end %>

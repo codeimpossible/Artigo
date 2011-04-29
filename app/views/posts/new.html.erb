@@ -1,0 +1,75 @@
+<div class="new">
+	<h2 id="title">Your New Posts' Title</h2>
+	<p id="summary">
+	  Write 2-3 sentences to grab your readers' attention. The ending should act as an introduction into your main body. 
+	</p>
+	<hr />
+	<div id="content">
+	  <p>Your main body should fully realize the ideas you set into motion in the introduction section. Keep your posts short
+	  and to the point as shorter blog posts are easier to read and remember.</p>
+	  
+	  <p>Use a consistent style in your writing, once you've picked a style that suites you and your audience, stick to it.</p>
+	  
+	  <p>Be your own editor. Before you publish your post, go back and re-read it. Does it sound like you? Does it make sense? Does it get right to the point?</p>
+	</div>
+</div>
+
+<div style="display: none;"><% form_for(@post) do |f| %><% end %></div>
+
+<%= link_to 'Back', posts_path %>
+
+<% content_for :foot do %>
+	<script type="text/javascript" src="/javascripts/jquery.json-2.2.min.js"></script>
+	<script type="text/javascript" src="/javascripts/jquery.getUrlParam.js"></script>
+	<script type="text/javascript" src="/javascripts/jquery.cookie.js"></script>
+	<script type="text/javascript" src="/aloha/aloha-custom.js"></script>
+	<script type="text/javascript" src="/aloha/plugins/com.gentics.aloha.plugins.Format/plugin.js"></script>
+    <script type="text/javascript" src="/aloha/plugins/com.gentics.aloha.plugins.Table/plugin.js"></script>
+    <script type="text/javascript" src="/aloha/plugins/com.gentics.aloha.plugins.List/plugin.js"></script>
+	<script type="text/javascript">
+		var _id = -1;
+		var _url = "/posts.json";
+		var _type = "POST";
+		
+		// cache the contents of each item to see if we've changed something
+		var _title = "", _summary = "", _content = "";
+		
+		function save(event, args) {
+			var data = {};
+			
+			if( _id == -1 ) {
+				data = {
+					post_title: $('#title').text(),
+					post_summary: $('#summary').html(),
+					post_body: $('#content').html(),
+					authenticity_token: $('input[name=authenticity_token]').val()
+				};
+			} else {
+				_url = '/posts/' + _id + '.json';
+				_type = "PUT";
+				
+				var item = args.editable.obj.first();
+				data[item.attr("id")] = item.html();
+				data["post_id"] = _id;
+			}
+			
+			$.ajax({
+				url: _url,
+				data: data,
+				dataType: 'json',
+				type: _type,
+				success: function(d) {
+					if( d.post ) {
+						_id = d.post.id;
+						$(args.editable.obj).glow("#ffff99", 3000);
+					}
+				},
+				error: function(d) {
+					$(args.editable.obj).html(args.editable.originalContent).glow("#FFBABA", 3000);
+				}
+			});
+		}
+	</script>
+	<script type="text/javascript" src="/javascripts/jquery.glow.js"></script>
+	<script type="text/javascript" src="/javascripts/editorcreate.js"></script>
+<% end %>
