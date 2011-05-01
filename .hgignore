@@ -1,8 +1,11 @@
-glob:log/development.log
+glob:log/*
 glob:.project
 glob:db/development.sqlite3
 glob:config/initializers/session_store.rb
 glob:config/initializers/site_keys.rb
 regexp:^\.tmp.+
 glob:public/.htaccess
-glob:config/artigo.yml
+glob:config/*.yml
+regexp:\.log$
+glob:tmp/*
+regexp:\.sqlite3$
