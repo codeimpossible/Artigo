@@ -1,8 +1,8 @@
 class Post < ActiveRecord::Base
 	before_save :create_permalink
 	
-	named_scope :private, :conditions => ["published = ?", "f"]
-	named_scope :public, :conditions => ["published = ?", "t"]
+	named_scope :private, :conditions => ["published = ?", false]
+	named_scope :public, :conditions => ["published = ?", true]
 	
 	cattr_reader :per_page
 	@@per_page = 5

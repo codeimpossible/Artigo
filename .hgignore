@@ -4,3 +4,4 @@ glob:db/development.sqlite3
 glob:config/initializers/session_store.rb
 glob:config/initializers/site_keys.rb
 regexp:^\.tmp.+
+glob:public/.htaccess

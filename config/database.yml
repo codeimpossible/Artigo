@@ -16,7 +16,11 @@ test:
   timeout: 5000
 
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
+  adapter: mysql
+  database: codeimp_artigo
+  encoding: utf8
+  host: localhost
+  username: codeimp_artigo
+  password: dpdPrub7K1W1LyGTl
   pool: 5
-  timeout: 5000
+  socket: /usr/local/lib/mysql.sock
