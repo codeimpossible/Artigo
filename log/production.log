@@ -2419,3 +2419,117 @@ Rendering template within layouts/main
 Rendering posts/index
 Rendered admin/shared/_userbar (0.1ms)
 Completed in 57ms (View: 54, DB: 1) | 200 OK [http://blog.codeimpossible.com/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#show (for 68.187.213.182 at 2011-04-30 22:51:40) [GET]
+  Parameters: {"slug"=>"Installing-mercurial-on-Ubuntu-6-06", "month"=>"12", "action"=>"show", "day"=>"6", "year"=>"2010", "controller"=>"posts"}
+  [4;36;1mUser Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mPost Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+  [4;35;1mPost Load (0.6ms)[0m   [0mSELECT * FROM `posts` WHERE (`posts`.`permalink` = 'Installing-mercurial-on-Ubuntu-6-06') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering posts/show
+Rendered admin/shared/_userbar (1.3ms)
+Completed in 43ms (View: 32, DB: 3) | 200 OK [http://blog.codeimpossible.com/2010/12/6/Installing-mercurial-on-Ubuntu-6-06]
+
+
+Processing PostsController#index (for 68.187.213.182 at 2011-04-30 22:51:48) [GET]
+  Parameters: {"action"=>"index", "controller"=>"posts"}
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mPost Load (0.8ms)[0m   [0mSELECT * FROM `posts` ORDER BY created_at DESC LIMIT 0, 5[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `posts` [0m
+Rendering template within layouts/main
+Rendering posts/index
+Rendered admin/shared/_userbar (0.1ms)
+Completed in 17ms (View: 15, DB: 1) | 200 OK [http://blog.codeimpossible.com/]
+
+
+Processing ApplicationController#index (for 68.187.213.182 at 2011-04-30 22:51:57) [GET]
+Rendering template within layouts/main
+Rendering errors/error_404 (404)
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered admin/shared/_userbar (0.1ms)
+
+
+Processing PostsController#index (for 68.187.213.182 at 2011-04-30 22:52:08) [GET]
+  Parameters: {"action"=>"index", "controller"=>"posts"}
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mPost Load (0.1ms)[0m   [0mSELECT * FROM `posts` ORDER BY created_at DESC LIMIT 0, 5[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `posts` [0m
+Rendering template within layouts/main
+Rendering posts/index
+Rendered admin/shared/_userbar (0.1ms)
+Completed in 15ms (View: 13, DB: 0) | 200 OK [http://blog.codeimpossible.com/]
+
+
+Processing PostsController#page (for 68.187.213.182 at 2011-04-30 22:52:11) [GET]
+  Parameters: {"action"=>"page", "page"=>"2", "controller"=>"posts"}
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mPost Load (0.9ms)[0m   [0;1mSELECT * FROM `posts` ORDER BY created_at DESC LIMIT 5, 5[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `posts` [0m
+Rendering template within layouts/main
+Rendering posts/index
+Rendered admin/shared/_userbar (0.1ms)
+Completed in 16ms (View: 13, DB: 1) | 200 OK [http://blog.codeimpossible.com/page/2]
+
+
+Processing PostsController#show (for 68.187.213.182 at 2011-04-30 22:52:13) [GET]
+  Parameters: {"slug"=>"For-in-Follow-Up", "month"=>"11", "action"=>"show", "day"=>"8", "year"=>"2010", "controller"=>"posts"}
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mPost Load (0.7ms)[0m   [0mSELECT * FROM `posts` WHERE (`posts`.`permalink` = 'For-in-Follow-Up') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering posts/show
+Rendered admin/shared/_userbar (0.1ms)
+Completed in 4ms (View: 2, DB: 1) | 200 OK [http://blog.codeimpossible.com/2010/11/8/For-in-Follow-Up]
+
+
+Processing PostsController#show (for 174.36.113.196 at 2011-04-30 22:52:14) [GET]
+  Parameters: {"slug"=>"For-in-Follow-Up", "month"=>"11", "action"=>"show", "day"=>"8", "year"=>"2010", "controller"=>"posts"}
+  [4;36;1mPost Load (0.7ms)[0m   [0;1mSELECT * FROM `posts` WHERE (`posts`.`permalink` = 'For-in-Follow-Up') AND (published = 1) LIMIT 1[0m
+Rendering template within layouts/main
+Rendering posts/show
+Completed in 5ms (View: 2, DB: 1) | 200 OK [http://blog.codeimpossible.com/2010/11/8/For-in-Follow-Up]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#update to json (for 68.187.213.182 at 2011-04-30 22:52:53) [PUT]
+  Parameters: {"format"=>"json", "action"=>"update", "id"=>"211", "content"=>"\n  <p>A few weeks back <a href=\"http://codeimpossible.com/2010/09/20/spot-the-bug-forin-and-javascript/\">I wrote a post about a bug that can occur when you improperly use a for/in</a> style loop in javascript. </p>\n\n<p>This is particular quirk is one that I find myself explaining to a lot of devs when they start using JavaScript, especially if they are coming from C# (with it's foreach loop having a similar syntax).</p>\n\n<p><strong>\"I do not think that means what you think it means.\"</strong><br>\n<br>The for/in loop in JavaScript is powerful but it definitely doesn't do what you probably think it does. To understand the for/in loop we'll have to dive deeper into objects and arrays and how JavaScript <del datetime=\"2010-10-19T05:29:37+00:00\">mis</del>treats them.</p>\n\n<p><strong>Objects in JavaScript</strong><br>\n<br>In most other programming languages these days, everything is an object. You can see this in current languages like C# where everything inherits from System.Object or in Ruby where you can assign properties and methods to anything at will.</p>\n\n<p>JavaScript is an object oriented language but it's implementation of objects is a little different from other languages. In JavaScript every object (every thing) is an array - a special array called an \"associative array\". If you're a C# developer think  <code>Dictionary&lt;string, object&gt;</code>. If you're a python developer then you're already familiar with this concept. <br>\n<br><br>\n<br>So in JavaScript:\n<br></p><pre class=\"prettyprint\"><code>\n<br>var x = {\n<br>    something: \"hi\"\n<br>};\n<br></code></pre>\n<br>and\n<br><pre class=\"prettyprint\"><code>\n<br>var y = [];\n<br>y[\"something\"] = \"hi\";\n<br></code></pre>\n<br>define the same thing. Both objects will have a \"something\" property with the value \"hi\".<p></p>\n\n<p><strong>Need more proof?</strong><br>\n<br>Try the following:\n<br></p><pre class=\"prettyprint\"><code>\n<br>alert( typeof( new Array() ) );\n<br></code></pre><p></p>\n\n<p>This will alert \"object\". Huh?</p>\n\n<p>Yup, more proof that an array is just an object with properties named \"0\", \"1\", \"2\" etc. This means that\n<br></p><pre class=\"prettyprint\"><code>\n<br>var a = {\n<br>    0: \"hi\",\n<br>    1: \"there\"\n<br>};\n<br></code></pre>\n<br>and\n<br><pre class=\"prettyprint\"><code>\n<br>var b = [ \"hi\", \"there\" ];\n<br></code></pre>\n<br>are the same exact thing. <a href=\"http://beta.jsvudo.com/3f40176\">Try it out!</a><p></p>\n\n<p><strong>Alright, that is insane but why the problem with for/in?</strong><br>\n<br>When you use a for/in on an object in javascript you are looping over the keys in the key/value collection that makes up that object. So doing\n<br></p><pre class=\"prettyprint\"><code>\n<br>var x = {\n<br>    prop1: \"test\",\n<br>    prop2: \"test\"\n<br>};<p></p>\n\n</code><p><code>for(var p in x ) {\n<br>    alert(p);\n<br>}\n<br></code></p></pre>\n<br>will alert \"prop1\" followed by \"prop2\". Using a for/in doesn't try to treat the object as an array, it enumerates each property (or key) in the object.<p></p>\n\n<p>Now you should start to see why for/in is generally a bad idea in JavaScript - that is, unless you <strong>want</strong> to loop over the properties of an object. </p>\n\n<p><strong>Another fun fact</strong><br>\n<br>The for/in loop isn't guaranteed to alert \"prop1\" before \"prop2\". The properties will be enumerated in whatever order the interpreter returns them in.</p>\n\n<p>So to summarize, unless you want to enumerate an objects properties, and you don't care about their order, avoid using the for/in loop in your JavaScript code.</p>\n", "controller"=>"posts"}
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM `posts` WHERE (`posts`.`id` = 211) [0m
+
+
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mPost Update (0.4ms)[0m   [0;1mUPDATE `posts` SET `updated_at` = '2011-05-01 03:52:53', `body` = '\n <p>A few weeks back <a href=\"http://codeimpossible.com/2010/09/20/spot-the-bug-forin-and-javascript/\">I wrote a post about a bug that can occur when you improperly use a for/in</a> style loop in javascript. </p>\n\n<p>This is particular quirk is one that I find myself explaining to a lot of devs when they start using JavaScript, especially if they are coming from C# (with it\'s foreach loop having a similar syntax).</p>\n\n<p><strong>\"I do not think that means what you think it means.\"</strong><br>\n<br>The for/in loop in JavaScript is powerful but it definitely doesn\'t do what you probably think it does. To understand the for/in loop we\'ll have to dive deeper into objects and arrays and how JavaScript <del datetime=\"2010-10-19T05:29:37+00:00\">mis</del>treats them.</p>\n\n<p><strong>Objects in JavaScript</strong><br>\n<br>In most other programming languages these days, everything is an object. You can see this in current languages like C# where everything inherits from System.Object or in Ruby where you can assign properties and methods to anything at will.</p>\n\n<p>JavaScript is an object oriented language but it\'s implementation of objects is a little different from other languages. In JavaScript every object (every thing) is an array - a special array called an \"associative array\". If you\'re a C# developer think <code>Dictionary&lt;string, object&gt;</code>. If you\'re a python developer then you\'re already familiar with this concept. <br>\n<br><br>\n<br>So in JavaScript:\n<br></p><pre class=\"prettyprint\"><code>\n<br>var x = {\n<br> something: \"hi\"\n<br>};\n<br></code></pre>\n<br>and\n<br><pre class=\"prettyprint\"><code>\n<br>var y = [];\n<br>y[\"something\"] = \"hi\";\n<br></code></pre>\n<br>define the same thing. Both objects will have a \"something\" property with the value \"hi\".<p></p>\n\n<p><strong>Need more proof?</strong><br>\n<br>Try the following:\n<br></p><pre class=\"prettyprint\"><code>\n<br>alert( typeof( new Array() ) );\n<br></code></pre><p></p>\n\n<p>This will alert \"object\". Huh?</p>\n\n<p>Yup, more proof that an array is just an object with properties named \"0\", \"1\", \"2\" etc. This means that\n<br></p><pre class=\"prettyprint\"><code>\n<br>var a = {\n<br> 0: \"hi\",\n<br> 1: \"there\"\n<br>};\n<br></code></pre>\n<br>and\n<br><pre class=\"prettyprint\"><code>\n<br>var b = [ \"hi\", \"there\" ];\n<br></code></pre>\n<br>are the same exact thing. <a href=\"http://beta.jsvudo.com/3f40176\">Try it out!</a><p></p>\n\n<p><strong>Alright, that is insane but why the problem with for/in?</strong><br>\n<br>When you use a for/in on an object in javascript you are looping over the keys in the key/value collection that makes up that object. So doing\n<br></p><pre class=\"prettyprint\"><code>\n<br>var x = {\n<br> prop1: \"test\",\n<br> prop2: \"test\"\n<br>};<p></p>\n\n</code><p><code>for(var p in x ) {\n<br> alert(p);\n<br>}\n<br></code></p></pre>\n<br>will alert \"prop1\" followed by \"prop2\". Using a for/in doesn\'t try to treat the object as an array, it enumerates each property (or key) in the object.<p></p>\n\n<p>Now you should start to see why for/in is generally a bad idea in JavaScript - that is, unless you <strong>want</strong> to loop over the properties of an object. </p>\n\n<p><strong>Another fun fact</strong><br>\n<br>The for/in loop isn\'t guaranteed to alert \"prop1\" before \"prop2\". The properties will be enumerated in whatever order the interpreter returns them in.</p>\n\n<p>So to summarize, unless you want to enumerate an objects properties, and you don\'t care about their order, avoid using the for/in loop in your JavaScript code.</p>\n' WHERE `id` = 211[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mCOMMIT[0m
+Completed in 39ms (View: 1, DB: 2) | 200 OK [http://blog.codeimpossible.com/posts/211.json]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#update to json (for 68.187.213.182 at 2011-04-30 22:53:46) [PUT]
+  Parameters: {"format"=>"json", "action"=>"update", "id"=>"211", "content"=>"\n  <p>A few weeks back <a href=\"http://codeimpossible.com/2010/09/20/spot-the-bug-forin-and-javascript/\">I wrote a post about a bug that can occur when you improperly use a for/in</a> style loop in javascript. </p>\n\n<p>This is particular quirk is one that I find myself explaining to a lot of devs when they start using JavaScript, especially if they are coming from C# (with it's foreach loop having a similar syntax).</p>\n\n<p><strong>\"I do not think that means what you think it means.\"</strong><br>\n<br>The for/in loop in JavaScript is powerful but it definitely doesn't do what you probably think it does. To understand the for/in loop we'll have to dive deeper into objects and arrays and how JavaScript <del datetime=\"2010-10-19T05:29:37+00:00\">mis</del>treats them.</p>\n\n<p><strong>Objects in JavaScript</strong><br>\n<br>In most other programming languages these days, everything is an object. You can see this in current languages like C# where everything inherits from System.Object or in Ruby where you can assign properties and methods to anything at will.</p>\n\n<p>JavaScript is an object oriented language but it's implementation of objects is a little different from other languages. In JavaScript every object (every thing) is an array - a special array called an \"associative array\". If you're a C# developer think  <code>Dictionary&lt;string, object&gt;</code>. If you're a python developer then you're already familiar with this concept. <br>\n<br><br>\n<br>So in JavaScript:\n<br></p><pre class=\"prettyprint\"><code>\n<br>var x = {\n<br>    something: \"hi\"\n<br>};\n<br></code></pre>\n<br>and\n<br><pre class=\"prettyprint\"><code>\n<br>var y = [];\n<br>y[\"something\"] = \"hi\";\n<br></code></pre>\n<br>define the same thing. Both objects will have a \"something\" property with the value \"hi\".<p></p>\n\n<p><strong>Need more proof?</strong><br>\n<br>Try the following:\n<br></p><pre class=\"prettyprint\"><code>\n<br>alert( typeof( new Array() ) );\n<br></code></pre><p></p>\n\n<p>This will alert \"object\". Huh?</p>\n\n<p>Yup, more proof that an array is just an object with properties named \"0\", \"1\", \"2\" etc. This means that\n<br></p><pre class=\"prettyprint\"><code>\n<br>var a = {\n<br>    0: \"hi\",\n<br>    1: \"there\"\n<br>};\n<br></code></pre>\n<br>and\n<br><pre class=\"prettyprint\"><code>\n<br>var b = [ \"hi\", \"there\" ];\n<br></code></pre>\n<br>are the same exact thing. <a href=\"http://beta.jsvudo.com/3f40176\">Try it out!</a><p></p>\n\n<p><strong>Alright, that is insane but why the problem with for/in?</strong><br>\n<br>When you use a for/in on an object in javascript you are looping over the keys in the key/value collection that makes up that object. So doing\n<br></p><pre class=\"prettyprint\"><code>\n<br>var x = {\n<br>    prop1: \"test\",\n<br>    prop2: \"test\"\n<br>};<p></p>\n\n</code><p><code>for(var p in x ) {\n<br>    alert(p);\n<br>}\n<br></code></p></pre>\n<br>will alert \"prop1\" followed by \"prop2\". Using a for/in doesn't try to treat the object as an array, it enumerates each property (or key) in the object.<p></p>\n\n<p>Now you should start to see why for/in is generally a bad idea in JavaScript - that is, unless you <strong>want</strong> to loop over the properties of an object. </p>\n\n<p><strong>Another fun fact</strong><br>\n<br>The for/in loop isn't guaranteed to alert \"prop1\" before \"prop2\". The properties will be enumerated in whatever order the interpreter returns them in.</p>\n\n<p>So to summarize, unless you want to enumerate an objects properties, and you don't care about their order, avoid using the for/in loop in your JavaScript code.</p>\n", "controller"=>"posts"}
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mPost Load (0.5ms)[0m   [0mSELECT * FROM `posts` WHERE (`posts`.`id` = 211) [0m
+
+
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCOMMIT[0m
+Completed in 4ms (View: 1, DB: 1) | 200 OK [http://blog.codeimpossible.com/posts/211.json]
+
+
+Processing SessionsController#destroy (for 68.187.213.182 at 2011-04-30 22:53:49) [GET]
+  Parameters: {"action"=>"destroy", "controller"=>"sessions"}
+Redirected to http://blog.codeimpossible.com/
+Completed in 2ms (DB: 0) | 302 Found [http://blog.codeimpossible.com/logout]
+
+
+Processing PostsController#index (for 68.187.213.182 at 2011-04-30 22:53:49) [GET]
+  Parameters: {"action"=>"index", "controller"=>"posts"}
+  [4;36;1mPost Load (0.7ms)[0m   [0;1mSELECT * FROM `posts` WHERE (published = 1) ORDER BY created_at DESC LIMIT 0, 5[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `posts` WHERE (published = 1) [0m
+Rendering template within layouts/main
+Rendering posts/index
+Completed in 9ms (View: 7, DB: 1) | 200 OK [http://blog.codeimpossible.com/]
