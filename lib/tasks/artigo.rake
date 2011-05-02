@@ -29,6 +29,34 @@ EOF
 		end
 	end
 	
+    desc 'Creates a base database.yml file'
+    task :make_db_config do
+        path = File.join(RAILS_ROOT, 'config', 'database.yml')
+        File.new(path,"w") unless File.exist?(path)
+        File.open(path, "w") do |f|
+            f.write <<"EOF"
+development:
+  adapter: sqlite3
+  database: db/development.sqlite3
+  pool: 5
+  timeout: 5000
+
+test:
+  adapter: sqlite3
+  database: db/test.sqlite3
+  pool: 5
+  timeout: 5000
+
+  #change this before going live
+production:
+  adapter: sqlite3
+  database: db/production.sqlite3
+  pool: 5
+  timeout: 5000
+EOF
+        end
+    end
+    
 	desc 'Initializes Artigo Security Settings'
-	task :setup => [:generate_session_store, :generate_site_keys]
+	task :setup => [:generate_session_store, :generate_site_keys, :make_db_config]
 end

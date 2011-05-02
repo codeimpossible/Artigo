@@ -6,7 +6,7 @@ GENTICS.Aloha.settings = {
 			"enabled": false 
 		},
 		"com.gentics.aloha.plugins.Format": { 
-			config : [ 'b', 'i','u','del','sub','sup', 'p', 'title', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'pre', 'removeFormat'],
+			config : [ 'b', 'i','u','del','sub','sup', 'q', 'p', 'title', 'h1', 'h2', 'h3', 'pre', 'removeFormat'],
 		} 
 	}
 };

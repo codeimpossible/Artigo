@@ -49,16 +49,7 @@
 <% end %>
 <% if logged_in? %>
 	<% content_for :foot do %>
-        <script type="text/javascript" src="/javascripts/jquery.json-2.2.min.js"></script>
-		<script type="text/javascript" src="/javascripts/jquery.getUrlParam.js"></script>
-		<script type="text/javascript" src="/javascripts/jquery.cookie.js"></script>
-		<script type="text/javascript" src="/aloha/aloha-custom.js"></script>
-        <script type="text/javascript" src="/aloha/plugins/com.gentics.aloha.plugins.Format/plugin.js"></script>
-        <script type="text/javascript" src="/aloha/plugins/com.gentics.aloha.plugins.Table/plugin.js"></script>
-        <script type="text/javascript" src="/aloha/plugins/com.gentics.aloha.plugins.List/plugin.js"></script>
-
-		<script type="text/javascript">
-		
+        <script type="text/javascript">
 			function publish() {
 				put({
 					post_published: true,
@@ -134,7 +125,17 @@
 				});
 			})(jQuery);
 		</script>
-		<script type="text/javascript" src="/javascripts/jquery.glow.js"></script>
+        <script type="text/javascript" src="/javascripts/jquery.json-2.2.min.js"></script>
+		<script type="text/javascript" src="/javascripts/jquery.getUrlParam.js"></script>
+		<script type="text/javascript" src="/javascripts/jquery.cookie.js"></script>
+		<script type="text/javascript" src="/aloha/aloha-custom.js"></script>
+        
+        <script type="text/javascript" src="/javascripts/jquery.glow.js"></script>
 		<script type="text/javascript" src="/javascripts/editorcreate.js"></script>
+        
+        <script type="text/javascript" src="/aloha/plugins/com.gentics.aloha.plugins.Format/plugin.js"></script>
+        <script type="text/javascript" src="/aloha/plugins/com.gentics.aloha.plugins.Table/plugin.js"></script>
+        <script type="text/javascript" src="/aloha/plugins/com.gentics.aloha.plugins.List/plugin.js"></script>
+        <script type="text/javascript" src="/aloha/plugins/com.gentics.aloha.plugins.Link/plugin.js"></script>
 	<% end %>
 <% end %>
