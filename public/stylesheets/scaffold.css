@@ -1,6 +1,6 @@
 body { background-color: #fff; color: #333; margin: 0; padding: 0; }
 
-body, p, ol, ul, td, .edit input, .edit textarea {  
+body, p, ol, ul, td, .edit input, .edit textarea, .new input, .new textarea {  
   font-family: corbel, 'lucida grande', helvetica, sans-serif;
   font-size:   16px;
   line-height: 21px;
@@ -138,20 +138,25 @@ table#posts thead {
   list-style: square;
 }
 
-.new #title {
+.new #title, .edit #title {
 	min-height: 30px;
+	font-size: 1.5em;
+	width: 100%;
 	border: 2px dashed #eee;
 	padding: 9px 0px 2px 10px;
 }
 
-.new #summary {
+.new #summary, .edit #summary {
 	min-height: 60px;
+	width: 100%;
+	font-size: 19px;
 	border: 2px dashed #eee;
 	padding: 9px 0px 2px 10px;
 }
 
-.new #content {
+.new #content, .edit #content {
 	min-height: 300px;
+	width: 100%;
 	border: 2px dashed #eee;
 	padding: 9px 0px 0px 10px;
 }

@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_filter :login_required, :except =>  [:index, :show, :page, :rss]
+  helper_method :permalink
   
   def index
     if( current_user != nil )
@@ -88,6 +89,10 @@ class PostsController < ApplicationController
     end
   end
   
+  def edit
+	@post = Post.find_by_id(params[:id])
+  end
+  
   # PUT /posts/1
   # PUT /posts/1.xml
   def update
@@ -133,5 +138,13 @@ class PostsController < ApplicationController
       format.html { redirect_to(root_url) }
       format.xml  { head :ok }
     end
+  end
+  
+  def permalink(p)
+		d = p.created_at
+		post_permalink_path :year => d.year, 
+						:month => d.month, 
+						:day => d.day, 
+						:slug => p.permalink || p.to_perm
   end
 end
