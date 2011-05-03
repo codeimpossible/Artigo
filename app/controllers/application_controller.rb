@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   layout "main"
   include AuthenticatedSystem
-  
+  helper_method :permalink
   filter_parameter_logging :password
   
   rescue_from ActionController::RoutingError, :with => :render_404
@@ -32,5 +32,13 @@ class ApplicationController < ActionController::Base
       type.all  { render :nothing => true, :status => 404 } 
     end
     true
+  end
+  
+  def permalink(p)
+		d = p.created_at
+		post_permalink_path :year => d.year, 
+						:month => d.month, 
+						:day => d.day, 
+						:slug => p.permalink || p.to_perm
   end
 end

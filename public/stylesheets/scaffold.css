@@ -226,6 +226,14 @@ table#posts thead {
 	padding-left: 10px;
 }
 
+.pagination .prev_page {
+	float:left; 
+}
+
+.pagination .next_page {
+	float:right;
+}
+
 /*hacks*/
 .Apple-style-span {
 	/*here's a first. Chrome hack for this bug: http://code.google.com/p/chromium/issues/detail?id=28904*/

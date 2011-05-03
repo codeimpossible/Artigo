@@ -18,5 +18,5 @@
 <% end %>
 <br />
 
-<%= will_paginate @posts, :params => { :controller => "posts", :action => "page" } %>
+<%= will_paginate @posts, :page_links => false, :previous_label => "Newer Posts", :next_label => "Older Posts",  :params => { :controller => "posts", :action => "page" } %>
 <br />
