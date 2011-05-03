@@ -60,6 +60,7 @@ function preview(e) {
     $('.container').animate({
         left: "-=800px"
     }, 750);
+	prettyPrint();
     return false;
 }
 

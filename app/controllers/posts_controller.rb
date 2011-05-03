@@ -71,9 +71,9 @@ class PostsController < ApplicationController
   def create
     @post = Post.new
     
-    @post.title = params[:post_title]
-    @post.summary = params[:post_summary]
-    @post.body = params[:post_body]
+    @post.title = params[:title]
+    @post.summary = params[:summary]
+    @post.body = params[:content]
     
     respond_to do |format|
       if @post.save

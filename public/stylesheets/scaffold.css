@@ -15,6 +15,33 @@ h2 {
 	margin-bottom: 0px;
 }
 
+p code {
+	background: #ddd;
+	border: 1px solid #eee;
+	padding: 1px;
+	font-size: 14px;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+} 
+
+pre, code {
+	font-family: menlo, Consolas, Courier-new, monotype;
+}
+
+pre {
+  font-size: 15px;
+}
+
+blockquote {
+	padding-left: 30px;
+	margin: 0; /*fix for webkit pushing the blockquote in too much*/
+}
+
+a, a:visited { color: #000; }
+a:hover { text-decoration:none; }
+
+
 .page {
 	width: 800px;
 	margin: 0 auto;
@@ -53,20 +80,6 @@ h2 {
 .unpublished, .unpublished h2, .unpublished h2 a {
 	color: #aaa!important;
 }
-
-pre {
-  background-color: #eee;
-  padding: 10px;
-  font-size: 11px;
-}
-
-blockquote {
-	padding-left: 30px;
-	margin: 0; /*fix for webkit pushing the blockquote in too much*/
-}
-
-a, a:visited { color: #000; }
-a:hover { text-decoration:none; }
 
 .fieldWithErrors {
   padding: 2px;
@@ -212,4 +225,33 @@ table#posts thead {
 	/*here's a first. Chrome hack for this bug: http://code.google.com/p/chromium/issues/detail?id=28904*/
 	font-weight: inherit!important;
 	font-size: inherit!important;
+}
+
+/*prettify css*/
+.str{color:#080}
+.kwd{color:#008}
+.com{color:#800}
+.typ{color:#606}
+.lit{color:#066}
+.pun{color:#660}
+.pln{color:#000}
+.tag{color:#008}
+.atn{color:#606}
+.atv{color:#080}
+.dec{color:#606}
+pre.prettyprint{padding:2px;}
+ol.linenums{margin-top:0;margin-bottom:0}
+li.L0,li.L1,li.L2,li.L3,li.L5,li.L6,li.L7,li.L8{list-style:none}
+li.L1,li.L3,li.L5,li.L7,li.L9{background:#fff}
+@media print{
+	.str{color:#060}
+	.kwd{color:#006;font-weight:bold}
+	.com{color:#600;font-style:italic}
+	.typ{color:#404;font-weight:bold}
+	.lit{color:#044}
+	.pun{color:#440}
+	.pln{color:#000}
+	.tag{color:#006;font-weight:bold}
+	.atn{color:#404}
+	.atv{color:#060}
 }
