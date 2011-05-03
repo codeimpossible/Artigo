@@ -107,6 +107,8 @@ table#posts thead {
 
 .clear { clear: both; }
 .hidden { display: none; }
+.float-left { float:left; }
+.float-right { float: right; }
 
 #errorExplanation {
   width: 400px;
@@ -136,6 +138,25 @@ table#posts thead {
 #errorExplanation ul li {
   font-size: 12px;
   list-style: square;
+}
+
+.wrapper {
+    overflow: hidden; 
+    width: 800px;
+}
+
+.container {
+    position: relative; 
+    width: 1600px;
+}
+
+.edit, .new {
+    width: 750px; 
+    padding-right: 50px;
+}
+
+.preview {
+    width: 750px;
 }
 
 .new #title, .edit #title {

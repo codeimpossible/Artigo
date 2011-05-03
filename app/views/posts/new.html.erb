@@ -1,45 +1,45 @@
-<div class="new">
-	<% form_for Post.new do |f| -%>
-		<label for="title">Title</label><br />
-		<input type="text" value="Your New Posts' Title" name="title" id="title" />
-		<br />
-		<label for="summary">Summary</label><br />
-		<textarea name="summary" id="summary">Write 2-3 sentences to grab your readers' attention. The ending should act as an introduction into your main body.</textarea>
-		<br />
-		<hr />
-		<textarea id="content" name="content">
-			<p>Your main body should fully realize the ideas you set into motion in the introduction section. Keep your posts short
-			and to the point as shorter blog posts are easier to read and remember.</p>
+<% form_for Post.new do |f| -%>
+<div class="wrapper">
+    <div class="container">
+        <div class="new float-left">
+            <label for="title">Title</label><br />
+            <input type="text" value="Your New Posts' Title" name="title" id="title" />
+            <br />
+            <label for="summary">Summary</label><br />
+            <textarea name="summary" id="summary">Write 2-3 sentences to grab your readers' attention. The ending should act as an introduction into your main body.</textarea>
+            <br />
+            <hr />
+            <textarea id="content" name="content">
+                <p>Your main body should fully realize the ideas you set into motion in the introduction section. Keep your posts short
+                and to the point as shorter blog posts are easier to read and remember.</p>
 
-			<p>Use a consistent style in your writing, once you've picked a style that suites you and your audience, stick to it.</p>
+                <p>Use a consistent style in your writing, once you've picked a style that suites you and your audience, stick to it.</p>
 
-			<p>Be your own editor. Before you publish your post, go back and re-read it. Does it sound like you? Does it make sense? Does it get right to the point?</p>
-		</textarea>
-		<hr />
-		<input type="submit" value="Save Changes" />
-	<% end %>
+                <p>Be your own editor. Before you publish your post, go back and re-read it. Does it sound like you? Does it make sense? Does it get right to the point?</p>
+            </textarea>
+            <br />
+            <button id="preview">Preview</button>
+        </div>
+        <div class="preview float-left">
+            <h2 id="title"></h2>
+            <p id="summary"></p>
+            <hr />
+            <div id="content"></div>
+            <button id="goback">Go back and continue Editing</button>
+        </div>
+        <div class="clear"></div>
+    </div>
 </div>
-	
+<hr />
+<input type="submit" value="Create Post" />
+<% end %>    
+    
+    
 <%= link_to 'Back', posts_path %>
 
 <% content_for :foot do %>
 	<script type="text/javascript" src="/ckeditor/ckeditor.js"></script>
 	<script type="text/javascript" src="/ckeditor/adapters/jquery.js"></script>
-	<script type="text/javascript">
-		(function($) {
-			$(function() {
-				var config = {
-					toolbar:
-					[
-						['Bold', 'Italic', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink'],
-						['UIColor']
-					]
-				};
-
-				// Initialize the editor.
-				// Callback function can be passed and executed after full instance creation.
-				$('#content').ckeditor(config);
-			});
-		})(jQuery);
-	</script>
+	<script type="text/javascript" src="/javascripts/artigo-edit.js"></script>
+	<script type="text/javascript" src="/javascripts/artigo-ckeditor.js"></script>
 <% end %>

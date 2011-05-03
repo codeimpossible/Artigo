@@ -12,21 +12,34 @@
 	Go there now by clicking <a href="#" class="permalink">this link</a>.
 </p>
 
-<div class="edit">
 <% form_for @post do |f| %>
-	<label for="title">Title</label><br />
-	<input type="text" value="<%= h @post.title %>" name="title" id="title" />
-	<br />
-	<label for="summary">Summary</label><br />
-	<textarea name="summary" id="summary"><%= h @post.summary %></textarea>
-	<br />
-	<hr />
-	<textarea id="content" name="content"><%= h @post.body %></textarea>
-	<hr />
-	<input type="submit" value="Save Changes" />
-<% end %>
+<div class="wrapper">
+    <div class="container">
+        <div class="edit float-left">
+            <label for="title">Title</label><br />
+            <input type="text" value="<%= h @post.title %>" name="title" id="title" />
+            <br />
+            <label for="summary">Summary</label><br />
+            <textarea name="summary" id="summary"><%= h @post.summary %></textarea>
+            <br />
+            <hr />
+            <textarea id="content" name="content"><%= h @post.body %></textarea>
+            <br />
+            <button id="preview">Preview</button>
+        </div>
+        <div class="preview float-left">
+            <h2 id="title"></h2>
+            <p id="summary"></p>
+            <hr />
+            <div id="content"></div>
+            <button id="goback">Go back and continue Editing</button>
+        </div>
+        <div class="clear"></div>
+    </div>
 </div>
-
+<hr />
+<input type="submit" value="Save Changes" />
+<% end %>
 <%= link_to 'Back', posts_path %>
 
 <% content_for :foot do %>
@@ -34,4 +47,5 @@
 	<script type="text/javascript" src="/ckeditor/adapters/jquery.js"></script>
 	<script type="text/javascript" src="/javascripts/artigo-edit.js"></script>
 	<script type="text/javascript" src="/javascripts/artigo-ckeditor.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery.glow.js"></script>
 <% end %>
