@@ -2533,3 +2533,850 @@ Processing PostsController#index (for 68.187.213.182 at 2011-04-30 22:53:49) [GE
 Rendering template within layouts/main
 Rendering posts/index
 Completed in 9ms (View: 7, DB: 1) | 200 OK [http://blog.codeimpossible.com/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 68.187.213.182 at 2011-04-30 23:54:44) [GET]
+  Parameters: {"action"=>"index", "controller"=>"posts"}
+  [4;36;1mPost Load (0.1ms)[0m   [0;1mSELECT * FROM `posts` WHERE (published = 1) ORDER BY created_at DESC LIMIT 0, 5[0m
+  [4;35;1mPost Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `posts` WHERE (published = 1) [0m
+Rendering template within layouts/main
+Rendering posts/index
+Completed in 45ms (View: 33, DB: 2) | 200 OK [http://blog.codeimpossible.com/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 68.187.213.182 at 2011-05-01 16:38:57) [GET]
+  Parameters: {"action"=>"index", "controller"=>"posts"}
+  [4;36;1mPost Load (37.8ms)[0m   [0;1mSELECT * FROM `posts` WHERE (published = 1) ORDER BY created_at DESC LIMIT 0, 5[0m
+  [4;35;1mPost Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `posts` WHERE (published = 1) [0m
+Rendering template within layouts/main
+Rendering posts/index
+Completed in 95ms (View: 42, DB: 40) | 200 OK [http://blog.codeimpossible.com/]
+
+
+Processing PostsController#show (for 68.187.213.182 at 2011-05-01 16:39:10) [GET]
+  Parameters: {"slug"=>"Make-Implement-Interface-use-auto-properties", "month"=>"11", "action"=>"show", "day"=>"29", "year"=>"2010", "controller"=>"posts"}
+  [4;35;1mPost Load (0.6ms)[0m   [0mSELECT * FROM `posts` WHERE (`posts`.`permalink` = 'Make-Implement-Interface-use-auto-properties') AND (published = 1) LIMIT 1[0m
+Rendering template within layouts/main
+Rendering posts/show
+Completed in 6ms (View: 4, DB: 1) | 200 OK [http://blog.codeimpossible.com/2010/11/29/Make-Implement-Interface-use-auto-properties]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 131.239.15.70 at 2011-05-03 12:59:56) [GET]
+  Parameters: {"action"=>"index", "controller"=>"posts"}
+  [4;36;1mPost Load (40.6ms)[0m   [0;1mSELECT * FROM `posts` WHERE (published = 1) ORDER BY created_at DESC LIMIT 0, 5[0m
+  [4;35;1mPost Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `posts` WHERE (published = 1) [0m
+Rendering template within layouts/main
+Rendering posts/index
+Completed in 91ms (View: 33, DB: 43) | 200 OK [http://blog.codeimpossible.com/]
+
+
+Processing PostsController#show (for 131.239.15.70 at 2011-05-03 13:00:02) [GET]
+  Parameters: {"slug"=>"Quick-Protip-explore-current-directory-from-command-line", "month"=>"4", "action"=>"show", "day"=>"18", "year"=>"2011", "controller"=>"posts"}
+  [4;35;1mPost Load (0.7ms)[0m   [0mSELECT * FROM `posts` WHERE (`posts`.`permalink` = 'Quick-Protip-explore-current-directory-from-command-line') AND (published = 1) LIMIT 1[0m
+Rendering template within layouts/main
+Rendering posts/show
+Completed in 4ms (View: 2, DB: 1) | 200 OK [http://blog.codeimpossible.com/2011/4/18/Quick-Protip-explore-current-directory-from-command-line]
+
+
+Processing PostsController#edit (for 131.239.15.70 at 2011-05-03 13:00:08) [GET]
+  Parameters: {"action"=>"edit", "id"=>"216", "controller"=>"posts"}
+Redirected to http://blog.codeimpossible.com/session/new
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://blog.codeimpossible.com/posts/216/edit]
+
+
+Processing SessionsController#new (for 131.239.15.70 at 2011-05-03 13:00:08) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+  [4;36;1mUser Load (22.8ms)[0m   [0;1mSELECT * FROM `users` [0m
+Rendering template within layouts/main
+Rendering sessions/new
+Completed in 28ms (View: 3, DB: 23) | 200 OK [http://blog.codeimpossible.com/session/new]
+
+
+Processing SessionsController#create (for 131.239.15.70 at 2011-05-03 13:00:15) [POST]
+  Parameters: {"commit"=>"Log in", "action"=>"create", "authenticity_token"=>"bfto45KOsUILx4HAdpVj7AInWZWX2oc114p63M61YWM=", "controller"=>"sessions", "login"=>"codeimpossible", "password"=>"[FILTERED]"}
+  [4;35;1mUser Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (1.8ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`login` = 'codeimpossible') LIMIT 1[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://blog.codeimpossible.com/posts/216/edit
+Completed in 7ms (DB: 3) | 302 Found [http://blog.codeimpossible.com/session]
+
+
+Processing PostsController#edit (for 131.239.15.70 at 2011-05-03 13:00:15) [GET]
+  Parameters: {"action"=>"edit", "id"=>"216", "controller"=>"posts"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mPost Load (0.1ms)[0m   [0;1mSELECT * FROM `posts` WHERE (`posts`.`id` = '216') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering posts/edit
+Rendered admin/shared/_userbar (0.3ms)
+Completed in 6ms (View: 4, DB: 0) | 200 OK [http://blog.codeimpossible.com/posts/216/edit]
+
+
+Processing PostsController#update (for 131.239.15.70 at 2011-05-03 13:00:41) [PUT]
+  Parameters: {"title"=>"Quick Protip: explore current directory from command line", "action"=>"update", "_method"=>"put", "authenticity_token"=>"bfto45KOsUILx4HAdpVj7AInWZWX2oc114p63M61YWM=", "id"=>"216", "content"=>"<p>\r\n\tTry this: <code>C:\\&gt; start explorer .</code> [enter]</p>\r\n<p>\r\n\t<span class=\"bangers kaboom\">KA-BOOM!</span></p>\r\n<p>\r\n\tYou can also open another cmd window by doing: <code>C:\\&gt; start cmd .</code> [enter]</p>\r\n<p>\r\n\tEnjoy!</p>\r\n<p>\r\n\t&nbsp;</p>\r\n", "controller"=>"posts", "summary"=>"Ever been in a command window and wanted to open windows explorer to browse the directory you’re in? Now you can."}
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM `posts` WHERE (`posts`.`id` = 216) [0m
+
+
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mPost Update (0.2ms)[0m   [0;1mUPDATE `posts` SET `updated_at` = '2011-05-03 18:00:41', `body` = '<p>\r\n	Try this: <code>C:\\&gt; start explorer .</code> [enter]</p>\r\n<p>\r\n	<span class=\"bangers kaboom\">KA-BOOM!</span></p>\r\n<p>\r\n	You can also open another cmd window by doing: <code>C:\\&gt; start cmd .</code> [enter]</p>\r\n<p>\r\n	Enjoy!</p>\r\n<p>\r\n	&nbsp;</p>\r\n' WHERE `id` = 216[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mCOMMIT[0m
+Redirected to http://blog.codeimpossible.com/2011/4/18/Quick-Protip-explore-current-directory-from-command-line
+Completed in 5ms (DB: 2) | 302 Found [http://blog.codeimpossible.com/posts/216]
+
+
+Processing PostsController#show (for 131.239.15.70 at 2011-05-03 13:00:41) [GET]
+  Parameters: {"slug"=>"Quick-Protip-explore-current-directory-from-command-line", "month"=>"4", "action"=>"show", "day"=>"18", "year"=>"2011", "controller"=>"posts"}
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mPost Load (0.5ms)[0m   [0mSELECT * FROM `posts` WHERE (`posts`.`permalink` = 'Quick-Protip-explore-current-directory-from-command-line') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering posts/show
+Rendered admin/shared/_userbar (0.1ms)
+Completed in 3ms (View: 1, DB: 1) | 200 OK [http://blog.codeimpossible.com/2011/4/18/Quick-Protip-explore-current-directory-from-command-line]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 131.239.15.70 at 2011-05-03 13:01:14) [GET]
+  Parameters: {"action"=>"index", "controller"=>"posts"}
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mPost Load (0.6ms)[0m   [0mSELECT * FROM `posts` ORDER BY created_at DESC LIMIT 0, 5[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `posts` [0m
+Rendering template within layouts/main
+Rendering posts/index
+Rendered admin/shared/_userbar (0.1ms)
+Completed in 15ms (View: 13, DB: 1) | 200 OK [http://blog.codeimpossible.com/]
+
+
+Processing PostsController#show (for 131.239.15.70 at 2011-05-03 13:01:17) [GET]
+  Parameters: {"slug"=>"Installing-mercurial-on-Ubuntu-6-06", "month"=>"12", "action"=>"show", "day"=>"6", "year"=>"2010", "controller"=>"posts"}
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mPost Load (0.6ms)[0m   [0;1mSELECT * FROM `posts` WHERE (`posts`.`permalink` = 'Installing-mercurial-on-Ubuntu-6-06') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering posts/show
+Rendered admin/shared/_userbar (0.1ms)
+Completed in 3ms (View: 1, DB: 1) | 200 OK [http://blog.codeimpossible.com/2010/12/6/Installing-mercurial-on-Ubuntu-6-06]
+
+
+Processing PostsController#edit (for 131.239.15.70 at 2011-05-03 13:01:24) [GET]
+  Parameters: {"action"=>"edit", "id"=>"215", "controller"=>"posts"}
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mPost Load (0.4ms)[0m   [0;1mSELECT * FROM `posts` WHERE (`posts`.`id` = '215') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering posts/edit
+Rendered admin/shared/_userbar (0.1ms)
+Completed in 5ms (View: 4, DB: 0) | 200 OK [http://blog.codeimpossible.com/posts/215/edit]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#update (for 131.239.15.70 at 2011-05-03 13:04:55) [PUT]
+  Parameters: {"title"=>"Installing mercurial on Ubuntu 6.06", "action"=>"update", "_method"=>"put", "authenticity_token"=>"bfto45KOsUILx4HAdpVj7AInWZWX2oc114p63M61YWM=", "id"=>"215", "content"=>"<p>\r\n\tInstalling git and svn on Ubuntu 6.06 is incredibly easy but getting mercurial installed required a few more steps. Here&#39;s what I did to get it running. <em>Update: I&#39;m keeping the list of steps here to help anyone thats stuck but if you have 6.06 and an internet connection then you should skip to the end of this post for the pain free installation steps.</em></p>\r\n<ol>\r\n\t<li>\r\n\t\tMercurial needs python &gt;= 2.4 to run, make sure it&#39;s installed.<br />\r\n\t\t<code>$ sudo apt-get install python</code></li>\r\n\t<li>\r\n\t\tYou&#39;ll also need the Python C headers and a C compiler.<br />\r\n\t\t<code>$ sudo apt-get install build-essential gcc python-dev</code></li>\r\n\t<li>\r\n\t\tIf you want to generate the documentation you&#39;ll need AsciiDoc and XmlTo as well.<br />\r\n\t\t<code>$ sudo apt-get install asciidoc xmlto</code></li>\r\n\t<li>\r\n\t\tdownload Mercurial from the <a href=\"http://packages.ubuntu.com/dapper/i386/mercurial/download\">dapper package repo</a>.<br />\r\n\t\t<code>$ wget REPO_URL</code></li>\r\n\t<li>\r\n\t\tInstall Mercurial!<br />\r\n\t\t<code>$ sudo dpkg -i mercurial_0.7-8_i386.deb</code></li>\r\n</ol>\r\n<p>\r\n\tAltogether this would look like:</p>\r\n<pre class=\"prettyprint\">$ sudo apt-get install python\r\n$ sudo apt-get install build-essential gcc python-dev $ sudo apt-get install asciidoc xmlto\r\n$ wget http://mirrors.rit.edu/ubuntu//pool/universe/m/mercurial/mercurial_0.7-8_i386.deb\r\n$ sudo dpkg -i mercurial_0.7-8_i386.deb</pre>\r\n<p>\r\n\t<strong>Installing Mercurial with no headaches</strong><br />\r\n\tAfter doing all this I found out than I could have just <a href=\"https://help.ubuntu.com/community/HardyUpgrades\">upgrade my installation of Ubuntu to 8.04</a> and then run <code>$ sudo apt-get install mercurial</code> to install the latest version pain free. Doh!</p>\r\n", "controller"=>"posts", "summary"=>"Over thanksgiving break I dug an old linux pc out of our basement and installed began setting it up as a continuous integration machine for some personal projects."}
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM `posts` WHERE (`posts`.`id` = 215) [0m
+
+
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mPost Update (0.3ms)[0m   [0;1mUPDATE `posts` SET `updated_at` = '2011-05-03 18:04:55', `body` = '<p>\r\n	Installing git and svn on Ubuntu 6.06 is incredibly easy but getting mercurial installed required a few more steps. Here&#39;s what I did to get it running. <em>Update: I&#39;m keeping the list of steps here to help anyone thats stuck but if you have 6.06 and an internet connection then you should skip to the end of this post for the pain free installation steps.</em></p>\r\n<ol>\r\n	<li>\r\n		Mercurial needs python &gt;= 2.4 to run, make sure it&#39;s installed.<br />\r\n		<code>$ sudo apt-get install python</code></li>\r\n	<li>\r\n		You&#39;ll also need the Python C headers and a C compiler.<br />\r\n		<code>$ sudo apt-get install build-essential gcc python-dev</code></li>\r\n	<li>\r\n		If you want to generate the documentation you&#39;ll need AsciiDoc and XmlTo as well.<br />\r\n		<code>$ sudo apt-get install asciidoc xmlto</code></li>\r\n	<li>\r\n		download Mercurial from the <a href=\"http://packages.ubuntu.com/dapper/i386/mercurial/download\">dapper package repo</a>.<br />\r\n		<code>$ wget REPO_URL</code></li>\r\n	<li>\r\n		Install Mercurial!<br />\r\n		<code>$ sudo dpkg -i mercurial_0.7-8_i386.deb</code></li>\r\n</ol>\r\n<p>\r\n	Altogether this would look like:</p>\r\n<pre class=\"prettyprint\">$ sudo apt-get install python\r\n$ sudo apt-get install build-essential gcc python-dev $ sudo apt-get install asciidoc xmlto\r\n$ wget http://mirrors.rit.edu/ubuntu//pool/universe/m/mercurial/mercurial_0.7-8_i386.deb\r\n$ sudo dpkg -i mercurial_0.7-8_i386.deb</pre>\r\n<p>\r\n	<strong>Installing Mercurial with no headaches</strong><br />\r\n	After doing all this I found out than I could have just <a href=\"https://help.ubuntu.com/community/HardyUpgrades\">upgrade my installation of Ubuntu to 8.04</a> and then run <code>$ sudo apt-get install mercurial</code> to install the latest version pain free. Doh!</p>\r\n' WHERE `id` = 215[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCOMMIT[0m
+Redirected to http://blog.codeimpossible.com/2010/12/6/Installing-mercurial-on-Ubuntu-6-06
+Completed in 4ms (DB: 1) | 302 Found [http://blog.codeimpossible.com/posts/215]
+
+
+Processing PostsController#show (for 131.239.15.70 at 2011-05-03 13:04:55) [GET]
+  Parameters: {"slug"=>"Installing-mercurial-on-Ubuntu-6-06", "month"=>"12", "action"=>"show", "day"=>"6", "year"=>"2010", "controller"=>"posts"}
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mPost Load (0.6ms)[0m   [0mSELECT * FROM `posts` WHERE (`posts`.`permalink` = 'Installing-mercurial-on-Ubuntu-6-06') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering posts/show
+Rendered admin/shared/_userbar (0.1ms)
+Completed in 3ms (View: 1, DB: 1) | 200 OK [http://blog.codeimpossible.com/2010/12/6/Installing-mercurial-on-Ubuntu-6-06]
+
+
+Processing PostsController#index (for 131.239.15.70 at 2011-05-03 13:05:13) [GET]
+  Parameters: {"action"=>"index", "controller"=>"posts"}
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mPost Load (0.8ms)[0m   [0mSELECT * FROM `posts` ORDER BY created_at DESC LIMIT 0, 5[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `posts` [0m
+Rendering template within layouts/main
+Rendering posts/index
+Rendered admin/shared/_userbar (0.1ms)
+Completed in 15ms (View: 12, DB: 1) | 200 OK [http://blog.codeimpossible.com/]
+
+
+Processing PostsController#show (for 131.239.15.70 at 2011-05-03 13:05:16) [GET]
+  Parameters: {"slug"=>"Make-Implement-Interface-use-auto-properties", "month"=>"11", "action"=>"show", "day"=>"29", "year"=>"2010", "controller"=>"posts"}
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mPost Load (0.6ms)[0m   [0;1mSELECT * FROM `posts` WHERE (`posts`.`permalink` = 'Make-Implement-Interface-use-auto-properties') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering posts/show
+Rendered admin/shared/_userbar (0.1ms)
+Completed in 3ms (View: 1, DB: 1) | 200 OK [http://blog.codeimpossible.com/2010/11/29/Make-Implement-Interface-use-auto-properties]
+
+
+Processing PostsController#edit (for 131.239.15.70 at 2011-05-03 13:05:34) [GET]
+  Parameters: {"action"=>"edit", "id"=>"214", "controller"=>"posts"}
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM `posts` WHERE (`posts`.`id` = '214') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering posts/edit
+Rendered admin/shared/_userbar (0.1ms)
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://blog.codeimpossible.com/posts/214/edit]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#update (for 131.239.15.70 at 2011-05-03 13:07:17) [PUT]
+  Parameters: {"title"=>"Make &quot;Implement Interface&quot; use auto properties", "action"=>"update", "_method"=>"put", "authenticity_token"=>"bfto45KOsUILx4HAdpVj7AInWZWX2oc114p63M61YWM=", "id"=>"214", "content"=>"<p>\r\n\tI&#39;m refactoring some legacy code this week; a task that would normally be a total PITA but thanks to Visual Studio&#39;s built-in refactoring tools it&#39;s going much easier than expected. The one tool that I&#39;m a huge fan of is the &quot;Implement Interface&quot; context menu item.</p>\r\n<p>\r\n\tTo see what I mean create a new class, something simple...</p>\r\n<pre class=\"prettyprint\">\r\n<code>public class MySimpleClass : IDisposable\r\n{</code></pre>\r\n<p>\r\n\t&nbsp;</p>\r\n<p>\r\n\t<code>} </code></p>\r\n<p>\r\n\tyeah, like that.</p>\r\n<p>\r\n\tNow move your cursor over &quot;IDisposable&quot; and press ctrl+period. Selecting &quot;Implement Interface&quot; from the menu that appears will automagically insert all the properties and methods needed to make your class conform to the <code>IDisposable</code> interface.</p>\r\n<p>\r\n\tIt&#39;s very handy, but it generates the properties in a way that I&#39;m not particularly a fan of:</p>\r\n<pre class=\"prettyprint\">\r\n<code>public object SomeProperty\r\n{\r\n    get\r\n    {\r\n        throw new NotImplementedException();\r\n    }\r\n    set\r\n    {\r\n        throw new NotImplementedException();\r\n    }\r\n}\r\n</code></pre>\r\n<p>\r\n\tInstead I&#39;d like to have this code generated using auto properties so that it looks like this:</p>\r\n<pre class=\"prettyprint\">\r\n<code>public object SomeProperty { get; set; }</code>\r\n</pre>\r\n<p>\r\n\tI initially thought I would have to modify some built-in T4 template but thankfully it&#39;s much, much easier than that. Apparently the visual studio team took full advantage of the snippet feature when they added it because nearly every refactoring tool is editable via a <code>.snippet</code> file. You can find the snippets that visual studio uses for C# in the following directory:</p>\r\n<p>\r\n\t<code>%programfiles%\\Microsoft Visual Studio 10.0\\VC#\\Snippets\\1033</code></p>\r\n<p>\r\n\tThe file you&#39;re looking for is in the <code>Refactoring</code> directory and is named <code>PropertyStub.snippet</code>. Open this guy up in your favorite text editor - don&#39;t worry it&#39;s just xml - and find the part that looks like this:</p>\r\n<pre class=\"prettyprint\">\r\n<code>&lt;Code Language=&quot;csharp&quot;&gt;\r\n    &lt;![CDATA[$signature$\r\n{\r\n\t$GetterAccessibility$ get \r\n\t{ \r\n\t\t$end$throw new $Exception$(); \r\n\t}\r\n\t$SetterAccessibility$ set \r\n\t{ \r\n\t\tthrow new $Exception$(); \r\n\t}\r\n}]]&gt;\r\n&lt;/Code&gt;\r\n</code></pre>\r\n<p>\r\n\tReplace this xml with the xml below and you&#39;ll be good to go after a quick restart of Visual Studio!</p>\r\n<pre class=\"prettyprint\">\r\n<code>&lt;Code Language=&quot;csharp&quot;&gt;\r\n    &lt;![CDATA[$signature$ { $GetterAccessibility$ get; $SetterAccessibility$ set; }]]&gt;\r\n&lt;/Code&gt;\r\n</code></pre>\r\n<p>\r\n\t&nbsp;</p>\r\n", "controller"=>"posts", "summary"=>"  This week I'm finding that there is a lot less pain involved in getting Visual Studio 2010 to do things my way than I thought - like no pain at all.\r\n"}
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM `posts` WHERE (`posts`.`id` = 214) [0m
+
+
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mPost Update (1.2ms)[0m   [0;1mUPDATE `posts` SET `updated_at` = '2011-05-03 18:07:17', `summary` = ' This week I\'m finding that there is a lot less pain involved in getting Visual Studio 2010 to do things my way than I thought - like no pain at all.\r\n', `body` = '<p>\r\n	I&#39;m refactoring some legacy code this week; a task that would normally be a total PITA but thanks to Visual Studio&#39;s built-in refactoring tools it&#39;s going much easier than expected. The one tool that I&#39;m a huge fan of is the &quot;Implement Interface&quot; context menu item.</p>\r\n<p>\r\n	To see what I mean create a new class, something simple...</p>\r\n<pre class=\"prettyprint\">\r\n<code>public class MySimpleClass : IDisposable\r\n{</code></pre>\r\n<p>\r\n	&nbsp;</p>\r\n<p>\r\n	<code>} </code></p>\r\n<p>\r\n	yeah, like that.</p>\r\n<p>\r\n	Now move your cursor over &quot;IDisposable&quot; and press ctrl+period. Selecting &quot;Implement Interface&quot; from the menu that appears will automagically insert all the properties and methods needed to make your class conform to the <code>IDisposable</code> interface.</p>\r\n<p>\r\n	It&#39;s very handy, but it generates the properties in a way that I&#39;m not particularly a fan of:</p>\r\n<pre class=\"prettyprint\">\r\n<code>public object SomeProperty\r\n{\r\n get\r\n {\r\n throw new NotImplementedException();\r\n }\r\n set\r\n {\r\n throw new NotImplementedException();\r\n }\r\n}\r\n</code></pre>\r\n<p>\r\n	Instead I&#39;d like to have this code generated using auto properties so that it looks like this:</p>\r\n<pre class=\"prettyprint\">\r\n<code>public object SomeProperty { get; set; }</code>\r\n</pre>\r\n<p>\r\n	I initially thought I would have to modify some built-in T4 template but thankfully it&#39;s much, much easier than that. Apparently the visual studio team took full advantage of the snippet feature when they added it because nearly every refactoring tool is editable via a <code>.snippet</code> file. You can find the snippets that visual studio uses for C# in the following directory:</p>\r\n<p>\r\n	<code>%programfiles%\\Microsoft Visual Studio 10.0\\VC#\\Snippets\\1033</code></p>\r\n<p>\r\n	The file you&#39;re looking for is in the <code>Refactoring</code> directory and is named <code>PropertyStub.snippet</code>. Open this guy up in your favorite text editor - don&#39;t worry it&#39;s just xml - and find the part that looks like this:</p>\r\n<pre class=\"prettyprint\">\r\n<code>&lt;Code Language=&quot;csharp&quot;&gt;\r\n &lt;![CDATA[$signature$\r\n{\r\n	$GetterAccessibility$ get \r\n	{ \r\n		$end$throw new $Exception$(); \r\n	}\r\n	$SetterAccessibility$ set \r\n	{ \r\n		throw new $Exception$(); \r\n	}\r\n}]]&gt;\r\n&lt;/Code&gt;\r\n</code></pre>\r\n<p>\r\n	Replace this xml with the xml below and you&#39;ll be good to go after a quick restart of Visual Studio!</p>\r\n<pre class=\"prettyprint\">\r\n<code>&lt;Code Language=&quot;csharp&quot;&gt;\r\n &lt;![CDATA[$signature$ { $GetterAccessibility$ get; $SetterAccessibility$ set; }]]&gt;\r\n&lt;/Code&gt;\r\n</code></pre>\r\n<p>\r\n	&nbsp;</p>\r\n' WHERE `id` = 214[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+Redirected to http://blog.codeimpossible.com/2010/11/29/Make-Implement-Interface-use-auto-properties
+Completed in 5ms (DB: 2) | 302 Found [http://blog.codeimpossible.com/posts/214]
+
+
+Processing PostsController#show (for 131.239.15.70 at 2011-05-03 13:07:17) [GET]
+  Parameters: {"slug"=>"Make-Implement-Interface-use-auto-properties", "month"=>"11", "action"=>"show", "day"=>"29", "year"=>"2010", "controller"=>"posts"}
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mPost Load (0.5ms)[0m   [0mSELECT * FROM `posts` WHERE (`posts`.`permalink` = 'Make-Implement-Interface-use-auto-properties') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering posts/show
+Rendered admin/shared/_userbar (0.1ms)
+Completed in 3ms (View: 1, DB: 1) | 200 OK [http://blog.codeimpossible.com/2010/11/29/Make-Implement-Interface-use-auto-properties]
+
+
+Processing PostsController#edit (for 131.239.15.70 at 2011-05-03 13:07:22) [GET]
+  Parameters: {"action"=>"edit", "id"=>"214", "controller"=>"posts"}
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM `posts` WHERE (`posts`.`id` = '214') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering posts/edit
+Rendered admin/shared/_userbar (0.1ms)
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://blog.codeimpossible.com/posts/214/edit]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#update (for 131.239.15.70 at 2011-05-03 13:08:11) [PUT]
+  Parameters: {"title"=>"Make &quot;Implement Interface&quot; use auto properties", "action"=>"update", "_method"=>"put", "authenticity_token"=>"bfto45KOsUILx4HAdpVj7AInWZWX2oc114p63M61YWM=", "id"=>"214", "content"=>"<p>\r\n\tI&#39;m refactoring some legacy code this week; a task that would normally be a total PITA but thanks to Visual Studio&#39;s built-in refactoring tools it&#39;s going much easier than expected. The one tool that I&#39;m a huge fan of is the &quot;Implement Interface&quot; context menu item.</p>\r\n<p>\r\n\tTo see what I mean create a new class, something simple...</p>\r\n<pre class=\"prettyprint\">public class MySimpleClass : IDisposable\r\n{\r\n}</pre>\r\n<p>\r\n\tyeah, like that.</p>\r\n<p>\r\n\tNow move your cursor over &quot;IDisposable&quot; and press ctrl+period. Selecting &quot;Implement Interface&quot; from the menu that appears will automagically insert all the properties and methods needed to make your class conform to the <code>IDisposable</code> interface.</p>\r\n<p>\r\n\tIt&#39;s very handy, but it generates the properties in a way that I&#39;m not particularly a fan of:</p>\r\n<pre class=\"prettyprint\">\r\n<code>public object SomeProperty\r\n{\r\n    get\r\n    {\r\n        throw new NotImplementedException();\r\n    }\r\n    set\r\n    {\r\n        throw new NotImplementedException();\r\n    }\r\n}\r\n</code></pre>\r\n<p>\r\n\tInstead I&#39;d like to have this code generated using auto properties so that it looks like this:</p>\r\n<pre class=\"prettyprint\">\r\n<code>public object SomeProperty { get; set; }</code>\r\n</pre>\r\n<p>\r\n\tI initially thought I would have to modify some built-in T4 template but thankfully it&#39;s much, much easier than that. Apparently the visual studio team took full advantage of the snippet feature when they added it because nearly every refactoring tool is editable via a <code>.snippet</code> file. You can find the snippets that visual studio uses for C# in the following directory:</p>\r\n<p>\r\n\t<code>%programfiles%\\Microsoft Visual Studio 10.0\\VC#\\Snippets\\1033</code></p>\r\n<p>\r\n\tThe file you&#39;re looking for is in the <code>Refactoring</code> directory and is named <code>PropertyStub.snippet</code>. Open this guy up in your favorite text editor - don&#39;t worry it&#39;s just xml - and find the part that looks like this:</p>\r\n<pre class=\"prettyprint\">\r\n<code>&lt;Code Language=&quot;csharp&quot;&gt;\r\n    &lt;![CDATA[$signature$\r\n{\r\n\t$GetterAccessibility$ get \r\n\t{ \r\n\t\t$end$throw new $Exception$(); \r\n\t}\r\n\t$SetterAccessibility$ set \r\n\t{ \r\n\t\tthrow new $Exception$(); \r\n\t}\r\n}]]&gt;\r\n&lt;/Code&gt;\r\n</code></pre>\r\n<p>\r\n\tReplace this xml with the xml below and you&#39;ll be good to go after a quick restart of Visual Studio!</p>\r\n<pre class=\"prettyprint\">\r\n<code>&lt;Code Language=&quot;csharp&quot;&gt;\r\n    &lt;![CDATA[$signature$ { $GetterAccessibility$ get; $SetterAccessibility$ set; }]]&gt;\r\n&lt;/Code&gt;\r\n</code></pre>\r\n<p>\r\n\t&nbsp;</p>\r\n", "controller"=>"posts", "summary"=>"  This week I'm finding that there is a lot less pain involved in getting Visual Studio 2010 to do things my way than I thought - like no pain at all.\r\n"}
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mPost Load (1.0ms)[0m   [0mSELECT * FROM `posts` WHERE (`posts`.`id` = 214) [0m
+
+
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPost Update (0.3ms)[0m   [0mUPDATE `posts` SET `updated_at` = '2011-05-03 18:08:11', `body` = '<p>\r\n	I&#39;m refactoring some legacy code this week; a task that would normally be a total PITA but thanks to Visual Studio&#39;s built-in refactoring tools it&#39;s going much easier than expected. The one tool that I&#39;m a huge fan of is the &quot;Implement Interface&quot; context menu item.</p>\r\n<p>\r\n	To see what I mean create a new class, something simple...</p>\r\n<pre class=\"prettyprint\">public class MySimpleClass : IDisposable\r\n{\r\n}</pre>\r\n<p>\r\n	yeah, like that.</p>\r\n<p>\r\n	Now move your cursor over &quot;IDisposable&quot; and press ctrl+period. Selecting &quot;Implement Interface&quot; from the menu that appears will automagically insert all the properties and methods needed to make your class conform to the <code>IDisposable</code> interface.</p>\r\n<p>\r\n	It&#39;s very handy, but it generates the properties in a way that I&#39;m not particularly a fan of:</p>\r\n<pre class=\"prettyprint\">\r\n<code>public object SomeProperty\r\n{\r\n get\r\n {\r\n throw new NotImplementedException();\r\n }\r\n set\r\n {\r\n throw new NotImplementedException();\r\n }\r\n}\r\n</code></pre>\r\n<p>\r\n	Instead I&#39;d like to have this code generated using auto properties so that it looks like this:</p>\r\n<pre class=\"prettyprint\">\r\n<code>public object SomeProperty { get; set; }</code>\r\n</pre>\r\n<p>\r\n	I initially thought I would have to modify some built-in T4 template but thankfully it&#39;s much, much easier than that. Apparently the visual studio team took full advantage of the snippet feature when they added it because nearly every refactoring tool is editable via a <code>.snippet</code> file. You can find the snippets that visual studio uses for C# in the following directory:</p>\r\n<p>\r\n	<code>%programfiles%\\Microsoft Visual Studio 10.0\\VC#\\Snippets\\1033</code></p>\r\n<p>\r\n	The file you&#39;re looking for is in the <code>Refactoring</code> directory and is named <code>PropertyStub.snippet</code>. Open this guy up in your favorite text editor - don&#39;t worry it&#39;s just xml - and find the part that looks like this:</p>\r\n<pre class=\"prettyprint\">\r\n<code>&lt;Code Language=&quot;csharp&quot;&gt;\r\n &lt;![CDATA[$signature$\r\n{\r\n	$GetterAccessibility$ get \r\n	{ \r\n		$end$throw new $Exception$(); \r\n	}\r\n	$SetterAccessibility$ set \r\n	{ \r\n		throw new $Exception$(); \r\n	}\r\n}]]&gt;\r\n&lt;/Code&gt;\r\n</code></pre>\r\n<p>\r\n	Replace this xml with the xml below and you&#39;ll be good to go after a quick restart of Visual Studio!</p>\r\n<pre class=\"prettyprint\">\r\n<code>&lt;Code Language=&quot;csharp&quot;&gt;\r\n &lt;![CDATA[$signature$ { $GetterAccessibility$ get; $SetterAccessibility$ set; }]]&gt;\r\n&lt;/Code&gt;\r\n</code></pre>\r\n<p>\r\n	&nbsp;</p>\r\n' WHERE `id` = 214[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://blog.codeimpossible.com/2010/11/29/Make-Implement-Interface-use-auto-properties
+Completed in 4ms (DB: 2) | 302 Found [http://blog.codeimpossible.com/posts/214]
+
+
+Processing PostsController#show (for 131.239.15.70 at 2011-05-03 13:08:11) [GET]
+  Parameters: {"slug"=>"Make-Implement-Interface-use-auto-properties", "month"=>"11", "action"=>"show", "day"=>"29", "year"=>"2010", "controller"=>"posts"}
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mPost Load (0.5ms)[0m   [0;1mSELECT * FROM `posts` WHERE (`posts`.`permalink` = 'Make-Implement-Interface-use-auto-properties') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering posts/show
+Rendered admin/shared/_userbar (0.1ms)
+Completed in 3ms (View: 1, DB: 1) | 200 OK [http://blog.codeimpossible.com/2010/11/29/Make-Implement-Interface-use-auto-properties]
+
+
+Processing PostsController#index (for 131.239.15.70 at 2011-05-03 13:08:18) [GET]
+  Parameters: {"action"=>"index", "controller"=>"posts"}
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mPost Load (0.7ms)[0m   [0;1mSELECT * FROM `posts` ORDER BY created_at DESC LIMIT 0, 5[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `posts` [0m
+Rendering template within layouts/main
+Rendering posts/index
+Rendered admin/shared/_userbar (0.1ms)
+Completed in 15ms (View: 12, DB: 1) | 200 OK [http://blog.codeimpossible.com/]
+
+
+Processing PostsController#show (for 131.239.15.70 at 2011-05-03 13:08:20) [GET]
+  Parameters: {"slug"=>"MvcTurbine-stopping-StackOverflowException-on-w3wp-recycle", "month"=>"11", "action"=>"show", "day"=>"22", "year"=>"2010", "controller"=>"posts"}
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mPost Load (0.6ms)[0m   [0mSELECT * FROM `posts` WHERE (`posts`.`permalink` = 'MvcTurbine-stopping-StackOverflowException-on-w3wp-recycle') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering posts/show
+Rendered admin/shared/_userbar (0.1ms)
+Completed in 3ms (View: 1, DB: 1) | 200 OK [http://blog.codeimpossible.com/2010/11/22/MvcTurbine-stopping-StackOverflowException-on-w3wp-recycle]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#edit (for 131.239.15.70 at 2011-05-03 13:08:30) [GET]
+  Parameters: {"action"=>"edit", "id"=>"213", "controller"=>"posts"}
+  [4;36;1mUser Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mPost Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+  [4;35;1mPost Load (0.8ms)[0m   [0mSELECT * FROM `posts` WHERE (`posts`.`id` = '213') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering posts/edit
+Rendered admin/shared/_userbar (1.5ms)
+Completed in 51ms (View: 38, DB: 5) | 200 OK [http://blog.codeimpossible.com/posts/213/edit]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#update (for 131.239.15.70 at 2011-05-03 13:11:15) [PUT]
+  Parameters: {"title"=>"MvcTurbine, stopping StackOverflowException on w3wp recycle", "action"=>"update", "_method"=>"put", "authenticity_token"=>"bfto45KOsUILx4HAdpVj7AInWZWX2oc114p63M61YWM=", "id"=>"213", "content"=>"<p>\r\n\tI love MvcTurbine. If you&#39;re working on a asp.net mvc project then you should take a look at it. Having said that I&#39;ve run into one pretty strange problem with it.</p>\r\n<p>\r\n\tAnother developer noticed that there were a lot of eventlog entries on our build server for our projects w3wp process. After looking into it I found that whenever our CI server ran a build the w3wp.exe process would exit with a StackOverflowException.</p>\r\n<p>\r\n\tStrange.</p>\r\n<p>\r\n\tThis wasn&#39;t a big deal since it wasn&#39;t affecting the overall availability of the application, but it was annoying to the dev team.</p>\r\n<p>\r\n\tIn visual studio, every time a file is added or a build is done locally the worker-process is recycled which meant that everytime a build was done locally, or a file was added to the project, each dev got the wonderful &quot;Visual Studio Just In-Time Debugger&quot; dialog. Like I said, not a big issue, just very annoying.</p>\r\n<p>\r\n\tAfter a bit of googling I found that this is indeed an issue with MvcTurbine but it has a very easy fix: just add the following lines to the class that inherits from <code>TurbineApplication</code>:</p>\r\n<pre class=\"prettyprint\">\r\n<code>protected override void ShutdownContext ()\r\n{\r\n    CurrentContext = null;\r\n    ServiceLocator = null;\r\n}\r\n</code></pre>\r\n<p>\r\n\t<a href=\"http://lozanotek.com/blog/\">Javier Lozano</a> - the author of MvcTurbine, explains what&#39;s causing the problem:</p>\r\n<blockquote>\r\n\tSince we register the SeviceLocator with itself and we call dispose, essentially it calls dispose on all the types that it has registered, including [itself]. So this causes a recursive loop of calls to ServiceLocator.Dispose... Essentially you&#39;re preventing the disposition of the ServiceLocator from [happening] since this piece gets called at App_Shutdown. The fix for v2.2 will not be this, instead it will be addressed at the ServiceLocator registration.</blockquote>\r\n<p>\r\n\tHere are some links where you can <a href=\"http://mvcturbine.codeplex.com/Thread/View.aspx?ThreadId=219449\">see the original post with Javier&#39;s answer</a>, take a <a href=\"https://github.com/jglozano/mvcturbine/blob/master/src/Samples/SMExtensions/Mvc/StructureMapTurbineApplication.cs\">look at the code that Javier posted showing the fix in place</a>, and <a href=\"http://stackoverflow.com/questions/3344652/adding-removing-a-file-in-vs2010-causes-webdev-webserver20-exe-has-stopped-worki\">the StackOverflow question that should provide some more context</a>.</p>\r\n", "controller"=>"posts", "summary"=>"I had an issue the other day with MvcTurbine where our application would throw a StackOverflowException whenever the worker process recycled."}
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM `posts` WHERE (`posts`.`id` = 213) [0m
+
+
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPost Update (0.6ms)[0m   [0mUPDATE `posts` SET `updated_at` = '2011-05-03 18:11:15', `body` = '<p>\r\n	I love MvcTurbine. If you&#39;re working on a asp.net mvc project then you should take a look at it. Having said that I&#39;ve run into one pretty strange problem with it.</p>\r\n<p>\r\n	Another developer noticed that there were a lot of eventlog entries on our build server for our projects w3wp process. After looking into it I found that whenever our CI server ran a build the w3wp.exe process would exit with a StackOverflowException.</p>\r\n<p>\r\n	Strange.</p>\r\n<p>\r\n	This wasn&#39;t a big deal since it wasn&#39;t affecting the overall availability of the application, but it was annoying to the dev team.</p>\r\n<p>\r\n	In visual studio, every time a file is added or a build is done locally the worker-process is recycled which meant that everytime a build was done locally, or a file was added to the project, each dev got the wonderful &quot;Visual Studio Just In-Time Debugger&quot; dialog. Like I said, not a big issue, just very annoying.</p>\r\n<p>\r\n	After a bit of googling I found that this is indeed an issue with MvcTurbine but it has a very easy fix: just add the following lines to the class that inherits from <code>TurbineApplication</code>:</p>\r\n<pre class=\"prettyprint\">\r\n<code>protected override void ShutdownContext ()\r\n{\r\n CurrentContext = null;\r\n ServiceLocator = null;\r\n}\r\n</code></pre>\r\n<p>\r\n	<a href=\"http://lozanotek.com/blog/\">Javier Lozano</a> - the author of MvcTurbine, explains what&#39;s causing the problem:</p>\r\n<blockquote>\r\n	Since we register the SeviceLocator with itself and we call dispose, essentially it calls dispose on all the types that it has registered, including [itself]. So this causes a recursive loop of calls to ServiceLocator.Dispose... Essentially you&#39;re preventing the disposition of the ServiceLocator from [happening] since this piece gets called at App_Shutdown. The fix for v2.2 will not be this, instead it will be addressed at the ServiceLocator registration.</blockquote>\r\n<p>\r\n	Here are some links where you can <a href=\"http://mvcturbine.codeplex.com/Thread/View.aspx?ThreadId=219449\">see the original post with Javier&#39;s answer</a>, take a <a href=\"https://github.com/jglozano/mvcturbine/blob/master/src/Samples/SMExtensions/Mvc/StructureMapTurbineApplication.cs\">look at the code that Javier posted showing the fix in place</a>, and <a href=\"http://stackoverflow.com/questions/3344652/adding-removing-a-file-in-vs2010-causes-webdev-webserver20-exe-has-stopped-worki\">the StackOverflow question that should provide some more context</a>.</p>\r\n' WHERE `id` = 213[0m
+  [4;36;1mSQL (16.2ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://blog.codeimpossible.com/2010/11/22/MvcTurbine-stopping-StackOverflowException-on-w3wp-recycle
+Completed in 20ms (DB: 17) | 302 Found [http://blog.codeimpossible.com/posts/213]
+
+
+Processing PostsController#show (for 131.239.15.70 at 2011-05-03 13:11:15) [GET]
+  Parameters: {"slug"=>"MvcTurbine-stopping-StackOverflowException-on-w3wp-recycle", "month"=>"11", "action"=>"show", "day"=>"22", "year"=>"2010", "controller"=>"posts"}
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mPost Load (0.6ms)[0m   [0;1mSELECT * FROM `posts` WHERE (`posts`.`permalink` = 'MvcTurbine-stopping-StackOverflowException-on-w3wp-recycle') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering posts/show
+Rendered admin/shared/_userbar (0.1ms)
+Completed in 4ms (View: 2, DB: 1) | 200 OK [http://blog.codeimpossible.com/2010/11/22/MvcTurbine-stopping-StackOverflowException-on-w3wp-recycle]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#show (for 131.239.15.70 at 2011-05-03 13:11:47) [GET]
+  Parameters: {"slug"=>"MvcTurbine-stopping-StackOverflowException-on-w3wp-recycle", "month"=>"11", "action"=>"show", "day"=>"22", "year"=>"2010", "controller"=>"posts"}
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM `posts` WHERE (`posts`.`permalink` = 'MvcTurbine-stopping-StackOverflowException-on-w3wp-recycle') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering posts/show
+Rendered admin/shared/_userbar (0.1ms)
+Completed in 3ms (View: 1, DB: 0) | 200 OK [http://blog.codeimpossible.com/2010/11/22/MvcTurbine-stopping-StackOverflowException-on-w3wp-recycle]
+
+
+Processing PostsController#index (for 131.239.15.70 at 2011-05-03 13:11:51) [GET]
+  Parameters: {"action"=>"index", "controller"=>"posts"}
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mPost Load (0.6ms)[0m   [0;1mSELECT * FROM `posts` ORDER BY created_at DESC LIMIT 0, 5[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `posts` [0m
+Rendering template within layouts/main
+Rendering posts/index
+Rendered admin/shared/_userbar (0.1ms)
+Completed in 17ms (View: 14, DB: 1) | 200 OK [http://blog.codeimpossible.com/]
+
+
+Processing PostsController#show (for 131.239.15.70 at 2011-05-03 13:11:52) [GET]
+  Parameters: {"slug"=>"Quick-Protip-explore-current-directory-from-command-line", "month"=>"4", "action"=>"show", "day"=>"18", "year"=>"2011", "controller"=>"posts"}
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mPost Load (0.5ms)[0m   [0mSELECT * FROM `posts` WHERE (`posts`.`permalink` = 'Quick-Protip-explore-current-directory-from-command-line') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering posts/show
+Rendered admin/shared/_userbar (0.1ms)
+Completed in 3ms (View: 1, DB: 1) | 200 OK [http://blog.codeimpossible.com/2011/4/18/Quick-Protip-explore-current-directory-from-command-line]
+
+
+Processing PostsController#index (for 131.239.15.70 at 2011-05-03 13:11:56) [GET]
+  Parameters: {"action"=>"index", "controller"=>"posts"}
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mPost Load (0.1ms)[0m   [0mSELECT * FROM `posts` ORDER BY created_at DESC LIMIT 0, 5[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `posts` [0m
+Rendering template within layouts/main
+Rendering posts/index
+Rendered admin/shared/_userbar (0.1ms)
+Completed in 14ms (View: 12, DB: 0) | 200 OK [http://blog.codeimpossible.com/]
+
+
+Processing PostsController#show (for 131.239.15.70 at 2011-05-03 13:11:57) [GET]
+  Parameters: {"slug"=>"Installing-mercurial-on-Ubuntu-6-06", "month"=>"12", "action"=>"show", "day"=>"6", "year"=>"2010", "controller"=>"posts"}
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mPost Load (0.5ms)[0m   [0;1mSELECT * FROM `posts` WHERE (`posts`.`permalink` = 'Installing-mercurial-on-Ubuntu-6-06') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering posts/show
+Rendered admin/shared/_userbar (0.1ms)
+Completed in 3ms (View: 1, DB: 1) | 200 OK [http://blog.codeimpossible.com/2010/12/6/Installing-mercurial-on-Ubuntu-6-06]
+
+
+Processing PostsController#index (for 131.239.15.70 at 2011-05-03 13:12:00) [GET]
+  Parameters: {"action"=>"index", "controller"=>"posts"}
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mPost Load (0.1ms)[0m   [0;1mSELECT * FROM `posts` ORDER BY created_at DESC LIMIT 0, 5[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `posts` [0m
+Rendering template within layouts/main
+Rendering posts/index
+Rendered admin/shared/_userbar (0.1ms)
+Completed in 14ms (View: 12, DB: 0) | 200 OK [http://blog.codeimpossible.com/]
+
+
+Processing PostsController#show (for 131.239.15.70 at 2011-05-03 13:12:02) [GET]
+  Parameters: {"slug"=>"Make-Implement-Interface-use-auto-properties", "month"=>"11", "action"=>"show", "day"=>"29", "year"=>"2010", "controller"=>"posts"}
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mPost Load (0.5ms)[0m   [0mSELECT * FROM `posts` WHERE (`posts`.`permalink` = 'Make-Implement-Interface-use-auto-properties') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering posts/show
+Rendered admin/shared/_userbar (0.1ms)
+Completed in 3ms (View: 1, DB: 1) | 200 OK [http://blog.codeimpossible.com/2010/11/29/Make-Implement-Interface-use-auto-properties]
+
+
+Processing PostsController#index (for 131.239.15.70 at 2011-05-03 13:12:12) [GET]
+  Parameters: {"action"=>"index", "controller"=>"posts"}
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mPost Load (0.1ms)[0m   [0mSELECT * FROM `posts` ORDER BY created_at DESC LIMIT 0, 5[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `posts` [0m
+Rendering template within layouts/main
+Rendering posts/index
+Rendered admin/shared/_userbar (0.1ms)
+Completed in 14ms (View: 12, DB: 0) | 200 OK [http://blog.codeimpossible.com/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#show (for 131.239.15.70 at 2011-05-03 13:13:09) [GET]
+  Parameters: {"slug"=>"Powershell-Snippet-List-C-Source-Files-Modified-After-Date", "month"=>"11", "action"=>"show", "day"=>"15", "year"=>"2010", "controller"=>"posts"}
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mPost Load (0.5ms)[0m   [0;1mSELECT * FROM `posts` WHERE (`posts`.`permalink` = 'Powershell-Snippet-List-C-Source-Files-Modified-After-Date') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering posts/show
+Rendered admin/shared/_userbar (0.1ms)
+Completed in 3ms (View: 1, DB: 1) | 200 OK [http://blog.codeimpossible.com/2010/11/15/Powershell-Snippet-List-C-Source-Files-Modified-After-Date]
+
+
+Processing PostsController#index (for 131.239.15.70 at 2011-05-03 13:13:12) [GET]
+  Parameters: {"action"=>"index", "controller"=>"posts"}
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mPost Load (0.1ms)[0m   [0;1mSELECT * FROM `posts` ORDER BY created_at DESC LIMIT 0, 5[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `posts` [0m
+Rendering template within layouts/main
+Rendering posts/index
+Rendered admin/shared/_userbar (0.1ms)
+Completed in 14ms (View: 12, DB: 0) | 200 OK [http://blog.codeimpossible.com/posts]
+
+
+Processing PostsController#page (for 131.239.15.70 at 2011-05-03 13:13:14) [GET]
+  Parameters: {"action"=>"page", "page"=>"2", "controller"=>"posts"}
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mPost Load (0.8ms)[0m   [0mSELECT * FROM `posts` ORDER BY created_at DESC LIMIT 5, 5[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `posts` [0m
+Rendering template within layouts/main
+Rendering posts/index
+Rendered admin/shared/_userbar (0.1ms)
+Completed in 14ms (View: 12, DB: 1) | 200 OK [http://blog.codeimpossible.com/page/2]
+
+
+Processing PostsController#show (for 131.239.15.70 at 2011-05-03 13:13:16) [GET]
+  Parameters: {"slug"=>"For-in-Follow-Up", "month"=>"11", "action"=>"show", "day"=>"8", "year"=>"2010", "controller"=>"posts"}
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mPost Load (0.5ms)[0m   [0;1mSELECT * FROM `posts` WHERE (`posts`.`permalink` = 'For-in-Follow-Up') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering posts/show
+Rendered admin/shared/_userbar (0.1ms)
+Completed in 3ms (View: 1, DB: 1) | 200 OK [http://blog.codeimpossible.com/2010/11/8/For-in-Follow-Up]
+
+
+Processing PostsController#edit (for 131.239.15.70 at 2011-05-03 13:13:30) [GET]
+  Parameters: {"action"=>"edit", "id"=>"211", "controller"=>"posts"}
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM `posts` WHERE (`posts`.`id` = '211') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering posts/edit
+Rendered admin/shared/_userbar (0.1ms)
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://blog.codeimpossible.com/posts/211/edit]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#update (for 131.239.15.70 at 2011-05-03 13:32:30) [PUT]
+  Parameters: {"title"=>"For/in Follow Up", "action"=>"update", "_method"=>"put", "authenticity_token"=>"bfto45KOsUILx4HAdpVj7AInWZWX2oc114p63M61YWM=", "id"=>"211", "content"=>"<p>\r\n\tA few weeks back <a href=\"http://codeimpossible.com/2010/09/20/spot-the-bug-forin-and-javascript/\">I wrote a post about a bug that can occur when you improperly use a for/in</a> style loop in javascript.</p>\r\n<p>\r\n\tThis is particular quirk is one that I find myself explaining to a lot of devs when they start using JavaScript, especially if they are coming from C# (with it&#39;s foreach loop having a similar syntax).</p>\r\n<p>\r\n\t<strong>&quot;I do not think that means what you think it means.&quot;</strong><br />\r\n\tThe for/in loop in JavaScript is powerful but it definitely doesn&#39;t do what you probably think it does. To understand the for/in loop we&#39;ll have to dive deeper into objects and arrays and how JavaScript <del datetime=\"2010-10-19T05:29:37+00:00\">mis</del>treats them.</p>\r\n<p>\r\n\t<strong>Objects in JavaScript</strong><br />\r\n\tIn most other programming languages these days, everything is an object. You can see this in current languages like C# where everything inherits from System.Object or in Ruby where you can assign properties and methods to anything at will.</p>\r\n<p>\r\n\tJavaScript is an object oriented language but it&#39;s implementation of objects is a little different from other languages. In JavaScript every object (every thing) is an array - a special array called an &quot;associative array&quot;. If you&#39;re a C# developer think <code>Dictionary&lt;string, object&gt;</code>. If you&#39;re a python developer then you&#39;re already familiar with this concept. So in JavaScript:</p>\r\n<pre class=\"prettyprint\">\r\nvar x = {\r\n    something: &quot;hi&quot;\r\n};\r\n\r\nvar y = [];\r\ny[&quot;something&quot;] = &quot;hi&quot;;\r\n</pre>\r\n<p>\r\n\t<code>x</code> and <code>y</code> define the same thing. Both objects will have a <code>something</code> property with the value <code>&quot;hi&quot;</code>.&nbsp;<em>Need more proof?</em>Try the following:</p>\r\n<pre class=\"prettyprint\">\r\nalert( typeof( new Array() ) );</pre>\r\n<p>\r\n\tThis will alert <code>&quot;object&quot;</code>. Huh?</p>\r\n<p>\r\n\tYup, an array is just an object with properties named &quot;0&quot;, &quot;1&quot;, &quot;2&quot; etc. Take a look at this next code block.</p>\r\n<pre class=\"prettyprint\">\r\nvar a = {\r\n    0: &quot;hi&quot;,\r\n    1: &quot;there&quot;\r\n};\r\n\r\nvar b = [ &quot;hi&quot;, &quot;there&quot; ];\r\n</pre>\r\n<p>\r\n\tHere <code>a</code> and <code>b</code> are the same exact thing. <a href=\"http://beta.jsvudo.com/3f40176\">Try it out!</a></p>\r\n<p>\r\n\t<strong>Alright, that is insane but why the problem with for/in?</strong></p>\r\n<p>\r\n\tWhen you use a for/in on an object in javascript you are looping over the keys in the key/value collection that makes up that object. So doing</p>\r\n<pre class=\"prettyprint\">\r\nvar x = {\r\n    prop1: &quot;test&quot;,\r\n    prop2: &quot;test&quot;\r\n};\r\n\r\nfor(var p in x ) { \r\n    alert(p); \r\n} \r\n</pre>\r\n<p>\r\n\tThis code will alert &quot;prop1&quot; followed by &quot;prop2&quot;. Using a for/in doesn&#39;t try to treat the object as an array, it enumerates each property (or key) in the object.</p>\r\n<p>\r\n\tNow you should start to see why for/in is generally a bad idea in JavaScript - that is, unless you <strong>want</strong> to loop over the properties of an object.</p>\r\n<p>\r\n\t<strong>Another fun fact</strong></p>\r\n<p>\r\n\tThe for/in loop isn&#39;t guaranteed to alert &quot;prop1&quot; before &quot;prop2&quot;. The properties will be enumerated in whatever order the interpreter returns them in.</p>\r\n<p>\r\n\tSo to summarize, unless you want to enumerate an objects properties, and you don&#39;t care about their order, avoid using the for/in loop in your JavaScript code.</p>\r\n", "controller"=>"posts", "summary"=>"JavaScript has a lot of good parts and bad parts but the for/in loop seems to walk the grey area in between. It's a fantastic feature of JavaScript when wielded appropriately, but a potentially horrible bug when used incorrectly."}
+  [4;36;1mUser Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mPost Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+  [4;35;1mPost Load (0.6ms)[0m   [0mSELECT * FROM `posts` WHERE (`posts`.`id` = 211) [0m
+
+
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPost Update (1.0ms)[0m   [0mUPDATE `posts` SET `updated_at` = '2011-05-03 18:32:30', `body` = '<p>\r\n	A few weeks back <a href=\"http://codeimpossible.com/2010/09/20/spot-the-bug-forin-and-javascript/\">I wrote a post about a bug that can occur when you improperly use a for/in</a> style loop in javascript.</p>\r\n<p>\r\n	This is particular quirk is one that I find myself explaining to a lot of devs when they start using JavaScript, especially if they are coming from C# (with it&#39;s foreach loop having a similar syntax).</p>\r\n<p>\r\n	<strong>&quot;I do not think that means what you think it means.&quot;</strong><br />\r\n	The for/in loop in JavaScript is powerful but it definitely doesn&#39;t do what you probably think it does. To understand the for/in loop we&#39;ll have to dive deeper into objects and arrays and how JavaScript <del datetime=\"2010-10-19T05:29:37+00:00\">mis</del>treats them.</p>\r\n<p>\r\n	<strong>Objects in JavaScript</strong><br />\r\n	In most other programming languages these days, everything is an object. You can see this in current languages like C# where everything inherits from System.Object or in Ruby where you can assign properties and methods to anything at will.</p>\r\n<p>\r\n	JavaScript is an object oriented language but it&#39;s implementation of objects is a little different from other languages. In JavaScript every object (every thing) is an array - a special array called an &quot;associative array&quot;. If you&#39;re a C# developer think <code>Dictionary&lt;string, object&gt;</code>. If you&#39;re a python developer then you&#39;re already familiar with this concept. So in JavaScript:</p>\r\n<pre class=\"prettyprint\">\r\nvar x = {\r\n something: &quot;hi&quot;\r\n};\r\n\r\nvar y = [];\r\ny[&quot;something&quot;] = &quot;hi&quot;;\r\n</pre>\r\n<p>\r\n	<code>x</code> and <code>y</code> define the same thing. Both objects will have a <code>something</code> property with the value <code>&quot;hi&quot;</code>.&nbsp;<em>Need more proof?</em>Try the following:</p>\r\n<pre class=\"prettyprint\">\r\nalert( typeof( new Array() ) );</pre>\r\n<p>\r\n	This will alert <code>&quot;object&quot;</code>. Huh?</p>\r\n<p>\r\n	Yup, an array is just an object with properties named &quot;0&quot;, &quot;1&quot;, &quot;2&quot; etc. Take a look at this next code block.</p>\r\n<pre class=\"prettyprint\">\r\nvar a = {\r\n 0: &quot;hi&quot;,\r\n 1: &quot;there&quot;\r\n};\r\n\r\nvar b = [ &quot;hi&quot;, &quot;there&quot; ];\r\n</pre>\r\n<p>\r\n	Here <code>a</code> and <code>b</code> are the same exact thing. <a href=\"http://beta.jsvudo.com/3f40176\">Try it out!</a></p>\r\n<p>\r\n	<strong>Alright, that is insane but why the problem with for/in?</strong></p>\r\n<p>\r\n	When you use a for/in on an object in javascript you are looping over the keys in the key/value collection that makes up that object. So doing</p>\r\n<pre class=\"prettyprint\">\r\nvar x = {\r\n prop1: &quot;test&quot;,\r\n prop2: &quot;test&quot;\r\n};\r\n\r\nfor(var p in x ) { \r\n alert(p); \r\n} \r\n</pre>\r\n<p>\r\n	This code will alert &quot;prop1&quot; followed by &quot;prop2&quot;. Using a for/in doesn&#39;t try to treat the object as an array, it enumerates each property (or key) in the object.</p>\r\n<p>\r\n	Now you should start to see why for/in is generally a bad idea in JavaScript - that is, unless you <strong>want</strong> to loop over the properties of an object.</p>\r\n<p>\r\n	<strong>Another fun fact</strong></p>\r\n<p>\r\n	The for/in loop isn&#39;t guaranteed to alert &quot;prop1&quot; before &quot;prop2&quot;. The properties will be enumerated in whatever order the interpreter returns them in.</p>\r\n<p>\r\n	So to summarize, unless you want to enumerate an objects properties, and you don&#39;t care about their order, avoid using the for/in loop in your JavaScript code.</p>\r\n' WHERE `id` = 211[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://blog.codeimpossible.com/2010/11/8/For-in-Follow-Up
+Completed in 54ms (DB: 5) | 302 Found [http://blog.codeimpossible.com/posts/211]
+
+
+Processing PostsController#show (for 131.239.15.70 at 2011-05-03 13:32:30) [GET]
+  Parameters: {"slug"=>"For-in-Follow-Up", "month"=>"11", "action"=>"show", "day"=>"8", "year"=>"2010", "controller"=>"posts"}
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mPost Load (1.9ms)[0m   [0;1mSELECT * FROM `posts` WHERE (`posts`.`permalink` = 'For-in-Follow-Up') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering posts/show
+Rendered admin/shared/_userbar (1.4ms)
+Completed in 8ms (View: 5, DB: 2) | 200 OK [http://blog.codeimpossible.com/2010/11/8/For-in-Follow-Up]
+
+
+Processing PostsController#index (for 131.239.15.70 at 2011-05-03 13:32:32) [GET]
+  Parameters: {"action"=>"index", "controller"=>"posts"}
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mPost Load (0.6ms)[0m   [0;1mSELECT * FROM `posts` ORDER BY created_at DESC LIMIT 0, 5[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `posts` [0m
+Rendering template within layouts/main
+Rendering posts/index
+Rendered admin/shared/_userbar (0.1ms)
+Completed in 16ms (View: 14, DB: 1) | 200 OK [http://blog.codeimpossible.com/]
+
+
+Processing PostsController#page (for 131.239.15.70 at 2011-05-03 13:32:35) [GET]
+  Parameters: {"action"=>"page", "page"=>"2", "controller"=>"posts"}
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mPost Load (0.6ms)[0m   [0mSELECT * FROM `posts` ORDER BY created_at DESC LIMIT 5, 5[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `posts` [0m
+Rendering template within layouts/main
+Rendering posts/index
+Rendered admin/shared/_userbar (0.1ms)
+Completed in 15ms (View: 13, DB: 1) | 200 OK [http://blog.codeimpossible.com/page/2]
+
+
+Processing PostsController#show (for 131.239.15.70 at 2011-05-03 13:32:39) [GET]
+  Parameters: {"slug"=>"AutoHotKey-scripts-for-developers", "month"=>"11", "action"=>"show", "day"=>"1", "year"=>"2010", "controller"=>"posts"}
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mPost Load (0.5ms)[0m   [0;1mSELECT * FROM `posts` WHERE (`posts`.`permalink` = 'AutoHotKey-scripts-for-developers') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering posts/show
+Rendered admin/shared/_userbar (0.1ms)
+Completed in 3ms (View: 1, DB: 1) | 200 OK [http://blog.codeimpossible.com/2010/11/1/AutoHotKey-scripts-for-developers]
+
+
+Processing PostsController#show (for 74.86.107.156 at 2011-05-03 13:32:39) [GET]
+  Parameters: {"slug"=>"AutoHotKey-scripts-for-developers", "month"=>"11", "action"=>"show", "day"=>"1", "year"=>"2010", "controller"=>"posts"}
+  [4;35;1mPost Load (0.5ms)[0m   [0mSELECT * FROM `posts` WHERE (`posts`.`permalink` = 'AutoHotKey-scripts-for-developers') AND (published = 1) LIMIT 1[0m
+Rendering template within layouts/main
+Rendering posts/show
+Completed in 4ms (View: 1, DB: 1) | 200 OK [http://blog.codeimpossible.com/2010/11/1/AutoHotKey-scripts-for-developers]
+
+
+Processing PostsController#edit (for 131.239.15.70 at 2011-05-03 13:33:06) [GET]
+  Parameters: {"action"=>"edit", "id"=>"210", "controller"=>"posts"}
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM `posts` WHERE (`posts`.`id` = '210') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering posts/edit
+Rendered admin/shared/_userbar (0.1ms)
+Completed in 5ms (View: 4, DB: 0) | 200 OK [http://blog.codeimpossible.com/posts/210/edit]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#update (for 131.239.15.70 at 2011-05-03 13:38:06) [PUT]
+  Parameters: {"title"=>"AutoHotKey scripts for developers", "action"=>"update", "_method"=>"put", "authenticity_token"=>"bfto45KOsUILx4HAdpVj7AInWZWX2oc114p63M61YWM=", "id"=>"210", "content"=>"<p>\r\n\tIf you&#39;re not familiar with AutoHotKey yet, I&#39;ve <a href=\"http://codeimpossible.com/2010/10/27/autohotkey-an-introduction\">blogged about it before</a> and I would recommend giving that post a read. For the rest of you I thought I would post some useful AHK scripts that I have come across.</p>\r\n<p>\r\n\t<strong>The most important AHK script ever. </strong><br />\r\n\tDisabling Caps-lock. I constantly fat-finger the caps-lock button. With this script, I never have to worry about it again.</p>\r\n<pre>\r\nSetCapsLockState, AlwaysOff</pre>\r\n<p>\r\n\t<strong>Generate a &quot;safe&quot; jQuery code block</strong><br />\r\n\tThis script will generate a self-calling anonymous function that scopes jQuery and protects your code from other possible interference from other javascript frameworks. You can <a href=\"http://codeimpossible.com/2010/01/13/solving-document-ready-is-not-a-function-and-other-problems\">read more about it here</a>.</p>\r\n<pre>;insert a self-calling anonymous method to scope jQuery calls\r\n:*R0:{jqsafe}::\r\n(\r\n(function($) {{} \r\n    $(function() {{}\r\n    // ...code to run on dom ready\r\n\r\n{Left}{Left}{Left}{Left}{}});`n{}})(jQuery);\r\n)\r\nreturn</pre>\r\n<p>\r\n\t<strong>Include jQuery from the Google CDN</strong><br />\r\n\tThis script will turn <code>{jqgoog#.#.#}</code> into a <code>&lt;script&gt;</code> tag pointing to that version of jquery, specified by the #.#.#, hosted on googles cdn. <code>{jqgoog1.4.2}</code> will become: <em>Line breaks added for readability</em></p>\r\n<pre class=\"prettyprint\">&lt;script \r\ntype=&rdquo;text/javascript&rdquo; \r\nsrc=http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js&gt;&lt;/script&gt;\r\n</pre>\r\n<p><code>{jqgoog1}</code> will become: <em>Line breaks added for readability</em></p>\r\n<pre class=\"prettyprint\">&lt;script \r\ntype=&rdquo;text/javascript&rdquo; \r\nsrc=http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js&gt;&lt;/script&gt;\r\n</pre>\r\n<p>Here is the script.</p>\r\n<pre>; Include jQuery from google cdn\r\n~{::\r\nInput, UserInput, I V L13 C, {}}, jqgoog*,\r\nif ErrorLevel = NewInput\r\n    return\r\nTest := InStr( UserInput, &quot;jqgoog&quot; )\r\nLen := StrLen( UserInput ) + 2\r\n\r\nif Test &gt; 0:\r\n{\r\n\tjqVer := RegExReplace( UserInput, &quot;jqgoog&quot;, &quot;&quot; )\r\n\tSetKeyDelay, -1  ; Most editors can handle the fastest speed.\r\n\t\r\n\tLoop %Len%\r\n\t{\r\n\t\tSend, {backspace}\r\n\t}\r\n\t\r\n\tSend, &lt;script type=&quot;text/javascript&quot; src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/%jqVer%/jquery.min.js&quot;&gt;&lt;/script&gt;\r\n    return\r\n}\r\nreturn</pre>\r\n<p>\r\n\t<strong>Automate writing simple database connection code in C#</strong><br />\r\n\tThis script will turn <code>{atwood}</code> into a block of C# that can connect to a database and issue a query.</p>\r\n<pre>\r\n:*R0:{atwood}::\r\n(\r\nvar connString = ConfigurationManager.ConnectionStrings[&quot;connection&quot;].ConnectionString;\r\nvar query = @&quot;&quot;;\r\nusing(var conn = new SqlConnection(connString))\r\n{{}\r\n    conn.Open();\r\nusing( var cmd = new SqlCommand( query, conn ) ) \r\n{{}\r\n    \r\n{}}\r\n{Left}{}}\r\n)\r\nreturn</pre>\r\n<p>\r\n\tHere&#39;s the output:</p>\r\n<pre class=\"prettyprint\">\r\nvar connString = ConfigurationManager.ConnectionStrings[&quot;connection&quot;].ConnectionString;\r\nvar query = @&quot;&quot;;\r\nusing(var conn = new SqlConnection(connString))\r\n{\r\n    conn.Open();\r\n    using( var cmd = new SqlCommand( query, conn ) )\r\n    {\r\n\t\r\n    }\r\n}</pre>\r\n<p>&nbsp;</p>\r\n<p>Enjoy!</p>\r\n<p>&nbsp;</p>\r\n", "controller"=>"posts", "summary"=>"This week I'll post some useful AutoHotKey scripts that I use to make every-day coding easier."}
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM `posts` WHERE (`posts`.`id` = 210) [0m
+
+
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPost Update (0.6ms)[0m   [0mUPDATE `posts` SET `updated_at` = '2011-05-03 18:38:06', `body` = '<p>\r\n	If you&#39;re not familiar with AutoHotKey yet, I&#39;ve <a href=\"http://codeimpossible.com/2010/10/27/autohotkey-an-introduction\">blogged about it before</a> and I would recommend giving that post a read. For the rest of you I thought I would post some useful AHK scripts that I have come across.</p>\r\n<p>\r\n	<strong>The most important AHK script ever. </strong><br />\r\n	Disabling Caps-lock. I constantly fat-finger the caps-lock button. With this script, I never have to worry about it again.</p>\r\n<pre>\r\nSetCapsLockState, AlwaysOff</pre>\r\n<p>\r\n	<strong>Generate a &quot;safe&quot; jQuery code block</strong><br />\r\n	This script will generate a self-calling anonymous function that scopes jQuery and protects your code from other possible interference from other javascript frameworks. You can <a href=\"http://codeimpossible.com/2010/01/13/solving-document-ready-is-not-a-function-and-other-problems\">read more about it here</a>.</p>\r\n<pre>;insert a self-calling anonymous method to scope jQuery calls\r\n:*R0:{jqsafe}::\r\n(\r\n(function($) {{} \r\n $(function() {{}\r\n // ...code to run on dom ready\r\n\r\n{Left}{Left}{Left}{Left}{}});`n{}})(jQuery);\r\n)\r\nreturn</pre>\r\n<p>\r\n	<strong>Include jQuery from the Google CDN</strong><br />\r\n	This script will turn <code>{jqgoog#.#.#}</code> into a <code>&lt;script&gt;</code> tag pointing to that version of jquery, specified by the #.#.#, hosted on googles cdn. <code>{jqgoog1.4.2}</code> will become: <em>Line breaks added for readability</em></p>\r\n<pre class=\"prettyprint\">&lt;script \r\ntype=&rdquo;text/javascript&rdquo; \r\nsrc=http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js&gt;&lt;/script&gt;\r\n</pre>\r\n<p><code>{jqgoog1}</code> will become: <em>Line breaks added for readability</em></p>\r\n<pre class=\"prettyprint\">&lt;script \r\ntype=&rdquo;text/javascript&rdquo; \r\nsrc=http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js&gt;&lt;/script&gt;\r\n</pre>\r\n<p>Here is the script.</p>\r\n<pre>; Include jQuery from google cdn\r\n~{::\r\nInput, UserInput, I V L13 C, {}}, jqgoog*,\r\nif ErrorLevel = NewInput\r\n return\r\nTest := InStr( UserInput, &quot;jqgoog&quot; )\r\nLen := StrLen( UserInput ) + 2\r\n\r\nif Test &gt; 0:\r\n{\r\n	jqVer := RegExReplace( UserInput, &quot;jqgoog&quot;, &quot;&quot; )\r\n	SetKeyDelay, -1 ; Most editors can handle the fastest speed.\r\n	\r\n	Loop %Len%\r\n	{\r\n		Send, {backspace}\r\n	}\r\n	\r\n	Send, &lt;script type=&quot;text/javascript&quot; src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/%jqVer%/jquery.min.js&quot;&gt;&lt;/script&gt;\r\n return\r\n}\r\nreturn</pre>\r\n<p>\r\n	<strong>Automate writing simple database connection code in C#</strong><br />\r\n	This script will turn <code>{atwood}</code> into a block of C# that can connect to a database and issue a query.</p>\r\n<pre>\r\n:*R0:{atwood}::\r\n(\r\nvar connString = ConfigurationManager.ConnectionStrings[&quot;connection&quot;].ConnectionString;\r\nvar query = @&quot;&quot;;\r\nusing(var conn = new SqlConnection(connString))\r\n{{}\r\n conn.Open();\r\nusing( var cmd = new SqlCommand( query, conn ) ) \r\n{{}\r\n \r\n{}}\r\n{Left}{}}\r\n)\r\nreturn</pre>\r\n<p>\r\n	Here&#39;s the output:</p>\r\n<pre class=\"prettyprint\">\r\nvar connString = ConfigurationManager.ConnectionStrings[&quot;connection&quot;].ConnectionString;\r\nvar query = @&quot;&quot;;\r\nusing(var conn = new SqlConnection(connString))\r\n{\r\n conn.Open();\r\n using( var cmd = new SqlCommand( query, conn ) )\r\n {\r\n	\r\n }\r\n}</pre>\r\n<p>&nbsp;</p>\r\n<p>Enjoy!</p>\r\n<p>&nbsp;</p>\r\n' WHERE `id` = 210[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://blog.codeimpossible.com/2010/11/1/AutoHotKey-scripts-for-developers
+Completed in 5ms (DB: 2) | 302 Found [http://blog.codeimpossible.com/posts/210]
+
+
+Processing PostsController#show (for 131.239.15.70 at 2011-05-03 13:38:06) [GET]
+  Parameters: {"slug"=>"AutoHotKey-scripts-for-developers", "month"=>"11", "action"=>"show", "day"=>"1", "year"=>"2010", "controller"=>"posts"}
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mPost Load (0.6ms)[0m   [0;1mSELECT * FROM `posts` WHERE (`posts`.`permalink` = 'AutoHotKey-scripts-for-developers') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering posts/show
+Rendered admin/shared/_userbar (0.1ms)
+Completed in 3ms (View: 1, DB: 1) | 200 OK [http://blog.codeimpossible.com/2010/11/1/AutoHotKey-scripts-for-developers]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 131.239.15.70 at 2011-05-03 15:08:44) [GET]
+  Parameters: {"action"=>"index", "controller"=>"posts"}
+  [4;36;1mPost Load (2.5ms)[0m   [0;1mSELECT * FROM `posts` WHERE (published = 1) ORDER BY created_at DESC LIMIT 0, 5[0m
+  [4;35;1mPost Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM `posts` WHERE (published = 1) [0m
+Rendering template within layouts/main
+Rendering posts/index
+Completed in 47ms (View: 33, DB: 5) | 200 OK [http://blog.codeimpossible.com/]
+
+
+Processing PostsController#page (for 131.239.15.70 at 2011-05-03 15:08:47) [GET]
+  Parameters: {"action"=>"page", "page"=>"2", "controller"=>"posts"}
+  [4;35;1mPost Load (0.8ms)[0m   [0mSELECT * FROM `posts` WHERE (published = 1) ORDER BY created_at DESC LIMIT 5, 5[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `posts` WHERE (published = 1) [0m
+Rendering template within layouts/main
+Rendering posts/index
+Completed in 7ms (View: 4, DB: 1) | 200 OK [http://blog.codeimpossible.com/page/2]
+
+
+Processing PostsController#page (for 131.239.15.70 at 2011-05-03 15:08:51) [GET]
+  Parameters: {"action"=>"page", "page"=>"1", "controller"=>"posts"}
+  [4;35;1mPost Load (0.1ms)[0m   [0mSELECT * FROM `posts` WHERE (published = 1) ORDER BY created_at DESC LIMIT 0, 5[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `posts` WHERE (published = 1) [0m
+Rendering template within layouts/main
+Rendering posts/index
+Completed in 6ms (View: 4, DB: 0) | 200 OK [http://blog.codeimpossible.com/page/1]
+
+
+Processing PostsController#show (for 131.239.15.70 at 2011-05-03 15:08:54) [GET]
+  Parameters: {"slug"=>"Make-Implement-Interface-use-auto-properties", "month"=>"11", "action"=>"show", "day"=>"29", "year"=>"2010", "controller"=>"posts"}
+  [4;35;1mPost Load (0.9ms)[0m   [0mSELECT * FROM `posts` WHERE (`posts`.`permalink` = 'Make-Implement-Interface-use-auto-properties') AND (published = 1) LIMIT 1[0m
+Rendering template within layouts/main
+Rendering posts/show
+Completed in 4ms (View: 2, DB: 1) | 200 OK [http://blog.codeimpossible.com/2010/11/29/Make-Implement-Interface-use-auto-properties]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 131.239.15.70 at 2011-05-03 15:20:47) [GET]
+  Parameters: {"action"=>"index", "controller"=>"posts"}
+  [4;36;1mUser Columns (24.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.8ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mPost Load (0.5ms)[0m   [0;1mSELECT * FROM `posts` ORDER BY created_at DESC LIMIT 0, 5[0m
+  [4;35;1mPost Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `posts` [0m
+Rendering template within layouts/main
+Rendering posts/index
+Rendered admin/shared/_userbar (1.3ms)
+Completed in 80ms (View: 42, DB: 29) | 200 OK [http://blog.codeimpossible.com/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 68.187.213.182 at 2011-05-03 18:03:19) [GET]
+  Parameters: {"action"=>"index", "controller"=>"posts"}
+  [4;36;1mPost Load (45.9ms)[0m   [0;1mSELECT * FROM `posts` WHERE (published = 1) ORDER BY created_at DESC LIMIT 0, 5[0m
+  [4;35;1mPost Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `posts` WHERE (published = 1) [0m
+Rendering template within layouts/main
+Rendering posts/index
+Completed in 105ms (View: 38, DB: 48) | 200 OK [http://blog.codeimpossible.com/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#show (for 68.187.213.182 at 2011-05-03 18:06:46) [GET]
+  Parameters: {"slug"=>"Quick-Protip-explore-current-directory-from-command-line", "month"=>"4", "action"=>"show", "day"=>"18", "year"=>"2011", "controller"=>"posts"}
+  [4;35;1mPost Load (0.7ms)[0m   [0mSELECT * FROM `posts` WHERE (`posts`.`permalink` = 'Quick-Protip-explore-current-directory-from-command-line') AND (published = 1) LIMIT 1[0m
+Rendering template within layouts/main
+Rendering posts/show
+Completed in 4ms (View: 2, DB: 1) | 200 OK [http://blog.codeimpossible.com/2011/4/18/Quick-Protip-explore-current-directory-from-command-line]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 68.187.213.182 at 2011-05-03 19:03:08) [GET]
+  Parameters: {"action"=>"index", "controller"=>"posts"}
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM `posts` WHERE (published = 1) ORDER BY created_at DESC LIMIT 0, 5[0m
+  [4;35;1mPost Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mSELECT count(*) AS count_all FROM `posts` WHERE (published = 1) [0m
+Rendering template within layouts/main
+Rendering posts/index
+Completed in 47ms (View: 33, DB: 4) | 200 OK [http://blog.codeimpossible.com/]
+
+
+Processing PostsController#page (for 68.187.213.182 at 2011-05-03 19:03:10) [GET]
+  Parameters: {"action"=>"page", "page"=>"2", "controller"=>"posts"}
+  [4;35;1mPost Load (42.9ms)[0m   [0mSELECT * FROM `posts` WHERE (published = 1) ORDER BY created_at DESC LIMIT 5, 5[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `posts` WHERE (published = 1) [0m
+Rendering template within layouts/main
+Rendering posts/index
+Completed in 48ms (View: 3, DB: 43) | 200 OK [http://blog.codeimpossible.com/page/2]
+
+
+Processing PostsController#page (for 68.187.213.182 at 2011-05-03 19:03:12) [GET]
+  Parameters: {"action"=>"page", "page"=>"3", "controller"=>"posts"}
+  [4;35;1mPost Load (0.9ms)[0m   [0mSELECT * FROM `posts` WHERE (published = 1) ORDER BY created_at DESC LIMIT 10, 5[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `posts` WHERE (published = 1) [0m
+Rendering template within layouts/main
+Rendering posts/index
+Completed in 6ms (View: 3, DB: 1) | 200 OK [http://blog.codeimpossible.com/page/3]
+
+
+Processing PostsController#page (for 68.187.213.182 at 2011-05-03 19:03:15) [GET]
+  Parameters: {"action"=>"page", "page"=>"4", "controller"=>"posts"}
+  [4;35;1mPost Load (0.8ms)[0m   [0mSELECT * FROM `posts` WHERE (published = 1) ORDER BY created_at DESC LIMIT 15, 5[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `posts` WHERE (published = 1) [0m
+Rendering template within layouts/main
+Rendering posts/index
+Completed in 6ms (View: 3, DB: 1) | 200 OK [http://blog.codeimpossible.com/page/4]
+
+
+Processing PostsController#page (for 68.187.213.182 at 2011-05-03 19:03:17) [GET]
+  Parameters: {"action"=>"page", "page"=>"5", "controller"=>"posts"}
+  [4;35;1mPost Load (1.1ms)[0m   [0mSELECT * FROM `posts` WHERE (published = 1) ORDER BY created_at DESC LIMIT 20, 5[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `posts` WHERE (published = 1) [0m
+Rendering template within layouts/main
+Rendering posts/index
+Completed in 6ms (View: 4, DB: 1) | 200 OK [http://blog.codeimpossible.com/page/5]
+
+
+Processing PostsController#page (for 68.187.213.182 at 2011-05-03 19:03:19) [GET]
+  Parameters: {"action"=>"page", "page"=>"6", "controller"=>"posts"}
+  [4;35;1mPost Load (0.8ms)[0m   [0mSELECT * FROM `posts` WHERE (published = 1) ORDER BY created_at DESC LIMIT 25, 5[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `posts` WHERE (published = 1) [0m
+Rendering template within layouts/main
+Rendering posts/index
+Completed in 6ms (View: 3, DB: 1) | 200 OK [http://blog.codeimpossible.com/page/6]
+
+
+Processing PostsController#show (for 68.187.213.182 at 2011-05-03 19:03:21) [GET]
+  Parameters: {"slug"=>"Solving-document-ready-is-not-a-function-and-other-problems", "month"=>"1", "action"=>"show", "day"=>"13", "year"=>"2010", "controller"=>"posts"}
+  [4;35;1mPost Load (0.6ms)[0m   [0mSELECT * FROM `posts` WHERE (`posts`.`permalink` = 'Solving-document-ready-is-not-a-function-and-other-problems') AND (published = 1) LIMIT 1[0m
+Rendering template within layouts/main
+Rendering posts/show
+Completed in 4ms (View: 2, DB: 1) | 200 OK [http://blog.codeimpossible.com/2010/1/13/Solving-document-ready-is-not-a-function-and-other-problems]
+
+
+Processing PostsController#show (for 68.187.213.182 at 2011-05-03 19:03:38) [GET]
+  Parameters: {"slug"=>"Solving-document-ready-is-not-a-function-and-other-problems", "month"=>"01", "action"=>"show", "day"=>"13", "year"=>"2010", "controller"=>"posts"}
+  [4;36;1mPost Load (0.1ms)[0m   [0;1mSELECT * FROM `posts` WHERE (`posts`.`permalink` = 'Solving-document-ready-is-not-a-function-and-other-problems') AND (published = 1) LIMIT 1[0m
+Rendering template within layouts/main
+Rendering posts/show
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://blog.codeimpossible.com/2010/01/13/Solving-document-ready-is-not-a-function-and-other-problems]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 68.187.213.182 at 2011-05-03 21:06:15) [GET]
+  Parameters: {"action"=>"index", "controller"=>"posts"}
+  [4;36;1mPost Load (59.7ms)[0m   [0;1mSELECT * FROM `posts` WHERE (published = 1) ORDER BY created_at DESC LIMIT 0, 5[0m
+  [4;35;1mPost Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `posts` WHERE (published = 1) [0m
+Rendering template within layouts/main
+Rendering posts/index
+Completed in 137ms (View: 55, DB: 62) | 200 OK [http://blog.codeimpossible.com/]
+
+
+Processing PostsController#page (for 68.187.213.182 at 2011-05-03 21:06:27) [GET]
+  Parameters: {"action"=>"page", "page"=>"2", "controller"=>"posts"}
+  [4;35;1mPost Load (0.7ms)[0m   [0mSELECT * FROM `posts` WHERE (published = 1) ORDER BY created_at DESC LIMIT 5, 5[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `posts` WHERE (published = 1) [0m
+Rendering template within layouts/main
+Rendering posts/index
+Completed in 6ms (View: 3, DB: 1) | 200 OK [http://blog.codeimpossible.com/page/2]
+
+
+Processing PostsController#page (for 68.187.213.182 at 2011-05-03 21:06:30) [GET]
+  Parameters: {"action"=>"page", "page"=>"3", "controller"=>"posts"}
+  [4;35;1mPost Load (0.8ms)[0m   [0mSELECT * FROM `posts` WHERE (published = 1) ORDER BY created_at DESC LIMIT 10, 5[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `posts` WHERE (published = 1) [0m
+Rendering template within layouts/main
+Rendering posts/index
+Completed in 6ms (View: 3, DB: 1) | 200 OK [http://blog.codeimpossible.com/page/3]
+
+
+Processing PostsController#page (for 68.187.213.182 at 2011-05-03 21:06:33) [GET]
+  Parameters: {"action"=>"page", "page"=>"4", "controller"=>"posts"}
+  [4;35;1mPost Load (1.3ms)[0m   [0mSELECT * FROM `posts` WHERE (published = 1) ORDER BY created_at DESC LIMIT 15, 5[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `posts` WHERE (published = 1) [0m
+Rendering template within layouts/main
+Rendering posts/index
+Completed in 6ms (View: 3, DB: 1) | 200 OK [http://blog.codeimpossible.com/page/4]
+
+
+Processing PostsController#page (for 68.187.213.182 at 2011-05-03 21:06:35) [GET]
+  Parameters: {"action"=>"page", "page"=>"5", "controller"=>"posts"}
+  [4;35;1mPost Load (0.8ms)[0m   [0mSELECT * FROM `posts` WHERE (published = 1) ORDER BY created_at DESC LIMIT 20, 5[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `posts` WHERE (published = 1) [0m
+Rendering template within layouts/main
+Rendering posts/index
+Completed in 6ms (View: 3, DB: 1) | 200 OK [http://blog.codeimpossible.com/page/5]
+
+
+Processing PostsController#page (for 68.187.213.182 at 2011-05-03 21:06:37) [GET]
+  Parameters: {"action"=>"page", "page"=>"6", "controller"=>"posts"}
+  [4;35;1mPost Load (0.8ms)[0m   [0mSELECT * FROM `posts` WHERE (published = 1) ORDER BY created_at DESC LIMIT 25, 5[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `posts` WHERE (published = 1) [0m
+Rendering template within layouts/main
+Rendering posts/index
+Completed in 6ms (View: 3, DB: 1) | 200 OK [http://blog.codeimpossible.com/page/6]
+
+
+Processing PostsController#show (for 68.187.213.182 at 2011-05-03 21:06:43) [GET]
+  Parameters: {"slug"=>"Solving-document-ready-is-not-a-function-and-other-problems", "month"=>"1", "action"=>"show", "day"=>"13", "year"=>"2010", "controller"=>"posts"}
+  [4;35;1mPost Load (0.6ms)[0m   [0mSELECT * FROM `posts` WHERE (`posts`.`permalink` = 'Solving-document-ready-is-not-a-function-and-other-problems') AND (published = 1) LIMIT 1[0m
+Rendering template within layouts/main
+Rendering posts/show
+Completed in 4ms (View: 2, DB: 1) | 200 OK [http://blog.codeimpossible.com/2010/1/13/Solving-document-ready-is-not-a-function-and-other-problems]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#show (for 68.187.213.182 at 2011-05-03 21:08:39) [GET]
+  Parameters: {"slug"=>"Solving-document-ready-is-not-a-function-and-other-problems", "month"=>"1", "action"=>"show", "day"=>"13", "year"=>"2010", "controller"=>"posts"}
+  [4;36;1mPost Load (0.1ms)[0m   [0;1mSELECT * FROM `posts` WHERE (`posts`.`permalink` = 'Solving-document-ready-is-not-a-function-and-other-problems') AND (published = 1) LIMIT 1[0m
+Rendering template within layouts/main
+Rendering posts/show
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://blog.codeimpossible.com/2010/1/13/Solving-document-ready-is-not-a-function-and-other-problems]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#show (for 68.187.213.182 at 2011-05-03 21:20:58) [GET]
+  Parameters: {"slug"=>"Solving-document-ready-is-not-a-function-and-other-problems", "month"=>"1", "action"=>"show", "day"=>"13", "year"=>"2010", "controller"=>"posts"}
+  [4;36;1mPost Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+  [4;35;1mPost Load (0.1ms)[0m   [0mSELECT * FROM `posts` WHERE (`posts`.`permalink` = 'Solving-document-ready-is-not-a-function-and-other-problems') AND (published = 1) LIMIT 1[0m
+Rendering template within layouts/main
+Rendering posts/show
+Completed in 14ms (View: 4, DB: 2) | 200 OK [http://blog.codeimpossible.com/2010/1/13/Solving-document-ready-is-not-a-function-and-other-problems]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#show (for 68.187.213.182 at 2011-05-03 21:28:55) [GET]
+  Parameters: {"slug"=>"Solving-document-ready-is-not-a-function-and-other-problems", "month"=>"1", "action"=>"show", "day"=>"13", "year"=>"2010", "controller"=>"posts"}
+  [4;36;1mPost Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+  [4;35;1mPost Load (0.1ms)[0m   [0mSELECT * FROM `posts` WHERE (`posts`.`permalink` = 'Solving-document-ready-is-not-a-function-and-other-problems') AND (published = 1) LIMIT 1[0m
+Rendering template within layouts/main
+Rendering posts/show
+Completed in 14ms (View: 4, DB: 2) | 200 OK [http://blog.codeimpossible.com/2010/1/13/Solving-document-ready-is-not-a-function-and-other-problems]
+
+
+Processing PostsController#show (for 68.187.213.182 at 2011-05-03 21:29:15) [GET]
+  Parameters: {"slug"=>"solving-document-ready-is-not-a-function-and-other-problems", "month"=>"01", "action"=>"show", "day"=>"13", "year"=>"2010", "controller"=>"posts"}
+  [4;36;1mPost Load (0.6ms)[0m   [0;1mSELECT * FROM `posts` WHERE (`posts`.`permalink` = 'solving-document-ready-is-not-a-function-and-other-problems') AND (published = 1) LIMIT 1[0m
+Rendering template within layouts/main
+Rendering posts/show
+Completed in 3ms (View: 1, DB: 1) | 200 OK [http://blog.codeimpossible.com/2010/01/13/solving-document-ready-is-not-a-function-and-other-problems/]
+
+
+Processing PostsController#show (for 68.187.213.182 at 2011-05-03 21:29:19) [GET]
+  Parameters: {"slug"=>"solving-document-ready-is-not-a-function-and-other-problems", "month"=>"01", "action"=>"show", "day"=>"13", "year"=>"2010", "controller"=>"posts"}
+  [4;35;1mPost Load (0.1ms)[0m   [0mSELECT * FROM `posts` WHERE (`posts`.`permalink` = 'solving-document-ready-is-not-a-function-and-other-problems') AND (published = 1) LIMIT 1[0m
+Rendering template within layouts/main
+Rendering posts/show
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://blog.codeimpossible.com/2010/01/13/solving-document-ready-is-not-a-function-and-other-problems/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 131.239.15.70 at 2011-05-04 14:08:23) [GET]
+  Parameters: {"action"=>"index", "controller"=>"posts"}
+  [4;36;1mUser Columns (27.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (2.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mPost Load (42.9ms)[0m   [0;1mSELECT * FROM `posts` ORDER BY created_at DESC LIMIT 0, 5[0m
+  [4;35;1mPost Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `posts` [0m
+Rendering template within layouts/main
+Rendering posts/index
+Rendered admin/shared/_userbar (1.4ms)
+Completed in 131ms (View: 45, DB: 75) | 200 OK [http://blog.codeimpossible.com/]
+
+
+Processing PostsController#show (for 131.239.15.70 at 2011-05-04 14:08:33) [GET]
+  Parameters: {"slug"=>"Make-Implement-Interface-use-auto-properties", "month"=>"11", "action"=>"show", "day"=>"29", "year"=>"2010", "controller"=>"posts"}
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mPost Load (0.6ms)[0m   [0;1mSELECT * FROM `posts` WHERE (`posts`.`permalink` = 'Make-Implement-Interface-use-auto-properties') LIMIT 1[0m
+Rendering template within layouts/main
+Rendering posts/show
+Rendered admin/shared/_userbar (0.1ms)
+Completed in 4ms (View: 2, DB: 1) | 200 OK [http://blog.codeimpossible.com/2010/11/29/Make-Implement-Interface-use-auto-properties]
