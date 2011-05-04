@@ -16,12 +16,13 @@ h2 {
 }
 
 p code {
-	background: #ddd;
-	border: 1px solid #eee;
+	background: #eee;
+	border: 2px solid #eee;
 	padding: 1px;
 	border-radius: 4px;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
+	font-size: 0.7em;
 } 
 
 pre, code {
@@ -33,10 +34,6 @@ pre {
 	margin-bottom: 0px;
 	font-size: 0.9em;
 }
-
-
-
-
 
 blockquote {
 	padding-left: 30px;
