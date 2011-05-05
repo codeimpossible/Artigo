@@ -66,6 +66,9 @@ function preview(e) {
 
 function goback(e) {
     e.preventDefault();
+    $('.preview #title').html( '' );
+    $('.preview #summary').html( '' );
+    $('.preview #content').html( '' );
     $('.container').animate({
         left: "+=800px"
     }, 500); 
