@@ -71,7 +71,7 @@ a:hover { text-decoration:none; }
 .thetop .navigation li a:hover { background: #eee; }
 
 #summary {
-	font-size:1.4em!important;
+	font-size:1.25em!important;
 	/*font-weight: bold!important;*/
 	min-height: 21px;
 	width: 100%;
