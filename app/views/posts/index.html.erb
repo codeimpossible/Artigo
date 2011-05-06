@@ -6,9 +6,9 @@
 <% if !post.published %>
 <div class="unpublished">
 <% end %>
-	<h2 id="title"><%= link_to post.title, permalink(post) %></h2>
+	<%= render :partial => "title_link", :locals => { :post => post } %>
 	<% if !post.summary.empty? %><div id="summary"><%= post.summary %></div><% end %>
-	<small>Written on <%=h post.created_at.strftime("%A, %B %d") %>&nbsp;<em><%= link_to "Delete this post", post, :confirm => "Are you sure?", :method => :delete if logged_in? %></em></small>
+	<small>Written on <%=h post.created_at.strftime("%A, %B %d") %></small>
 <% if !post.published %>
 </div>
 <% end %>	
