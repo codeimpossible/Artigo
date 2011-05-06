@@ -4,7 +4,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-	<title><%= Artigo::CONFIG["head_title"] %> - <%= controller.action_name %></title>
+    <% if content_exists?(:title)-%>
+        <title><%= Artigo::CONFIG["head_title"] %> - <%= yield :title%></title>
+    <% else -%>
+        <title><%= Artigo::CONFIG["head_title"] %> - <%= controller.action_name %></title>
+    <% end -%>
 	<%= stylesheet_link_tag 'scaffold' %>
 	<link rel="alternate" type="application/rss+xml" title="RSS" href="/rss" />
 	<%= yield :head %>
