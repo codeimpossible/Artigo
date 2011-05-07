@@ -9,7 +9,8 @@
 				['Cut','Copy','Paste','PasteText','PasteFromWord'],
 				['Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak','Iframe'],
 				['UIColor']
-			]
+			],
+            contentsCss: "/stylesheets/scaffold.css"
 		};
 
 		// Initialize the editor.
