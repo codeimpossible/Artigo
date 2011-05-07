@@ -3,15 +3,18 @@
 </em>
 
 <% @posts.each do |post| %>
-<% if !post.published %>
-<div class="unpublished">
-<% end %>
-	<%= render :partial => "title_link", :locals => { :post => post } %>
+<div class="post <%= post.published ? 'published' : 'unpublished' %>">
+	<h2 id="title"><%= post.title %></h2>
 	<% if !post.summary.empty? %><div id="summary"><%= post.summary %></div><% end %>
-	<small>Written on <%=h post.created_at.strftime("%A, %B %d") %></small>
-<% if !post.published %>
+	<small>Written on <%=h post.created_at.strftime("%A, %B %d") %></small>&nbsp;
+    <% if logged_in? %>
+    <span class="actions hidden">
+        You can <%= link_to "View", permalink(post) %>,&nbsp;
+        <%= link_to "Edit", edit_post_path(post) %>,&nbsp;or&nbsp;
+        <%= link_to "Delete", post, :confirm => "Are you sure?", :method => :delete %> this post.
+    </span>
+    <% end %>
 </div>
-<% end %>	
 <% end %>
 <p>&nbsp;</p>
 <hr />
