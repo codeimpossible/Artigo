@@ -1,0 +1,15 @@
+<% if logged_in? %>
+<span class="act">
+    <h2 id="title"><a href="#"><%= post.title %></a></h2>
+    <span class="shadowbox">
+        <span class="actions">
+            You can <%= link_to "View", permalink(post) %>,&nbsp;
+			<%= link_to "Edit", edit_post_path(post) %>,&nbsp;or&nbsp;
+			<%= link_to "Delete", post, :confirm => "Are you sure?", :method => :delete %> this post.
+        </span>
+        <span class="shadow"></span>
+    </span>
+</span>
+<% else %>
+	<%= link_to post.title, permalink(post) %>
+<% end %>
