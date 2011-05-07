@@ -4,7 +4,7 @@
 
 <% @posts.each do |post| %>
 <div class="post <%= post.published ? 'published' : 'unpublished' %>">
-	<h2 id="title"><%= post.title %></h2>
+	<h2 id="title"><%= link_to post.title, permalink(post) %></h2>
 	<% if !post.summary.empty? %><div id="summary"><%= post.summary %></div><% end %>
 	<small>Written on <%=h post.created_at.strftime("%A, %B %d") %></small>&nbsp;
     <% if logged_in? %>
