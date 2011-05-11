@@ -6,6 +6,8 @@
 	<label>Site Title:</label><input type="text" name="site_title" value="<%= @options['site_title'] %>" />
 	<br />
 	<label>&lt;HEAD&gt; Title:</label><input type="text" name="head_title" value="<%= @options['head_title'] || '' %>" />
+    <br />
+    <label>Number of blog posts to show per page:</label><input type="text" name="posts_per_page" value="<%= @options['posts_per_page'] || '' %>" />
 	<hr />
 	<p>
 	Please, <input type="submit" value="save" /> my changes.
