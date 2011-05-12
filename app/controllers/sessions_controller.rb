@@ -1,5 +1,7 @@
 # This controller handles the login/logout function of the site.  
 class SessionsController < ApplicationController  
+  verify :method => :post, :only => [:create], :redirect_to => {:action => :new}
+
 
   # render new.erb.html
   def new
@@ -13,7 +15,7 @@ class SessionsController < ApplicationController
       # Protects against session fixation attacks, causes request forgery
       # protection if user resubmits an earlier form using back
       # button. Uncomment if you understand the tradeoffs.
-      # reset_session
+      reset_session
       self.current_user = user
       new_cookie_flag = (params[:remember_me] == "1")
       handle_remember_cookie! new_cookie_flag
