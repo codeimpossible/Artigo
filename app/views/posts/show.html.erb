@@ -2,7 +2,7 @@
 <%= @post.title %>
 <% end %>
 
-<h2 id="title"><%= @post.title %> <small>( <%= link_to "Edit", edit_post_path(@post) %> )</small></h2>
+<h2 id="title"><%= @post.title %> <% if logged_in? %><small>( <%= link_to "Edit", edit_post_path(@post) %> )</small><% end %></h2>
 <p id="summary">
   <%= @post.summary %>
 </p>
