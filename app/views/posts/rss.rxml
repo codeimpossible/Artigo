@@ -4,15 +4,15 @@ xml.rss "version" => "2.0", "xmlns:dc" => "http://purl.org/dc/elements/1.1/" do
  xml.channel do
 
    xml.title       "{Code: Impossible}"
-   xml.link        "http://blog.codeimpossible.com"
+   xml.link        "http://codeimpossible.com"
    xml.description "It's just this blog, ya know?"
 
    @posts.each do |post|
      xml.item do
        xml.title       post.title
-       xml.link        "http://blog.codeimpossible.com#{permalink(post)}"
+       xml.link        "http://codeimpossible.com#{permalink(post)}"
        xml.description post.body
-       xml.guid        "http://blog.codeimpossible.com#{permalink(post)}"
+       xml.guid        "http://codeimpossible.com#{permalink(post)}"
      end
    end
  end

@@ -9,7 +9,7 @@
     <% else -%>
         <title><%= Artigo::CONFIG["head_title"] %> - <%= controller.action_name %></title>
     <% end -%>
-	<%= stylesheet_link_tag 'scaffold' %>
+	<%= stylesheet_link_tag 'scaffold', :cache => true %>
 	<link rel="alternate" type="application/rss+xml" title="RSS" href="/rss" />
 	<%= yield :head %>
 </head>
@@ -22,7 +22,7 @@
 			</div>
 			<ul class="navigation">
 				<li><a href="/">Home</a></li>
-                <li><a href="http://cv.codeimpossible.com/">My Cv</a></li>
+                <li><a href="http://codeimpossible.com/cv/index.html">My Cv</a></li>
                 <li><a href="http://twitter.com/codeimpossible">Twitter</a></li>
                 <li><a href="http://hg.codeimpossible.com/">Open source</a></li>
 			</ul>

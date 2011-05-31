@@ -5,10 +5,10 @@
 			toolbar:
 			[
 				['Source', 'Bold', 'Italic', 'Underline','Strike', 'Blockquote', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink'],
-				['Pre', 'Code'],
 				['Cut','Copy','Paste','PasteText','PasteFromWord'],
 				['Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak','Iframe'],
-				['UIColor']
+				['UIColor'],
+				['Maximize', 'ShowBlocks', '-', 'About']
 			],
             contentsCss: "/stylesheets/scaffold.css"
 		};
