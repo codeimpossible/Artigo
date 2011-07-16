@@ -17,5 +17,8 @@
 
 <strong><a href="/admin/changepassword">Change your password</a></strong>
 <p>Password smelling a bit stale? Freshen it up right over here!</p>
-<hr />
-<p><big>Blog stats:</big> <%= @model.total_posts_public %> posts are public, <%= @model.total_posts_private %> are private</p>
+
+<% content_for :thebottom do %>
+	<hr />
+	<p><big>Blog stats:</big> <%= @model.total_posts_public %> posts are public, <%= @model.total_posts_private %> are private</p>
+<% end %>

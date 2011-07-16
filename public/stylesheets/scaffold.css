@@ -286,3 +286,10 @@ li.L1,li.L3,li.L5,li.L7,li.L9{background:#fff}
 	.atn{color:#404}
 	.atv{color:#060}
 }
+
+.thebottom {
+	position:fixed;
+	margin: 0 auto;
+	bottom: 0px;
+	width: 800px;
+}
