@@ -10,3 +10,5 @@ glob:config/database.yml
 regexp:\.log$
 glob:tmp/*
 regexp:\.sqlite3$
+syntax: glob
+.idea/*
