@@ -251,6 +251,10 @@ table#posts thead {
 	float:right;
 }
 
+.pagination .disabled {
+	display: none;
+}
+
 /*hacks*/
 .Apple-style-span {
 	/*here's a first. Chrome hack for this bug: http://code.google.com/p/chromium/issues/detail?id=28904*/
@@ -288,7 +292,6 @@ li.L1,li.L3,li.L5,li.L7,li.L9{background:#fff}
 }
 
 .thebottom {
-	position:fixed;
 	margin: 0 auto;
 	bottom: 0px;
 	width: 800px;
