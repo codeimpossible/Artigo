@@ -18,7 +18,6 @@
 <% end %>
 <br />
 <% content_for :thebottom do %>
-	<hr />
 	<br />
 	<%= will_paginate @posts, :page_links => false, :previous_label => "<< Newer Posts", :next_label => "Older Posts >>",  :params => { :controller => "posts", :action => "page" } %>
 	<br />

@@ -1,9 +1,15 @@
-body { background-color: #fff; color: #333; margin: 0; padding: 0; }
+body { background-color: #eee; color: #333; margin: 0; padding: 0; }
 
 body, p, ol, ul, td, .edit input, .edit textarea, .new input, .new textarea {  
   font-family: corbel, 'lucida grande', helvetica, sans-serif;
   line-height: 21px;
   font-size: 1.1em;
+}
+
+img.author {
+	float: left;
+	padding: 10px 20px 0px 0px;
+	display: inline;
 }
 
 h2 {
@@ -41,12 +47,21 @@ a:hover { text-decoration:none; }
 
 
 .page {
+	background: #fff;
+}
+
+.page .inside {
 	width: 800px;
 	margin: 0 auto;
 }
 
 .thetop .title {
 	float: left;
+	min-width: 362px;
+}
+
+.thetop .title h1 a {
+	text-decoration: none;
 }
 
 .thetop .navigation {
@@ -69,6 +84,19 @@ a:hover { text-decoration:none; }
 }
 
 .thetop .navigation li a:hover { background: #eee; }
+
+.callout p {
+	font-size: 2em!important;
+	line-height: 35px!important;
+}
+
+.callout strong {
+	color: #aa0000;
+}
+
+.callout em {
+	color: #6622ff;
+}
 
 #summary {
 	font-size:1.25em!important;
@@ -253,6 +281,26 @@ table#posts thead {
 
 .pagination .disabled {
 	display: none;
+}
+
+.ancillary {
+	border-top: 1px solid #D5D5D5;
+	background: #eee;
+}
+
+.ancillary .inside {
+	width: 800px;
+	margin: 0 auto;
+}
+
+.ancillary .block {
+	float: left;
+	width: 250px;
+	margin: 0 0 0 15px;
+}
+
+.ancillary .block dd {
+	margin: 0;
 }
 
 /*hacks*/

@@ -18,6 +18,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/admin', :controller => 'admin/dashboard', :action => 'index'
   map.connect '/sessions', :controller => 'sessions', :action => 'create', :method => 'post'
   map.connect '/page/:page', :controller => 'posts', :action => 'page'
+  map.connect '/page/:page.:format', :controller => 'posts', :action => 'page', :format => 'html'
   map.connect '/rss', :controller => 'posts', :action => 'rss'  
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'

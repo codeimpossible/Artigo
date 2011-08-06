@@ -43,6 +43,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html { render "index" }
       format.xml  { render :xml => @posts }
+	  format.json { render :json => @posts }
     end
   end
   
