@@ -9,7 +9,7 @@
     <% else -%>
         <title><%= Artigo::CONFIG["head_title"] %> - <%= controller.action_name %></title>
     <% end -%>
-	<%= stylesheet_link_tag 'scaffold', :cache => true %>
+	<%= stylesheet_link_tag 'scaffold', :cache => is_dev? %>
 	<link rel="alternate" type="application/rss+xml" title="RSS" href="/rss" />
 	<%= yield :head %>
 </head>
@@ -32,7 +32,9 @@
 
 			<div class="clear"></div>
 			
-			<%= render :partial => "shared/callout" if is_active?("posts","index", nil) || is_active?("posts","page", nil) %>
+			<% if is_active?( :controller => "posts", :action => "index") || is_active?( :controller => "posts", :action => "page") -%>
+				<%= render :partial => "shared/callout" %>
+			<% end -%>
 			
 			<div class="clear"></div>
 
@@ -52,33 +54,24 @@
 	
 	<div class="ancillary">
 		<div class="inside">
-			<h3># Other Stuff</h3>
-			<div class="block">
-				<h4>About Me</h4>
-				<dl>
-					<dt>
-						<img src="http://www.gravatar.com/avatar.php?gravatar_id=55997cec217233703cbf68b689578771&s=96" />
-					</dt>
-					<dd>
-						<strong>Name: </strong><br />Jared Barboza
-					</dd>
-					<dd>
-						<strong>Location: </strong><br />Massachusetts, USA
-					</dd>
-				</dl>
+			<div>&nbsp;</div>
+			<div class="block two-col">
+				<div class="float-left">
+					<img src="http://www.gravatar.com/avatar.php?gravatar_id=55997cec217233703cbf68b689578771&s=96" />
+				</div>
+				<div class="block 2col">
+					<p style="margin-top: 0;">
+						<em>The opinions expressed herein are my own personal opinions and do not represent my employer's view in any way.</em>
+					</p>
+				</div>
 			</div>
-			
-			<div class="block">
-				<h4>Recently</h4>
-			</div>
-			
-			<div class="block">
-				<h4>About Me</h4>
-			</div>
+			<div class="clear"></div>
 		</div>
 		<div class="clear"></div>
 		<div align="center">
-			<em>The opinions expressed herein are my own personal opinions and do not represent my employer's view in any way.</em>
+			<br />
+			<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a>
+			<br />
 		</div>
 	</div>
 	

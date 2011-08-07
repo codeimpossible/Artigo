@@ -11,12 +11,12 @@ module ApplicationHelper
 		return instance_variable_get("@content_for_#{name}")
 	end
 	
-	def is_active?(controller, action, id)
-		controller = "home" if controller == nil
+	def is_active?(desc= {})
+		desc[:controller] = "home" if desc[:controller] == nil
 	
-		@actionMatch = action == nil || params[:action] == action
-		@idMatch = id == nil || params[:id] == id
-		@isactive = @actionMatch && @idMatch && params[:controller] == controller
+		@actionMatch = desc[:action] == nil || params[:action] == desc[:action]
+		@idMatch = desc[:id] == nil || params[:id] == desc[:id]
+		@isactive = @actionMatch && @idMatch && params[:controller] == desc[:controller]
     
 		return @isactive
 	end

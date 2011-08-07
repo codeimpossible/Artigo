@@ -299,6 +299,10 @@ table#posts thead {
 	margin: 0 0 0 15px;
 }
 
+.ancillary .two-col {
+	width: 500px;
+}
+
 .ancillary .block dd {
 	margin: 0;
 }
