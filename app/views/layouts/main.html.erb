@@ -1,6 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
@@ -19,7 +17,9 @@
 		<div class="inside">
 			<div class="thetop">
 				<div class="title">
-					<img src="http://www.gravatar.com/avatar.php?gravatar_id=55997cec217233703cbf68b689578771&s=48" class="author" />
+					<div class="author">
+						<img src="http://www.gravatar.com/avatar.php?gravatar_id=55997cec217233703cbf68b689578771&s=48" class="author" />
+					</div>
 					<h1><a href="/"><%= Artigo::CONFIG["site_title"] %></a></h1>				
 				</div>
 				<ul class="navigation">
@@ -53,26 +53,15 @@
 	</div>
 	
 	<div class="ancillary">
-		<div class="inside">
-			<div>&nbsp;</div>
-			<div class="block two-col">
-				<div class="float-left">
-					<img src="http://www.gravatar.com/avatar.php?gravatar_id=55997cec217233703cbf68b689578771&s=96" />
-				</div>
-				<div class="block 2col">
-					<p style="margin-top: 0;">
-						<em>The opinions expressed herein are my own personal opinions and do not represent my employer's view in any way.</em>
-					</p>
-				</div>
-			</div>
-			<div class="clear"></div>
-		</div>
-		<div class="clear"></div>
-		<div align="center">
+		<div align="center" class="inside">
+			<p>
+				<em>The opinions expressed herein are my own and do not represent my employer's view in any way.</em>
+			</p>
 			<br />
 			<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a>
 			<br />
 		</div>
+		<div class="clear"></div>
 	</div>
 	
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
