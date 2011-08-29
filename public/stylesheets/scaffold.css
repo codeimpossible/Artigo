@@ -6,6 +6,11 @@ body, p, ol, ul, td, .edit input, .edit textarea, .new input, .new textarea {
   font-size: 1.1em;
 }
 
+div.title h1 { 
+    font-size: 30px;
+    margin-top: 25px;
+}
+
 div.author:hover {
 	-moz-transform: rotate(0deg);
 	-webkit-transform: rotate(0deg);

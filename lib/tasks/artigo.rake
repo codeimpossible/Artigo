@@ -56,7 +56,40 @@ production:
 EOF
         end
     end
+
+    desc 'Initializes and fills the database with default data'
+    task :db => ['environment', 'db:drop', 'db:create', 'db:migrate', 'db:fixtures:load' ] do
+        (1..14).each { |n|
+            @post = Post.create({ 
+                :published => true,
+                :title => "This is the #{n} sample post",
+                :summary => "The description should be 2-3 sentences and grab your readers' attention. The ending should act as an introduction into your main body.",
+                :body => <<eos 
+    <p>This is an example of a artigo page, you could edit this to put information about yourself or your site so readers know where you are coming from. You can create as many pages like this one or sub-pages as you like and manage all of your content inside of artigo. This is an example of a artigo page, you could edit this to put information about yourself or your site so readers know where you are coming from. You can create as many pages like this one or sub-pages as you like and manage all of your content inside of artigo.</p>
+    <p>This is an example of a artigo page, you could edit this to put information about yourself or your site so readers know where you are coming from. You can create as many pages like this one or sub-pages as you like and manage all of your content inside of artigo.</p>
+    <blockquote>This is an example of a artigo page, you could edit this to put information about yourself or your site so readers know where you are coming from. You can create as many pages like this one or sub-pages as you like and manage all of your content inside of artigo.</blockquote>
+    <p>This is an example of a artigo page, you could edit this to put information about yourself or your site so readers know where you are coming from. You can create as many pages like this one or sub-pages as you like and manage all of your content inside of artigo. This is an example of a artigo page, you could edit this to put information about yourself or your site so readers know where you are coming from. You can create as many pages like this one or sub-pages as you like and manage all of your content inside of artigo.</p>
+    <p>Here are some of my favorite movies</p>
+    <ul>
+        <li>Hi Fidelity<li>
+        <li>American President<li>
+        <li>Americas Sweethearts<li>
+        <li>Die Hard<li>
+        <li>L.A. Confidential</li>
+    </ul>
+    <p>Here are my favorite movies in an ordered list</p>
+    <ol>
+        <li>Hi Fidelity<li>
+        <li>American President<li>
+        <li>Americas Sweethearts<li>
+        <li>Die Hard<li>
+        <li>L.A. Confidential</li>
+    </ol>
+eos
+            })
+        }
+    end
     
 	desc 'Initializes Artigo Security Settings'
-	task :setup => [:generate_session_store, :generate_site_keys, :make_db_config]
+	task :setup => [:generate_session_store, :generate_site_keys, :make_db_config, :db]
 end
