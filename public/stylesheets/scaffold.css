@@ -63,6 +63,7 @@ pre {
 }
 
 blockquote {
+    border-left: 10px solid #EEEEEE;
 	padding-left: 30px;
 	margin: 0; /*fix for webkit pushing the blockquote in too much*/
 }
