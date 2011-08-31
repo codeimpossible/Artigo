@@ -297,12 +297,26 @@ table#posts thead {
 	padding-left: 10px;
 }
 
+.pagination {
+    margin: 0 auto;
+    text-align: center;
+}
+
 .pagination .prev_page {
-	float:left; 
+    margin-right: 20px;
+}
+
+.pagination .current {
+    color: #AA0000;
+    font-weight: bold;
 }
 
 .pagination .next_page {
-	float:right;
+    margin-left: 15px;
+}
+
+.pagination a, .pagination .current {
+    margin-right: 5px;
 }
 
 .pagination .disabled {

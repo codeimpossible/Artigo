@@ -59,7 +59,7 @@ EOF
 
     desc 'Initializes and fills the database with default data'
     task :db => ['environment', 'db:drop', 'db:create', 'db:migrate', 'db:fixtures:load' ] do
-        (1..14).each { |n|
+        (1..60).each { |n|
             @post = Post.create({ 
                 :published => true,
                 :title => "This is the #{n} sample post",
@@ -71,18 +71,18 @@ EOF
     <p>This is an example of a artigo page, you could edit this to put information about yourself or your site so readers know where you are coming from. You can create as many pages like this one or sub-pages as you like and manage all of your content inside of artigo. This is an example of a artigo page, you could edit this to put information about yourself or your site so readers know where you are coming from. You can create as many pages like this one or sub-pages as you like and manage all of your content inside of artigo.</p>
     <p>Here are some of my favorite movies</p>
     <ul>
-        <li>Hi Fidelity<li>
-        <li>American President<li>
-        <li>Americas Sweethearts<li>
-        <li>Die Hard<li>
+        <li>Hi Fidelity</li>
+        <li>American President</li>
+        <li>Americas Sweethearts</li>
+        <li>Die Hard</li>
         <li>L.A. Confidential</li>
     </ul>
     <p>Here are my favorite movies in an ordered list</p>
     <ol>
-        <li>Hi Fidelity<li>
-        <li>American President<li>
-        <li>Americas Sweethearts<li>
-        <li>Die Hard<li>
+        <li>Hi Fidelity</li>
+        <li>American President</li>
+        <li>Americas Sweethearts</li>
+        <li>Die Hard</li>
         <li>L.A. Confidential</li>
     </ol>
 eos
