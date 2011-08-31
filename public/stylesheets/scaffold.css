@@ -206,6 +206,12 @@ table#posts thead {
 .float-left { float:left; }
 .float-right { float: right; }
 
+.content .meta {
+    background: none repeat scroll 0 0 #EEEEEE;
+    margin-top: -10px;
+    padding: 10px 0 5px 10px;
+}
+
 #errorExplanation {
   width: 400px;
   border: 2px solid red;

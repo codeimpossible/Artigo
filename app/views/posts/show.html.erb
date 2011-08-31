@@ -7,6 +7,9 @@
   <%= @post.summary %>
 </p>
 <hr />
+<div class="meta">
+    <small>Written on <%=h @post.created_at.strftime("%A, %B %d, %Y") %></small>
+</div>
 <div id="content">
   <%= @post.body %>
 </div>
