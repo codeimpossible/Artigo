@@ -1,0 +1,288 @@
+body { background-color: #fff; color: #333; margin: 0; padding: 0; }
+
+body, p, ol, ul, td, .edit input, .edit textarea, .new input, .new textarea {  
+  font-family: corbel, 'lucida grande', helvetica, sans-serif;
+  line-height: 21px;
+  font-size: 1.1em;
+}
+
+h2 {
+	font-weight: normal;
+	margin-bottom: 0px;
+}
+
+p code {
+	background: #eee;
+	border: 2px solid #eee;
+	padding: 1px;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	font-size: 0.7em;
+} 
+
+pre, code {
+	font-family: menlo, Consolas, Courier-new, monotype;
+}
+
+pre {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	font-size: 0.9em;
+}
+
+blockquote {
+	padding-left: 30px;
+	margin: 0; /*fix for webkit pushing the blockquote in too much*/
+}
+
+a, a:visited { color: #000; }
+a:hover { text-decoration:none; }
+
+
+.page {
+	width: 800px;
+	margin: 0 auto;
+}
+
+.thetop .title {
+	float: left;
+}
+
+.thetop .navigation {
+	padding-top: 7px;
+	float: left;
+	list-style: none;
+}
+
+.thetop .navigation li {
+	display: inline;
+	padding-right: 10px;
+}
+
+.thetop .navigation li a {
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	background: #ddd;
+	padding: 7px;
+	text-decoration: none;
+}
+
+.thetop .navigation li a:hover { background: #eee; }
+
+#summary {
+	font-size:1.25em!important;
+	/*font-weight: bold!important;*/
+	min-height: 21px;
+	width: 100%;
+}
+
+#title {
+	min-height: 30px;
+	font-size: 1.5em;
+	width: 100%;
+}
+
+div.post .actions {
+    display: none;
+}
+
+div.post:hover .actions {
+    display: inline;
+}
+
+.act .actions { line-height: 26px; position: absolute; top: -3px; z-index: 100; display: none; background: #fff; color: #000; width: 300px; height: 80px; padding: 5px 0px 0px 5px; }
+.act .actions a { padding: 2px; border: 1px solid #ddd; background: #eee; cursor: pointer; text-decoration: none; }
+.shadowbox { display: none; position: absolute; }
+.shadow { position: absolute; top: 3px; left: 7px; display: block; background: #000; height: 90px; width: 310px; opacity: .4; }
+.act { position: relative; }
+
+/*ie7 & 8 compat*/
+.shadow { -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=40)"; filter: alpha(opacity=40); _height: 80px; *height: 80px; _width: 300px; *width: 300px; }
+
+/* hover styles */
+.act:hover { text-decoration: none; }
+.act:hover a { border: 2px solid #ddd; }
+.act:hover .shadowbox { display: block; }
+.act:hover .actions { display: block; border-top: 1px solid #fff; border-left: 2px solid #ddd; border-bottom: 1px solid #ddd; border-right: 2px solid #ddd; }
+
+.unpublished, .unpublished h2, .unpublished h2 a {
+	color: #aaa!important;
+}
+
+.fieldWithErrors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+table#posts {
+	width: 100%; 
+	clear: both;
+}
+
+table#posts thead tr > th, table#posts tbody tr > td {
+	width: 500px;
+}
+
+table#posts thead tr > th + th, table#posts tbody tr > td + td {
+    width: 150px;
+}
+
+table#posts thead tr > th + th + th, table#posts tbody tr > td + td + td {
+    width: 100px;
+	text-align: center;
+}
+
+table#posts tbody {
+	overflow: auto; 
+	max-height: 300px; 
+	min-height: 100px;
+	display: block;
+	width: 100%;
+}
+
+table#posts thead {
+	position: relative;
+	display: block;
+}
+
+.clear { clear: both; }
+.hidden { display: none; }
+.float-left { float:left; }
+.float-right { float: right; }
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+.wrapper {
+    overflow: hidden; 
+    width: 800px;
+}
+
+.container {
+    position: relative; 
+    width: 1600px;
+}
+
+.edit, .new {
+    width: 750px; 
+    padding-right: 50px;
+}
+
+.preview {
+    width: 750px;
+}
+
+.new #title, .edit #title {
+	border: 2px dashed #eee;
+	padding: 9px 0px 2px 10px;
+}
+
+.new #summary, .edit #summary {
+	border: 2px dashed #eee;
+	padding: 9px 0px 2px 10px;
+}
+
+.new #content, .edit #content {
+	min-height: 300px;
+	width: 100%;
+	border: 2px dashed #eee;
+	padding: 9px 0px 0px 10px;
+}
+
+.login-form label {
+	font-weight: bold;
+}
+
+.login-form {
+	font-size: larger;
+}
+
+.userbar {
+	background: #eee;
+	border-bottom: 1px solid #ddd;
+	display: block;
+	padding-top: 1px;
+	padding-bottom: 8px;
+}
+
+.userbar ul { 
+	list-style: none;
+}
+
+.userbar ul li {
+	display: inline;
+	padding-left: 10px;
+}
+
+.pagination .prev_page {
+	float:left; 
+}
+
+.pagination .next_page {
+	float:right;
+}
+
+/*hacks*/
+.Apple-style-span {
+	/*here's a first. Chrome hack for this bug: http://code.google.com/p/chromium/issues/detail?id=28904*/
+	font-weight: inherit!important;
+	font-size: inherit!important;
+}
+
+/*prettify css*/
+.str{color:#080}
+.kwd{color:#008}
+.com{color:#800}
+.typ{color:#606}
+.lit{color:#066}
+.pun{color:#660}
+.pln{color:#000}
+.tag{color:#008}
+.atn{color:#606}
+.atv{color:#080}
+.dec{color:#606}
+pre.prettyprint{padding:2px;}
+ol.linenums{margin-top:0;margin-bottom:0}
+li.L0,li.L1,li.L2,li.L3,li.L5,li.L6,li.L7,li.L8{list-style:none}
+li.L1,li.L3,li.L5,li.L7,li.L9{background:#fff}
+@media print{
+	.str{color:#060}
+	.kwd{color:#006;font-weight:bold}
+	.com{color:#600;font-style:italic}
+	.typ{color:#404;font-weight:bold}
+	.lit{color:#044}
+	.pun{color:#440}
+	.pln{color:#000}
+	.tag{color:#006;font-weight:bold}
+	.atn{color:#404}
+	.atv{color:#060}
+}

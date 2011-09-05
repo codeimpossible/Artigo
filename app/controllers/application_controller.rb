@@ -1,3 +1,4 @@
+require File.join(Rails.root, 'lib', 'authenticated_system.rb')
 
 class Error404 < StandardError; end
 class PostNotFound < Error404; end

@@ -1,17 +1,17 @@
 <% content_for :title do %>
-<%= @post.title %>
+<%=raw @post.title %>
 <% end %>
 
-<h2 id="title"><%= @post.title %> <% if logged_in? %><small>( <%= link_to "Edit", edit_post_path(@post) %> )</small><% end %></h2>
+<h2 id="title"><%=raw @post.title %> <% if logged_in? %><small>( <%= link_to "Edit", edit_post_path(@post) %> )</small><% end %></h2>
 <p id="summary">
-  <%= @post.summary %>
+  <%=raw @post.summary %>
 </p>
 <hr />
 <div class="meta">
     <small>Written on <%=h @post.created_at.strftime("%A, %B %d, %Y") %></small>
 </div>
 <div id="content">
-  <%= @post.body %>
+  <%=raw @post.body %>
 </div>
 
 <%= link_to 'Back', posts_path %>

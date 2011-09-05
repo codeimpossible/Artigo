@@ -1,10 +1,10 @@
 <em>
-	<%= page_entries_info @posts %> <% if admin? %> (<%= link_to "Why not create a new post?", new_post_path %>) <% end %>
+	<%=raw page_entries_info @posts %> <% if admin? %> (<%= link_to "Why not create a new post?", new_post_path %>) <% end %>
 </em>
 
 <% @posts.each do |post| %>
 <div class="post <%= post.published ? 'published' : 'unpublished' %>">
-	<h2 id="title"><%= link_to post.title, permalink(post) %></h2>
+	<h2 id="title"><%= link_to raw(post.title), permalink(post) %></h2>
 	<% if !post.summary.empty? %><div id="summary"><%= post.summary %></div><% end %>
 	<small>Written on <%=h post.created_at.strftime("%A, %B %d, %Y") %></small>&nbsp;
     <% if logged_in? %>

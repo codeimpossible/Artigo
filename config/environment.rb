@@ -1,20 +1,5 @@
-ENV['RAILS_ENV'] ||= 'production'
-RAILS_GEM_VERSION = '2.3.5' unless defined? RAILS_GEM_VERSION
+# Load the rails application
+require File.expand_path('../application', __FILE__)
 
-require File.join(File.dirname(__FILE__), 'boot')
-
-if Gem::VERSION >= "1.3.6" 
-	module Rails
-		class GemDependency
-			def requirement
-				r = super
-				(r == Gem::Requirement.default) ? nil : r
-			end
-		end
-	end
-end
-
-Rails::Initializer.run do |config|
-  config.time_zone = 'UTC'
-  config.log_level = :debug
-end
+# Initialize the rails application
+Artigo::Application.initialize!
