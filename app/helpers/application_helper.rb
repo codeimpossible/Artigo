@@ -4,7 +4,7 @@ module ApplicationHelper
 	end
 	
 	def is_dev?
-		@dev = RAILS_ENV == "development"
+		@dev = ::Rails.env == "development"
 	end
 	
 	def content_exists?(name)

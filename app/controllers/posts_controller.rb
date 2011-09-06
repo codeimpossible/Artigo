@@ -74,7 +74,9 @@ class PostsController < ApplicationController
     @post.title = params[:title]
     @post.summary = params[:summary]
     @post.body = params[:content]
-    
+
+    logger.debug @post    
+
     respond_to do |format|
       if @post.save
         flash[:notice] = 'Post was successfully created.'

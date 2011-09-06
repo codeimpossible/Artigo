@@ -17,7 +17,7 @@ class UsersControllerTest < ActionController::TestCase
   def test_should_require_login_on_signup
     assert_no_difference 'User.count' do
       create_user(:login => nil)
-      assert assigns(:user).errors.on(:login)
+      assert assigns(:user).errors[:login].present?
       assert_response :success
     end
   end
@@ -25,7 +25,7 @@ class UsersControllerTest < ActionController::TestCase
   def test_should_require_password_on_signup
     assert_no_difference 'User.count' do
       create_user(:password => nil)
-      assert assigns(:user).errors.on(:password)
+      assert assigns(:user).errors[:password].present?
       assert_response :success
     end
   end
@@ -33,7 +33,7 @@ class UsersControllerTest < ActionController::TestCase
   def test_should_require_password_confirmation_on_signup
     assert_no_difference 'User.count' do
       create_user(:password_confirmation => nil)
-      assert assigns(:user).errors.on(:password_confirmation)
+      assert assigns(:user).errors[:password_confirmation].present?
       assert_response :success
     end
   end
@@ -41,7 +41,7 @@ class UsersControllerTest < ActionController::TestCase
   def test_should_require_email_on_signup
     assert_no_difference 'User.count' do
       create_user(:email => nil)
-      assert assigns(:user).errors.on(:email)
+      assert assigns(:user).errors[:email].present?
       assert_response :success
     end
   end
