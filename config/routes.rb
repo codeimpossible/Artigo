@@ -1,4 +1,4 @@
-ActionController::Routing::Routes.draw do |map|
+Artigo::Application.routes.draw do |map|
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   map.login '/login', :controller => 'sessions', :action => 'new'
   

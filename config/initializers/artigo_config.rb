@@ -1,6 +1,6 @@
 module Artigo
 	
-	@@config_path = "#{RAILS_ROOT}/config/artigo.yml"
+	@@config_path = "#{::Rails.root.to_s}/config/artigo.yml"
 	
 	CONFIG = YAML.load_file(@@config_path)
 	

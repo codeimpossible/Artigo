@@ -2,15 +2,17 @@ namespace :artigo do
 	desc 'Generates a session_store.rb file.'
 	task :generate_session_store => :environment do
 		path = File.join(RAILS_ROOT, 'config', 'initializers', 'session_store.rb')
-		secret = ActiveSupport::SecureRandom.hex(40)
 		File.new(path, "w") unless File.exist?(path)
 		File.open(path, "w") do |f|
 			f.write <<"EOF"
-# This file should not be made visible to public.
-ActionController::Base.session = {
-  :session_key => '_artigo_session',
-  :secret => '#{secret}'
-}
+# Be sure to restart your server when you modify this file.
+
+Artigo::Application.config.session_store :cookie_store, :key => '_artigo_session'
+
+# Use the database for sessions instead of the cookie-based default,
+# which shouldn't be used to store highly confidential information
+# (create the session table with "rake db:sessions:create")
+# Artigo::Application.config.session_store :active_record_store
 EOF
 		end
 	end

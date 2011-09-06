@@ -9,7 +9,6 @@ class ApplicationController < ActionController::Base
   layout "main"
   include AuthenticatedSystem
   helper_method :permalink
-  filter_parameter_logging :password
   
   rescue_from ActionController::RoutingError, :with => :render_404
   rescue_from Error404, :with => :render_404
