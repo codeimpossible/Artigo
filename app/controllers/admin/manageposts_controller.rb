@@ -1,4 +1,6 @@
 class Admin::ManagepostsController < ApplicationController
+  layout "admin"
+
   def index
     @posts = Post.find(:all, :order => "created_at DESC")
   end

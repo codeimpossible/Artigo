@@ -1,4 +1,5 @@
 class Admin::ChangepasswordController < ApplicationController
+  layout "admin"
 
   def index
 	

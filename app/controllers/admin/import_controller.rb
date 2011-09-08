@@ -2,6 +2,7 @@ require 'rexml/document'
 
 class Admin::ImportController < ApplicationController
   before_filter :login_required
+  layout "admin"
   
   def index
   end

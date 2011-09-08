@@ -1,4 +1,6 @@
 class Admin::TidyupController < ApplicationController
+  layout "admin"
+
   def index
   end
 

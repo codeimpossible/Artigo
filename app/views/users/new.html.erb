@@ -1,25 +1,19 @@
 <h1>Create your admin account</h1>
 <p>Hey, it looks like you haven't created your admin account yet! You need the admin account in order to import posts from your old blog, create new content and manage existing content.</p>
-
 <big>It's pretty imporant.</big>
-
 <p>So use the form below to create your admin account now!</p>
 
 <% @user.password = @user.password_confirmation = nil %>
-
 <%= error_messages_for :user %>
 <%= form_for :user, :url => users_path do |f| %>
-<p><%= f.label :login %><br/>
-<%= f.text_field :login %></p>
+    <p><%= f.label :login %></p>
+    <p><%= f.text_field :login, :class => 'text' %></p>
+    <p><%= f.label :email %></p>
+    <p><%= f.text_field :email, :class => 'text' %></p>
+    <p><%= f.label :password %></p>
+    <p><%= f.password_field :password, :class => 'text' %></p>
+    <p><%= f.label :password_confirmation, 'Confirm Password' %></p>
+    <p><%= f.password_field :password_confirmation, :class => 'text' %></p>
 
-<p><%= f.label :email %><br/>
-<%= f.text_field :email %></p>
-
-<p><%= f.label :password %><br/>
-<%= f.password_field :password %></p>
-
-<p><%= f.label :password_confirmation, 'Confirm Password' %><br/>
-<%= f.password_field :password_confirmation %></p>
-
-<p><%= submit_tag 'Sign up' %></p>
+    <p><%= submit_tag 'Sign up', :class => 'button' %></p>
 <% end %>

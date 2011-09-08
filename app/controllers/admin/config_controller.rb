@@ -1,4 +1,5 @@
 class Admin::ConfigController < ApplicationController
+  layout "admin"
 	
   def index
 	@options = Artigo::CONFIG

@@ -3,13 +3,16 @@
 
 <% form_tag "/admin/config/save" do -%>
 	<p><big>Site Options</big></p>
-	<label>Site Title:</label><input type="text" name="site_title" value="<%= @options['site_title'] %>" />
+	<label>Site Title:</label><input type="text" name="site_title" value="<%= @options['site_title'].first %>" />
 	<br />
-	<label>&lt;HEAD&gt; Title:</label><input type="text" name="head_title" value="<%= @options['head_title'] || '' %>" />
+	<label>&lt;HEAD&gt; Title:</label><input type="text" name="head_title" value="<%= @options['head_title'].first || '' %>" />
     <br />
-    <label>Number of blog posts to show per page:</label><input type="text" name="posts_per_page" value="<%= @options['posts_per_page'] || '' %>" />
+    <label>Number of blog posts to show per page:</label><input type="text" name="posts_per_page" value="<%= @options['posts_per_page'].first || '' %>" />
 	<hr />
 	<p>
-	Please, <input type="submit" value="save" /> my changes.
+	Please, <input type="submit" value="save" class="button" /> my changes.
 	</p>
 <% end %>
+<br />
+<hr />
+<p>You know, on second thought... I'll just go back to the <a href="/admin">Admin dashboard.</a></p>

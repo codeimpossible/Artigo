@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <title><%= Artigo::CONFIG["head_title"].first %> - Admin: <%= controller.action_name %></title>
+	<%= stylesheet_link_tag 'admin', :cache => is_dev? %>
+	<%= content_for :head %>
+</head>
+<body>
+	<div class="page">
+		<div class="login">
+			<div class="thetop">
+				<div class="title">
+					<h1><a href="/admin">Artigo<span style="color: #eee">|Admin</span></a></h1>				
+				</div>
+			</div>
+
+			<div class="clear"></div>
+
+			<p style="color: green" id="notice"><%= flash[:notice] %></p>
+			<p style="color: red" id="error"><%= flash[:error] %></p>
+			
+			<div class="content">
+				<%= yield %>
+			</div>
+			<br />
+            <div align="center">v0.019</div>
+		</div>
+	</div>
+	
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+</body>
+</html>
