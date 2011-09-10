@@ -3,6 +3,8 @@
 <p>Below are all your posts sorted by the date they were created, newer posts are on the top. 
 From this page you can Publish, Unpublish, and Delete your posts.</p>
 
+<p><a href="/posts/new">Create a new post</a></p>
+
 <% form_tag "/admin/manageposts/manage" do -%>
 	<table id="posts" width="100%; clear: both;">
 		<thead>
@@ -16,9 +18,13 @@ From this page you can Publish, Unpublish, and Delete your posts.</p>
 		<tbody>
 			<% @posts.each do |post| %>
 			<tr>
-				<td style="text-align: left;"><label for="posts"><input type="checkbox" name="posts[]" value="<%= post.id %>" /><%= post.title %></label> (<%= link_to "view", permalink(post), :target => "_blank" %>) (<%= link_to "edit", edit_post_path(post), :target => "_blank" %>)</td>
+				<td style="text-align: left;">
+                <label for="posts">
+                    <input type="checkbox" name="posts[]" value="<%= post.id %>" />
+                    <%= post.title[0..30] %><%= post.title.length > 30 ? "..." : "" %>
+                </label> (<%= link_to "view", permalink(post), :target => "_blank" %>) (<%= link_to "edit", edit_post_path(post), :target => "_blank" %>)</td>
 				<td><%= post.created_at %></td>
-				<td><%= post.published ? "<span style='color: green;'>Public" : "<span style='color: red;'>Private" %></span></td>
+				<td><%=raw post.published ? "<span style='color: green;'>Public" : "<span style='color: red;'>Private" %></span></td>
 			</tr>		
 			<% end %>
 		</tbody>
