@@ -12,7 +12,7 @@
 	Go there now by clicking <a href="#" class="permalink">this link</a>.
 </p>
 
-<% form_for @post do |f| %>
+<%= form_for @post do |f| %>
 <div class="wrapper">
     <div class="container">
         <div class="edit float-left">
@@ -42,7 +42,7 @@
 <% end %>
 <%= link_to 'Back', posts_path %>
 
-<% content_for :foot do %>
+<%= content_for :foot do %>
 	<script type="text/javascript" src="/ckeditor/ckeditor.js"></script>
 	<script type="text/javascript" src="/ckeditor/adapters/jquery.js"></script>
 	<script type="text/javascript" src="/javascripts/artigo-edit.js"></script>
