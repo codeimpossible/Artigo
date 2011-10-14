@@ -20,16 +20,14 @@ class ApplicationController < ActionController::Base
   
   def render_404
     respond_to do |type| 
-      type.html { render :template => "errors/error_404", :status => 404 } 
-      type.all  { render :nothing => true, :status => 404 } 
+      type.all { render :template => "errors/error_404", :status => 404 } 
     end
     true
   end
 
   def render_post_not_found
     respond_to do |type| 
-      type.html { render :template => "errors/post_not_found", :status => 404 } 
-      type.all  { render :nothing => true, :status => 404 } 
+      type.all { render :template => "errors/post_not_found", :status => 404 } 
     end
     true
   end
