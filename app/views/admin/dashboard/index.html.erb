@@ -1,6 +1,12 @@
 
-<h1>The Admin Area</h1>
-<p><em>Shhhhhhhh!</em> This is a secret area. Here you can manage just about every piece of your Artigo installation.</p>
+<% content_for :thetitle do %>
+The Admin Area
+<% end %>
+
+<p>
+	<em>Shhhhhhhh!</em> This is a secret area. Here you can manage just about every piece 
+	of your Artigo installation.
+</p>
 <div class="tabs">
     <ul>
         <li><a href="#posts">Manage Posts</a></li>
@@ -10,7 +16,7 @@
         <strong><a href="/admin/import">Import posts</a></strong>
         <p>Add posts from another blog. It's ok, I won't tell them you're moving on.</p>
 
-        <strong><a href="/admin/manageposts">Manage your posts</a></strong>
+        <strong><a href="/admin/posts">Manage your posts</a></strong>
         <p>Save yourself some clicks. Go here to publish, unpublish, or delete a bunch of posts at a time.</p>
     </div>
     <div id="config">
@@ -25,6 +31,8 @@
     </div>
 </div>
 <% content_for :thebottom do %>
-	<hr />
-	<p><big>Blog stats:</big> <%= @model.total_posts_public %> posts are public, <%= @model.total_posts_private %> are private</p>
+	<p>
+		<big>Blog stats:</big> <%= @model.total_posts_public %> posts are public, 
+		<%= @model.total_posts_private %> are private.
+	</p>
 <% end %>

@@ -1,13 +1,27 @@
-<h1>Configure Artigo</h1>
+<% content_for :thetitle do %>Configure Artigo<% end %>
 <p>Here is where you can change all the settings for Artigo.</p>
 
 <% form_tag "/admin/config/save" do -%>
 	<p><big>Site Options</big></p>
-	<label>Site Title:</label><input type="text" name="site_title" value="<%= @options['site_title'].first %>" />
+	<label>Site Title:</label><br />
+	<input type="text" name="site_title" value="<%= @options['site_title'].first %>" />
 	<br />
-	<label>&lt;HEAD&gt; Title:</label><input type="text" name="head_title" value="<%= @options['head_title'].first || '' %>" />
-    <br />
-    <label>Number of blog posts to show per page:</label><input type="text" name="posts_per_page" value="<%= @options['posts_per_page'].first || '' %>" />
+	<label>&lt;HEAD&gt; Title:</label><br />
+	<input type="text" name="head_title" value="<%= @options['head_title'].first || '' %>" />
+    	<br />
+    	<label>Number of blog posts to show per page:</label><br />
+	<select name="posts_per_page">
+		<option value="3">3</option>
+		<option value="5">5</option>
+		<option value="7">7</option>
+		<option value="10">10</option>
+		<option value="15">15</option>
+		<option value="20">25</option>
+		<option value="25">25</option>
+		<option value="50">50</option>
+		<option value="100">100</option>
+	</select>
+	<input type="text" name="posts_per_page" value="<%= @options['posts_per_page'].first || '' %>" />
 	<hr />
 	<p>
 	Please, <input type="submit" value="save" class="button" /> my changes.

@@ -1,4 +1,4 @@
-<h1>Import posts</h1>
+<% content_for :thetitle do %>Import posts<% end %>
 <h3>Let's import some blog posts from your old blog</h3>
 <% form_tag "/admin/import/import", :enctype => "multipart/form-data" do -%>
 	Here is my export file from my old blog: <input type="file" name="export_file" /><br /><br />

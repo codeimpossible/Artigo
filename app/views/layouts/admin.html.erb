@@ -24,6 +24,7 @@
 			<p style="color: red" id="error"><%= flash[:error] %></p>
 
 			<div class="content">
+				<h2><%= content_for :thetitle %></h2>
 				<%= yield %>
 			</div>
 			<div class="thebottom">
