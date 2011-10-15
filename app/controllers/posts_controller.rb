@@ -54,43 +54,6 @@ class PostsController < ApplicationController
     response.headers["Content-Type"] = "application/xml; charset=utf-8"
   end
   
-  
-  # GET /posts/new
-  # GET /posts/new.xml
-  def new
-    @post = Post.new
-    
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @post }
-    end
-  end
-  
-  # POST /posts
-  # POST /posts.xml
-  def create
-    @post = Post.new
-    
-    @post.title = params[:title]
-    @post.summary = params[:summary]
-    @post.body = params[:content]
-
-    logger.debug @post    
-
-    respond_to do |format|
-      if @post.save
-        flash[:notice] = 'Post was successfully created.'
-        format.html { redirect_to( permalink(@post) ) }
-        format.json { render :json => @post }
-        format.xml  { render :xml => @post, :status => :created, :location => @post }
-      else
-        format.html { render :action => "new" }
-        format.json { render :json => "fail" }
-        format.xml  { render :xml => @post.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
-  
   def edit
 	@post = Post.find_by_id(params[:id])
   end
