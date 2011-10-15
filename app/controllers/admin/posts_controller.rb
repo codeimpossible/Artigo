@@ -1,4 +1,4 @@
-class Admin::ManagepostsController < ApplicationController
+class Admin::PostsController < ApplicationController
   layout "admin"
 
   def index
@@ -13,6 +13,10 @@ class Admin::ManagepostsController < ApplicationController
 		Post.bulk_set_published(params[:posts],params[:act] == "publish")
 	end
 	flash[:notice] = "#{num_posts} posts were #{params[:act]}ed."
-	redirect_to "/admin/manageposts"
+	redirect_to "/admin/posts"
+  end
+
+  def new
+	
   end
 end
