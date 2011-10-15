@@ -3,6 +3,8 @@
 <head>
 	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <title><%= Artigo::CONFIG["head_title"].first %> - Admin</title>
+
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.0/themes/redmond/jquery-ui.css" />
 	<%= stylesheet_link_tag 'admin', :cache => is_dev? %>
 	<%= content_for :head %>
 </head>
@@ -33,7 +35,8 @@
 	</div>
 	
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-	<%= yield :foot %>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>	
+    <%= yield :foot %>
 	
 	<script type="text/javascript">
 		(function($) {
