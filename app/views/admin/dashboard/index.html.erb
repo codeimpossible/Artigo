@@ -1,21 +1,29 @@
 
 <h1>The Admin Area</h1>
 <p><em>Shhhhhhhh!</em> This is a secret area. Here you can manage just about every piece of your Artigo installation.</p>
-<strong><a href="/admin/import">Import posts</a></strong>
-<p>Add posts from another blog. It's ok, I won't tell them you're moving on.</p>
+<div class="tabs">
+    <ul>
+        <li><a href="#posts">Manage Posts</a></li>
+        <li><a href="#config">Configure Your Blog</a></li>
+    </ul>
+    <div id="posts">
+        <strong><a href="/admin/import">Import posts</a></strong>
+        <p>Add posts from another blog. It's ok, I won't tell them you're moving on.</p>
 
-<strong><a href="/admin/tidyup">Tidy up a bit</a> <span style="color: red">Advanced Users Only!</span></strong>
-<p>Things getting out of hand? I understand. Go here to clean up your blog.</p>
+        <strong><a href="/admin/manageposts">Manage your posts</a></strong>
+        <p>Save yourself some clicks. Go here to publish, unpublish, or delete a bunch of posts at a time.</p>
+    </div>
+    <div id="config">
+        <strong><a href="/admin/tidyup">Tidy up a bit</a> <span style="color: red">Advanced Users Only!</span></strong>
+        <p>Things getting out of hand? I understand. Go here to clean up your blog.</p>
 
-<strong><a href="/admin/manageposts">Manage your posts</a></strong>
-<p>Save yourself some clicks. Go here to publish, unpublish, or delete a bunch of posts at a time.</p>
+        <strong><a href="/admin/config">Change site settings</a></strong>
+        <p>Artigo is all about you. Make your copy <em>your</em> copy.</p>
 
-<strong><a href="/admin/config">Change site settings</a></strong>
-<p>Artigo is all about you. Make your copy <em>your</em> copy.</p>
-
-<strong><a href="/admin/changepassword">Change your password</a></strong>
-<p>Password smelling a bit stale? Freshen it up right over here!</p>
-
+        <strong><a href="/admin/changepassword">Change your password</a></strong>
+        <p>Password smelling a bit stale? Freshen it up right over here!</p>
+    </div>
+</div>
 <% content_for :thebottom do %>
 	<hr />
 	<p><big>Blog stats:</big> <%= @model.total_posts_public %> posts are public, <%= @model.total_posts_private %> are private</p>
