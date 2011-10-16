@@ -4,6 +4,10 @@ module Artigo
 	
 	CONFIG = YAML.load_file(@@config_path)
 	
+	def self.theme_dir
+		"/themes/#{Artigo::CONFIG['app_theme'].first}"
+	end
+	
 	def self.store_config(yaml)
 		File.new(@@config_path, "w") unless File.exist?(@@config_path)
 		File.open(@@config_path, "w") do |f|
