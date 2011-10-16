@@ -6,7 +6,6 @@ glob:config/initializers/site_keys.rb
 regexp:^\.tmp.+
 glob:public/.htaccess
 glob:config/*.yml
-glob:config/database.yml
 regexp:\.log$
 glob:tmp/*
 regexp:\.sqlite3$

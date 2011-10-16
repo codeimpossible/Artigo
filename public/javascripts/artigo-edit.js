@@ -83,7 +83,6 @@ function goback(e) {
 		$('#date_type').change(function(){
 			$('#post_created_at').toggle( $(this).val() === "custom" );
 		});
-        $('.edit button#preview, .new button#preview').click(preview);
         $('.preview button#goback').click(goback);
 	});
 })(jQuery);

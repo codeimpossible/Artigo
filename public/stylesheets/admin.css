@@ -10,6 +10,16 @@ body {
     padding-top: 20px;
 }
 
+#post.new  #title {
+	font-size: 24px;
+	width: 700px;
+}
+
+#post.new #summary {
+	font-size: 18px;
+	width: 700px;
+}
+
 .admin .content .sidebar {
     float: left;
     background: none repeat scroll 0 0 #F4F4F4;
@@ -22,6 +32,12 @@ body {
     padding: 10px;
     width: 220px;
     border-style: solid;
+}
+
+.admin .welcome {
+	margin-bottom: -45px; 
+	margin-top: -12px; 
+	text-align: right;
 }
 
 .admin #main-content {
@@ -56,9 +72,13 @@ body {
     width: 750px;
 }
 
+.admin .title {
+	padding-top: 5px;
+}
+
 .login .title a, .admin .title a {
     text-decoration: none;
-    color: #ddd;
+    color: #3D79D0;
 }
 
 .login .thetop, .admin .thetop {
@@ -89,6 +109,10 @@ body {
 
 .clear {
     clear: both;
+}
+
+.hidden {
+	display: none;
 }
 
 /*jquery ui overrides*/

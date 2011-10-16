@@ -1,14 +1,15 @@
 namespace :artigo do
 	desc 'Generates a session_store.rb file.'
 	task :generate_session_store => :environment do
-		path = File.join(RAILS_ROOT, 'config', 'initializers', 'session_store.rb')
+		path = File.join(::Rails.root.to_s, 'config', 'initializers', 'session_store.rb')
+		secret = ActiveSupport::SecureRandom.hex(40)
 		File.new(path, "w") unless File.exist?(path)
 		File.open(path, "w") do |f|
 			f.write <<"EOF"
 # Be sure to restart your server when you modify this file.
 
 Artigo::Application.config.session_store :cookie_store, :key => '_artigo_session'
-
+Artigo::Application.config.secrect_token = '#{secret}'
 # Use the database for sessions instead of the cookie-based default,
 # which shouldn't be used to store highly confidential information
 # (create the session table with "rake db:sessions:create")
@@ -19,7 +20,7 @@ EOF
 	
 	desc 'Generates a site_keys.rb file.'
 	task :generate_site_keys => :environment do
-		path = File.join(RAILS_ROOT, 'config', 'initializers', 'site_keys.rb')
+		path = File.join(::Rails.root.to_s, 'config', 'initializers', 'site_keys.rb')
 		secret = ActiveSupport::SecureRandom.hex(40)
 		File.new(path, "w") unless File.exist?(path)
 		File.open(path, "w") do |f|
@@ -31,9 +32,26 @@ EOF
 		end
 	end
 	
+	desc 'Creates a base artigo.yml file'
+	task :make_config do
+		path = File.join(::Rails.root.to_s, 'config', 'artigo.yml')
+        File.new(path,"w") unless File.exist?(path)
+        File.open(path, "w") do |f|
+            f.write <<"EOF"
+--- 
+head_title: 
+- "My Artigo Blog"
+site_title: 
+- "My Artigo Blog"
+posts_per_page: 
+- "3"
+EOF
+		end
+	end
+	
     desc 'Creates a base database.yml file'
     task :make_db_config do
-        path = File.join(RAILS_ROOT, 'config', 'database.yml')
+        path = File.join(::Rails.root.to_s, 'config', 'database.yml')
         File.new(path,"w") unless File.exist?(path)
         File.open(path, "w") do |f|
             f.write <<"EOF"
@@ -92,6 +110,6 @@ eos
         }
     end
     
-	desc 'Initializes Artigo Security Settings'
-	task :setup => [:generate_session_store, :generate_site_keys, :make_db_config, :db]
+	desc 'Artigo First Time Setup'
+	task :first_time => [:generate_session_store, :generate_site_keys, :make_config, :make_db_config, :db]
 end
