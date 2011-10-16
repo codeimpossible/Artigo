@@ -1,8 +1,13 @@
+require 'ostruct'
+
 class Admin::ConfigController < ApplicationController
   layout "admin"
 	
-  def index
-	@options = Artigo::CONFIG
+  def index	
+	rt = ::Rails.root.to_s
+	Dir.chdir("#{rt}/app/views/themes")
+	@themes = Dir['*/'].collect{ |t| t.chomp("/") }
+	@model = OpenStruct.new :options => Artigo::CONFIG, :themes => @themes
   end
 
   def save

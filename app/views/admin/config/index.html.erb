@@ -3,25 +3,36 @@
 
 <% form_tag "/admin/config/save" do -%>
 	<p><big>Site Options</big></p>
-	<label>Site Title:</label><br />
-	<input type="text" name="site_title" value="<%= @options['site_title'].first %>" />
-	<br />
-	<label>&lt;HEAD&gt; Title:</label><br />
-	<input type="text" name="head_title" value="<%= @options['head_title'].first || '' %>" />
-    	<br />
-    	<label>Number of blog posts to show per page:</label><br />
-	<select name="posts_per_page">
-		<option value="3">3</option>
-		<option value="5">5</option>
-		<option value="7">7</option>
-		<option value="10">10</option>
-		<option value="15">15</option>
-		<option value="20">25</option>
-		<option value="25">25</option>
-		<option value="50">50</option>
-		<option value="100">100</option>
-	</select>
-	<input type="text" name="posts_per_page" value="<%= @options['posts_per_page'].first || '' %>" />
+	<p>
+		<label>Site Title:</label><br />
+		<input type="text" name="site_title" value="<%= @model.options['site_title'].first %>" />
+	</p>
+	<p>
+		<label>&lt;HEAD&gt; Title:</label><br />
+		<input type="text" name="head_title" value="<%= @model.options['head_title'].first || '' %>" />
+    </p>
+	<p>
+		<label>Number of blog posts to show per page:</label><br />
+		<select name="posts_per_page">
+			<option value="3" <%=raw "selected" if @model.options['posts_per_page'].first == "3" %>>3</option>
+			<option value="5" <%=raw "selected" if @model.options['posts_per_page'].first == "5" %>>5</option>
+			<option value="7" <%=raw "selected" if @model.options['posts_per_page'].first == "7" %>>7</option>
+			<option value="10" <%=raw "selected" if @model.options['posts_per_page'].first == "10" %>>10</option>
+			<option value="15" <%=raw "selected" if @model.options['posts_per_page'].first == "15" %>>15</option>
+			<option value="20" <%=raw "selected" if @model.options['posts_per_page'].first == "20" %>>20</option>
+			<option value="25" <%=raw "selected" if @model.options['posts_per_page'].first == "25" %>>25</option>
+			<option value="50" <%=raw "selected" if @model.options['posts_per_page'].first == "50" %>>50</option>
+			<option value="100" <%=raw "selected" if @model.options['posts_per_page'].first == "100" %>>100</option>
+		</select>
+	</p>
+	<p>
+		<label>Theme:</label><br />
+		<select name="app_theme">
+			<% @model.themes.each do |t| %>
+			<option value="<%= t %>" <%=raw "selected" if @model.options['app_theme'].first == t %>><%= t %></option>
+			<% end %>
+		</select>
+	</p>
 	<hr />
 	<p>
 	Please, <input type="submit" value="save" class="button" /> my changes.

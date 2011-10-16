@@ -9,8 +9,11 @@ class PostsController < ApplicationController
     end
     
     respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @posts }
+		format.html { 
+			render "themes/#{Artigo::CONFIG["app_theme"].first}/posts/index", 
+			:layout => "themes/#{Artigo::CONFIG["app_theme"].first}/layouts/main"  
+		}
+		format.xml  { render :xml => @posts }
     end
   end
   
@@ -27,7 +30,10 @@ class PostsController < ApplicationController
       render_post_not_found 
     else
       respond_to do |format|
-        format.html # show.html.erb
+        format.html { 
+			render "themes/#{Artigo::CONFIG["app_theme"].first}/posts/show", 
+			:layout => "themes/#{Artigo::CONFIG["app_theme"].first}/layouts/main"  
+		}
         format.xml  { render :xml => @post }
       end
     end
@@ -41,9 +47,12 @@ class PostsController < ApplicationController
     end
     
     respond_to do |format|
-      format.html { render "index" }
-      format.xml  { render :xml => @posts }
-	  format.json { render :json => @posts }
+		format.html { 
+			render "themes/#{Artigo::CONFIG["app_theme"].first}/posts/index", 
+			:layout => "themes/#{Artigo::CONFIG["app_theme"].first}/layouts/main"  
+		}
+		format.xml  { render :xml => @posts }
+		format.json { render :json => @posts }
     end
   end
   
