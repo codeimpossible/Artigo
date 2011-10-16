@@ -2,16 +2,21 @@
 <%=raw @post.title %>
 <% end %>
 
-<h2 id="title"><%=raw @post.title %> <% if logged_in? %><small>( <%= link_to "Edit", edit_post_path(@post, :area => "admin") %> )</small><% end %></h2>
-<p id="summary">
-  <%=raw @post.summary %>
-</p>
-<hr />
-<div class="meta">
-    <small>Written on <%=h @post.created_at.strftime("%A, %B %d, %Y") %></small>
-</div>
-<div id="content">
-  <%=raw @post.body %>
+<div class="post type-post hentry category-release">
+	<div class="entry-header">
+		<h3 class="entry-title">
+			<%=raw @post.title %> <% if logged_in? %><small>( <%= link_to "Edit", edit_post_path(@post) %> )</small><% end %>
+		</h3>
+		<div class="entry-meta">
+			<small>Written on <%=h @post.created_at.strftime("%A, %B %d, %Y") %></small>
+		</div>
+	</div>
+	<p id="summary">
+		<%=raw @post.summary %>
+	</p>
+	<div class="entry-content">
+		<%=raw @post.body %>
+	</div>
 </div>
 
 <%= link_to 'Back', posts_path %>

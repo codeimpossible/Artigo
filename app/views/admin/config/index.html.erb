@@ -33,6 +33,10 @@
 			<% end %>
 		</select>
 	</p>
+	<p>
+		<label>Disqus Account Name:</label><br />
+		<input type="text" name="disqus_account" value="<%= @model.options['disqus_account'].first || '' %>" />
+    </p>
 	<hr />
 	<p>
 	Please, <input type="submit" value="save" class="button" /> my changes.

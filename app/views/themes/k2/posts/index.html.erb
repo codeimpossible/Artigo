@@ -1,0 +1,32 @@
+<em>
+	<%=raw page_entries_info @posts %> <% if admin? %> (<%= link_to "Why not create a new post?", :controller => "admin/posts", :action => :new %>) <% end %>
+</em>
+
+<% @posts.each do |post| %>
+<div class="post type-post hentry category-release">
+	<div class="entry-header">
+		<h3 class="entry-title">
+			<%= link_to raw(post.title), permalink(post) %>
+		</h3>
+		<div class="entry-meta">
+			<small>Written on <%=h post.created_at.strftime("%A, %B %d, %Y") %></small>&nbsp;
+			<% if logged_in? %>
+			<span class="actions">
+				You can <%= link_to "View", permalink(post) %>,&nbsp;
+				<%= link_to "Edit", :controller => "admin/posts", :action => :edit, :id => post.id %>,&nbsp;or&nbsp;
+				<%= link_to "Delete", post, :confirm => "Are you sure?", :method => :delete, :controller => "admin/posts", :action => :delete %> this post.
+			</span>
+			<% end %>
+		</div>
+	</div>
+	<div class="entry-content">
+		<%=raw post.body %>
+	</div>
+</div>
+<% end %>
+<br />
+<% content_for :thebottom do %>
+	<br />
+	<%= will_paginate @posts, :page_links => true, :previous_label => "<< Newer Posts", :next_label => "Older Posts >>",  :params => { :controller => "posts", :action => "page" } %>
+	<br />
+<% end %>
