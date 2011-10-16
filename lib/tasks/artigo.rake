@@ -45,6 +45,10 @@ site_title:
 - "My Artigo Blog"
 posts_per_page: 
 - "3"
+app_theme:
+- "k2"
+disqus_account:
+- "artigo"
 EOF
 		end
 	end
