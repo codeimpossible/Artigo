@@ -13,7 +13,7 @@ class Admin::ConfigController < ApplicationController
   def save
 	
 	#wake up every morning feeling like pdata
-	pdata = request.raw_post.gsub(/(authenticity_token=[^&]+)/i,"")[1..-1]
+	pdata = request.raw_post.gsub(/(authenticity_token=[^&]+)|(u?tf8=[^&]+)/i,"")[1..-1]
 	
 	logger.debug request.raw_post
 	logger.debug pdata
