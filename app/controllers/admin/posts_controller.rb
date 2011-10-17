@@ -45,7 +45,6 @@ class Admin::PostsController < ApplicationController
         format.json { render :json => @post }
         format.xml  { render :xml => @post, :status => :created, :location => @post }
       else
-        format.html { render :action => "new" }
         format.json { render :json => "fail" }
         format.xml  { render :xml => @post.errors, :status => :unprocessable_entity }
       end
@@ -56,8 +55,8 @@ class Admin::PostsController < ApplicationController
 	@post = Post.find_by_id(params[:id])
   end
   
-  # PUT /posts/1
-  # PUT /posts/1.xml
+  # PUT /admin/posts/1
+  # PUT /admin/posts/1.xml
   def update
     @post = Post.find(params[:id])
     
@@ -80,7 +79,8 @@ class Admin::PostsController < ApplicationController
 	
     respond_to do |format|
       if @post.save
-        format.html { redirect_to( permalink(@post) ) }
+		flash[:notice] = 'Changes saved successfully.'
+        format.html { redirect_to :action => "index" }
         format.json { render :json => @post }
         format.xml  { head :ok }
       else

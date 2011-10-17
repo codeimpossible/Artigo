@@ -22,7 +22,7 @@ From this page you can Publish, Unpublish, and Delete your posts.</p>
                 <label for="posts">
                     <input type="checkbox" name="posts[]" value="<%= post.id %>" />
                     <%= post.title[0..30] %><%= post.title.length > 30 ? "..." : "" %>
-                </label> (<%= link_to "view", permalink(post), :target => "_blank" %>) (<%= link_to "edit", edit_post_path(post), :target => "_blank" %>)</td>
+                </label> (<%= link_to "view", permalink(post), :target => "_blank" %>) (<%= link_to "edit", edit_post_link(post), :target => "_blank" %>)</td>
 				<td><%= post.created_at %></td>
 				<td><%=raw post.published ? "<span style='color: green;'>Public" : "<span style='color: red;'>Private" %></span></td>
 			</tr>		

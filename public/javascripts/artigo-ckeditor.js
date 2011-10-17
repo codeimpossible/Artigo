@@ -9,8 +9,7 @@
 				['Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak','Iframe'],
 				['UIColor'],
 				['Maximize', 'ShowBlocks', '-', 'About']
-			],
-            contentsCss: "/stylesheets/scaffold.css"
+			]
 		};
 
 		// Initialize the editor.

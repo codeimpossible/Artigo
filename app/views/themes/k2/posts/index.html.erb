@@ -13,7 +13,7 @@
 			<% if logged_in? %>
 			<span class="actions">
 				You can <%= link_to "View", permalink(post) %>,&nbsp;
-				<%= link_to "Edit", :controller => "admin/posts", :action => :edit, :id => post.id %>,&nbsp;or&nbsp;
+				<%= link_to "Edit", edit_post_link(post) %>,&nbsp;or&nbsp;
 				<%= link_to "Delete", post, :confirm => "Are you sure?", :method => :delete, :controller => "admin/posts", :action => :delete %> this post.
 			</span>
 			<% end %>

@@ -10,12 +10,12 @@ body {
     padding-top: 20px;
 }
 
-#post.new  #title {
+#post.new #title, #post.edit  #title {
 	font-size: 24px;
 	width: 700px;
 }
 
-#post.new #summary {
+#post.new #summary, #post.edit #summary {
 	font-size: 18px;
 	width: 700px;
 }
@@ -131,3 +131,108 @@ body {
 #sidebar .side-col .portlet {
     margin: 0 0 15px;
 }
+
+
+/*
+ * Sprites
+ *********************/
+.soc-sprite { background: url('/images/admin/social/social.png') no-repeat 0 0; height: 24px; width: 24px; }
+.soc-sprite-add-this{ background-position: 0 0; width: 24px; height: 24px; } 
+.soc-sprite-amazon{ background-position: 0 -74px; width: 24px; height: 24px; } 
+.soc-sprite-aol{ background-position: 0 -148px; width: 24px; height: 24px; } 
+.soc-sprite-app-store-2{ background-position: 0 -222px; width: 24px; height: 24px; } 
+.soc-sprite-app-store{ background-position: 0 -296px; width: 24px; height: 24px; } 
+.soc-sprite-apple{ background-position: 0 -370px; width: 24px; height: 24px; } 
+.soc-sprite-bebo{ background-position: 0 -444px; width: 24px; height: 24px; } 
+.soc-sprite-behance{ background-position: 0 -518px; width: 24px; height: 24px; } 
+.soc-sprite-bing{ background-position: 0 -592px; width: 24px; height: 24px; } 
+.soc-sprite-blip{ background-position: 0 -666px; width: 24px; height: 24px; } 
+.soc-sprite-blogger{ background-position: 0 -740px; width: 24px; height: 24px; } 
+.soc-sprite-button-blue{ background-position: 0 -814px; width: 24px; height: 24px; } 
+.soc-sprite-button-green{ background-position: 0 -888px; width: 24px; height: 24px; } 
+.soc-sprite-button-light-blue{ background-position: 0 -962px; width: 24px; height: 24px; } 
+.soc-sprite-button-orange{ background-position: 0 -1036px; width: 24px; height: 24px; } 
+.soc-sprite-button-red{ background-position: 0 -1110px; width: 24px; height: 24px; } 
+.soc-sprite-button-white{ background-position: 0 -1184px; width: 24px; height: 24px; } 
+.soc-sprite-button-yellow{ background-position: 0 -1258px; width: 24px; height: 24px; } 
+.soc-sprite-coroflot{ background-position: 0 -1332px; width: 24px; height: 24px; } 
+.soc-sprite-daytum{ background-position: 0 -1406px; width: 24px; height: 24px; } 
+.soc-sprite-delicious{ background-position: 0 -1480px; width: 24px; height: 24px; } 
+.soc-sprite-design-bump{ background-position: 0 -1554px; width: 24px; height: 24px; } 
+.soc-sprite-designfloat{ background-position: 0 -1628px; width: 24px; height: 24px; } 
+.soc-sprite-deviant-art{ background-position: 0 -1702px; width: 24px; height: 24px; } 
+.soc-sprite-digg{ background-position: 0 -1776px; width: 24px; height: 24px; } 
+.soc-sprite-dribbble{ background-position: 0 -1850px; width: 24px; height: 24px; } 
+.soc-sprite-dropplr{ background-position: 0 -1924px; width: 24px; height: 24px; } 
+.soc-sprite-drupal{ background-position: -74px 0; width: 24px; height: 24px; } 
+.soc-sprite-ebay{ background-position: -74px -74px; width: 24px; height: 24px; } 
+.soc-sprite-email{ background-position: -74px -148px; width: 24px; height: 24px; } 
+.soc-sprite-ember{ background-position: -74px -222px; width: 24px; height: 24px; } 
+.soc-sprite-facebook{ background-position: -74px -296px; width: 24px; height: 24px; } 
+.soc-sprite-feedburner{ background-position: -74px -370px; width: 24px; height: 24px; } 
+.soc-sprite-flickr{ background-position: -74px -444px; width: 24px; height: 24px; } 
+.soc-sprite-forrst{ background-position: -74px -518px; width: 24px; height: 24px; } 
+.soc-sprite-foursquare{ background-position: -74px -592px; width: 24px; height: 24px; } 
+.soc-sprite-friendfeed{ background-position: -74px -666px; width: 24px; height: 24px; } 
+.soc-sprite-friendster{ background-position: -74px -740px; width: 24px; height: 24px; } 
+.soc-sprite-gdgt{ background-position: -74px -814px; width: 24px; height: 24px; } 
+.soc-sprite-github{ background-position: -74px -888px; width: 24px; height: 24px; } 
+.soc-sprite-google-buzz{ background-position: -74px -962px; width: 24px; height: 24px; } 
+.soc-sprite-google-talk{ background-position: -74px -1036px; width: 24px; height: 24px; } 
+.soc-sprite-google{ background-position: -74px -1110px; width: 24px; height: 24px; } 
+.soc-sprite-gowalla-2{ background-position: -74px -1184px; width: 24px; height: 24px; } 
+.soc-sprite-gowalla{ background-position: -74px -1258px; width: 24px; height: 24px; } 
+.soc-sprite-heart{ background-position: -74px -1332px; width: 24px; height: 24px; } 
+.soc-sprite-hyves{ background-position: -74px -1406px; width: 24px; height: 24px; } 
+.soc-sprite-icondock{ background-position: -74px -1480px; width: 24px; height: 24px; } 
+.soc-sprite-icq{ background-position: -74px -1554px; width: 24px; height: 24px; } 
+.soc-sprite-identi{ background-position: -74px -1628px; width: 24px; height: 24px; } 
+.soc-sprite-itune{ background-position: -74px -1702px; width: 24px; height: 24px; } 
+.soc-sprite-lastfm{ background-position: -74px -1776px; width: 24px; height: 24px; } 
+.soc-sprite-linkedin{ background-position: -74px -1850px; width: 24px; height: 24px; } 
+.soc-sprite-meetup{ background-position: -74px -1924px; width: 24px; height: 24px; } 
+.soc-sprite-metacafe{ background-position: -148px 0; width: 24px; height: 24px; } 
+.soc-sprite-microsoft{ background-position: -148px -74px; width: 24px; height: 24px; } 
+.soc-sprite-mister-wong{ background-position: -148px -148px; width: 24px; height: 24px; } 
+.soc-sprite-mixx{ background-position: -148px -222px; width: 24px; height: 24px; } 
+.soc-sprite-mobileme{ background-position: -148px -296px; width: 24px; height: 24px; } 
+.soc-sprite-msn{ background-position: -148px -370px; width: 24px; height: 24px; } 
+.soc-sprite-myspace{ background-position: -148px -444px; width: 24px; height: 24px; } 
+.soc-sprite-netvibes{ background-position: -148px -518px; width: 24px; height: 24px; } 
+.soc-sprite-newsvine{ background-position: -148px -592px; width: 24px; height: 24px; } 
+.soc-sprite-paypal{ background-position: -148px -666px; width: 24px; height: 24px; } 
+.soc-sprite-photobucket{ background-position: -148px -740px; width: 24px; height: 24px; } 
+.soc-sprite-picasa{ background-position: -148px -814px; width: 24px; height: 24px; } 
+.soc-sprite-podcast{ background-position: -148px -888px; width: 24px; height: 24px; } 
+.soc-sprite-posterous{ background-position: -148px -962px; width: 24px; height: 24px; } 
+.soc-sprite-qik{ background-position: -148px -1036px; width: 24px; height: 24px; } 
+.soc-sprite-reddit{ background-position: -148px -1110px; width: 24px; height: 24px; } 
+.soc-sprite-retweet{ background-position: -148px -1184px; width: 24px; height: 24px; } 
+.soc-sprite-rss{ background-position: -148px -1258px; width: 24px; height: 24px; } 
+.soc-sprite-scribd{ background-position: -148px -1332px; width: 24px; height: 24px; } 
+.soc-sprite-sharethis{ background-position: -148px -1406px; width: 24px; height: 24px; } 
+.soc-sprite-skype{ background-position: -148px -1480px; width: 24px; height: 24px; } 
+.soc-sprite-slashdot{ background-position: -148px -1554px; width: 24px; height: 24px; } 
+.soc-sprite-slideshare{ background-position: -148px -1628px; width: 24px; height: 24px; } 
+.soc-sprite-smugmug{ background-position: -148px -1702px; width: 24px; height: 24px; } 
+.soc-sprite-soundcloud{ background-position: -148px -1776px; width: 24px; height: 24px; } 
+.soc-sprite-spotify{ background-position: -148px -1850px; width: 24px; height: 24px; } 
+.soc-sprite-squidoo{ background-position: -148px -1924px; width: 24px; height: 24px; } 
+.soc-sprite-star{ background-position: -222px 0; width: 24px; height: 24px; } 
+.soc-sprite-stumbleupon{ background-position: -222px -74px; width: 24px; height: 24px; } 
+.soc-sprite-technorati{ background-position: -222px -148px; width: 24px; height: 24px; } 
+.soc-sprite-tumblr{ background-position: -222px -222px; width: 24px; height: 24px; } 
+.soc-sprite-twitter-2{ background-position: -222px -296px; width: 24px; height: 24px; } 
+.soc-sprite-twitter{ background-position: -222px -370px; width: 24px; height: 24px; } 
+.soc-sprite-viddler{ background-position: -222px -444px; width: 24px; height: 24px; } 
+.soc-sprite-vimeo{ background-position: -222px -518px; width: 24px; height: 24px; } 
+.soc-sprite-virb{ background-position: -222px -592px; width: 24px; height: 24px; } 
+.soc-sprite-w3{ background-position: -222px -666px; width: 24px; height: 24px; } 
+.soc-sprite-wikepedia{ background-position: -222px -740px; width: 24px; height: 24px; } 
+.soc-sprite-wordpress-2{ background-position: -222px -814px; width: 24px; height: 24px; } 
+.soc-sprite-wordpress{ background-position: -222px -888px; width: 24px; height: 24px; } 
+.soc-sprite-xing{ background-position: -222px -962px; width: 24px; height: 24px; } 
+.soc-sprite-yahoo-buzz{ background-position: -222px -1036px; width: 24px; height: 24px; } 
+.soc-sprite-yahoo{ background-position: -222px -1110px; width: 24px; height: 24px; } 
+.soc-sprite-yelp{ background-position: -222px -1184px; width: 24px; height: 24px; } 
+.soc-sprite-youtube{ background-position: -222px -1258px; width: 24px; height: 24px; } 

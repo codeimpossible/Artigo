@@ -40,9 +40,9 @@ function unpublish() {
 }
 
 function put(data, success, error) {
-    var postid = window.location.href.substring( window.location.href.indexOf('/posts/') + 7 ).replace(/\/edit/ig, '') * 1; 
+    var postid = window.location.href.substring(window.location.href.lastIndexOf('/') + 1) * 1; 
 	$.ajax({
-		url: '/posts/' + postid + '.json',
+		url: '/admin/posts/update/' + postid + '.json',
 		data: data,
 		dataType: 'json',
 		type: 'PUT',
