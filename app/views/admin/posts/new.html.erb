@@ -1,5 +1,5 @@
 <% content_for :thetitle do %>Create a new post<% end %>
-<% form_tag "/admin/posts/new" do -%>
+<%= form_tag "/admin/posts/create" do -%>
 <div id="post" class="new">
 	<label for="title">Title</label><br />
 	<input type="text" value="Your New Posts' Title" name="title" id="title" />

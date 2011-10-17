@@ -14,9 +14,9 @@
 	Go there now by clicking <a href="#" class="permalink">this link</a>.
 </p>
 
-<% form_tag "/admin/posts/edit" do -%>
+<%= form_tag "/admin/posts/update/#{@post.id}" do -%>
 <input type="hidden" name="id" value="<%=raw @post.id %>" />
-<div id="post" class="new">
+<div id="post" class="edit">
 	<label for="title">Title</label><br />
 	<input type="text" value="<%= h @post.title %>" name="title" id="title" />
 	<br />

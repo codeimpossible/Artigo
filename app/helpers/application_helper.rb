@@ -20,4 +20,8 @@ module ApplicationHelper
     
 		return @isactive
 	end
+	
+	def edit_post_link(post)
+		"/admin/posts/edit/#{post.id}"
+	end
 end
