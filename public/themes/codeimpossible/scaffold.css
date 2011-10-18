@@ -1,9 +1,9 @@
 body { background-color: #eee; color: #333; margin: 0; padding: 0; }
 
 body, p, ol, ul, td, .edit input, .edit textarea, .new input, .new textarea {  
-  font-family: corbel, 'lucida grande', helvetica, sans-serif;
-  line-height: 21px;
-  font-size: 1.1em;
+	font-family: "DejaVu Sans", Calibri, corbel, "Bitstream Vera Sans", 'lucida grande', helvetica, sans-serif;
+	line-height: 1.6em;
+	font-size: 1.1em;
 }
 
 div.title h1 { 
