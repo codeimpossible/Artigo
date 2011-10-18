@@ -1,4 +1,8 @@
 Artigo::Application.routes.draw do |map|
+  get "tags/index"
+
+  get "tags/show"
+
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   map.login '/login', :controller => 'sessions', :action => 'new'
   
@@ -14,7 +18,8 @@ Artigo::Application.routes.draw do |map|
                     :year       => /(19|20)\d{2}/,
                     :month      => /[01]?\d/,
                     :day        => /[0-3]?\d/
-  
+					
+  map.connect '/tags/:id.:format', :controller => 'tags', :action => 'show', :format => 'html'
   map.connect '/admin', :controller => 'admin/dashboard', :action => 'index'
   map.connect '/sessions', :controller => 'sessions', :action => 'create', :method => 'post'
   map.connect '/page/:page', :controller => 'posts', :action => 'page'

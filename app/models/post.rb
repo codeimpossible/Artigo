@@ -1,6 +1,6 @@
 class Post < ActiveRecord::Base
 	before_save :create_permalink
-	
+	acts_as_taggable
 	scope :private, :conditions => ["published = ?", false]
 	scope :public, :conditions => ["published = ?", true]
 	

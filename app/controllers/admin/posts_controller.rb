@@ -35,7 +35,8 @@ class Admin::PostsController < ApplicationController
     @post.title = params[:title]
     @post.summary = params[:summary]
     @post.body = params[:content]
-
+	@post.tag_list = params[:tags]
+	
     logger.debug @post    
 
     respond_to do |format|
@@ -65,6 +66,8 @@ class Admin::PostsController < ApplicationController
     @post.body = params[:content] if not params[:content].blank?
     @post.published = params[:post_published] if not params[:post_published].blank?
     
+	@post.tag_list = params[:tags]
+	
 	logger.debug params[:date_type]
 	logger.debug params[:post_created_at]
 	

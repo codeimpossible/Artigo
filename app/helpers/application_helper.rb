@@ -1,4 +1,6 @@
 module ApplicationHelper
+	include ActsAsTaggableOn::TagsHelper
+	
 	def admin?
 		@admin = self.current_user != nil
 	end

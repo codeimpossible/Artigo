@@ -25,6 +25,9 @@
 	<br />
 	<hr />
 	<textarea id="content" name="content"><%= h @post.body %></textarea>
+	<br />
+	<label for="tags">Tags</label><br />
+	<input type="text" name="tags" id="tags" value="<%= h @post.tag_list.join(', ') %>" />
 </div>
 <hr />
 <input type="submit" value="Save Changes" />
