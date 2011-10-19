@@ -1,0 +1,8 @@
+<h2>Posts tagged "<%= params[:id] %>"</h2>
+<% @posts.each do |post| %>
+<div class="post">
+	<h2 id="title"><%= link_to raw(post.title), permalink(post) %></h2>
+	<% if !post.summary.empty? %><div id="summary"><%= post.summary %></div><% end %>
+	<small>Written on <%=h post.created_at.strftime("%A, %B %d, %Y") %></small>&nbsp;
+</div>
+<% end %>
