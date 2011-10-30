@@ -12,6 +12,10 @@
 		<input type="text" name="head_title" value="<%= @model.options['head_title'].first || '' %>" />
     </p>
 	<p>
+		<label>Site Description:</label><br />
+		<textarea name="site_description"><%= @model.options['site_description'].first || '' %></textarea>
+    </p>
+	<p>
 		<label>Number of blog posts to show per page:</label><br />
 		<select name="posts_per_page">
 			<option value="3" <%=raw "selected" if @model.options['posts_per_page'].first == "3" %>>3</option>

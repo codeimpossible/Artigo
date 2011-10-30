@@ -11,6 +11,7 @@ The Admin Area
     <ul>
         <li><a href="#posts">Manage Posts</a></li>
         <li><a href="#config">Configure Your Blog</a></li>
+		<li><a href="#theme">Appearance</a></li>
     </ul>
     <div id="posts">
         <strong><a href="/admin/import">Import posts</a></strong>
@@ -29,6 +30,16 @@ The Admin Area
         <strong><a href="/admin/changepassword">Change your password</a></strong>
         <p>Password smelling a bit stale? Freshen it up right over here!</p>
     </div>
+	<div id="theme">
+		<strong>Change things up</strong>. Here, you can pick a new theme for your Artigo blog.
+		<% @model.themes.each do |theme| %>
+			<div>
+				<img src="<%= theme.image %>" /><br />
+				<h3><%= theme.title %></h3>
+				<p><%= theme.description ||= "no description provided." %></p>
+			</div>
+		<% end %>
+	</div>
 </div>
 <% content_for :thebottom do %>
 	<p>

@@ -1,0 +1,21 @@
+<em>
+	<%=raw page_entries_info @posts %> <% if admin? %> (<%= link_to "Why not create a new post?", new_post_path %>) <% end %>
+</em>
+
+<% @posts.each do |post| %>
+<div class="post">
+	<h1><%= link_to raw(post.title), permalink(post) %></h1>
+	<div class="postinfo">
+		<span class="postdate"><%=h post.created_at.strftime("%A, %B %d, %Y") %></span>
+	</div>
+	<div class="postdata">
+		<%= raw post.body %>
+	</div>
+</div>
+<% end %>
+<br />
+<% content_for :thebottom do %>
+	<br />
+	<%= will_paginate @posts, :page_links => true, :previous_label => "<< Newer Posts", :next_label => "Older Posts >>",  :params => { :controller => "posts", :action => "page" } %>
+	<br />
+<% end %>

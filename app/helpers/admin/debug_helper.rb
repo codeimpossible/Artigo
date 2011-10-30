@@ -1,0 +1,2 @@
+module Admin::DebugHelper
+end
