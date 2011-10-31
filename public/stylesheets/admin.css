@@ -132,6 +132,10 @@ body {
     margin: 0 0 15px;
 }
 
+pre.logs {
+	width: 100%;
+	word-wrap: break-word;
+}
 #themes .theme {
 	padding-bottom: 20px;
 }
