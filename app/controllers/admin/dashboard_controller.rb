@@ -24,11 +24,14 @@ class Admin::DashboardController < ApplicationController
 	@themes.each { |t|
 		theme = Theme.new
 		#check to see if the theme has an image
-		thumbpath = "#{::Rails.root}/public/themes/#{t}/thumb.png"
-		descpath = "#{::Rails.root}/public/themes/#{t}/description.txt"
-		theme.image = File.exist? "public/themes/#{t}/thumb.png" ? thumbpath : "public/themes/default.png"
+		theme_abs_dir = "#{::Rails.root}/public/themes/#{t}"
+		thumbpath = "#{theme_abs_dir}/thumb.png"
+		descpath = "#{theme_abs_dir}//description.txt"
+		theme.image = (File.exist? thumbpath) ? "themes/#{t}/thumb.png" : "themes/default.png"
 		theme.title = t
 		theme.description = IO.read(descpath) if File.exist? descpath
+		
+		logger.debug theme
 		
 		list.push theme
 	}

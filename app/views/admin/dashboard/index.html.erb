@@ -11,7 +11,7 @@ The Admin Area
     <ul>
         <li><a href="#posts">Manage Posts</a></li>
         <li><a href="#config">Configure Your Blog</a></li>
-		<li><a href="#theme">Appearance</a></li>
+		<li><a href="#themes">Appearance</a></li>
     </ul>
     <div id="posts">
         <strong><a href="/admin/import">Import posts</a></strong>
@@ -30,14 +30,23 @@ The Admin Area
         <strong><a href="/admin/changepassword">Change your password</a></strong>
         <p>Password smelling a bit stale? Freshen it up right over here!</p>
     </div>
-	<div id="theme">
-		<strong>Change things up</strong>. Here, you can pick a new theme for your Artigo blog.
+	<div id="themes">
+		<strong>Change things up</strong>. Here you can pick a new theme for your Artigo blog.
 		<% @model.themes.each do |theme| %>
-			<div>
-				<img src="<%= theme.image %>" /><br />
+			<div class="theme <%= "selected" if theme.title == Artigo::CONFIG["app_theme"].first %>" >
+				<img src="<%= theme.image %>" />
 				<h3><%= theme.title %></h3>
-				<p><%= theme.description ||= "no description provided." %></p>
+				<p><%= raw theme.description ||= "no description provided." %></p>
+				
+				<div class="selecttheme">
+					<button class="themepicker" theme="<%= theme.title %>">Use this theme!</button>
+					<span class="ajax status">Changing theme...</span>
+				</div>
+				<div class="selectedtheme">
+					<strong>This is your current theme</strong>
+				</div>
 			</div>
+			<div class="clear"></div>
 		<% end %>
 	</div>
 </div>

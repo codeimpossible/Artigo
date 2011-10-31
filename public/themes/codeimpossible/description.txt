@@ -1,0 +1,2 @@
+<p>Codeimpossible is a minimalist theme for Artigo. It's focused on delivering your content in a easy to read format.</p>
+<p>Author: <a href="http://codeimpossible.com">Jared Barboza</a></p>

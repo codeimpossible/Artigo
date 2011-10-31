@@ -21,6 +21,7 @@ Artigo::Application.routes.draw do |map|
 					
   map.connect '/tags/:id.:format', :controller => 'tags', :action => 'show', :format => 'html'
   map.connect '/admin', :controller => 'admin/dashboard', :action => 'index'
+  map.connect '/admin/config/changetheme', :controller => 'admin/config', :action => 'changetheme'
   map.connect '/sessions', :controller => 'sessions', :action => 'create', :method => 'post'
   map.connect '/page/:page', :controller => 'posts', :action => 'page'
   map.connect '/page/:page.:format', :controller => 'posts', :action => 'page', :format => 'html'

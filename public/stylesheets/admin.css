@@ -132,6 +132,40 @@ body {
     margin: 0 0 15px;
 }
 
+#themes .theme {
+	padding-bottom: 20px;
+}
+
+#themes .theme .selecttheme {
+	display: inline;
+}
+
+#themes .theme .selectedtheme {
+	display: none;
+}
+
+#themes .theme.selected .selecttheme {
+	display: none;
+}
+
+#themes .theme.selected .selectedtheme {
+	display: block;
+}
+
+.theme img {
+	float: left;
+	margin-right: 10px;
+}
+
+.ajax {
+	color: #0088FF;
+}
+
+.status.ajax {
+	background: url(/images/admin/ajax.gif) no-repeat 0 0;
+	padding-left: 20px;
+	display: none;
+}
 
 /*
  * Sprites

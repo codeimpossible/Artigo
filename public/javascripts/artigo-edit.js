@@ -30,11 +30,10 @@ function unpublish() {
 		post_published: false
 	}, function(d) {
 		if( d.post ) {
-			$('#notice').slideDown(function() { $(this).html('Post is now private.').glow("#ffff99", 3000); });
+			$('#notice').slideDown(function() { $(this).html('Theme is now set to: "'+ theme +'"').glow("#ffff99", 3000); });
 			setTimeout(function() {
 				$('#notice').slideUp(function(){ $(this).html(''); });
 			}, 4000);
-			$('.unpublish').slideUp(function() { $('.publish').slideDown(); });
 		}
 	});
 }
