@@ -1,7 +1,9 @@
 (function($) {
 	$(function() {
 		$('.tabs').tabs({ cookie: { expires: 30 } });
-		$('button').button().click(function(e) {
+		$('button, input[type=submit]').button();
+		
+		$('#themes button').click(function(e) {
 			e.preventDefault();
 			var $trigger = $(this);
 			var theme = $trigger.attr('theme');

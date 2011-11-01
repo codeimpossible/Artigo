@@ -13,6 +13,11 @@ module ApplicationHelper
 		return instance_variable_get("@content_for_#{name}")
 	end
 	
+	def artigo_config(name)
+		@result = ""
+		@result = Artigo::CONFIG[name].first if Artigo::CONFIG[name]
+	end
+	
 	def is_active?(desc= {})
 		desc[:controller] = "home" if desc[:controller] == nil
 	

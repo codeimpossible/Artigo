@@ -4,7 +4,7 @@ class Admin::DashboardController < ApplicationController
   before_filter :login_required
   layout "admin"
   
-  Theme = Struct.new(:title, :description, :image)
+  Theme = Struct.new( :title, :description, :image, :has_settings )
   
   def index
   
@@ -19,7 +19,8 @@ class Admin::DashboardController < ApplicationController
 	
 	list = []
 	#load themes
-	Dir.chdir("#{::Rails.root}/app/views/themes")
+	theme_app_path = "#{::Rails.root}/app/views/themes"
+	Dir.chdir(theme_app_path)
 	@themes = Dir['*/'].collect{ |t| t.chomp("/") }
 	@themes.each { |t|
 		theme = Theme.new
@@ -30,7 +31,7 @@ class Admin::DashboardController < ApplicationController
 		theme.image = (File.exist? thumbpath) ? "themes/#{t}/thumb.png" : "themes/default.png"
 		theme.title = t
 		theme.description = IO.read(descpath) if File.exist? descpath
-		
+		theme.has_settings = File.exist? "#{theme_app_path}/#{t}/partials/_settings.html.erb"
 		logger.debug theme
 		
 		list.push theme

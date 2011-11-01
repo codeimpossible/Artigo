@@ -1,8 +1,8 @@
 <em>
-	<%=raw page_entries_info @posts %> <% if admin? %> (<%= link_to "Why not create a new post?", :controller => "admin/posts", :action => :new %>) <% end %>
+	<%=raw page_entries_info @model.posts %> <% if admin? %> (<%= link_to "Why not create a new post?", :controller => "admin/posts", :action => :new %>) <% end %>
 </em>
 
-<% @posts.each do |post| %>
+<% @model.posts.each do |post| %>
 <div class="post type-post hentry category-release">
 	<div class="entry-header">
 		<h3 class="entry-title">
@@ -27,6 +27,6 @@
 <br />
 <% content_for :thebottom do %>
 	<br />
-	<%= will_paginate @posts, :page_links => true, :previous_label => "<< Newer Posts", :next_label => "Older Posts >>",  :params => { :controller => "posts", :action => "page" } %>
+	<%= will_paginate @model.posts, :page_links => true, :previous_label => "<< Newer Posts", :next_label => "Older Posts >>",  :params => { :controller => "posts", :action => "page" } %>
 	<br />
 <% end %>

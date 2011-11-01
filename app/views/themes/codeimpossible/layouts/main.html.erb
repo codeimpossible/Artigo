@@ -3,9 +3,9 @@
 <head>
 	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <% if content_exists?(:title)-%>
-        <title><%= Artigo::CONFIG["head_title"].first %> - <%= content_for :title%></title>
+        <title><%= artigo_config("head_title") %> - <%= content_for :title%></title>
     <% else -%>
-        <title><%= Artigo::CONFIG["head_title"].first %> - <%= controller.action_name %></title>
+        <title><%= artigo_config("head_title") %> - <%= controller.action_name %></title>
     <% end -%>
 	
 	<link rel="stylesheet" href="<%= Artigo.theme_dir %>/scaffold.css" />
@@ -19,9 +19,9 @@
 			<div class="thetop">
 				<div class="title">
 					<div class="author">
-						<img src="http://www.gravatar.com/avatar.php?gravatar_id=55997cec217233703cbf68b689578771&s=48" class="author" />
+						<img src="<%= @model.get_opt('avatar') %>" class="author" />
 					</div>
-					<h1><a href="/"><%= Artigo::CONFIG["site_title"].first %></a></h1>				
+					<h1><a href="/"><%= artigo_config("site_title") %></a></h1>				
 				</div>
 				<ul class="navigation">
 					<li><a href="/">Home</a></li>
@@ -56,7 +56,7 @@
 	<div class="ancillary">
 		<div align="center" class="inside">
 			<p>
-				<em>The opinions expressed herein are my own and do not represent my employer's view in any way.</em>
+				<em><%= @model.get_opt('footer') %></em>
 			</p>
 			<br />
 			<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">
@@ -80,7 +80,7 @@
         
         <% if !is_dev? %>
         var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-9421738-1']);
+        _gaq.push(['_setAccount', '<%= artigo_config("google_analytics") %>']);
         _gaq.push(['_trackPageview']);
 
         (function() {

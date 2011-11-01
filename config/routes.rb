@@ -1,6 +1,6 @@
 Artigo::Application.routes.draw do |map|
-  get "tags/index"
 
+  get "tags/index"
   get "tags/show"
 
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
@@ -19,13 +19,18 @@ Artigo::Application.routes.draw do |map|
                     :month      => /[01]?\d/,
                     :day        => /[0-3]?\d/
 					
-  map.connect '/tags/:id.:format', :controller => 'tags', :action => 'show', :format => 'html'
   map.connect '/admin', :controller => 'admin/dashboard', :action => 'index'
   map.connect '/admin/config/changetheme', :controller => 'admin/config', :action => 'changetheme'
+  map.connect '/admin/themes/:theme/settings', :controller => 'admin/theme_settings', :action => 'edit'
+  map.connect '/admin/themes/:theme/settings/save', :controller => 'admin/theme_settings', :action => 'save'
+  
+  map.connect '/tags/:id.:format', :controller => 'tags', :action => 'show', :format => 'html'
   map.connect '/sessions', :controller => 'sessions', :action => 'create', :method => 'post'
   map.connect '/page/:page', :controller => 'posts', :action => 'page'
   map.connect '/page/:page.:format', :controller => 'posts', :action => 'page', :format => 'html'
   map.connect '/rss', :controller => 'posts', :action => 'rss'  
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
+  
+  match "*rest" => "application#render_404"
 end

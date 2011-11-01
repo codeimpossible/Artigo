@@ -1,0 +1,12 @@
+<strong>Codeimpossible Theme Settings</strong>
+<fieldset>
+	<p>
+		<label for="avatar">Avatar Url</label><br />
+		<input name="avatar" type="text" value="<%= @model.setting('avatar') %>" />
+	</p>
+	
+	<p>
+		<label for="footer">Footer Text</label><br />
+		<textarea name="footer"><%= @model.setting('footer') %></textarea>
+	</p>
+</fieldset>

@@ -1,3 +1,4 @@
+<% @post = @model.posts %>
 <% content_for :title do %>
 <%=raw @post.title %>
 <% end %>
@@ -18,12 +19,5 @@
 <br />
 <h2>Let's talk about this</h2>
 <p><%= "Comments will show when the blog is running in production mode." if is_dev? %></p>
-<% if !is_dev? %>
-	<div id="disqus_thread"></div>
-	<script type="text/javascript">
-		var disqus_identifier = <%= @post.id %>;
-	</script>
-    <script type="text/javascript" src="http://<%= Artigo::CONFIG['disqus_account'].first %>.disqus.com/embed.js"></script>
-	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<% end %>
+<% render :partial => 'shared/comments' %>
 <p>&nbsp;</p>
