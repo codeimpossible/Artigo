@@ -1,4 +1,4 @@
 <h2>Tags used on this site</h2>
-<% tag_cloud(@tags, %w(tag1 tag2 tag3 tag4)) do |tag, css_class| %>
+<% tag_cloud(@model.content, %w(tag1 tag2 tag3 tag4)) do |tag, css_class| %>
   <a href='/tags/<%= tag.name %>' class="<%= css_class %>"><%= tag.name %></a>
 <% end %>

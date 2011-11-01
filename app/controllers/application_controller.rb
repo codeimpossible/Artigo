@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
 	theme = Artigo.get_conf("app_theme")
 	options = ThemeSetting.for_theme(theme)
 	
-	@model = PostViewModel.new(nil, options)
+	@model = ThemedViewModel.new(nil, options)
 	
     respond_to do |type| 
       type.all { render :template => "themes/#{theme}/errors/404", :layout => "themes/#{theme}/layouts/main", :status => 404 } 

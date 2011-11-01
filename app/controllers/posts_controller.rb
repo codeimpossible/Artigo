@@ -12,7 +12,7 @@ class PostsController < ApplicationController
 	
 	options = ThemeSetting.for_theme(theme)
 	
-	@model = PostViewModel.new(posts, options)
+	@model = ThemedViewModel.new(posts, options)
     
     respond_to do |format|
 		format.html { 
@@ -42,7 +42,7 @@ class PostsController < ApplicationController
 	
 	options = ThemeSetting.for_theme(theme)
 	
-	@model = PostViewModel.new(post, options)
+	@model = ThemedViewModel.new(post, options)
     
     if post == nil
       render_post_not_found 
@@ -68,7 +68,7 @@ class PostsController < ApplicationController
 	
 	options = ThemeSetting.for_theme(theme)
 	
-	@model = PostViewModel.new(posts, options)
+	@model = ThemedViewModel.new(posts, options)
 	
     respond_to do |format|
 		format.html { 

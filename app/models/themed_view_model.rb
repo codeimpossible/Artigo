@@ -1,8 +1,8 @@
-class PostViewModel
-	attr_accessor :posts, :options
+class ThemedViewModel
+	attr_accessor :content, :options
 	
-	def initialize(posts, options)
-		@posts = posts
+	def initialize(content, options)
+		@content = content
 		@options = options
 	end
 	
