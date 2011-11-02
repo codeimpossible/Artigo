@@ -1,6 +1,6 @@
 <% @post = @model.content %>
 <% content_for :title do %>
-<%=raw @post.title %>
+	<%=raw @post.title %>
 <% end %>
 
 <h2 id="title"><%=raw @post.title %> <% if logged_in? %><small>( <%= link_to "Edit", edit_post_path(@post, :area => "admin") %> )</small><% end %></h2>
@@ -10,6 +10,12 @@
 <hr />
 <div class="meta">
     <small>Written on <%=h @post.created_at.strftime("%A, %B %d, %Y") %></small>
+	<% if @post.tag_list.count > 0 %>
+		 | <strong>Tags: </strong>
+		<% @post.tag_list.each do |tag| %>
+			<%= render :partial => "themes/codeimpossible/partials/tag", :locals => {:tag => tag} %>, 
+		<% end %>
+	<% end %>
 </div>
 <div id="content">
   <%=raw @post.body %>

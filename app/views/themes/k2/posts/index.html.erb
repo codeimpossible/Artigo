@@ -22,6 +22,14 @@
 	<div class="entry-content">
 		<%=raw post.body %>
 	</div>
+	<% if post.tag_list.count > 0 %>
+	<div class="posttags">
+		<strong>Tags: </strong>
+		<% post.tag_list.each do |tag| %>
+			<%= render :partial => "themes/k2/partials/tag", :locals => {:tag => tag} %>, 
+		<% end %>
+	</div>
+	<% end %>
 </div>
 <% end %>
 <br />
