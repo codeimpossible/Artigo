@@ -19,11 +19,14 @@ class Admin::PostsController < ApplicationController
   # GET /admin/posts/new
   # GET /admin/posts/new.xml
   def new
-    @post = Post.new
-    
+    post = Post.new
+    tags = Post.tag_counts_on(:tags)
+	
+	@model = AdminPostViewModel.new(post,tags)
+	
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @post }
+      format.xml  { render :xml => post }
     end
   end
   
@@ -53,7 +56,10 @@ class Admin::PostsController < ApplicationController
   end
   
   def edit
-	@post = Post.find_by_id(params[:id])
+	post = Post.find_by_id(params[:id])	
+	tags = Post.tag_counts_on(:tags)
+	
+	@model = AdminPostViewModel.new(post,tags)
   end
   
   # PUT /admin/posts/1
@@ -67,9 +73,6 @@ class Admin::PostsController < ApplicationController
     @post.published = params[:post_published] if not params[:post_published].blank?
     
 	@post.tag_list = params[:tags]
-	
-	logger.debug params[:date_type]
-	logger.debug params[:post_created_at]
 	
 	should_change_date = params[:date_type].blank? ? false : params[:date_type] != "default"
 	if should_change_date

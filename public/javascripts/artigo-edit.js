@@ -76,7 +76,7 @@ function goback(e) {
 
 
 (function($) {
-	$(function() {
+	$(function() {	
 		$('button#publish').click(publish);
 		$('button#unpublish').click(unpublish);
 		$('#date_type').change(function(){
