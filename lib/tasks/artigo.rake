@@ -1,10 +1,11 @@
 namespace :artigo do
-	desc 'Generates a session_store.rb file.'
-	task :generate_session_store => :environment do
-		path = File.join(::Rails.root.to_s, 'config', 'initializers', 'session_store.rb')
+	desc 'Generate restauth keys'
+	task :generate_keys => :environment do
+		session_path = File.join(::Rails.root.to_s, 'config', 'initializers', 'session_store.rb')
+		keys_path = File.join(::Rails.root.to_s, 'config', 'initializers', 'site_keys.rb')
 		secret = ActiveSupport::SecureRandom.hex(40)
-		File.new(path, "w") unless File.exist?(path)
-		File.open(path, "w") do |f|
+		File.new(session_path, "w") unless File.exist?(session_path)
+		File.open(session_path, "w") do |f|
 			f.write <<"EOF"
 # Be sure to restart your server when you modify this file.
 
@@ -15,15 +16,9 @@ Artigo::Application.config.secret_token = '#{secret}'
 # (create the session table with "rake db:sessions:create")
 # Artigo::Application.config.session_store :active_record_store
 EOF
-		end
-	end
-	
-	desc 'Generates a site_keys.rb file.'
-	task :generate_site_keys => :environment do
-		path = File.join(::Rails.root.to_s, 'config', 'initializers', 'site_keys.rb')
-		secret = ActiveSupport::SecureRandom.hex(40)
-		File.new(path, "w") unless File.exist?(path)
-		File.open(path, "w") do |f|
+
+		File.new(keys_path, "w") unless File.exist?(keys_path)
+		File.open(keys_path, "w") do |f|
 			f.write <<"EOF"
 # This file should not be made visible to public.
 REST_AUTH_SITE_KEY         = '#{secret}'
@@ -39,16 +34,20 @@ EOF
         File.open(path, "w") do |f|
             f.write <<"EOF"
 --- 
+app_theme: 
+- metro
+google_analytics: 
+- analyticscode_here
 head_title: 
-- "My Artigo Blog"
+- My Artigo Blog
 site_title: 
-- "My Artigo Blog"
+- My Artigo Blog
+disqus_account: 
+- artigo
+site_description: 
+- Just another awesome Artigo Blog
 posts_per_page: 
 - "3"
-app_theme:
-- "k2"
-disqus_account:
-- "artigo"
 EOF
 		end
 	end
@@ -131,5 +130,5 @@ eos
     end
     
 	desc 'Artigo First Time Setup'
-	task :first_time => [:generate_session_store, :generate_site_keys, :make_config, :make_db_config, :db]
+	task :first_time => [:generate_keys, :make_config, :make_db_config, :db]
 end
