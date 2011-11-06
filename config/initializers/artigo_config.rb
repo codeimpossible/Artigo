@@ -2,7 +2,7 @@ module Artigo
 	
 	@@config_path = "#{::Rails.root.to_s}/config/artigo.yml"
 	
-	CONFIG = YAML.load_file(@@config_path)
+	CONFIG = YAML.load_file(@@config_path) if File.exist?(@@config_path)
 	
 	def self.theme_dir
 		"/themes/#{Artigo::CONFIG['app_theme'].first}"

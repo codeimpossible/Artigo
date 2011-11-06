@@ -16,6 +16,7 @@ Artigo::Application.config.secret_token = '#{secret}'
 # (create the session table with "rake db:sessions:create")
 # Artigo::Application.config.session_store :active_record_store
 EOF
+		end
 
 		File.new(keys_path, "w") unless File.exist?(keys_path)
 		File.open(keys_path, "w") do |f|
@@ -30,9 +31,9 @@ EOF
 	desc 'Creates a base artigo.yml file'
 	task :make_config do
 		path = File.join(::Rails.root.to_s, 'config', 'artigo.yml')
-        File.new(path,"w") unless File.exist?(path)
-        File.open(path, "w") do |f|
-            f.write <<"EOF"
+	        File.new(path,"w") unless File.exist?(path)
+	        File.open(path, "w") do |f|
+        	    f.write <<"EOF"
 --- 
 app_theme: 
 - metro
@@ -130,5 +131,5 @@ eos
     end
     
 	desc 'Artigo First Time Setup'
-	task :first_time => [:generate_keys, :make_config, :make_db_config, :db]
+	task :first_time => [:make_db_config, :make_config, :generate_keys, :db]
 end
