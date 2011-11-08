@@ -401,3 +401,19 @@ li.L1,li.L3,li.L5,li.L7,li.L9{background:#fff}
 .tag2 { font-size: 1.2em; }
 .tag3 { font-size: 1.4em; }
 .tag4 { font-size: 1.6em; }
+
+/* Device Specific CSS */
+@media screen and (max-width:1024px) {
+
+}
+
+@media screen and (max-width:800px) {
+	.callout, ul.navigation { display: none; }
+	.page .inside, .ancillary .inside, .thetop .title { width: 100%; font-size: 1.5em; }
+	.page .inside { padding-left: 10px; }
+	.thetop .title h1{ font-size: 1.7em; }
+}
+
+@media screen and (max-width:450px) {
+
+}
