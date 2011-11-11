@@ -1,4 +1,5 @@
 class Admin::ThemeSettingsController < ApplicationController
+	before_filter :login_required
 	layout "admin"
 	
   def edit
@@ -11,6 +12,9 @@ class Admin::ThemeSettingsController < ApplicationController
   end
 
   def save
+	
+	redirect_to :controller => '/application', :action => 'render_404' and return unless request.post?
+	
 	theme = params[:theme]
 	
 	#remove all of the previous settings
@@ -18,12 +22,10 @@ class Admin::ThemeSettingsController < ApplicationController
 	
 	ThemeSetting.delete(settings)
 	
+	
+	
 	params.each do |key, value|
-		if key != 'theme' && key != 'authenticity_token' && key != 'utf8' 
-			logger.debug "HELLO"
-			logger.debug key
-			logger.debug value
-			
+		unless "theme,authenticity_token,utf8,controller,action".split(',').include? key 			
 			t = ThemeSetting.new(:theme => theme, :name => key, :value => value )
 			t.save
 		end
