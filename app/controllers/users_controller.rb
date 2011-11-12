@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 	if @count == 1
 		logger.warn "Someone attempted to access /user/new to create the admin account"
 		
-		not_found
+		not_found and return
 	else
 		@user = User.new
 	end

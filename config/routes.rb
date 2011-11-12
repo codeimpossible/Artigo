@@ -1,36 +1,36 @@
-Artigo::Application.routes.draw do |map|
+Artigo::Application.routes.draw do
+	resources :users, :posts 
+	resource :session
 
-  get "tags/index"
-  get "tags/show"
+	get "tags/index"
+	get "tags/show"
 
-  map.logout '/logout', :controller => 'sessions', :action => 'destroy'
-  map.login '/login', :controller => 'sessions', :action => 'new'
-  
-  map.resources :users
-  map.resource :session
-  map.resources :posts
-  
-  map.root :controller => "posts"
-  
-  map.post_permalink '/:year/:month/:day/:slug',
-                    :controller => 'posts',
-                    :action     => 'show',
-                    :year       => /(19|20)\d{2}/,
-                    :month      => /[01]?\d/,
-                    :day        => /[0-3]?\d/
-					
-  map.connect '/admin', :controller => 'admin/dashboard', :action => 'index'
-  map.connect '/admin/config/changetheme', :controller => 'admin/config', :action => 'changetheme'
-  map.connect '/admin/themes/:theme/settings', :controller => 'admin/theme_settings', :action => 'edit'
-  map.connect '/admin/themes/:theme/settings/save', :controller => 'admin/theme_settings', :action => 'save'
-  
-  map.connect '/tags/:id.:format', :controller => 'tags', :action => 'show', :format => 'html'
-  map.connect '/sessions', :controller => 'sessions', :action => 'create', :method => 'post'
-  map.connect '/page/:page', :controller => 'posts', :action => 'page'
-  map.connect '/page/:page.:format', :controller => 'posts', :action => 'page', :format => 'html'
-  map.connect '/rss', :controller => 'posts', :action => 'rss'  
-  map.connect ':controller/:action/:id'
-  map.connect ':controller/:action/:id.:format'
-  
-  match "*rest" => "application#render_404"
+	root :to => "posts#index"
+
+	match '/:year/:month/:day/:slug',
+			:to => 'posts#show',
+			:constraints => {
+				:year       => /(19|20)\d{2}/,
+				:month      => /[01]?\d/,
+				:day        => /[0-3]?\d/
+			}, 
+			:as => 'post_permalink'
+			
+	match '/admin', 								:to => 'admin/dashboard#index'				
+	match '/admin/config/changetheme', 				:to => 'admin/config#changetheme'
+	match '/admin/themes/:theme/settings', 			:to => 'admin/theme_settings#edit'
+	match '/admin/themes/:theme/settings/save', 	:to => 'admin/theme_settings#save'
+	match '/tags/:id(.:format)', 					:to => 'tags#show', :defaults => { :format => 'html' }
+	match '/sessions', 								:to => 'sessions#create', :via => 'post'
+	match '/page/:page', 							:to => 'posts#page'
+	match '/page/:page(.:format)', 					:to => 'posts#page', :defaults => { :format => 'html' }
+				
+	match 'logout',	 								:to => 'sessions#destroy'
+	match 'login', 									:to => 'sessions#new'
+	match 'page/:page(.:format)', 					:to => 'posts#page'
+	match 'rss', 									:to => 'posts#rss'
+	
+	match '/:controller(/:action(/:id))'
+	match '/:controller(/:action(/:id(.:format)))', :defaults => { :format => "html" }
+	match "*rest" => "application#render_404"
 end

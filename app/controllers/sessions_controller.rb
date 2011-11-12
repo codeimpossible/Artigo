@@ -6,14 +6,14 @@ class SessionsController < ApplicationController
 
   # render new.erb.html
   def new
-	redirect_to :controller => "users", :action => "new" if User.all.size == 0
+	redirect_to :controller => "users", :action => "new" and return if User.all.size == 0
   end
 
   def create
     logout_keeping_session!
     user = User.authenticate(params[:login], params[:password])
     if user
-      # Protects against session fixation attacks, causes request forgery
+	  # Protects against session fixation attacks, causes request forgery
       # protection if user resubmits an earlier form using back
       # button. Uncomment if you understand the tradeoffs.
       reset_session
@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
       note_failed_signin
       @login       = params[:login]
       @remember_me = params[:remember_me]
-      render :action => 'new'
+      render :new
     end
   end
 

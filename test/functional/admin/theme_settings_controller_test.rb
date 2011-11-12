@@ -9,12 +9,12 @@ class Admin::ThemeSettingsControllerTest < ActionController::TestCase
   
   test "non-logged in user cannot view edit" do
 	get :edit, { 'theme' => 'codeimpossible' }
-	assert_redirected_to :controller => "/session", :action => "new"
+	assert_redirected_to :controller => "/sessions", :action => "new"
   end
   
   test "non-logged in user cannot view save" do 
 	post :save, { 'theme' => 'codeimpossible' }
-	assert_redirected_to :controller => "/session", :action => "new"
+	assert_redirected_to :controller => "/sessions", :action => "new"
   end
 
   test "logged in user can save" do

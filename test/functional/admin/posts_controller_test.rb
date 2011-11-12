@@ -6,7 +6,7 @@ class Admin::PostsControllerTest < ActionController::TestCase
 
   test "non-logged in user cannot access index" do	
 	get :index
-    assert_redirected_to :controller => '/session', :action => 'new'
+    assert_redirected_to :controller => '/sessions', :action => 'new'
   end
   
   test "logged-in user can access index" do
