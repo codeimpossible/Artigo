@@ -5,7 +5,7 @@ class Post < ActiveRecord::Base
 	scope :public, :conditions => ["published = ?", true]
 	
 	cattr_reader :per_page
-	@@per_page = Artigo::CONFIG["posts_per_page"].first.to_i
+	@@per_page = Artigo.get_conf("posts_per_page").to_i
 	
 	def to_perm
 		"#{title.gsub(/&.{1,4};/i,'-').gsub(/[^a-z0-9]+/i, '-')}"

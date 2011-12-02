@@ -24,7 +24,7 @@
 	<textarea name="summary" id="summary"><%= h @model.post.summary %></textarea>
 	<br />
 	<hr />
-	<textarea id="content" name="content"><%= h @model.post.body %></textarea>
+	<textarea id="body" name="body"><%= h @model.post.body %></textarea>
 	<br />
 	<label for="tags">Tags</label><br />
 	<input type="text" name="tags" id="tags" value="<%= h @model.post.tag_list.join(', ') %>" />

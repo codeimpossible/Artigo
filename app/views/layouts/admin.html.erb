@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-    <title><%= Artigo::CONFIG["head_title"].first %> - Admin</title>
+    <title><%= artigo_config("head_title") %> - Admin</title>
 
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.0/themes/redmond/jquery-ui.css" />
 	<%= stylesheet_link_tag 'admin', :cache => is_dev? %>

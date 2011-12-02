@@ -55,7 +55,7 @@ function preview(e) {
     var context = $('.edit').size() > 0 ? '.edit' : '.new';
     $('.preview #title').html( $('#title', context).val() );
     $('.preview #summary').html( $('#summary', context).val() );
-    $('.preview #content').html( $('#content', context).val() );
+    $('.preview #body').html( $('#body', context).val() );
     $('.container').animate({
         left: "-=800px"
     }, 750);
@@ -67,7 +67,7 @@ function goback(e) {
     e.preventDefault();
     $('.preview #title').html( '' );
     $('.preview #summary').html( '' );
-    $('.preview #content').html( '' );
+    $('.preview #body').html( '' );
     $('.container').animate({
         left: "+=800px"
     }, 500); 

@@ -7,14 +7,14 @@ class Admin::PostsController < ApplicationController
   end
 
   def manage
-	num_posts = params[:posts].size
-	if params[:act] == "delete"
-		Post.bulk_delete(params[:posts])
-	else 
-		Post.bulk_set_published(params[:posts],params[:act] == "publish")
-	end
-	flash[:notice] = "#{num_posts} posts were #{params[:act]}ed."
-	redirect_to "/admin/posts"
+  	num_posts = params[:posts].size
+  	if params[:act] == "delete"
+  		Post.bulk_delete(params[:posts])
+  	else 
+  		Post.bulk_set_published(params[:posts],params[:act] == "publish")
+  	end
+  	flash[:notice] = "#{num_posts} posts were #{params[:act]}ed."
+  	redirect_to "/admin/posts"
   end
 
   # GET /admin/posts/new
@@ -22,8 +22,8 @@ class Admin::PostsController < ApplicationController
   def new
     post = Post.new
     tags = Post.tag_counts_on(:tags)
-	
-	@model = AdminPostViewModel.new(post,tags)
+
+    @model = AdminPostViewModel.new(post,tags)
 	
     respond_to do |format|
       format.html # new.html.erb
@@ -38,8 +38,8 @@ class Admin::PostsController < ApplicationController
     
     @post.title = params[:title]
     @post.summary = params[:summary]
-    @post.body = params[:content]
-	@post.tag_list = params[:tags]
+    @post.body = params[:body]
+    @post.tag_list = params[:tags]
 	
     logger.debug @post    
 
@@ -70,7 +70,7 @@ class Admin::PostsController < ApplicationController
     
     @post.title = params[:title] if not params[:title].blank?
     @post.summary = params[:summary] if not params[:summary].blank?
-    @post.body = params[:content] if not params[:content].blank?
+    @post.body = params[:body] if not params[:body].blank?
     @post.published = params[:post_published] if not params[:post_published].blank?
     
 	@post.tag_list = params[:tags]

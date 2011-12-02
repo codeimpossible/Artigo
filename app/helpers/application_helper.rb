@@ -15,7 +15,7 @@ module ApplicationHelper
 	
 	def artigo_config(name)
 		@result = ""
-		@result = Artigo::CONFIG[name].first if Artigo::CONFIG[name]
+		@result = Artigo.get_conf(name) if Artigo.get_conf(name)
 	end
 	
 	def is_active?(desc= {})
