@@ -45,14 +45,14 @@ class Admin::PostsControllerTest < ActionController::TestCase
     assert_redirected_to edit_admin_post_path :id => 3
   end
 
-  test "post with content param instead of body has no body when saved" do
+  test "post with content param instead of body reports error" do
     login_as :quentin
 
     post :create, :title => "Test Post Title",:summary => "Test Summary", :content => "This is some content"
 
-    post = Post.find_by_id(3)
+    p = assigns :post
 
-    assert_nil post.body
+    assert p.errors[:body]
   end
 
   test "post with body param fills out body" do

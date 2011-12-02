@@ -1,9 +1,9 @@
 class Post < ActiveRecord::Base
 	before_save :create_permalink
 	acts_as_taggable
+	validates_presence_of :body
 	scope :private, :conditions => ["published = ?", false]
 	scope :public, :conditions => ["published = ?", true]
-	
 	cattr_reader :per_page
 	@@per_page = Artigo.get_conf("posts_per_page").to_i
 	
