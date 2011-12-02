@@ -15,11 +15,22 @@ Artigo::Application.routes.draw do
 				:day        => /[0-3]?\d/
 			}, 
 			:as => 'post_permalink'
-			
-	match '/admin', 								:to => 'admin/dashboard#index'				
-	match '/admin/config/changetheme', 				:to => 'admin/config#changetheme'
-	match '/admin/themes/:theme/settings', 			:to => 'admin/theme_settings#edit'
-	match '/admin/themes/:theme/settings/save', 	:to => 'admin/theme_settings#save'
+
+	namespace :admin do
+  		match '/' => 'dashboard#index'
+  		resources 	:posts
+  		resource 	:import
+  		resource 	:config
+  		resource 	:tidyup
+  		resource 	:changepassword
+
+  		get   '/config/edit', 						:to => 'config#edit'
+  		post  '/config', 							:to => 'config#update'
+
+		get   '/themes/:theme/settings', 			:to => 'theme_settings#edit', :as => 'theme_settings'
+		post  '/themes/:theme/settings/save', 		:to => 'theme_settings#save', :as => 'theme_settings_save'
+	end
+	
 	match '/tags/:id(.:format)', 					:to => 'tags#show', :defaults => { :format => 'html' }
 	match '/sessions', 								:to => 'sessions#create', :via => 'post'
 	match '/page/:page', 							:to => 'posts#page'
@@ -27,10 +38,8 @@ Artigo::Application.routes.draw do
 				
 	match 'logout',	 								:to => 'sessions#destroy'
 	match 'login', 									:to => 'sessions#new'
-	match 'page/:page(.:format)', 					:to => 'posts#page'
 	match 'rss', 									:to => 'posts#rss'
-	
-	match '/:controller(/:action(/:id))'
+
 	match '/:controller(/:action(/:id(.:format)))', :defaults => { :format => "html" }
 	match "*rest" => "application#render_404"
 end
