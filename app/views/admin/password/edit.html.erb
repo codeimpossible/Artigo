@@ -1,4 +1,4 @@
-<% content_for :thetitle do %>Change your password<% end %>
+<%= content_for :thetitle do -%>Change your password<%- end -%>
 
 <p>So, you want to change your password, huh?</p>
 <p>Changing your password is a <big>big deal</big> as picking poor password
@@ -13,7 +13,7 @@ the risk of forgetting it.</p>
 </ul>
 </p>
 
-<% form_tag "/admin/changepassword/save" do -%>
+<%= form_tag "/admin/changepassword/save", :method => "put" do -%>
     <p>Okay, I've read all that stuff above and I'd like to change my password.</p>
     <p>My <strong>old password</strong> was <input type="password" name="old_password" /> but I'd like my <strong>new password</strong> to be <input type="password" name="password" />. 
         Again, my <strong>new password</strong> should be <input type="password" name="password_confirmation" />.
@@ -21,7 +21,7 @@ the risk of forgetting it.</p>
     <p>
         Please, <input type="submit" value="save" class="button" /> these changes.
     </p>
-<% end %>
+<%- end -%>
 <br />
 <hr />
 <p>You know, on second thought... I'll just go back to the <a href="/admin">Admin dashboard.</a></p>

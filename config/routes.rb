@@ -22,7 +22,7 @@ Artigo::Application.routes.draw do
   		resource 	:import
   		resource 	:config
   		resource 	:tidyup
-  		resource 	:changepassword
+  		resource 	:password
 
   		get   '/config/edit', 						:to => 'config#edit'
   		post  '/config', 							:to => 'config#update'
