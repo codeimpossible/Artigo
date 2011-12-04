@@ -1,7 +1,7 @@
 <% content_for :thetitle do %>Configure Artigo<% end %>
 <p>Here is where you can change all the settings for Artigo.</p>
 <p><big>Site Options</big></p>
-<% form_tag "/admin/config/save" do -%>
+<% form_tag edit_admin_config_path do -%>
 	
 	<input type="hidden" name="app_theme" value="<%= artigo_config('app_theme') %>" />
 	<fieldset>
