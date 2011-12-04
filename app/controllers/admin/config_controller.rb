@@ -1,33 +1,33 @@
 require 'ostruct'
 
-class Admin::ConfigController < ApplicationController
-  layout "admin"
+class Admin::ConfigController < Admin::BaseController
+    def edit	
 	
-  def index	
-	
-  end
+    end
 
-  def save
-	#wake up every morning feeling like pdata
-	pdata = request.raw_post.gsub(/(authenticity_token=[^&]+)|(u?tf8=[^&]+)/i,"")[1..-1]
-	
-	yaml = CGI::parse(pdata).to_yaml
-	
-	Artigo.store_config yaml
-	
-	flash[:notice] = 'Artigo configuration was saved successfully.'
-	redirect_to :action => 'index'
-  end
+    def update
+        params.each { |key,value|
+            Artigo::CONFIG.first[key] = value
+        }
+
+        Artigo::CONFIG.write
+
+        if params[:newtheme].nil?
+            redirect_to :action => 'index'
+        else
+            render :nothing => true
+        end
+    end
   
-  def changetheme
+    def changetheme
 	
-	logger.debug params[:newtheme]
-	Artigo::CONFIG["app_theme"][0] = params[:newtheme]
-	curr_yaml = Artigo::CONFIG.to_yaml
-	Artigo.store_config curr_yaml
+	   logger.debug params[:newtheme]
+	   Artigo::CONFIG["app_theme"][0] = params[:newtheme]
+	   curr_yaml = Artigo::CONFIG.to_yaml
+	   Artigo.store_config curr_yaml
 	
-	logger.debug curr_yaml
+	   logger.debug curr_yaml
 	
-	render :text => params[:newtheme]
-  end
+	   render :text => params[:newtheme]
+    end
 end

@@ -1,6 +1,4 @@
-class Admin::TidyupController < ApplicationController
-  layout "admin"
-
+class Admin::TidyupController < Admin::BaseController
   def index
   end
 

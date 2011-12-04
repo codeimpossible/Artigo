@@ -1,7 +1,4 @@
-class Admin::PostsController < ApplicationController
-  before_filter :login_required
-  layout "admin"
-
+class Admin::PostsController < Admin::BaseController
   def index
     @posts = Post.find(:all, :order => "created_at DESC")
   end
@@ -40,8 +37,6 @@ class Admin::PostsController < ApplicationController
     @post.summary = params[:summary]
     @post.body = params[:body]
     @post.tag_list = params[:tags]
-  
-    logger.debug @post    
 
     respond_to do |format|
       if @post.save
