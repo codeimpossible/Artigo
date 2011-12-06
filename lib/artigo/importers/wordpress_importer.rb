@@ -10,11 +10,11 @@ BlogPostImporter :wordpress do
     # loop through each post
     s = Time.now
     doc.elements.each('//item') do |ele|
-      if ele.get_text("wp:post_type") == "post" # we only do posts
+      if ele.get_text("wp:post_type") == "post" || ele.get_text("wp:post_type") == "draft" # we only do posts
         draft = ele.get_text("wp:status") == "draft"
         
-        should_save = (import_types == :all) || (import_types == :published and !draft) || (import_types == :draft and draft)
-        
+        should_save = (import_types == :all) || (import_types == :published && !draft) || (import_types == :draft && draft)
+
         if should_save
           make_post ele, date_type == :original
           added += 1

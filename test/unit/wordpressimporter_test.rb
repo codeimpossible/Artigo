@@ -13,4 +13,14 @@ class WordpressImporterTest < ActiveSupport::TestCase
       importer.import xml, :all, :original
     end
   end
+
+  test "test wordpress importer will import drafts" do
+    xml = IO.read("#{Rails.root}/test/exports/wordpress-sample3-drafts-only.wxr")
+
+    importer = BlogPostImporter.create :wordpress
+
+    assert_difference('Post.count', 1) do
+      importer.import xml, :all, :original
+    end
+  end
 end
