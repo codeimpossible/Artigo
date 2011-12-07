@@ -1,6 +1,6 @@
-require 'rexml/document'
+require File.expand_path('../blog_post_importer', __FILE__)
 
-require "#{Rails.root}/lib/artigo/importers/blog_post_importer.rb"
+require 'rexml/document'
 
 BlogPostImporter :wordpress do 
   def import(content, import_types = :all, date_type = :original)
