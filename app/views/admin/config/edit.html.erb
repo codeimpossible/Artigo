@@ -1,0 +1,49 @@
+<% content_for :thetitle do %>Configure Artigo<% end %>
+<p>Here is where you can change all the settings for Artigo.</p>
+<p><big>Site Options</big></p>
+<% form_tag edit_admin_config_path do -%>
+	
+	<input type="hidden" name="app_theme" value="<%= artigo_config('app_theme') %>" />
+	<fieldset>
+		<p>
+			<label>Site Title:</label><br />
+			<input type="text" name="site_title" value="<%= artigo_config('site_title') %>" />
+		</p>
+		<p>
+			<label>&lt;HEAD&gt; Title:</label><br />
+			<input type="text" name="head_title" value="<%= artigo_config('head_title') || '' %>" />
+		</p>
+		<p>
+			<label>Site Description:</label><br />
+			<textarea name="site_description"><%= artigo_config('site_description') || '' %></textarea>
+		</p>
+		<p>
+			<label>Number of blog posts to show per page:</label><br />
+			<select name="posts_per_page">
+				<option value="3" <%=raw "selected" if artigo_config('posts_per_page') == "3" %>>3</option>
+				<option value="5" <%=raw "selected" if artigo_config('posts_per_page') == "5" %>>5</option>
+				<option value="7" <%=raw "selected" if artigo_config('posts_per_page') == "7" %>>7</option>
+				<option value="10" <%=raw "selected" if artigo_config('posts_per_page') == "10" %>>10</option>
+				<option value="15" <%=raw "selected" if artigo_config('posts_per_page') == "15" %>>15</option>
+				<option value="20" <%=raw "selected" if artigo_config('posts_per_page') == "20" %>>20</option>
+				<option value="25" <%=raw "selected" if artigo_config('posts_per_page') == "25" %>>25</option>
+				<option value="50" <%=raw "selected" if artigo_config('posts_per_page') == "50" %>>50</option>
+				<option value="100" <%=raw "selected" if artigo_config('posts_per_page') == "100" %>>100</option>
+			</select>
+		</p>
+		<p>
+			<label>Disqus Account Name:</label><br />
+			<input type="text" name="disqus_account" value="<%= artigo_config('disqus_account') || '' %>" />
+		</p>
+		<p>
+			<label>Google Analytics Code:</label><br />
+			<input type="text" name="google_analytics" value="<%= artigo_config('google_analytics') || '' %>" />
+		</p>
+	</fieldset>
+	<p>
+	<input type="submit" value="Please, save my changes" />
+	</p>	
+<% end %>
+<br />
+<hr />
+<p>You know, on second thought... I'll just go back to the <a href="/admin">Admin dashboard.</a></p>

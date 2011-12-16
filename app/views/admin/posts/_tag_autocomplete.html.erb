@@ -1,0 +1,19 @@
+<script type="text/javascript">
+	(function($) {
+		var tags = [
+		<% tags.each do |tag| %>
+			<%=raw '"' + tag.name + '",' %>
+		<% end %>
+		];
+		
+		function default_ac_options( item ) {
+			return { minChars: 1, autoFill: true, width: item.width(), max: 4, highlight: false, multiple: true, multipleSeparator: ", ", scroll: true, scrollHeight: 300 };
+		}
+		
+		$(function() {
+			var $item = $("#tags");
+			var options = default_ac_options($item);
+			$item.autocomplete(tags, options );
+		});
+	})(jQuery);
+</script>

@@ -1,0 +1,26 @@
+<% @post = @model.content %>
+<% content_for :title do %>
+<%=raw @post.title %>
+<% end %>
+
+<div class="post">
+	<h1><%= raw @post.title %> <% if logged_in? %><small>( <%= link_to "Edit", edit_post_path(@post, :area => "admin") %> )</small><% end %></h1>
+	<div class="postinfo">
+		<span class="postdate"><%=h @post.created_at.strftime("%A, %B %d, %Y") %></span>
+		<span class="posttags">
+		<%= " | " if @post.tag_list.count > 0 %>
+		<% @post.tag_list.each do |tag| %>
+			<%= render :partial => "themes/metro/partials/tag", :locals => {:tag => tag} %>
+		<% end %>
+		</span>
+	</div>
+	<div class="postdata">
+		<%= raw @post.body %>
+	</div>
+</div>
+<%= link_to 'Back', posts_path %>
+<br />
+<h2>Let's talk about this</h2>
+<p><%= "Comments will show when the blog is running in production mode." if is_dev? %></p>
+<% render :partial => 'shared/comments' %>
+<p>&nbsp;</p>

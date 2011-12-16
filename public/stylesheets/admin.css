@@ -132,6 +132,44 @@ body {
     margin: 0 0 15px;
 }
 
+pre.logs {
+	width: 100%;
+	word-wrap: break-word;
+}
+#themes .theme {
+	padding-bottom: 20px;
+}
+
+#themes .theme .selecttheme {
+	display: inline;
+}
+
+#themes .theme .selectedtheme {
+	display: none;
+}
+
+#themes .theme.selected .selecttheme {
+	display: none;
+}
+
+#themes .theme.selected .selectedtheme {
+	display: block;
+}
+
+.theme img {
+	float: left;
+	margin-right: 10px;
+}
+
+.ajax {
+	color: #0088FF;
+}
+
+.status.ajax {
+	background: url(/images/admin/ajax.gif) no-repeat 0 0;
+	padding-left: 20px;
+	display: none;
+}
 
 /*
  * Sprites
@@ -236,3 +274,55 @@ body {
 .soc-sprite-yahoo{ background-position: -222px -1110px; width: 24px; height: 24px; } 
 .soc-sprite-yelp{ background-position: -222px -1184px; width: 24px; height: 24px; } 
 .soc-sprite-youtube{ background-position: -222px -1258px; width: 24px; height: 24px; } 
+
+/* AUTOCOMPLETE PLUGIN STYLES
+----------------------------------------------------------*/
+
+.ac_results {
+	padding: 0px;
+	border: 1px solid black;
+	background-color: white;
+	overflow: hidden;
+	z-index: 99999;
+}
+
+.ac_results ul {
+	width: 100%;
+	list-style-position: outside;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.ac_results li {
+	margin: 0px;
+	padding: 2px 5px;
+	cursor: default;
+	display: block;
+	/* 
+	if width will be 100% horizontal scrollbar will apear 
+	when scroll mode will be used
+	*/
+	/*width: 100%;*/
+	font: menu;
+	font-size: 12px;
+	/* 
+	it is very important, if line-height not setted or setted 
+	in relative units scroll will be broken in firefox
+	*/
+	line-height: 16px;
+	overflow: hidden;
+}
+
+.ac_loading {
+	background: white url('/images/ajax-load.gif') right center no-repeat;
+}
+
+.ac_odd {
+	background-color: #eee;
+}
+
+.ac_over {
+	background-color: #0A246A;
+	color: white;
+}

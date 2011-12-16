@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 
   # render new.erb.html
   def new
-	redirect_to :controller => "users", :action => "new" if User.all.size == 0
+    redirect_to :controller => "users", :action => "new" and return if User.all.size == 0
   end
 
   def create
@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
       note_failed_signin
       @login       = params[:login]
       @remember_me = params[:remember_me]
-      render :action => 'new'
+      render :new
     end
   end
 

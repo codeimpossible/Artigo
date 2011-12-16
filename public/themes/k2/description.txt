@@ -1,0 +1,2 @@
+<p>K2 is an advanced template for the blogging engine Artigo developed by <a href="http://binarybonsai.com">Michael Heilemann</a>, <a href="http://chrisjdavis.org">Chris J Davis</a>,  <a href="http://zeo.my/">Zeo</a>, <a href="http://stevelam.org/">Steve Lam</a>, <a href="http://nybblelabs.org.uk">Ben Sherratt</a> and <a href="http://xentek.net/">Eric Marden</a>.</p>
+<p>Think of it this way: Where Artigo is everything that goes on behind the scenes, K2 is what your readers see.</p>

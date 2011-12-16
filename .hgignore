@@ -13,3 +13,5 @@ glob:tmp/*
 regexp:\.sqlite3$
 syntax: glob
 .idea/*
+test/fixtures/users.yml
+test/artigo_config.yml

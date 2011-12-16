@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-    <title><%= Artigo::CONFIG["head_title"].first %> - Admin: <%= controller.action_name %></title>
+    <title><%= artigo_config("head_title") %> - Admin: <%= controller.action_name %></title>
 	<%= stylesheet_link_tag 'admin', :cache => is_dev? %>
 	<%= content_for :head %>
 </head>

@@ -1,30 +1,46 @@
-Artigo::Application.routes.draw do |map|
-  get "tags/index"
+Artigo::Application.routes.draw do
+  resources :users, :posts 
+  resource :session
 
+  get "tags/index"
   get "tags/show"
 
-  map.logout '/logout', :controller => 'sessions', :action => 'destroy'
-  map.login '/login', :controller => 'sessions', :action => 'new'
+  root :to => "posts#index"
+
+  match '/:year/:month/:day/:slug',
+      :to => 'posts#show',
+      :constraints => {
+        :year       => /(19|20)\d{2}/,
+        :month      => /[01]?\d/,
+        :day        => /[0-3]?\d/
+      }, 
+      :as => 'post_permalink'
+
+  namespace :admin do
+    match '/' => 'dashboard#index'
+    resources   :posts
+    resource    :import
+    resource    :password
+
+    get   '/tidyup',                        :to => 'tidyup#index'
+    post  '/tidyup/tidyposts',              :to => 'tidyup#tidyposts'
+
+    get   '/config/edit',                   :to => 'config#edit'
+    post  '/config',                        :to => 'config#update'
+
+    get   '/themes/:theme/settings',        :to => 'theme_settings#edit', :as => 'theme_settings'
+    post  '/themes/:theme/settings/save',   :to => 'theme_settings#save', :as => 'theme_settings_save'
+  end
   
-  map.resources :users
-  map.resource :session
-  map.resources :posts
-  
-  map.root :controller => "posts"
-  
-  map.post_permalink '/:year/:month/:day/:slug',
-                    :controller => 'posts',
-                    :action     => 'show',
-                    :year       => /(19|20)\d{2}/,
-                    :month      => /[01]?\d/,
-                    :day        => /[0-3]?\d/
-					
-  map.connect '/tags/:id.:format', :controller => 'tags', :action => 'show', :format => 'html'
-  map.connect '/admin', :controller => 'admin/dashboard', :action => 'index'
-  map.connect '/sessions', :controller => 'sessions', :action => 'create', :method => 'post'
-  map.connect '/page/:page', :controller => 'posts', :action => 'page'
-  map.connect '/page/:page.:format', :controller => 'posts', :action => 'page', :format => 'html'
-  map.connect '/rss', :controller => 'posts', :action => 'rss'  
-  map.connect ':controller/:action/:id'
-  map.connect ':controller/:action/:id.:format'
+  match '/tags/:id(.:format)',              :to => 'tags#show', :defaults => { :format => 'html' }
+  match '/sessions',                        :to => 'sessions#create', :via => 'post'
+  match '/page/:page',                      :to => 'posts#page'
+  match '/page/:page(.:format)',            :to => 'posts#page', :defaults => { :format => 'html' }
+        
+  match 'logout',                           :to => 'sessions#destroy'
+  match 'login',                            :to => 'sessions#new'
+  match 'rss',                              :to => 'posts#rss'
+
+  match '/:controller(/:action(/:id(.:format)))', :defaults => { :format => "html" }
+  match "*rest" => "application#render_404"
 end

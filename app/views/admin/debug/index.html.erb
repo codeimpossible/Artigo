@@ -1,0 +1,33 @@
+
+<% content_for :thetitle do %>
+The Admin Area | Debug
+<% end %>
+
+<p>
+	<strong>Uh oh</strong>. Something must be wrong if you're hanging out in here. This page should have 
+	all the tools you need to do some light to moderate debugging.
+</p>
+<div class="tabs">
+    <ul>
+        <li><a href="#env">Rails Environment Logs</a></li>
+        <li><a href="#artigo">Artigo App Logs</a></li>
+		<li><a href="#db">Artigo Database Logs</a></li>
+    </ul>
+    <div id="env">
+		<pre class="logs">
+			<%= raw @model.env %>
+		</pre>
+	</div>
+	
+	<div id="artigo">
+		<pre class="logs">
+			<%= raw @model.artigo %>
+		</pre>
+	</div>
+	
+	<div id="db">
+		<pre class="logs">
+			<%= raw @model.db %>
+		</pre>
+	</div>
+</div>

@@ -19,24 +19,32 @@ class ApplicationController < ActionController::Base
   end
   
   def render_404
+  	#todo: move this to some kind of theme dispatcher???
+  	#this feels dirty
+    theme = Artigo.get_conf("app_theme")
+    options = ThemeSetting.for_theme(theme)
+	
+    @model = ThemedViewModel.new(nil, options)
+	
     respond_to do |type| 
-      type.all { render :template => "errors/error_404", :status => 404 } 
+      type.all { 
+        render  :template => "themes/#{theme}/errors/404", 
+                :layout => "themes/#{theme}/layouts/main", 
+                :status => 404 
+      } 
     end
     true
   end
 
   def render_post_not_found
-    respond_to do |type| 
-      type.all { render :template => "errors/post_not_found", :status => 404 } 
-    end
-    true
+    render_404
   end
   
   def permalink(p)
 		d = p.created_at
 		post_permalink_path :year => d.year, 
-						:month => d.month, 
-						:day => d.day, 
-						:slug => p.permalink || p.to_perm
+						            :month => d.month, 
+						            :day => d.day, 
+						            :slug => p.permalink || p.to_perm
   end
 end
