@@ -1,39 +1,55 @@
-class PostsController < ApplicationController
-  before_filter :login_required, :except =>  [:index, :show, :page, :rss]
-  
+class PostsController < ApplicationController  
   def index
     if( current_user != nil )
-      @posts = Post.paginate( :page => params[:page], :order => 'created_at DESC' )
+      posts = Post.paginate( :page => params[:page], :order => 'created_at DESC' )
     else
-      @posts = Post.public.paginate( :page => params[:page], :order => 'created_at DESC' )
+      posts = Post.public.paginate( :page => params[:page], :order => 'created_at DESC' )
     end
     
+    theme = Artigo.get_conf("app_theme")
+	
+    options = ThemeSetting.for_theme(theme)
+	
+    @model = ThemedViewModel.new(posts, options)
+    
     respond_to do |format|
-		format.html { 
-			render "themes/#{Artigo::CONFIG["app_theme"].first}/posts/index", 
-			:layout => "themes/#{Artigo::CONFIG["app_theme"].first}/layouts/main"  
-		}
-		format.xml  { render :xml => @posts }
+  		format.html { 
+  			render "themes/#{theme}/posts/index", 
+  			:layout => "themes/#{theme}/layouts/main"  
+  		}
+  		format.xml  { render :xml => posts }
     end
+  end
+  
+  def notfound
+	
   end
   
   # GET /posts/1
   # GET /posts/1.xml
   def show	
     if( current_user != nil )
-      @post = Post.find_by_permalink(params[:slug])
+      post = Post.find_by_permalink(params[:slug])
     else
-      @post = Post.public.find_by_permalink(params[:slug])
+      post = Post.public.find_by_permalink(params[:slug])
     end
+	
+    theme = Artigo.get_conf("app_theme")
+	
+    logger.debug "theme: #{theme}"
+	
+    options = ThemeSetting.for_theme(theme)
+	
+    @model = ThemedViewModel.new(post, options)
     
-    if @post == nil
+    if post == nil
       render_post_not_found 
     else
       respond_to do |format|
         format.html { 
-			render "themes/#{Artigo::CONFIG["app_theme"].first}/posts/show", 
-			:layout => "themes/#{Artigo::CONFIG["app_theme"].first}/layouts/main"  
-		}
+          render "themes/#{theme}/posts/show", 
+          :layout => "themes/#{theme}/layouts/main"  
+		    }
         format.xml  { render :xml => @post }
       end
     end
@@ -41,18 +57,24 @@ class PostsController < ApplicationController
   
   def page
     if( current_user != nil )
-      @posts = Post.paginate( :page => params[:page], :order => 'created_at DESC' )
+      posts = Post.paginate( :page => params[:page], :order => 'created_at DESC' )
     else
-      @posts = Post.public.paginate( :page => params[:page], :order => 'created_at DESC' )
+      posts = Post.public.paginate( :page => params[:page], :order => 'created_at DESC' )
     end
     
+    theme = Artigo.get_conf("app_theme")
+	
+    options = ThemeSetting.for_theme(theme)
+	
+    @model = ThemedViewModel.new(posts, options)
+	
     respond_to do |format|
-		format.html { 
-			render "themes/#{Artigo::CONFIG["app_theme"].first}/posts/index", 
-			:layout => "themes/#{Artigo::CONFIG["app_theme"].first}/layouts/main"  
-		}
-		format.xml  { render :xml => @posts }
-		format.json { render :json => @posts }
+  		format.html { 
+  			render "themes/#{theme}/posts/index", 
+  			:layout => "themes/#{theme}/layouts/main"  
+  		}
+  		format.xml  { render :xml => @posts }
+  		format.json { render :json => @posts }
     end
   end
   

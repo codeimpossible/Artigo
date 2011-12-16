@@ -1,0 +1,2 @@
+<p>The Metro theme is based on the design by <a href="http://clindhartsen.deviantart.com/gallery/26049243#/d2xeb6q">Chris Lindhartsen</a>.  I hard-coded several of the items since this was for my personal blog, however they should be fairly easy to change.  If you end up using it on your site send me a link!</p>
+<p>Author: <a href="http://xamlcoder.com">Joe McBride</a></p>

@@ -1,29 +1,30 @@
-class Admin::PostsController < ApplicationController
-  layout "admin"
-
+class Admin::PostsController < Admin::BaseController
   def index
     @posts = Post.find(:all, :order => "created_at DESC")
   end
 
   def manage
-	num_posts = params[:posts].size
-	if params[:act] == "delete"
-		Post.bulk_delete(params[:posts])
-	else 
-		Post.bulk_set_published(params[:posts],params[:act] == "publish")
-	end
-	flash[:notice] = "#{num_posts} posts were #{params[:act]}ed."
-	redirect_to "/admin/posts"
+    num_posts = params[:posts].size
+    if params[:act] == "delete"
+      Post.bulk_delete(params[:posts])
+    else 
+      Post.bulk_set_published(params[:posts],params[:act] == "publish")
+    end
+    flash[:notice] = "#{num_posts} posts were #{params[:act]}ed."
+    redirect_to "/admin/posts"
   end
 
   # GET /admin/posts/new
   # GET /admin/posts/new.xml
   def new
-    @post = Post.new
-    
+    post = Post.new
+    tags = Post.tag_counts_on(:tags)
+
+    @model = AdminPostViewModel.new(post,tags)
+  
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @post }
+      format.xml  { render :xml => post }
     end
   end
   
@@ -34,26 +35,27 @@ class Admin::PostsController < ApplicationController
     
     @post.title = params[:title]
     @post.summary = params[:summary]
-    @post.body = params[:content]
-	@post.tag_list = params[:tags]
-	
-    logger.debug @post    
+    @post.body = params[:body]
+    @post.tag_list = params[:tags]
 
     respond_to do |format|
       if @post.save
         flash[:notice] = 'Post was successfully created.'
-        format.html { redirect_to( permalink(@post) ) }
-        format.json { render :json => @post }
+        format.html   { redirect_to( edit_admin_post_path(@post) ) }
+        format.json   { render :json => @post }
         format.xml  { render :xml => @post, :status => :created, :location => @post }
       else
-        format.json { render :json => "fail" }
+        format.json   { render :json => "fail" }
         format.xml  { render :xml => @post.errors, :status => :unprocessable_entity }
       end
     end
   end
   
   def edit
-	@post = Post.find_by_id(params[:id])
+    post = Post.find_by_id(params[:id])  
+    tags = Post.tag_counts_on(:tags)
+  
+    @model = AdminPostViewModel.new(post,tags)
   end
   
   # PUT /admin/posts/1
@@ -63,26 +65,23 @@ class Admin::PostsController < ApplicationController
     
     @post.title = params[:title] if not params[:title].blank?
     @post.summary = params[:summary] if not params[:summary].blank?
-    @post.body = params[:content] if not params[:content].blank?
+    @post.body = params[:body] if not params[:body].blank?
     @post.published = params[:post_published] if not params[:post_published].blank?
     
-	@post.tag_list = params[:tags]
-	
-	logger.debug params[:date_type]
-	logger.debug params[:post_created_at]
-	
-	should_change_date = params[:date_type].blank? ? false : params[:date_type] != "default"
-	if should_change_date
-		if params[:date_type] == "today"
-			@post.created_at = Date.today
-		else 
-			@post.created_at = Date.parse params[:post_created_at] 
-		end
-	end
-	
+    @post.tag_list = params[:tags]
+  
+    should_change_date = params[:date_type].blank? ? false : params[:date_type] != "default"
+    if should_change_date
+      if params[:date_type] == "today"
+        @post.created_at = Date.today
+      else 
+        @post.created_at = Date.parse params[:post_created_at] 
+    end
+  end
+  
     respond_to do |format|
       if @post.save
-		flash[:notice] = 'Changes saved successfully.'
+        flash[:notice] = 'Changes saved successfully.'
         format.html { redirect_to :action => "index" }
         format.json { render :json => @post }
         format.xml  { head :ok }

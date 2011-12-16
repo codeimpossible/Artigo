@@ -1,0 +1,222 @@
+﻿/* === RESET CSS === */
+body,div,dl,dt,dd,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockquote,th,td { 
+	margin:0;
+	padding:0;
+}
+table {
+	border-collapse:collapse;
+	border-spacing:0;
+}
+fieldset,img {
+	border: 0;
+	width: 52;
+}
+address,caption,cite,code,dfn,em,strong,th,var {
+	font-style:normal;
+	font-weight:normal;
+}
+ol,ul {
+	list-style:none;
+}
+caption,th {
+	text-align:left;
+}
+/*h1,h2,h3,h4,h5,h6 {
+	font-size:100%;
+}*/
+q:before,q:after {
+	content:'';
+}
+abbr,acronym { border:0;
+}
+/* === end RESET CSS === */
+
+html
+{
+	height: 100%;
+	overflow: auto;
+}
+
+body
+{
+	font-family: segoe wp,segoe ui,verdana,arial,helvetica,sans-serif;
+	font-size: 14px;
+	color:#444444;
+}
+
+a
+{
+	color: #0099FF;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	color: #0199FF;
+}
+
+p {
+	margin: 15px 0 15px 0;
+}
+
+pre {
+	margin: 1em 0px;	
+}
+
+.reldiv {position: relative;}
+.right {float:right;}
+.left {float:left;}
+.clear {clear:both;}
+
+.container { width: 950px; margin: 30px auto 0 auto; clear: both; position: relative;}
+
+.header {
+	display: block;
+	margin: 0 0 25px 0;
+}
+
+.header h1 {
+	font-size: 48px;
+	font-family: segoe wp,segoe ui,verdana,arial,helvetica,sans-serif;
+	font-weight:100;
+}
+
+.header span {
+	font-size: 18px;
+}
+
+.posts {
+  width: 635px;
+}
+
+.post h1 {
+	font-size: 36px;
+	font-family: segoe wp,segoe ui,verdana,arial,helvetica,sans-serif;
+}
+
+.post {
+	text-align: justify;
+}
+
+.nav {
+	display: block;
+	margin: 0 -10px 0 0;
+}
+
+.nav img {
+}
+
+.socialLink
+{
+	width:52px;
+	height:52px;
+	display:block;
+	float: left;
+	margin: 0 0 0 10px;
+}
+
+.socialLink span
+{
+	display: none;
+}
+
+.socialLink.email
+{
+	background:transparent url(images/mail_send.png) no-repeat;
+}
+
+.socialLink.twitter
+{
+	background:transparent url(images/twitter.png) no-repeat;
+}
+
+.socialLink.linkedin
+{
+	background:transparent url(images/linkedin.png) no-repeat;
+}
+
+.socialLink.facebook
+{
+	background:transparent url(images/facebook.png) no-repeat;
+}
+
+.socialLink.rss
+{
+	background:transparent url(images/rss.png) no-repeat;
+}
+
+.sidebar {
+	width: 280px;
+	border: #eeeeee solid;
+	border-width: 0 0 0 1px;
+	padding: 0 0 0 15px;
+}
+
+.sidebaritem {
+	margin: 0 0 25px 0;
+	text-align: justify;
+}
+
+.sidebaritem h2 {
+	font-size: 30px;
+	font-family: segoe wp,segoe ui,verdana,arial,helvetica,sans-serif;
+	margin: 0 0 20px 0;
+}
+
+.sidebaritem .tags a {
+	margin: 0 0 0 0;
+	text-align: left;
+	text-transform: uppercase;
+}
+
+.postinfo {
+	font-size: 14px;
+	font-weight: bold;
+	color: #aaaaaa;
+	text-transform: uppercase;
+	margin: 0 0 15px 0;
+}
+
+.postdate {
+	font-weight: bold;
+}
+
+.postdata {
+}
+
+.posttags {
+}
+
+.softwarenotice {
+	font-size: 10px;
+}
+
+.footer {
+	padding: 50px 0 0 0;
+}
+
+.footer .section {
+	margin: 0 50px 0 0;
+}
+
+.footer .section h2{
+	margin: 0 0 15px 0;
+}
+
+.footer .section a {
+	text-transform: uppercase;
+	margin: 0 100px 0 0;
+}
+
+#twitter_div ul {
+	margin: 0;
+	padding:0;
+}
+
+#twitter_div li {
+	margin: 0 0 10px 0;
+	padding:0;
+}
+
+#twitter_div li a {
+}

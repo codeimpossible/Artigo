@@ -11,6 +11,7 @@ The Admin Area
     <ul>
         <li><a href="#posts">Manage Posts</a></li>
         <li><a href="#config">Configure Your Blog</a></li>
+		<li><a href="#themes">Appearance</a></li>
     </ul>
     <div id="posts">
         <strong><a href="/admin/import">Import posts</a></strong>
@@ -29,6 +30,30 @@ The Admin Area
         <strong><a href="/admin/changepassword">Change your password</a></strong>
         <p>Password smelling a bit stale? Freshen it up right over here!</p>
     </div>
+	<div id="themes">
+		<strong>Change things up</strong>. Here you can pick a new theme for your Artigo blog.
+		<% @model.themes.each do |theme| %>
+			<div class="theme <%= "selected" if theme.title == artigo_config("app_theme") %>" >
+				<img src="<%= theme.image %>" />
+				<h3><%= theme.title %></h3>
+				<p><%= raw theme.description ||= "no description provided." %></p>
+				
+				<div>
+					<div class="selecttheme">
+						<button class="themepicker" theme="<%= theme.title %>">Use this theme!</button>
+						<span class="ajax status">Changing theme...</span>
+						<%= link_to "Configure", :controller => "admin/theme_settings", :action => "edit", :theme => theme.title if theme.has_settings %>
+					</div>
+					<div class="selectedtheme">
+						<strong>This is your current theme</strong>
+						<%= link_to "Configure", :controller => "admin/theme_settings", :action => "edit", :theme => theme.title if theme.has_settings %>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="clear"></div>
+		<% end %>
+	</div>
 </div>
 <% content_for :thebottom do %>
 	<p>

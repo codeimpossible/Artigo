@@ -1,5 +1,6 @@
+<% @post = @model.content %>
 <% content_for :title do %>
-<%=raw @post.title %>
+	<%=raw @post.title %>
 <% end %>
 
 <div class="post type-post hentry category-release">
@@ -17,18 +18,19 @@
 	<div class="entry-content">
 		<%=raw @post.body %>
 	</div>
+	<% if @post.tag_list.count > 0 %>
+	<div class="posttags">
+		<strong>Tags: </strong>
+		<% @post.tag_list.each do |tag| %>
+			<%= render :partial => "themes/k2/partials/tag", :locals => {:tag => tag} %>, 
+		<% end %>
+	</div>
+	<% end %>
 </div>
 
 <%= link_to 'Back', posts_path %>
 <br />
 <h2>Let's talk about this</h2>
 <p><%= "Comments will show when the blog is running in production mode." if is_dev? %></p>
-<% if !is_dev? %>
-	<div id="disqus_thread"></div>
-	<script type="text/javascript">
-		var disqus_identifier = <%= @post.id %>;
-	</script>
-    <script type="text/javascript" src="http://<%= Artigo::CONFIG['disqus_account'].first %>.disqus.com/embed.js"></script>
-	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<% end %>
+<% render :partial => 'shared/comments' %>
 <p>&nbsp;</p>

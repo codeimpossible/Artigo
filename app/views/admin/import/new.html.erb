@@ -1,0 +1,26 @@
+<%= content_for :thetitle do -%>Import posts<%- end -%>
+
+<h3>Let's import some blog posts from your old blog</h3>
+<%= form_tag "/admin/import/import", :enctype => "multipart/form-data" do -%>
+	Here is my export file from my old blog: <input type="file" name="export_file" />
+    <br /><br />
+	I would like to import 
+    <select name="post_type">
+        <option value="all">all the</option>
+        <option value="published">only the published</option>
+        <option value="draft">only the draft</option>
+    </select> posts from my
+	<select name="import_type">
+        <option value="wordpress">WordPress</option>
+    </select> blog.
+	Each post should use 
+    <select name="post_date">
+        <option value="original">its original date</option>
+        <option value="today">todays date</option>
+    </select> in the new blog. 
+	<br /><br />
+	Okay, this all sounds great! Go ahead and <input type="submit" value="import" class="button" /> my old blog posts now. <em>Note: this can take few moments if you have a lot of posts!</em>
+<%- end -%>
+<br />
+<hr />
+<p>You know, on second thought... I'll just go back to the <a href="/admin">Admin dashboard.</a></p>

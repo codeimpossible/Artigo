@@ -1,12 +1,12 @@
 <% content_for :thetitle do %>Edit Post<% end %>
 
-<p class="<%= 'hidden' if @post.published %> publish">
+<p class="<%= 'hidden' if @model.post.published %> publish">
 	This post is currently <strong style="color: red">private</strong>. You need to publish the post before visitors will be able to see it.
 	It is recommended that you choose a different date to use when you publish this article.<br /><br />You can use
 	<select name="date_type" id="date_type"><option value="default">the current post date</option><option value="today">todays date</option><option value="custom">a custom date</option></select>
-	<input name="post_created_at" id="post_created_at" value="<%= @post.created_at.strftime('%m/%d/%Y') %>" class="hidden" /> then <button id="publish">publish</button> your post.
+	<input name="post_created_at" id="post_created_at" value="<%= @model.post.created_at.strftime('%m/%d/%Y') %>" class="hidden" /> then <button id="publish">publish</button> your post.
 </p>
-<p class="<%= 'hidden' unless @post.published %> unpublish">
+<p class="<%= 'hidden' unless @model.post.published %> unpublish">
 	This post is currently <strong style="color: green">public</strong>. You can <button id="unpublish">unpublish</button> it to disable access to it.
 </p>
 <p id="publish_warning" class="hidden">
@@ -14,20 +14,20 @@
 	Go there now by clicking <a href="#" class="permalink">this link</a>.
 </p>
 
-<%= form_tag "/admin/posts/update/#{@post.id}" do -%>
-<input type="hidden" name="id" value="<%=raw @post.id %>" />
+<%= form_tag "/admin/posts/update/#{@model.post.id}" do -%>
+<input type="hidden" name="id" value="<%=raw @model.post.id %>" />
 <div id="post" class="edit">
 	<label for="title">Title</label><br />
-	<input type="text" value="<%= h @post.title %>" name="title" id="title" />
+	<input type="text" value="<%= h @model.post.title %>" name="title" id="title" />
 	<br />
 	<label for="summary">Summary</label><br />
-	<textarea name="summary" id="summary"><%= h @post.summary %></textarea>
+	<textarea name="summary" id="summary"><%= h @model.post.summary %></textarea>
 	<br />
 	<hr />
-	<textarea id="content" name="content"><%= h @post.body %></textarea>
+	<textarea id="body" name="body"><%= h @model.post.body %></textarea>
 	<br />
 	<label for="tags">Tags</label><br />
-	<input type="text" name="tags" id="tags" value="<%= h @post.tag_list.join(', ') %>" />
+	<input type="text" name="tags" id="tags" value="<%= h @model.post.tag_list.join(', ') %>" />
 </div>
 <hr />
 <input type="submit" value="Save Changes" />
@@ -38,5 +38,4 @@
 	<script type="text/javascript" src="/ckeditor/adapters/jquery.js"></script>
 	<script type="text/javascript" src="/javascripts/artigo-edit.js"></script>
 	<script type="text/javascript" src="/javascripts/artigo-ckeditor.js"></script>
-    <script type="text/javascript" src="/javascripts/jquery.glow.js"></script>
 <% end %>
