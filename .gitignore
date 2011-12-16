@@ -1,0 +1,16 @@
+*.project
+*.sqlite3
+.idea/
+config/initializers/session_store.rb
+config/initializers/site_keys.rb
+config/artigo.yml
+config/database.yml
+public/.htaccess
+public\cv
+vendor/bundle/
+^\.tmp.+
+\.log$
+tmp/
+log/
+test/fixtures/users.yml
+test/artigo_config.yml
