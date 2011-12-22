@@ -11,4 +11,8 @@ class ActiveSupport::TestCase
     login_as user
     yield if block_given?
   end
+
+  def assert_flashes(type)
+    assert_not_nil flash[type]
+  end
 end
