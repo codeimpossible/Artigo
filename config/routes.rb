@@ -19,6 +19,7 @@ Artigo::Application.routes.draw do
   namespace :admin do
     match '/' => 'dashboard#index'
     resources   :posts
+    resources   :medias
     resource    :import
     resource    :password
 
