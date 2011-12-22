@@ -76,8 +76,8 @@ class Admin::PostsController < Admin::BaseController
         @post.created_at = Date.today
       else 
         @post.created_at = Date.parse params[:post_created_at] 
+      end
     end
-  end
   
     respond_to do |format|
       if @post.save
