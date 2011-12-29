@@ -14,3 +14,4 @@ tmp/
 log/
 test/fixtures/users.yml
 test/artigo_config.yml
+Gemfile.lock
