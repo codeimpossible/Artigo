@@ -17,10 +17,9 @@ class Admin::PostsController < Admin::BaseController
   # GET /admin/posts/new
   # GET /admin/posts/new.xml
   def new
-    post = Post.new
-    tags = Post.tag_counts_on(:tags)
-
-    @model = AdminPostViewModel.new(post,tags)
+    @post = Post.default
+    
+    @tags = Post.tag_counts_on(:tags)
   
     respond_to do |format|
       format.html # new.html.erb
@@ -33,29 +32,31 @@ class Admin::PostsController < Admin::BaseController
   def create
     @post = Post.new
     
-    @post.title = params[:title]
-    @post.summary = params[:summary]
-    @post.body = params[:body]
-    @post.tag_list = params[:tags]
+    @post.title = params[:post][:title]
+    @post.summary = params[:post][:summary]
+    @post.body = params[:post][:body]
+    @post.tag_list = params[:post][:tags]
+
+    logger.debug params[:post].inspect
 
     respond_to do |format|
       if @post.save
+        logger.debug 'post saved, redirecting to #{edit_admin_post_path(@post)}'
         flash[:notice] = 'Post was successfully created.'
         format.html   { redirect_to( edit_admin_post_path(@post) ) }
         format.json   { render :json => @post }
-        format.xml  { render :xml => @post, :status => :created, :location => @post }
+        format.xml    { render :xml => @post, :status => :created, :location => @post }
       else
+        format.html   { render :action => "new" }
         format.json   { render :json => "fail" }
-        format.xml  { render :xml => @post.errors, :status => :unprocessable_entity }
+        format.xml    { render :xml => @post.errors, :status => :unprocessable_entity }
       end
     end
   end
   
   def edit
-    post = Post.find_by_id(params[:id])  
-    tags = Post.tag_counts_on(:tags)
-  
-    @model = AdminPostViewModel.new(post,tags)
+    @post = Post.find_by_id(params[:id])  
+    @tags = Post.tag_counts_on(:tags)
   end
   
   # PUT /admin/posts/1

@@ -1,8 +1,6 @@
 (function($) {
 	$(function() {
-		
-	});
-	var config = {
+		var config = {
 			skin: 'kama',
 			extraPlugins: 'artigo-paste-markdown',
 			toolbar:
@@ -17,5 +15,6 @@
 
 		// Initialize the editor.
 		// Callback function can be passed and executed after full instance creation.
-		$('#body').ckeditor(config);
+		$('#post_body').ckeditor(config);
+	});
 })(jQuery);

@@ -53,9 +53,9 @@ function put(data, success, error) {
 function preview(e) {
     e.preventDefault();
     var context = $('.edit').size() > 0 ? '.edit' : '.new';
-    $('.preview #title').html( $('#title', context).val() );
-    $('.preview #summary').html( $('#summary', context).val() );
-    $('.preview #body').html( $('#body', context).val() );
+    $('.preview #title').html( $('#post_title', context).val() );
+    $('.preview #summary').html( $('#post_summary', context).val() );
+    $('.preview #body').html( $('#post_body', context).val() );
     $('.container').animate({
         left: "-=800px"
     }, 750);
