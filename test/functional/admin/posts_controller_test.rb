@@ -57,6 +57,18 @@ class Admin::PostsControllerTest < ActionController::TestCase
     assert_redirected_to edit_admin_post_path :id => 3
   end
 
+  test "create post with tags redirects to edit page" do
+    login_as :quentin
+    
+    post :create, :post => { 
+      :title => "Test Post Title",
+      :summary => "Test Summary", 
+      :body => "This is some content",
+      :tags => "Test1, Test2, Test3" }
+
+    assert_redirected_to edit_admin_post_path :id => 3
+  end
+
   test "post with content param instead of body reports error" do
     login_as :quentin
 
