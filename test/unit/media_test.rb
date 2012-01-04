@@ -33,7 +33,4 @@ class MediaTest < ActiveSupport::TestCase
       assert media.errors.empty?
     end
   end
-
-  test "media fills in its content type before save" do
-  end
 end
