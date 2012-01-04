@@ -141,8 +141,13 @@ EOF
     end
 
     desc 'Initializes and fills the database with default data'
-    task :db => ['environment', 'db:reset' ] do 
-        @post = Post.create({ 
+    task :seed => ['environment'] do 
+        puts "Removing existing posts..."
+        Post.find(:all).each{|p| p.destroy }
+
+        puts "Inserting 'Sample Post'"
+
+        @post = Post.new({ 
             :published => true,
             :title => "Sample Post",
             :summary => "This is just a sample blog post. Take a look and use it to test any themes you install.",
@@ -171,8 +176,12 @@ EOF
 </ol>
 eos
         })
-        
-        @post = Post.create({ 
+        @post.tag_list = "Artigo, Die-Hard, Post Example"
+        @post.save
+
+        puts "Inserting 'Welcome to Artigo, release 1: Die Hard'"
+
+        @post = Post.new({ 
             :published => true,
             :title => "Welcome to Artigo, release 1: Die Hard",
             :summary => "This is your first blog post. You can delete this or edit it and start blogging!",
@@ -187,8 +196,12 @@ eos
 </p>
 eos
         })
+        @post.tag_list = "Artigo, Die-Hard, Post Example, First Post, Bruce Willis"
+        @post.save
+
+        puts "All Set! Database Seeded!"
     end
     
     desc 'Artigo First Time Setup'
-    task :first_time => [:make_db_config, :make_config, :generate_keys, :make_auth_fixture, :db]
+    task :first_time => [:make_db_config, :make_config, :generate_keys, :make_auth_fixture, :seed]
 end
