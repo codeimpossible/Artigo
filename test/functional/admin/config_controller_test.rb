@@ -13,6 +13,10 @@ class Admin::ConfigControllerTest < ActionController::TestCase
     assert_redirected_to login_path
   end
 
+  test "config route is recognized" do
+    assert_recognizes({:controller => 'admin/config', :action => 'index'}, {:path => "/admin/config", :method => :get})
+  end
+
   test "changetheme route is registered correctly" do
     assert_recognizes({:controller => 'admin/config', :action => 'edit'}, {:path => "/admin/config/edit"})
   end
