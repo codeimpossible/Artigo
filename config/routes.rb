@@ -27,7 +27,6 @@ Artigo::Application.routes.draw do
 
     get   '/config/edit',                   :to => 'config#edit'
     post  '/config',                        :to => 'config#update'
-    get   '/config',                        :to => 'config#index'
 
     get   '/themes/:theme/settings',        :to => 'theme_settings#edit', :as => 'theme_settings'
     post  '/themes/:theme/settings/save',   :to => 'theme_settings#save', :as => 'theme_settings_save'
