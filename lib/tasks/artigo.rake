@@ -23,15 +23,18 @@ def make_fake_token
 end
 
 def write_file(path, contents)  
+  print "    Writing #{path}..."
   File.new(path, "w") unless File.exist?(path)
   File.open(path, "w") do |f|
     f.write contents
   end
+  puts 'done!'
 end
   
 namespace :artigo do
     desc 'Generate restauth keys'
     task :generate_keys => :environment do
+        puts 'Generating keys...'
         session_path = File.join(::Rails.root.to_s, 'config', 'initializers', 'session_store.rb')
         keys_path = File.join(::Rails.root.to_s, 'config', 'initializers', 'site_keys.rb')
         
@@ -57,6 +60,7 @@ EOF
     
     desc 'Creates a base user fixture for the Restful Auth plugin'
     task :make_auth_fixture => :generate_keys do
+        puts 'Generating test fixtures...'
         path    = File.join(::Rails.root.to_s, 'test', 'fixtures', 'users.yml')
         salts   = (1..2).map{ make_fake_token }
         passwds = salts.map{ |salt| password_digest('monkey', salt) }
@@ -97,6 +101,7 @@ EOF
     
     desc 'Creates a base artigo.yml file'
     task :make_config do
+        puts 'Generating default artigo configuration...'
         config = <<"EOF"
 --- 
 app_theme: metro
@@ -115,6 +120,7 @@ EOF
     
     desc 'Creates a base database.yml file'
     task :make_db_config do
+        puts 'Generating default database configuration...'
         path = File.join(::Rails.root.to_s, 'config', 'database.yml')
         
         config = <<"EOF"
@@ -142,6 +148,12 @@ EOF
 
     desc 'Initializes and fills the database with default data'
     task :seed => ['environment'] do 
+        
+        puts "Resetting and Migrating..."
+
+        Rake::Task['db:reset'].invoke
+        Rake::Task['db:migrate'].invoke
+
         puts "Removing existing posts..."
         Post.find(:all).each{|p| p.destroy }
 
@@ -165,7 +177,7 @@ EOF
     <li>Die Hard</li>
     <li>L.A. Confidential</li>
 </ul>
-<h4>Header 4</h4>
+  <h4>Header 4</h4>
 <p>Here are my favorite movies in an ordered list</p>
 <ol>
     <li>Hi Fidelity</li>
@@ -202,6 +214,23 @@ eos
         puts "All Set! Database Seeded!"
     end
     
+    desc 'Initializes and fills the database with default data'
+    task :test => ['environment'] do 
+        puts "Migrating Test Environment..."
+        system("rake db:drop RAILS_ENV=test")
+        system("rake db:create RAILS_ENV=test")
+        system("rake db:migrate RAILS_ENV=test")
+
+        puts "Running Tests..."
+        system("rake test")
+    end
     desc 'Artigo First Time Setup'
-    task :first_time => [:make_db_config, :make_config, :generate_keys, :make_auth_fixture, :seed]
+    task :first_time => [
+        :make_db_config, 
+        :make_config, 
+        :generate_keys, 
+        :make_auth_fixture, 
+        :seed, 
+        :test
+    ]
 end
