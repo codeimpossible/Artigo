@@ -1,3 +1,7 @@
 #!/bin/bash
 echo -e "*** Bootstrapping TravisCI ***"
-bundler exec rake artigo:travis
+bundle install
+bundle exec rake artigo:travis
+
+echo -e "*** Running Tests ***"
+bundle exec rake test
