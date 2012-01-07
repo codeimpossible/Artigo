@@ -4,3 +4,6 @@ rvm:
   - 1.9.2
   - 1.9.3
 after_install: "./ci/travis_bootstrap"
+branches:
+  only:
+    - master
