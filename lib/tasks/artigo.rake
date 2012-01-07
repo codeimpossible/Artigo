@@ -148,6 +148,12 @@ EOF
 
     desc 'Initializes and fills the database with default data'
     task :seed => ['environment'] do 
+        
+        puts "Resetting and Migrating..."
+
+        Rake::Task['db:reset'].invoke
+        Rake::Task['db:migrate'].invoke
+
         puts "Removing existing posts..."
         Post.find(:all).each{|p| p.destroy }
 
@@ -171,7 +177,7 @@ EOF
     <li>Die Hard</li>
     <li>L.A. Confidential</li>
 </ul>
-<h4>Header 4</h4>
+  <h4>Header 4</h4>
 <p>Here are my favorite movies in an ordered list</p>
 <ol>
     <li>Hi Fidelity</li>
@@ -208,6 +214,23 @@ eos
         puts "All Set! Database Seeded!"
     end
     
+    desc 'Initializes and fills the database with default data'
+    task :test => ['environment'] do 
+        puts "Migrating Test Environment..."
+        system("rake db:drop RAILS_ENV=test")
+        system("rake db:create RAILS_ENV=test")
+        system("rake db:migrate RAILS_ENV=test")
+
+        puts "Running Tests..."
+        system("rake test")
+    end
     desc 'Artigo First Time Setup'
-    task :first_time => [:make_db_config, :make_config, :generate_keys, :make_auth_fixture, :seed]
+    task :first_time => [
+        :make_db_config, 
+        :make_config, 
+        :generate_keys, 
+        :make_auth_fixture, 
+        :seed, 
+        :test
+    ]
 end
