@@ -1,0 +1,1 @@
+bundler exec rake artigo:travis
