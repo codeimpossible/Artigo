@@ -1,4 +1,5 @@
 [![Build Status](https://secure.travis-ci.org/codeimpossible/Artigo.png)](http://travis-ci.org/codeimpossible/Artigo)
+[![Dependency Status](https://gemnasium.com/codeimpossible/Artigo.png)](https://gemnasium.com/codeimpossible/Artigo)
 # Artigo
 
 
