@@ -23,10 +23,7 @@ Once you have this on your local machine just run the first time config and the 
 
     $ rake artigo:first_time
 
-    # ... snip you'll see some database migration stuff here
-
-    $ rake test
-
+    # ... snip you'll see some database migration stuff here, the unit tests will run at the end
     # ... everything should pass, now you're ready to configure your install of Artigo
 
 ## Configuration
