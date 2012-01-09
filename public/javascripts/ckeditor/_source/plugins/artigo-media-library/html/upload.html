@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <style type="text/css">
+            @import url(/plupload/js/jquery.plupload.queue/css/jquery.plupload.queue.css);
+            html, body, * {
+                margin: 0;
+                padding: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <form method="post" action="/admin/media">
+            <div id="uploader" style="width: 700px; height: 300px;">
+                Your browser doesn't have HTML 4 support.
+            </div>
+        </form>
+
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+        <script type="text/javascript"
+        <script type="text/javascript" src="http://bp.yahooapis.com/2.4.21/browserplus-min.js"></script>
+        <script type="text/javascript" src="/plupload/js/plupload.js"></script>
+        <script type="text/javascript" src="/plupload/js/plupload.html4.js"></script>
+        <script type="text/javascript" src="/plupload/js/jquery.plupload.queue/jquery.plupload.queue.js"></script>
+
+        <script type="text/javascript">
+            (function($){
+                // Setup html4 version
+                $("#uploader").pluploadQueue({
+                    // General settings
+                    runtimes : 'html4',
+                    url : '/admin/media',
+                    unique_names : false,
+                    filters : [
+                        {title : "Image files", extensions : "jpg,gif,png"}
+                    ]
+                });
+                $('form').submit(function(e) {
+                    var uploader = $('#uploader').pluploadQueue();
+
+                    // Files in queue upload them first
+                    if (uploader.files.length > 0) {
+                        // When all files are uploaded submit form
+                        uploader.bind('StateChanged', function() {
+                            if (uploader.files.length === (uploader.total.uploaded + uploader.total.failed)) {
+                                $('form')[0].submit();
+                            }
+                        });
+
+                        uploader.start();
+                    } else {
+                        alert('You must queue at least one file.');
+                    }
+
+                    return false;
+                });
+            })(jQuery);
+        </script>
+    </body>
+</html>

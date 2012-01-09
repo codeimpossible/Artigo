@@ -1,12 +1,12 @@
 (function($) {
 	var config = {
-		skin: 'kama',
-		extraPlugins: 'artigo-paste-markdown',
+		skin: 'office2003',
+		extraPlugins: 'artigo-paste-markdown,artigo-media-library',
 		toolbar:
 		[
 			['Source', 'Bold', 'Italic', 'Underline','Strike', 'Blockquote', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink'],
 			['Cut','Copy','Paste','PasteText','PasteFromWord', 'PasteFromMarkdown'],
-			['Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak','Iframe'],
+			['MediaLibrary','Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak','Iframe'],
 			['UIColor'],
 			['Maximize', 'ShowBlocks', '-', 'About']
 		]

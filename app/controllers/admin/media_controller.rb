@@ -1,27 +1,33 @@
 class Admin::MediaController < Admin::BaseController
   before_filter :ensure_todays_media_folder, :only => :create
+  protect_from_forgery :except => :create
 
   def index
-    
+
   end
 
   def new
   end
 
+  def library_embedded
+    render "admin/media/embedded/library", :layout => false
+  end
+
   def create
-    upload = params[:media]
+    upload = params[:file]
 
-    name = format_title params[:title] 
+    name = format_title params[:name]
 
-    server_path = server_media_path upload.original_filename, name
+    @output_file = server_media_path upload.original_filename, name
 
-    write_file server_path, File.read(upload.local_path)
+    write_file @output_file, upload.read
 
-    params[:path] = server_path
+    params[:path] = @output_file
+    params[:title] = name
 
     respond_to do |format|
-      media = Media.new params
-      if media.save
+      @media = Media.new params
+      if @media.save
         format.html { redirect_to :action => "index" }
       else
         flash[:error] = "Media could not be added!"
@@ -36,9 +42,8 @@ class Admin::MediaController < Admin::BaseController
   end
 
   def write_file(file_path, contents)
-    File.new(file_path, 'w') unless File.exist? file_path
-    File.open( file_path, 'w' ) do |file|
-      file.write( contents )
+    File.open( file_path, 'wb+' ) do |file|
+      file << contents
     end
   end
 
@@ -52,7 +57,11 @@ class Admin::MediaController < Admin::BaseController
 
   def todays_folder
     now = Time.now.strftime('%Y/%m')
-    "#{Rails.root}/public/media/#{now}"
+    if( defined? MEDIA_FOLDER )
+      "#{Rails.root}/public/#{MEDIA_FOLDER}/#{now}"
+    else
+      "#{Rails.root}/public/media/#{now}"
+    end
   end
 
   def server_media_path(file, name)

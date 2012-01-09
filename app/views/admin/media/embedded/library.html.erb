@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/flick/jquery-ui.css" />
+        <style type="text/css">
+            #tabs > div {
+                min-height: 300px;
+            }
+        </style>
+        <%= yield :head %>
+    </head>
+    <body>
+
+        <div id="tabs">
+            <ul>
+                <li><a href="#tabs-1">Upload New Images</a></li>
+                <li><a href="#tabs-2">Select Images</a></li>
+            </ul>
+            <div id="tabs-1">
+                <%= render :partial => "admin/media/upload" %>
+            </div>
+            <div id="tabs-2">
+                Nothing to see here. Yet.
+            </div>
+        </div>
+
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+
+        <script type="text/javascript">
+            (function($){
+                $('#tabs').tabs();
+            })(jQuery);
+        </script>
+
+        <%= yield :foot %>
+    </body>
+</html>

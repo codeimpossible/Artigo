@@ -18,3 +18,4 @@ test/artigo_config.yml
 Gemfile.lock
 .bundle/
 public/media/
+public/media_test/

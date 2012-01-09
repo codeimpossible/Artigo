@@ -1,4 +1,4 @@
-LOAD_FULL_CKEDITOR = false
+LOAD_FULL_CKEDITOR = true
 
 Artigo::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
