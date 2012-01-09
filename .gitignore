@@ -8,6 +8,7 @@ config/database.yml
 public/.htaccess
 public\cv
 vendor/bundle/
+vendore/bundle/
 ^\.tmp.+
 \.log$
 tmp/
@@ -15,3 +16,4 @@ log/
 test/fixtures/users.yml
 test/artigo_config.yml
 Gemfile.lock
+.bundle/

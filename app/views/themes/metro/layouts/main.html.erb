@@ -19,10 +19,10 @@
 			<span><%= artigo_config("site_description") %></span>
 		</div>
 		<div class="nav right">
-			<a href="/blog/about" class="socialLink email" title="Contact Me"><span>Email Me</span></a>
-			<a href="http://twitter.com/YOURTWITTER" target="_blank" class="socialLink twitter" title="Follow me on Twitter"><span>Follow me on Twitter</span></a>
-			<a href="http://linkedin.com/in/YOURLINKEDIN" target="_blank" class="socialLink linkedin" title="View my profile on Linked In"><span>View my profile on Linked In</span></a>
-			<a href="http://facebook.com/YOURFACEBOOK" target="_blank" class="socialLink facebook" title="Find me on Facebook"><span>Find me on Facebook</span></a>
+			<a href="mailto:<%= @model.get_opt('email') %>" class="socialLink email" title="Contact Me"><span>Email Me</span></a>
+			<a href="<%= @model.get_opt('twitter') %>" target="_blank" class="socialLink twitter" title="Follow me on Twitter"><span>Follow me on Twitter</span></a>
+			<a href="<%= @model.get_opt('linkedin') %>" target="_blank" class="socialLink linkedin" title="View my profile on Linked In"><span>View my profile on Linked In</span></a>
+			<a href="<%= @model.get_opt('facebook') %>" target="_blank" class="socialLink facebook" title="Find me on Facebook"><span>Find me on Facebook</span></a>
 			<a href="/rss" target="_blank" class="socialLink rss" title="Subscribe to my RSS Feed"><span>Subscribe to my RSS Feed</span></a>
 		</div>
 		<div class="main clear">
@@ -37,17 +37,7 @@
 					<div class="sidebaritem">
 						<h2>about me</h2>
 						<div>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam id ante non nisl consectetur suscipit. Vestibulum eu turpis erat, vel sodales diam. Proin non justo quis nunc pulvinar laoreet et at eros. Nulla laoreet urna at diam pharetra tempor. Pellentesque at leo eros. Donec mollis pellentesque quam, id vestibulum nisi mattis vel. Duis aliquet tristique elementum. Morbi nec sem nec nunc euismod fringilla. Integer id orci in lorem auctor vulputate at eu nisl. Nam et tellus ac libero elementum vehicula in laoreet velit. Mauris mollis eros ut mauris gravida rhoncus.</div>
-					</div>
-					<div class="sidebaritem">
-						<h2>Test</h2>
-						
-					</div>
-					<div class="sidebaritem">
-						<h2>More Text</h2>
-						<div>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam id ante non nisl consectetur suscipit. Vestibulum eu turpis erat, vel sodales diam. Proin non justo quis nunc pulvinar laoreet et at eros. Nulla laoreet urna at diam pharetra tempor. Pellentesque at leo eros. Donec mollis pellentesque quam, id vestibulum nisi mattis vel. Duis aliquet tristique elementum. Morbi nec sem nec nunc euismod fringilla. Integer id orci in lorem auctor vulputate at eu nisl. Nam et tellus ac libero elementum vehicula in laoreet velit. Mauris mollis eros ut mauris gravida rhoncus.</p>
-						</div>
+							<p><%= raw @model.get_opt('about') %></div>
 					</div>
 					<div class="sidebaritem">
 						<div class="softwarenotice ">Unless otherwise noted, source code on this blog is Licensed under the Open Software License version 3.0.</div>

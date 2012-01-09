@@ -1,3 +1,4 @@
+<% tags ||= [] %>
 <script type="text/javascript">
 	(function($) {
 		var tags = [
@@ -11,7 +12,7 @@
 		}
 		
 		$(function() {
-			var $item = $("#tags");
+			var $item = $("#post_tags");
 			var options = default_ac_options($item);
 			$item.autocomplete(tags, options );
 		});

@@ -1,0 +1,27 @@
+<strong>Metro Theme Settings</strong>
+<fieldset>
+	<p>
+		<label for="email">Email Link</label><br />
+		<input name="email" type="text" value="<%= @model.setting('email') %>" />
+	</p>
+	
+	<p>
+		<label for="twitter">Twitter Profile Url</label><br />
+		<input name="twitter" type="text" value="<%= @model.setting('twitter') %>" />
+	</p>
+
+	<p>
+		<label for="linkedin">LinkedIn Profile Url</label><br />
+		<input name="linkedin" type="text" value="<%= @model.setting('linkedin') %>" />
+	</p>
+
+	<p>
+		<label for="facebook">Facebook Profile Url</label><br />
+		<input name="facebook" type="text" value="<%= @model.setting('facebook') %>" />
+	</p>
+
+	<p>
+		<label for="about">About Me Section Content</label><br />
+		<textarea name="about"><%= @model.setting('about') %></textarea>
+	</p>
+</fieldset>

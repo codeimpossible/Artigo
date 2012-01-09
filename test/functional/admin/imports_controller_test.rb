@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Admin::ImportControllerTest < ActionController::TestCase
+class Admin::ImportsControllerTest < ActionController::TestCase
   fixtures :users, :posts
   test "test import with wordpress imports posts into db" do
     xml = fixture_file_upload('files/wordpress-sample.wxr','text/xml')

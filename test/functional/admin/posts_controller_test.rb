@@ -33,14 +33,38 @@ class Admin::PostsControllerTest < ActionController::TestCase
     login_as :quentin
 
     assert_difference('Post.count') do
-      post :create, :title => "Test Post Title", :summary => "Test Summary", :body => "This is some content"
+      post :create, :post => { :title => "Test Post Title", :summary => "Test Summary", :body => "This is some content" }
     end
   end
 
-  test "create post redirects to permalink" do
+  test "when we create a post and an error happens, the erroris displayed on the /new view" do
+    as(:quentin) do
+      post :create, :post => { :title => "Test", :summary => "Sample" }
+
+      p = assigns[:post]
+
+      assert_response :success
+      assert p.errors[:body]
+      assert_template "new"
+    end
+  end
+
+  test "create post redirects to edit page" do
     login_as :quentin
     
-    post :create, :title => "Test Post Title",:summary => "Test Summary", :body => "This is some content"
+    post :create, :post => { :title => "Test Post Title",:summary => "Test Summary", :body => "This is some content" }
+
+    assert_redirected_to edit_admin_post_path :id => 3
+  end
+
+  test "create post with tags redirects to edit page" do
+    login_as :quentin
+    
+    post :create, :post => { 
+      :title => "Test Post Title",
+      :summary => "Test Summary", 
+      :body => "This is some content",
+      :tags => "Test1, Test2, Test3" }
 
     assert_redirected_to edit_admin_post_path :id => 3
   end
@@ -48,7 +72,7 @@ class Admin::PostsControllerTest < ActionController::TestCase
   test "post with content param instead of body reports error" do
     login_as :quentin
 
-    post :create, :title => "Test Post Title",:summary => "Test Summary", :content => "This is some content"
+    post :create, :post => { :title => "Test Post Title",:summary => "Test Summary", :content => "This is some content" }
 
     p = assigns :post
 
@@ -58,7 +82,7 @@ class Admin::PostsControllerTest < ActionController::TestCase
   test "post with body param fills out body" do
     login_as :quentin
 
-    post :create, :title => "Test Post Title",:summary => "Test Summary", :body => "This is some content"
+    post :create, :post => { :title => "Test Post Title",:summary => "Test Summary", :body => "This is some content" }
 
     post = Post.find_by_id(3)
 

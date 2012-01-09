@@ -1,0 +1,25 @@
+<%= f.error_messages %>
+
+<div id="post" class="new">
+    <%= f.text_field :title %>
+    <br />
+    <%= f.text_area :summary %>
+    <br />
+    <hr />
+    <%= f.text_area :body %>
+    <br />
+    Tags: <%= f.text_field :tags, :value => post.tag_list.join(',') %>
+</div>
+<hr />
+<%= f.submit 'Save Post', :class => "submit" %>
+
+
+<%= content_for :foot do %>
+    <%= javascript_include_tag "jquery.autocomplete.pack",
+        defined?(LOAD_FULL_CKEDITOR) && LOAD_FULL_CKEDITOR ? "ckeditor/ckeditor_source": "ckeditor/ckeditor",
+        "ckeditor/adapters/jquery",
+        "artigo-edit",
+        "artigo-ckeditor", :cache => "post_form" %>
+    
+    <%= render :partial => "admin/posts/tag_autocomplete", :locals => { :tags => tags } %>
+<% end %>
