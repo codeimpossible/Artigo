@@ -1,7 +1,6 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0'
-gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'will_paginate'
 gem 'acts-as-taggable-on', '~>2.1.0'
 
@@ -10,10 +9,11 @@ if RUBY_VERSION >= "1.9.3"
 end
 
 if ENV['PRODUCTION']
-  gem "mysql"
+  ENV['DB'] = 'mysql' #default to mysql on production runs
 end
 
-if ENV['TEST']
-  gem "mysql"
-  gem "pg"
-end
+db = ENV['DB'] || 'sqlite'
+
+gem "mysql" if db == 'mysql'
+gem "pg" if db == 'postgres'
+gem 'sqlite3-ruby', :require => 'sqlite3' if db == 'sqlite'
