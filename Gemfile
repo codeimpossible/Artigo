@@ -12,3 +12,8 @@ end
 if ENV['PRODUCTION']
   gem "mysql"
 end
+
+if ENV['TEST']
+  gem "mysql"
+  gem "pg"
+end

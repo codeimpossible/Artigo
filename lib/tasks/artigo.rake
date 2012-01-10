@@ -130,6 +130,7 @@ development:
   pool: 5
   timeout: 5000
 
+  #only used for local tests, CI uses configs at the bottom
 test:
   adapter: sqlite3
   database: ":memory:"
@@ -142,6 +143,25 @@ production:
   database: db/production.sqlite3
   pool: 5
   timeout: 5000
+
+
+  # *******************************
+  # DO NOT CHANGE THE LINES BELOW
+  # *******************************
+
+sqlite:
+  adapter: sqlite3
+  database: ":memory:"
+  timeout: 500
+mysql:
+  adapter: mysql2
+  database: artigo_test
+  username:
+  encoding: utf8
+postgres:
+  adapter: postgresql
+  database: artigo_test
+  username: postgres
 EOF
         write_file path, config
     end
