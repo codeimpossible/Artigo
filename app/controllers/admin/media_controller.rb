@@ -2,8 +2,15 @@ class Admin::MediaController < Admin::BaseController
   before_filter :ensure_todays_media_folder, :only => :create
   protect_from_forgery :except => :create
 
-  def index
+  @output_folder_prefix = "#{Rails.root}/public"
 
+  def index
+    @media = Media.find(:all)
+
+    respond_to do |format|
+      format.html { render "index" }
+      format.json { render :json => @media }
+    end
   end
 
   def new
@@ -22,7 +29,7 @@ class Admin::MediaController < Admin::BaseController
 
     write_file @output_file, upload.read
 
-    params[:path] = @output_file
+    params[:path] = "http://#{request.host_with_port}#{@output_file}"
     params[:title] = name
 
     respond_to do |format|
@@ -42,13 +49,15 @@ class Admin::MediaController < Admin::BaseController
   end
 
   def write_file(file_path, contents)
-    File.open( file_path, 'wb+' ) do |file|
+    File.open( "#{@output_folder_prefix}#{file_path}", 'wb+' ) do |file|
       file << contents
     end
   end
 
   def ensure_todays_media_folder
     now = Time.now
+
+    folder = "#{@output_folder_prefix}#{todays_folder}"
 
     dir = File.dirname(todays_folder)
 
@@ -58,9 +67,9 @@ class Admin::MediaController < Admin::BaseController
   def todays_folder
     now = Time.now.strftime('%Y/%m')
     if( defined? MEDIA_FOLDER )
-      "#{Rails.root}/public/#{MEDIA_FOLDER}/#{now}"
+      "/#{MEDIA_FOLDER}/#{now}"
     else
-      "#{Rails.root}/public/media/#{now}"
+      "/media/#{now}"
     end
   end
 

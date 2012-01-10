@@ -23,6 +23,18 @@ class Admin::MediaControllerTest < ActionController::TestCase
     end
   end
 
+  test "uploaded media has path set to URL of media item" do
+    now = Time.now.strftime('%Y/%m')
+
+    as :quentin do
+      post :create, :file => @cat, :name => "url_test"
+    end
+
+    media_item = assigns[:media]
+
+    assert_equal "http://test.host/media_test/#{now}/url-test.jpg", media_item.path
+  end
+
   test "after uploading an image the user is redirected to the index action" do
     as :quentin do
       post :create, :file => @media, :name => 'test_2'
