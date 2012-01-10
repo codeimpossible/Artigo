@@ -1,7 +1,15 @@
 (function($) {
+	var ckeditorBasePath = CKEDITOR.basePath.substr(0, CKEDITOR.basePath.indexOf("editor/")) + "editor/",
+		customPluginsRoot = ckeditorBasePath + 'artigo/plugins/';
+
+	console.log(customPluginsRoot);
+
+	CKEDITOR.plugins.addExternal('artigo-paste-markdown',customPluginsRoot+'artigo-paste-markdown/', 'plugin.js');
+	CKEDITOR.plugins.addExternal('artigo-media-library',customPluginsRoot+'artigo-media-library/', 'plugin.js');
+
 	var config = {
-		skin: 'office2003',
-		extraPlugins: 'artigo-paste-markdown,artigo-media-library',
+		skin: 'artigo,' + ckeditorBasePath + 'artigo/skins/artigo/',
+		extraPlugins: 'artigo-media-library,artigo-paste-markdown',
 		toolbar:
 		[
 			['Source', 'Bold', 'Italic', 'Underline','Strike', 'Blockquote', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink'],

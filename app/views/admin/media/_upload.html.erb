@@ -4,6 +4,15 @@
         margin: 0;
         padding: 0;
     }
+    .plupload_header {
+        background: none;
+    }
+    .plupload_header_content {
+        background: none;
+        min-height: 56px;
+        padding-left: 0;
+        color: #666;
+    }
 </style>
 <%= form_for Media.new, :url => admin_media_path(Media.new), :method => :post do |f| %>
     <div id="uploader" style="width: 700px; height: 300px;">
