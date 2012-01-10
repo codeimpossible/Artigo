@@ -3,14 +3,6 @@ require File.expand_path('../../config/environment', __FILE__)
 require File.expand_path('../../lib/authenticated_test_helper', __FILE__)
 require 'rails/test_help'
 
-# Travis CI Testing Environtment Setup
-configs = YAML.load_file('test/database.yml')
-ActiveRecord::Base.configurations = configs
-
-db_name = ENV['DB'] || 'sqlite'
-ActiveRecord::Base.establish_connection(db_name)
-ActiveRecord::Base.default_timezone = :utc
-
 class ActiveSupport::TestCase
   include AuthenticatedTestHelper
   fixtures :all
