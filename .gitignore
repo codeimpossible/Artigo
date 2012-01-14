@@ -17,3 +17,4 @@ test/fixtures/users.yml
 test/artigo_config.yml
 Gemfile.lock
 .bundle/
+public/media/
