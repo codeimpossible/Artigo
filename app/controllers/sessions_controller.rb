@@ -1,7 +1,7 @@
-# This controller handles the login/logout function of the site.  
-class SessionsController < ApplicationController  
+# This controller handles the login/logout function of the site.
+class SessionsController < ApplicationController
   verify :method => :post, :only => [:create], :redirect_to => {:action => :new}
-  layout "login"
+  layout "admin"
 
 
   # render new.erb.html

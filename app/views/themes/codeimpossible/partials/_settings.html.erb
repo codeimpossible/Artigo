@@ -1,12 +1,15 @@
-<strong>Codeimpossible Theme Settings</strong>
 <fieldset>
-	<p>
-		<label for="avatar">Avatar Url</label><br />
-		<input name="avatar" type="text" value="<%= @model.setting('avatar') %>" />
-	</p>
-	
-	<p>
-		<label for="footer">Footer Text</label><br />
-		<textarea name="footer"><%= @model.setting('footer') %></textarea>
-	</p>
+  <legend>Codeimpossible Theme Settings</legend>
+	<div class="clearfix">
+      <label for="avatar">Avatar Url</label>
+      <div class="input">
+          <input name="avatar" type="text" value="<%= @model.setting('avatar') %>" />
+      </div>
+  </div>
+  <div class="clearfix">
+      <label for="footer">Footer Text</label>
+      <div class="input">
+          <textarea name="footer"><%= @model.setting('footer') %></textarea>
+      </div>
+  </div>
 </fieldset>

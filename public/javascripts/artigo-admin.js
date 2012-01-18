@@ -1,12 +1,9 @@
 (function($) {
 	$(function() {
-		$('.tabs').tabs({ cookie: { expires: 30 } });
-		$('button, input[type=submit]').button();
-		
 		$('#themes button').click(function(e) {
 			e.preventDefault();
-			var $trigger = $(this);
-			var theme = $trigger.attr('theme');
+			var $trigger = $(this),
+					theme = $trigger.attr('theme');
 			$trigger.find('.status').show();
 			var jxhr = $.post('/admin/config/changetheme', { newtheme: theme })
 						.success(function(a,b,c) {

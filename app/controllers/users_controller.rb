@@ -1,18 +1,18 @@
 class UsersController < ApplicationController
-  layout "login"
+  layout "admin"
 
   # render new.rhtml
   def new
 	@count = User.all.size
 	if @count == 1
 		logger.warn "Someone attempted to access /user/new to create the admin account"
-		
+
 		not_found and return
 	else
 		@user = User.new
 	end
   end
- 
+
   def create
     logout_keeping_session!
     @user = User.new(params[:user])
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     success = @user && @user.save
 
     if success && @user.errors.empty?
-      
+
       # Protects against session fixation attacks, causes request forgery
       # protection if visitor resubmits an earlier form using back
       # button. Uncomment if you understand the tradeoffs.

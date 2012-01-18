@@ -10,10 +10,12 @@
 	This post is currently <strong style="color: green">public</strong>. You can <button id="unpublish">unpublish</button> it to disable access to it.
 </p>
 <p id="publish_warning" class="hidden">
-	<big>Wait a tick!</big> You've published this post with a newer/different date than it originally had. You really should go to the new permalink url <code class="permalink"></code>. 
+	<big>Wait a tick!</big> You've published this post with a newer/different date than it originally had. You really should go to the new permalink url <code class="permalink"></code>.
 	Go there now by clicking <a href="#" class="permalink">this link</a>.
 </p>
 
-<%= form_for @post, :url => admin_post_path(@post), :method => :put do |f| %>
-	<%= render :partial => "post_form", :locals => {:f => f, :post => @post, :tags => @tags} %>
-<% end %>    
+<%= form_for @post, :url => admin_post_path(@post), :html => { :class => "form-stacked" }, :method => :put do |f| %>
+  <fieldset>
+    <%= render :partial => "post_form", :locals => {:f => f, :post => @post, :tags => @tags} %>
+  </fieldset>
+<% end %>

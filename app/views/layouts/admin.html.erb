@@ -1,47 +1,90 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-    <title><%= artigo_config("head_title") %> - Admin</title>
+<!DOCTYPE html>
+<html xml:lang="en" lang="en">
+  <head>
+    <title><%= artigo_config("head_title") %> - Artigo</title>
+    <!-- Le <HEAD></HEAD>TML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <%= stylesheet_link_tag 'bootstrap', 'admin', :cache => is_dev? %>
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+      }
+    </style>
+    <%= content_for :head %>
+  </head>
+  <body>
+    <div class="topbar">
+      <div class="fill">
+        <div class="container">
+          <a class="brand" href="/admin">Artigo</a>
+          <% if current_user %>
+            <ul class="nav secondary-nav">
+              <li class="dropdown" data-dropdown="dropdown">
+                <a href="#" class="dropdown-toggle">Welcome, <%= @current_user.login %>!</a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Secondary link</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Another link</a></li>
+                </ul>
+              </li>
+            </ul>
+          <% end %>
+        </div>
+      </div>
+    </div>
 
-    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.0/themes/redmond/jquery-ui.css" />
-	<%= stylesheet_link_tag 'admin', :cache => is_dev? %>
-	<%= content_for :head %>
-</head>
-<body>
-	<div class="page">
-		<div class="admin">            
-			<div class="thetop">
-				<div class="title">
-					<h1><a href="/admin">Artigo<span style="color: #666">|Admin</span></a></h1>				
-					<p class="welcome">Welcome, <%= current_user.login %>!</p>
-				</div>
-			</div>
+    <div class="container">
+      <% if flash[:notice] || flash[:error] %>
+      <div class="row">
+	      <div class="span16">
+	        <div class="alert-message <%= "error" if flash[:error]%> <%= "warning" if flash[:notice]%>">
+					  <a class="close" href="#">×</a>
+					  <p><%= flash[:notice] %></p>
+					</div>
+		    </div>
+		  </div>
+	    <% end %>
 
-			<div class="clear"></div>
+	    <div class="row">
+		    <span class="span16">
+		      <h1><%= content_for :thetitle %></h1>
+		    </span>
+	    </div>
 
-			<p style="color: green" id="notice"><%= flash[:notice] %></p>
-			<p style="color: red" id="error"><%= flash[:error] %></p>
+	    <%= yield %>
 
-			<div class="content">
-				<h2><%= content_for :thetitle %></h2>
-				<%= yield %>
-			</div>
-			<div class="thebottom">
-				<%= content_for :thebottom %>
-			</div>
-			<br />
-			<div align="center">v0.019</div>
-		</div>
-	</div>
-	
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>	
-	<script type="text/javascript" src="/javascripts/jquery.cookie.js"></script>
-	<script type="text/javascript" src="/javascripts/jquery.glow.js"></script>
-	<script type="text/javascript" src="/javascripts/jquery.cycle.all.js"></script>
-    <%= yield :foot %>
-	
-	<script type="text/javascript" src="/javascripts/artigo-admin.js"></script>
-</body>
+	    <% unless is_active?( :controller => "admin/dashboard", :action => "index") -%>
+				<%= link_to "<< Admin Home", :controller => "admin/dashboard", :action => "index" %>
+			<% end -%>
+
+	    <footer>
+		    <p>&copy; Codeimpossible 2012</p>
+		    <p>
+		    	<%= content_for :thebottom %>
+		    </p>
+	    </footer>
+	  </div>
+
+	  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+
+	  <%= javascript_include_tag 'bootstrap/alerts',
+	  	'bootstrap/buttons',
+	  	'bootstrap/dropdown',
+	  	'bootstrap/modal',
+	  	'bootstrap/tabs',
+	  	'bootstrap/twipsy',
+	  	'bootstrap/popovers', :cache => "bootstrap" %>
+
+
+	  <script type="text/javascript" src="/javascripts/jquery.cookie.js"></script>
+	  <script type="text/javascript" src="/javascripts/jquery.glow.js"></script>
+	  <script type="text/javascript" src="/javascripts/jquery.cycle.all.js"></script>
+
+	  <%= yield :foot %>
+
+	  <script type="text/javascript" src="/javascripts/artigo-admin.js"></script>
+  </body>
 </html>

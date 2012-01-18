@@ -1,10 +1,13 @@
-<h2>Theme Settings for <%= @model.theme %></h2>
+<%= content_for :thetitle do %>
+  Edit Theme Settings
+<% end %>
 <p>Here you can configure various options that your theme provides.</p>
 <div class="themesettings">
 	<%= form_tag( :controller => "admin/theme_settings", :action => "save", :theme => @model.theme) do %>
-		<%= render :partial => "themes/#{@model.theme}/partials/settings" %>
-		<br />
-		<input type="submit" value="Save Changes" />
+    <%= render :partial => "themes/#{@model.theme}/partials/settings" %>
+    <div class="actions">
+      <input type="submit" value="Save Changes" class="btn" />
+    </div>
 	<% end %>
 </div>
 
