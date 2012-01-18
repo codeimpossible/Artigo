@@ -19,7 +19,7 @@
       <div class="fill">
         <div class="container">
           <a class="brand" href="/admin">Artigo</a>
-          <% if current_user %>
+          <% if @current_user %>
             <ul class="nav secondary-nav">
               <li class="dropdown" data-dropdown="dropdown">
                 <a href="#" class="dropdown-toggle">Welcome, <%= @current_user.login %>!</a>
