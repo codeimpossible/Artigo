@@ -7,6 +7,10 @@ class SessionsController < ApplicationController
   # render new.erb.html
   def new
     redirect_to :controller => "users", :action => "new" and return if User.all.size == 0
+
+    respond_to do |format|
+      format.html { render "sessions/new", :layout => false }
+    end
   end
 
   def create

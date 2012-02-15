@@ -28,6 +28,13 @@ module ApplicationHelper
 		return @isactive
 	end
 
+	def blog_stats
+		{
+			:total_posts_private => Post.private.size,
+			:total_posts_public => Post.public.size
+		}
+	end
+
 	def edit_post_link(post)
 		"/admin/posts/edit/#{post.id}"
 	end

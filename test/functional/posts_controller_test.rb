@@ -11,9 +11,9 @@ class PostsControllerTest < ActionController::TestCase
   end
 
   test "should show post" do
-    get :show, 
-        :slug => posts(:one).to_perm, 
-        :year => posts(:one).created_at.year, 
+    get :show,
+        :slug => posts(:one).to_perm,
+        :year => posts(:one).created_at.year,
         :month => posts(:one).created_at.month,
         :day => posts(:one).created_at.day
 

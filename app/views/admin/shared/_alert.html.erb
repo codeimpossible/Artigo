@@ -1,0 +1,12 @@
+<%- types = [:error, :notice, :success] -%>
+<%- type = types.select{ |t| flash[t] }.first -%>
+<% if type %>
+<div class="row-fluid">
+  <div class="span9">
+    <div class="alert <%= "alert-#{type.to_s}" %>">
+      <a class="close" data-dismiss="alert" href="#">×</a>
+      <%= flash[type] %>
+    </div>
+  </div>
+</div>
+<% end %>

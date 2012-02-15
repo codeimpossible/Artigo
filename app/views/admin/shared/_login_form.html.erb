@@ -1,29 +1,27 @@
 <%= form_tag session_path, { :class => "form-stacked" } do %>
     <fieldset>
-        <div class="clearfix">
-            <%= label_tag 'username' %>
-            <div class="input">
+        <div class="control-group">
+            <%= label_tag 'username', 'Username', :class => "control-label" %>
+            <div class="controls">
                 <%= text_field_tag 'login', @login %>
             </div>
         </div>
 
-        <div class="clearfix">
-            <%= label_tag 'password' %>
-            <div class="input">
+        <div class="control-group">
+            <%= label_tag 'password', 'Password', :class => "control-label" %>
+            <div class="controls">
                 <%= password_field_tag 'password', nil %>
             </div>
         </div>
 
-        <ul class="inputs-list">
-            <li>
-                <label>
-                    <%= check_box_tag 'remember_me', '1', @remember_me %>
-                    <span>Remember me</span>
-                </label>
-            </li>
-        </ul>
+        <div class="control-group">
+            <label class="checkbox inline">
+                <%= check_box_tag 'remember_me', '1', @remember_me %>
+                <span>Remember me</span>
+            </label>
+        </div>
     </fieldset>
     <div class="actions">
-        <%= submit_tag 'Log in', :class => 'btn' %>
+        <%= submit_tag 'Log in', :class => 'btn primary-btn' %>
     </div>
 <% end %>

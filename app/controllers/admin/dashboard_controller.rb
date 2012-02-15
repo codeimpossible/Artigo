@@ -2,17 +2,15 @@ require 'ostruct'
 
 class Admin::DashboardController < Admin::BaseController
   Theme = Struct.new( :title, :description, :image, :has_settings )
-  
+
   def index
-  
-    @model = OpenStruct.new :total_posts_private => Post.private.size,
-                            :total_posts_public => Post.public.size,
-		                        :themes => getthemes
+    @themes = get_themes
+    @tags = Post.tag_counts_on(:tags)
   end
 
-  
+
   private
-  def getthemes
+  def get_themes
   	list = []
   	#load themes
   	theme_app_path = "#{::Rails.root}/app/views/themes"
@@ -28,7 +26,7 @@ class Admin::DashboardController < Admin::BaseController
   		theme.title = t
   		theme.description = IO.read(descpath) if File.exist? descpath
   		theme.has_settings = File.exist? "#{theme_app_path}/#{t}/partials/_settings.html.erb"
-  		
+
   		list.push theme
   	}
   	return list

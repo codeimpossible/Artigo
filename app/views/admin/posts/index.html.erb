@@ -1,56 +1,126 @@
 <% content_for :thetitle do %>Manage your posts<% end %>
 
-<p>Below are all your posts sorted by the date they were created, newer posts are on the top. 
+<p>Below are all your posts sorted by the date they were created, newer posts are on the top.
 From this page you can Publish, Unpublish, and Delete your posts.</p>
 
 <p><a href="/admin/posts/new">Create a new post</a></p>
 
 <%= form_tag "/admin/posts/manage" do -%>
-	<table id="posts" width="100%; clear: both;">
+	<div class="btn-toolbar" style="margin-top: 18px;">
+		<div class="btn-group">
+		  <a class="btn" href="#">Select</a>
+		  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+		    <span class="caret"></span>
+		  </a>
+		  <ul class="dropdown-menu">
+		    <li>
+		    	<a href="#" class="checkall">All</a>
+		    </li>
+		    <li>
+		    	<a href="#" class="checknone">None</a>
+		    </li>
+		  </ul>
+		</div>
+	</div>
+	<table id="posts" class="table-condensed table-striped" width="100%">
 		<thead>
 			<tr>
+				<th>&nbsp;</th>
 				<th>Post Title</th>
 				<th>Date Created</th>
 				<th>Status</th>
+				<th>&nbsp;</th>
 			</tr>
 		</thead>
-		
+
 		<tbody>
 			<% @posts.each do |post| %>
 			<tr>
-				<td style="text-align: left;">
-                <label for="posts">
-                    <input type="checkbox" name="posts[]" value="<%= post.id %>" />
-                    <%= post.title[0..30] %><%= post.title.length > 30 ? "..." : "" %>
-                </label> (<%= link_to "view", permalink(post), :target => "_blank" %>) (<%= link_to "edit", edit_post_link(post), :target => "_blank" %>)</td>
+				<td>
+					<input type="checkbox" name="posts[]" value="<%= post.id %>" />
+				</td>
+				<td><%= "#{post.title[0..30]}#{post.title.length > 30 ? "..." : ""}" %></td>
 				<td><%= post.created_at %></td>
-				<td><%=raw post.published ? "<span style='color: green;'>Public" : "<span style='color: red;'>Private" %></span></td>
-			</tr>		
+				<td>
+					<%- unless post.published -%>
+					<span class="label">Draft</span>
+					<%- end -%>
+				</td>
+				<td>
+					<div class="btn-group">
+						<%= link_to "view", permalink(post), :target => "_blank", :class => "btn" %>
+					  <%= link_to "edit", edit_post_link(post), :target => "_blank", :class => "btn" %>
+					</div>
+				</td>
+			</tr>
 			<% end %>
 		</tbody>
 	</table>
 	<hr />
-	<p><a href="#" class="checkall">Select All</a> / <a href="#" class="checknone">Deselect All</a></p>
-	<p>I would like to <select name="act"><option value="publish">Publish</option><option value="unpublish">Unpublish</option><option value="delete">Delete</option></select> the selected posts.</p>
-	<p>Please, <input type="submit" value="Save these changes" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" />. <em>You <strong>will</strong> be asked for confirmation before any actions are taken but you should know that
-if you delete something it will be deleted <u><big>permanently</big></u></em></p>
+
+	<div class="actions">
+		<select name="act" id="action">
+			<option value="publish">Publish</option>
+			<option value="unpublish">Unpublish</option>
+			<option value="delete">Delete</option>
+		</select>
+
+		<a id="save_changes" href="#" class="btn">Save these changes</a>
+	</div>
+
+	<div class="modal fade hide" id="confirm_delete" style="display: none;">
+	  <div class="modal-header">
+	    <a class="close" data-dismiss="modal">×</a>
+	    <h3>Really delete these posts?</h3>
+	  </div>
+	  <div class="modal-body">
+	    <p>These posts will be deleted <strong>permanently</strong>. Are you sure you want to do this?</p>
+	  </div>
+	  <div class="modal-footer">
+	  	<input type="submit" value="Yes, delete the selected posts" class="btn btn-danger" />
+	    <a href="#" class="btn" data-dismiss="modal">No, cancel</a>
+	  </div>
+	</div>
+
+	<div class="modal fade hide" id="confirm_publish" style="display: none;">
+	  <div class="modal-header">
+	    <a class="close" data-dismiss="modal">×</a>
+	    <h3>Really publish these posts?</h3>
+	  </div>
+	  <div class="modal-body">
+	    <p>These posts will be published and will be available <strong>immediately</strong>. Are you sure you want to do this?</p>
+	  </div>
+	  <div class="modal-footer">
+	  	<input type="submit" value="Yes, publish the selected posts" class="btn btn-primary" />
+	    <a href="#" class="btn" data-dismiss="modal">No, cancel</a>
+	  </div>
+	</div>
+
+	<div class="modal fade hide" id="confirm_unpublish" style="display: none;">
+	  <div class="modal-header">
+	    <a class="close" data-dismiss="modal">×</a>
+	    <h3>Really unpublish these posts?</h3>
+	  </div>
+	  <div class="modal-body">
+	    <p>These posts will be marked as private and will no longer be available on your blog. Are you sure you want to do this?</p>
+	  </div>
+	  <div class="modal-footer">
+	  	<input type="submit" value="Yes, unpublish the selected posts" class="btn btn-primary" />
+	    <a href="#" class="btn" data-dismiss="modal">No, cancel</a>
+	  </div>
+	</div>
 <% end %>
 <br />
 <hr />
-<p>You know, on second thought... I'll just go back to the <a href="/admin">Admin dashboard.</a></p>
 
 <% content_for :foot do %>
 	<script type="text/javascript">
 		(function($) {
 			$(function() {
-				$('form').submit(function(e) {
-					return confirm("Are you sure you want to save these changes?");
-				});
-			
 				$('.checkall').click(function() {
 					$(this).parents('form').find('input[type="checkbox"]').attr('checked','checked');
 				});
-				
+
 				$('.checknone').click(function() {
 					$(this).parents('form').find('input[type="checkbox"]').removeAttr('checked');
 				});

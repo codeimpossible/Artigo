@@ -1,82 +1,133 @@
 
-<% content_for :thetitle do %>
-The Admin Area
-<% end %>
+<% content_for :thetitle do %>The Admin Area<% end %>
 
 <p>
   <em>Shhhhhhhh!</em> This is a secret area. Here you can manage just about every piece
   of your Artigo installation.
 </p>
 
-<ul class="tabs" data-tabs="tabs">
-  <li class="active"><a href="#posts">Manage Posts</a></li>
-  <li><a href="#config">Configure Your Blog</a></li>
-  <li><a href="#themes">Appearance</a></li>
-</ul>
+<div class="tabbable">
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#main" data-toggle="tab">Dashboard</a></li>
+    <li><a href="#posts" data-toggle="tab">Manage Posts</a></li>
+    <li><a href="#config" data-toggle="tab">Configure Your Blog</a></li>
+    <li><a href="#themes" data-toggle="tab">Appearance</a></li>
+  </ul>
 
-<div id="tab-content" class="tab-content">
-    <div id="posts" class="tab-pane active">
-        <strong>
-          <%= link_to "Create a new post", new_admin_post_path %>
-        </strong>
-        <p>Create a brand spanking new post. Look at it, all shiny and new and stuff.</p>
-
-        <strong>
-          <%= link_to "Import posts", new_admin_import_path %>
-        </strong>
-        <p>Add posts from another blog. It's ok, I won't tell them you're moving on.</p>
-
-        <strong>
-          <%= link_to "Manage your posts", admin_posts_path %>
-        </strong>
-        <p>Save yourself some clicks. Go here to publish, unpublish, or delete a bunch of posts at a time.</p>
-    </div>
-    <div id="config" class="tab-pane">
-        <strong>
-          <%= link_to "Tidy up a bit", admin_tidyup_path %>
-           <span style="color: red">Advanced Users Only!</span>
-        </strong>
-        <p>Things getting out of hand? I understand. Go here to clean up your blog.</p>
-
-        <strong>
-          <%= link_to "Change site settings", admin_config_edit_path %>
-        </strong>
-        <p>Artigo is all about you. Make your copy <em>your</em> copy.</p>
-
-        <strong>
-          <%= link_to "Change your password", edit_admin_password_path %>
-        </strong>
-        <p>Password smelling a bit stale? Freshen it up right over here!</p>
-    </div>
-    <div id="themes" class="tab-pane">
-        <strong>Change things up</strong>. Here you can pick a new theme for your Artigo blog.
-        <% @model.themes.each do |theme| %>
-          <div class="theme <%= "selected" if theme.title == artigo_config("app_theme") %>" >
-            <img src="<%= theme.image %>" />
-            <h3><%= theme.title %></h3>
-            <p><%= raw theme.description ||= "no description provided." %></p>
-
-            <div>
-              <div class="selecttheme">
-                <button class="themepicker btn" theme="<%= theme.title %>">Use this theme!</button>
-                <span class="ajax status">Changing theme...</span>
-                <%= link_to "Configure", :controller => "admin/theme_settings", :action => "edit", :theme => theme.title if theme.has_settings %>
-              </div>
-              <div class="selectedtheme">
-                <strong>This is your current theme</strong>
-                <%= link_to "Configure", :controller => "admin/theme_settings", :action => "edit", :theme => theme.title if theme.has_settings %>
-              </div>
+  <div class="tab-content">
+      <div id="main" class="tab-pane active">
+        <div class="row-fluid">
+          <div class="span4">
+            <div id="recentcomments" class="dsq-widget">
+              <h2 class="dsq-widget-title">Recent Comments</h2>
+              <script type="text/javascript" src="http://<%= artigo_config('disqus_account') %>.disqus.com/recent_comments_widget.js?num_items=5&hide_avatars=0&avatar_size=32&excerpt_length=200"></script>
             </div>
-            <div class="clear"></div>
+            <a href="http://disqus.com/">Powered by Disqus</a>​
           </div>
-          <div class="clear"></div>
-        <% end %>
-    </div>
-</div>
+          <div class="span4">
+            <h2>Recent Posts</h2>
+            <% cache("recent_posts") do %>
+              <% Post.public.recent.each do |post| %>
+                <div>
+                <%= link_to raw(post.title), permalink(post) %>
+                <% if !post.summary.empty? %>
+                  <div id="summary"><%= post.summary %></div>
+                <% end %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="span4">
+            <div id="topcommenters" class="dsq-widget">
+              <h2 class="dsq-widget-title">Top Commenters</h2>
+              <script type="text/javascript" src="http://<%= artigo_config('disqus_account') %>.disqus.com/top_commenters_widget.js?num_items=5&hide_mods=0&hide_avatars=0&avatar_size=32"></script>
+            </div>
+            <a href="http://disqus.com/">Powered by Disqus</a>​
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="span4">
+            <div id="popularthreads" class="dsq-widget">
+              <h2 class="dsq-widget-title">Popular Posts</h2>
+              <script type="text/javascript" src="http://<%= artigo_config('disqus_account') %>.disqus.com/popular_threads_widget.js?num_items=5"></script>
+            </div>
+            <a href="http://disqus.com/">Powered by Disqus</a>
+          </div>
+          <div class="span4">
+            <h2>Tags</h2>
+            <ul class="tags">
+            <% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
+              <li>
+                <%= link_to tag.name, { :action => :tag, :id => tag.name }, :class => css_class %>
+              <li>
+            <% end %>
+            </ul>
+          </div>
+          <div class="span4">
+            <h2>Heading</h2>
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <p><a class="btn" href="#">View details »</a></p>
+          </div>
+        </div>
+      </div>
+      <div id="posts" class="tab-pane">
+          <strong>
+            <%= link_to "Create a new post", new_admin_post_path %>
+          </strong>
+          <p>Create a brand spanking new post. Look at it, all shiny and new and stuff.</p>
 
-<% content_for :thebottom do %>
-  <p>
-    <big>Blog stats:</big> <%= @model.total_posts_public %> posts are public,
-    <%= @model.total_posts_private %> are private.
-  </p>
-<% end %>
+          <strong>
+            <%= link_to "Import posts", new_admin_import_path %>
+          </strong>
+          <p>Add posts from another blog. It's ok, I won't tell them you're moving on.</p>
+
+          <strong>
+            <%= link_to "Manage your posts", admin_posts_path %>
+          </strong>
+          <p>Save yourself some clicks. Go here to publish, unpublish, or delete a bunch of posts at a time.</p>
+      </div>
+      <div id="config" class="tab-pane">
+          <strong>
+            <%= link_to "Tidy up a bit", admin_tidyup_path %>
+             <span style="color: red">Advanced Users Only!</span>
+          </strong>
+          <p>Things getting out of hand? I understand. Go here to clean up your blog.</p>
+
+          <strong>
+            <%= link_to "Change site settings", admin_config_edit_path %>
+          </strong>
+          <p>Artigo is all about you. Make your copy <em>your</em> copy.</p>
+
+          <strong>
+            <%= link_to "Change your password", edit_admin_password_path %>
+          </strong>
+          <p>Password smelling a bit stale? Freshen it up right over here!</p>
+      </div>
+      <div id="themes" class="tab-pane">
+          <p><strong>Change things up</strong>. Here you can pick a new theme for your Artigo blog.</p>
+          <ul class="thumbnails">
+          <% @themes.each do |theme| %>
+            <li class="span3">
+              <div class="thumbnail">
+                <img src="<%= theme.image %>" alt="">
+                <div class="caption">
+                  <h5><%= theme.title %></h5>
+                  <p><%= raw theme.description ||= "no description provided." %></p>
+                  <p>
+                    <% unless theme.title == artigo_config("app_theme") %>
+                      <a href="#" class="btn btn-primary themepicker" theme="<%= theme.title %>">Choose</a>
+                    <% else %>
+                      <a href="#" class="btn btn-primary disabled" theme="<%= theme.title %>">This is your theme</a>
+                    <% end %>
+                    <% if theme.has_settings %>
+                      <%= link_to "Configure", { :controller => "admin/theme_settings", :action => "edit", :theme => theme.title }, :class => "btn" %>
+                    <% end %>
+                  </p>
+                </div>
+              </div>
+            </li>
+            <% end %>
+          </ul>
+      </div>
+  </div>
+</div>

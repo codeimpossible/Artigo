@@ -1,5 +1,10 @@
 (function($) {
 	$(function() {
+		$('#save_changes').click(function(){
+			var action = $("#action").val();
+			$("#confirm_" + action).modal();
+		});
+
 		$('#themes button').click(function(e) {
 			e.preventDefault();
 			var $trigger = $(this),
