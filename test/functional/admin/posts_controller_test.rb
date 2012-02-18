@@ -37,6 +37,38 @@ class Admin::PostsControllerTest < ActionController::TestCase
     end
   end
 
+  test "managing posts user can delete all posts" do
+    as :quentin do
+      ids = Post.find(:all, :select => "id")
+      assert_difference('Post.find(:all).count', -2) do
+        post :manage, :posts => ids, :act => "delete"
+      end
+    end
+  end
+
+  test "admin/posts/manage is recognized" do
+    assert_recognizes({ :controller => "admin/posts", :action => "manage" },
+                      { :path => "/admin/posts/manage", :method => :post } )
+  end
+
+  test "managing posts user can publish all posts" do
+    as :quentin do
+      @post = Post.create! :title => "hi", :body => 'hi'
+      assert_difference('Post.public.count', 1) do
+        post :manage, :posts => [ @post.id ], :act => "publish"
+      end
+    end
+  end
+
+  test "managing posts user can unpublish all posts" do
+    as :quentin do
+      ids = Post.find(:all, :select => "id")
+      assert_difference('Post.private.count', 2) do
+        post :manage, :posts => ids, :act => "unpublish"
+      end
+    end
+  end
+
   test "when we create a post and an error happens, the error is displayed on the /new view" do
     as(:quentin) do
       post :create, :post => { :title => "Test", :summary => "Sample" }

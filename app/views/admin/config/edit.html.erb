@@ -1,58 +1,58 @@
-<% content_for :thetitle do %>Configure Artigo<% end %>
-<p>Here is where you can change all the settings for Artigo.</p>
-<p><big>Site Options</big></p>
-<% form_tag admin_config_path, { :class => "form-stacked" } do -%>
+<% content_for :thetitle do %>Configure Artigo Settings<% end %>
 
-	<input type="hidden" name="app_theme" value="<%= artigo_config('app_theme') %>" />
-	<fieldset>
-		<div class="clearfix">
-        <label>Site Title:</label>
-        <div class="input">
-            <input type="text" name="site_title" value="<%= artigo_config('site_title') %>" />
+<% form_tag admin_config_path, { :class => "form-horizontal" } do -%>
+    <fieldset>
+        <legend>Change settings for your blog</legend>
+        <input type="hidden" name="app_theme" value="<%= artigo_config('app_theme') %>" />
+        <div class="control-group">
+        	<label class="control-label">Site Title:</label>
+            <div class="controls">
+                <input class="span5" type="text" name="site_title" value="<%= artigo_config('site_title') %>" />
+                <p class="help-block">This is the text that will appear at the top of your blog.</p>
+            </div>
         </div>
-    </div>
-		<div class="clearfix">
-        <label>&lt;HEAD&gt; Title:</label>
-        <div class="input">
-            <input type="text" name="head_title" value="<%= artigo_config('head_title') || '' %>" />
+        <div class="control-group">
+            <label class="control-label">&lt;HEAD&gt; Title:</label>
+            <div class="controls">
+                <input class="span5" type="text" name="head_title" value="<%= artigo_config('head_title') || '' %>" />
+                <p class="help-block">This is the text that will appear in the HTML of your blog.</p>
+            </div>
         </div>
-    </div>
-    <div class="clearfix">
-        <label>Site Description:</label>
-        <div class="input">
-            <textarea name="site_description"><%= artigo_config('site_description') || '' %></textarea>
+        <div class="control-group">
+            <label class="control-label">Site Description:</label>
+            <div class="controls">
+                <textarea class="span5" name="site_description"><%= artigo_config('site_description') || '' %></textarea>
+                <p class="help-block">A short description of your blog. Used in &lt;meta /&gt; tags. Some themes also use this text in their layouts.</p>
+            </div>
         </div>
-    </div>
-    <div class="clearfix">
-        <label>Number of blog posts to show per page:</label>
-        <div class="input">
-            <select name="posts_per_page">
-							<option value="3" <%=raw "selected" if artigo_config('posts_per_page') == "3" %>>3</option>
-							<option value="5" <%=raw "selected" if artigo_config('posts_per_page') == "5" %>>5</option>
-							<option value="7" <%=raw "selected" if artigo_config('posts_per_page') == "7" %>>7</option>
-							<option value="10" <%=raw "selected" if artigo_config('posts_per_page') == "10" %>>10</option>
-							<option value="15" <%=raw "selected" if artigo_config('posts_per_page') == "15" %>>15</option>
-							<option value="20" <%=raw "selected" if artigo_config('posts_per_page') == "20" %>>20</option>
-							<option value="25" <%=raw "selected" if artigo_config('posts_per_page') == "25" %>>25</option>
-							<option value="50" <%=raw "selected" if artigo_config('posts_per_page') == "50" %>>50</option>
-							<option value="100" <%=raw "selected" if artigo_config('posts_per_page') == "100" %>>100</option>
-						</select>
+        <div class="control-group">
+            <label class="control-label">Number of blog posts to show per page:</label>
+            <div class="controls">
+                <select name="posts_per_page" class="span5">
+                    <%- ppr = artigo_config('posts_per_page') -%>
+                    <%- [3,5,7,10,15,20,25,50,100].each do |opt| -%>
+                        <option value="<%= opt %>" <%=raw "selected" if ppr == opt %>><%= opt %></option>
+                    <%- end -%>
+                </select>
+            </div>
         </div>
-    </div>
-    <div class="clearfix">
-        <label>Disqus Account Name:</label>
-        <div class="input">
-            <input type="text" name="disqus_account" value="<%= artigo_config('disqus_account') || '' %>" />
+        <div class="control-group">
+            <label class="control-label">Google Analytics Code:</label>
+            <div class="controls">
+                <input class="span5" type="text" name="google_analytics" value="<%= artigo_config('google_analytics') || '' %>" />
+            </div>
         </div>
-    </div>
-    <div class="clearfix">
-        <label>Google Analytics Code:</label>
-        <div class="input">
-            <input type="text" name="google_analytics" value="<%= artigo_config('google_analytics') || '' %>" />
+        <div class="control-group">
+            <label class="control-label">Disqus Account Name:</label>
+            <div class="controls">
+                <input class="span5" type="text" name="disqus_account" value="<%= artigo_config('disqus_account') || '' %>" />
+            </div>
         </div>
-    </div>
-    <div class="actions">
-    	<input type="submit" value="Please, save my changes" class="btn" />
-    </div>
-	</fieldset>
+
+        <div class="control-group actions">
+            <div class="actions">
+                <input type="submit" value="Please, save my changes" class="btn" />
+            </div>
+        </div>
+    </fieldset>
 <% end %>

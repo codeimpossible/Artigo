@@ -1,11 +1,35 @@
 <%= content_for :thetitle do -%>Tidy-up your blog<%- end -%>
+
 <p>I try to keep you blog tidy and neat, but sometimes you just need to go in and tidy up a bit.</p>
 
-<%= form_tag "/admin/tidyup/tidyposts" do -%>
-    <input type="hidden" name="post_type" value="all" />
-    You can use the <strong style="color: red">nuke from orbit</strong> approach and <%= submit_tag "delete all the posts", :confirm => "Are you sure?" %> from your blog.
-	<br /><em>Note: this <strong>will</strong> delete all the posts from your blog. USE WITH CAUTION!</em>
-<% end -%>
+<ul class="thumbnails">
+  <li class="span3">
+    <div class="thumbnail">
+      <img src="/images/admin/delete-all-the-posts.jpg" />
+      <div class="caption">
+        <h5>Delete every post</h5>
+        <p>This will delete every blog post in your Artigo blog. Use with caution.</p>
+        <p><a href="#confirm_delete" data-toggle="modal" class="btn btn-danger">Nuke 'Em</a></p>
+      </div>
+    </div>
+  </li>
+</ul>
+
+<div class="modal fade hide" id="confirm_delete" style="display: none;">
+  <div class="modal-header">
+    <a class="close" data-dismiss="modal">×</a>
+    <h3>Really delete all the posts?</h3>
+  </div>
+  <div class="modal-body">
+    <p>Every post in your blog will be deleted <strong>permanently</strong>. Are you sure you want to do this?</p>
+  </div>
+  <div class="modal-footer">
+    <%= form_tag "/admin/tidyup/tidyposts" do -%>
+      <input type="hidden" name="post_type" value="all" />
+      <input type="submit" value="Yes, drop the bomb!" class="btn btn-danger" />
+    <% end -%>
+    <a href="#" class="btn" data-dismiss="modal">No, cancel</a>
+  </div>
+</div>
 <br />
 <hr />
-<p>You know, on second thought... I'll just go back to the <a href="/admin">Admin dashboard.</a></p>

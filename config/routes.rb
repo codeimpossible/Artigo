@@ -1,5 +1,5 @@
 Artigo::Application.routes.draw do
-  resources :users, :posts 
+  resources :users, :posts
   resource :session
 
   get "tags/index"
@@ -13,12 +13,16 @@ Artigo::Application.routes.draw do
         :year       => /(19|20)\d{2}/,
         :month      => /[01]?\d/,
         :day        => /[0-3]?\d/
-      }, 
+      },
       :as => 'post_permalink'
 
   namespace :admin do
     match '/' => 'dashboard#index'
-    resources   :posts
+    resources   :posts do
+      collection do
+        post :manage
+      end
+    end
     resource    :import
     resource    :password
 
@@ -31,12 +35,12 @@ Artigo::Application.routes.draw do
     get   '/themes/:theme/settings',        :to => 'theme_settings#edit', :as => 'theme_settings'
     post  '/themes/:theme/settings/save',   :to => 'theme_settings#save', :as => 'theme_settings_save'
   end
-  
+
   match '/tags/:id(.:format)',              :to => 'tags#show', :defaults => { :format => 'html' }
   match '/sessions',                        :to => 'sessions#create', :via => 'post'
   match '/page/:page',                      :to => 'posts#page'
   match '/page/:page(.:format)',            :to => 'posts#page', :defaults => { :format => 'html' }
-        
+
   match 'logout',                           :to => 'sessions#destroy'
   match 'login',                            :to => 'sessions#new'
   match 'rss',                              :to => 'posts#rss'

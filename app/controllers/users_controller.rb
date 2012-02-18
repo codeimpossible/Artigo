@@ -3,14 +3,14 @@ class UsersController < ApplicationController
 
   # render new.rhtml
   def new
-	@count = User.all.size
-	if @count == 1
-		logger.warn "Someone attempted to access /user/new to create the admin account"
+  	@count = User.all.size
+  	if @count == 1
+  		logger.warn "Someone attempted to access /user/new to create the admin account"
 
-		not_found and return
-	else
-		@user = User.new
-	end
+  		not_found and return
+  	else
+  		@user = User.new
+  	end
   end
 
   def create

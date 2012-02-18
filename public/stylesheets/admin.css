@@ -1,3 +1,11 @@
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+.sidebar-nav {
+  padding: 9px 0;
+}
+
 #post_title {
 	font-size: 24px;
 	width: 740px;
@@ -254,7 +262,6 @@ pre.logs {
 	color: white;
 }
 
-
 /*Page down styles*/
 .wmd-panel
 {
@@ -353,3 +360,68 @@ pre.logs {
     font-size: 0.8em;
     font-weight: bold;
 }
+
+/* Tag cloud */
+.css1 { font-size: 10px; }
+.css2 { font-size: 12px; }
+.css3 { font-size: 14px; }
+.css4 { font-size: 16px; }
+
+.tags{
+  margin:0;
+  padding:0;
+  right:24px;
+  bottom:-12px;
+  list-style:none;
+  }
+.tags li, .tags a{
+  float:left;
+  height:24px;
+  line-height:24px;
+  position:relative;
+  font-size:11px;
+  }
+.tags a{
+  margin-left:20px;
+  padding:0 10px 0 12px;
+  background:#0089e0;
+  color:#fff;
+  text-decoration:none;
+  -moz-border-radius-bottomright:4px;
+  -webkit-border-bottom-right-radius:4px;
+  border-bottom-right-radius:4px;
+  -moz-border-radius-topright:4px;
+  -webkit-border-top-right-radius:4px;
+  border-top-right-radius:4px;
+  }
+.tags a:before{
+  content:"";
+  float:left;
+  position:absolute;
+  top:0;
+  left:-12px;
+  width:0;
+  height:0;
+  border-color:transparent #0089e0 transparent transparent;
+  border-style:solid;
+  border-width:12px 12px 12px 0;
+  }
+.tags a:after{
+  content:"";
+  position:absolute;
+  top:10px;
+  left:0;
+  float:left;
+  width:4px;
+  height:4px;
+  -moz-border-radius:2px;
+  -webkit-border-radius:2px;
+  border-radius:2px;
+  background:#fff;
+  -moz-box-shadow:-1px -1px 2px #004977;
+  -webkit-box-shadow:-1px -1px 2px #004977;
+  box-shadow:-1px -1px 2px #004977;
+  }
+
+.tags a:hover{background:#555;}
+.tags a:hover:before{border-color:transparent #555 transparent transparent;}

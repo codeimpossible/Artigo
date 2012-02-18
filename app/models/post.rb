@@ -3,13 +3,14 @@ class Post < ActiveRecord::Base
 	acts_as_taggable
 	validates_presence_of :body
 
+	@@per_page = Artigo.get_conf("posts_per_page").to_i
+
 	scope :private, :conditions => ["published = ?", false]
 	scope :public, :conditions => ["published = ?", true]
+	scope :recent, :limit => @@per_page
 
 	cattr_reader :per_page
 	attr_accessible :title, :body_md, :body_html, :summary, :tags, :published
-
-	@@per_page = Artigo.get_conf("posts_per_page").to_i
 
 	def to_perm
 		"#{title.gsub(/&.{1,4};/i,'-').gsub(/[^a-z0-9]+/i, '-')}"

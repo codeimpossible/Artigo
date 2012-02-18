@@ -1,4 +1,7 @@
 class Admin::PostsController < Admin::BaseController
+  after_filter :expire_blog_stats_cache, :only => [:manage, :update, :create, :destroy]
+  before_filter :load_tags, :only => [:new, :create, :edit, :update]
+
   def index
     @posts = Post.find(:all, :order => "created_at DESC")
   end
@@ -10,7 +13,7 @@ class Admin::PostsController < Admin::BaseController
     else
       Post.bulk_set_published(params[:posts],params[:act] == "publish")
     end
-    flash[:notice] = "#{num_posts} posts were #{params[:act]}ed."
+    flash[:success] = "#{num_posts} posts were #{params[:act]}ed."
     redirect_to "/admin/posts"
   end
 
@@ -19,8 +22,11 @@ class Admin::PostsController < Admin::BaseController
   def new
     @post = Post.default
 
+<<<<<<< HEAD
     @tags = Post.tag_counts_on(:tags)
 
+=======
+>>>>>>> master
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => post }
@@ -30,18 +36,27 @@ class Admin::PostsController < Admin::BaseController
   # POST /admin/posts
   # POST /admin/posts.xml
   def create
+<<<<<<< HEAD
     @post = Post.new params[:post]
+=======
+    @post = Post.new  :title => params[:post][:title],
+                      :summary => params[:post][:summary],
+                      :body => params[:post][:body]
+
+    @post.tag_list = params[:post][:tags]
+>>>>>>> master
 
     logger.debug params[:post].inspect
 
     respond_to do |format|
       if @post.save
         logger.debug 'post saved, redirecting to #{edit_admin_post_path(@post)}'
-        flash[:notice] = 'Post was successfully created.'
+        flash[:success] = 'Post was successfully created.'
         format.html   { redirect_to( edit_admin_post_path(@post) ) }
         format.json   { render :json => @post }
         format.xml    { render :xml => @post, :status => :created, :location => @post }
       else
+        flash[:error] = "Uh oh, something went wrong."
         format.html   { render :action => "new" }
         format.json   { render :json => "fail" }
         format.xml    { render :xml => @post.errors, :status => :unprocessable_entity }
@@ -51,7 +66,10 @@ class Admin::PostsController < Admin::BaseController
 
   def edit
     @post = Post.find_by_id(params[:id])
+<<<<<<< HEAD
     @tags = Post.tag_counts_on(:tags)
+=======
+>>>>>>> master
   end
 
   # PUT /admin/posts/1
@@ -59,26 +77,41 @@ class Admin::PostsController < Admin::BaseController
   def update
     @post = Post.find(params[:id])
 
+<<<<<<< HEAD
     @post.update_attributes params[:post] if params[:post]
 
     @post.published = params[:post_published] if not params[:post_published].blank?
 
+=======
+    @post.update_attributes params
+
+    @post.published = params[:post_published] if not params[:post_published].blank?
+
+    @post.tag_list = params[:tags]
+
+>>>>>>> master
     should_change_date = params[:date_type].blank? ? false : params[:date_type] != "default"
     if should_change_date
       if params[:date_type] == "today"
         @post.created_at = Date.today
       else
         @post.created_at = Date.parse params[:post_created_at]
+<<<<<<< HEAD
       end
     end
+=======
+    end
+  end
+>>>>>>> master
 
     respond_to do |format|
       if @post.save
-        flash[:notice] = 'Changes saved successfully.'
+        flash[:success] = 'Changes saved successfully.'
         format.html { redirect_to :action => "index" }
         format.json { render :json => @post }
         format.xml  { head :ok }
       else
+        flash[:error] = "Uh oh, something went wrong."
         format.html { render :action => "edit" }
         format.json { render :json => "fail" }
         format.xml  { render :xml => @post.errors, :status => :unprocessable_entity }
@@ -96,5 +129,14 @@ class Admin::PostsController < Admin::BaseController
       format.html { redirect_to(root_url) }
       format.xml  { head :ok }
     end
+  end
+
+  private
+  def expire_blog_stats_cache
+    expire_fragment 'blog_stats'
+  end
+
+  def load_tags
+    @tags = Post.tag_counts_on(:tags) || []
   end
 end
