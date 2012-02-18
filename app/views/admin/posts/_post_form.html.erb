@@ -20,7 +20,7 @@
 
     <div class="clearfix">
         <div class="input">
-            <%= f.text_area :body %>
+            <%= render :partial => 'body_editor', :locals => { :post => post, :form => f } %>
         </div>
     </div>
 
@@ -38,10 +38,19 @@
 
 <%= content_for :foot do %>
     <%= javascript_include_tag "jquery.autocomplete.pack",
-        defined?(LOAD_FULL_CKEDITOR) && LOAD_FULL_CKEDITOR ? "ckeditor/ckeditor_source": "ckeditor/ckeditor",
-        "ckeditor/adapters/jquery",
         "artigo-edit",
+        "pagedown/Markdown.Converter",
+        "pagedown/Markdown.Sanitizer",
+        "pagedown/Markdown.Editor",
         "artigo-ckeditor", :cache => "post_form" %>
+
+    <script type="text/javascript">
+        (function () {
+            var converter1 = Markdown.getSanitizingConverter();
+            var editor1 = new Markdown.Editor(converter1);
+            editor1.run();
+        })();
+    </script>
 
     <%= render :partial => "admin/posts/tag_autocomplete", :locals => { :tags => tags } %>
 <% end %>

@@ -5,11 +5,11 @@ class Admin::PostsControllerTest < ActionController::TestCase
   fixtures :users, :posts
   setup :create_configuration
 
-  test "non-logged in user cannot access index" do  
+  test "non-logged in user cannot access index" do
     get :index
     assert_redirected_to login_path
   end
-  
+
   test "logged-in user can access index" do
     login_as :quentin
     get :index
@@ -33,37 +33,37 @@ class Admin::PostsControllerTest < ActionController::TestCase
     login_as :quentin
 
     assert_difference('Post.count') do
-      post :create, :post => { :title => "Test Post Title", :summary => "Test Summary", :body => "This is some content" }
+      post :create, :post => { :title => "Test Post Title", :summary => "Test Summary", :body_md => "This is some content" }
     end
   end
 
-  test "when we create a post and an error happens, the erroris displayed on the /new view" do
+  test "when we create a post and an error happens, the error is displayed on the /new view" do
     as(:quentin) do
       post :create, :post => { :title => "Test", :summary => "Sample" }
 
       p = assigns[:post]
 
       assert_response :success
-      assert p.errors[:body]
+      assert p.errors[:body_md]
       assert_template "new"
     end
   end
 
   test "create post redirects to edit page" do
     login_as :quentin
-    
-    post :create, :post => { :title => "Test Post Title",:summary => "Test Summary", :body => "This is some content" }
+
+    post :create, :post => { :title => "Test Post Title",:summary => "Test Summary", :body_md => "This is some content" }
 
     assert_redirected_to edit_admin_post_path :id => 3
   end
 
   test "create post with tags redirects to edit page" do
     login_as :quentin
-    
-    post :create, :post => { 
+
+    post :create, :post => {
       :title => "Test Post Title",
-      :summary => "Test Summary", 
-      :body => "This is some content",
+      :summary => "Test Summary",
+      :body_md => "This is some content",
       :tags => "Test1, Test2, Test3" }
 
     assert_redirected_to edit_admin_post_path :id => 3
@@ -76,17 +76,18 @@ class Admin::PostsControllerTest < ActionController::TestCase
 
     p = assigns :post
 
-    assert p.errors[:body]
+    assert p.errors[:body_md]
   end
 
   test "post with body param fills out body" do
     login_as :quentin
 
-    post :create, :post => { :title => "Test Post Title",:summary => "Test Summary", :body => "This is some content" }
+    post :create, :post => { :title => "Test Post Title",:summary => "Test Summary", :body_md => "This is some content" }
 
     post = Post.find_by_id(3)
 
-    assert_equal "This is some content", post.body
+    assert_equal "This is some content", post.body_md
+    assert_equal "<p>This is some content</p>", post.body
   end
 
   test "should get edit" do
@@ -97,7 +98,12 @@ class Admin::PostsControllerTest < ActionController::TestCase
 
   test "should update post" do
     login_as :quentin
-    put :update, :id => posts(:one).id, :post => { }
+    put :update, :id => posts(:one).id, :post => {
+      :title => "foo",
+      :summary => "bar",
+      :body_md => "foobar"
+    }
+
     assert_redirected_to :controller => 'posts', :action => 'index'
   end
 

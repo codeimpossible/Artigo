@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111031155446) do
+ActiveRecord::Schema.define(:version => 20120124021126) do
 
   create_table "posts", :force => true do |t|
     t.string   "title"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(:version => 20111031155446) do
     t.string   "permalink"
     t.text     "summary"
     t.boolean  "published",  :default => false
+    t.string   "body_md"
+    t.string   "body_html"
   end
 
   create_table "taggings", :force => true do |t|
