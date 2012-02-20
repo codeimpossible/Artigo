@@ -13,7 +13,7 @@ class Post < ActiveRecord::Base
 	attr_accessible :title, :body_md, :body_html, :summary, :tags, :published
 
 	def to_perm
-		"#{title.gsub(/&.{1,4};/i,'-').gsub(/[^a-z0-9]+/i, '-')}"
+		"#{title.gsub(/&.{1,4};/i,'-').gsub(/[^a-z0-9]+/i, '-').gsub(/-+$/i, '')}"
 	end
 
 	def self.bulk_set_published(posts, pub)

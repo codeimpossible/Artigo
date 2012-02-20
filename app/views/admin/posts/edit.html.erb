@@ -14,7 +14,7 @@
 	Go there now by clicking <a href="#" class="permalink">this link</a>.
 </p>
 
-<%= form_for @post, :url => admin_post_path(@post), :html => { :class => "form-stacked" }, :method => :put do |f| %>
+<%= form_for @post, :url => admin_post_path(@post), :html => { :class => "form-stacked post-form" }, :method => :put do |f| %>
   <fieldset>
     <%= render :partial => "post_form", :locals => {:f => f, :post => @post, :tags => @tags} %>
   </fieldset>

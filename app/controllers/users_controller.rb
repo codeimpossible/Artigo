@@ -11,6 +11,10 @@ class UsersController < ApplicationController
   	else
   		@user = User.new
   	end
+
+    respond_to do |format|
+      format.html { render "new", :layout => false }
+    end
   end
 
   def create

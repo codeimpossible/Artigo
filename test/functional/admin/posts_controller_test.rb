@@ -40,7 +40,7 @@ class Admin::PostsControllerTest < ActionController::TestCase
   test "managing posts user can delete all posts" do
     as :quentin do
       ids = Post.find(:all, :select => "id")
-      assert_difference('Post.find(:all).count', -2) do
+      assert_difference('Post.find(:all).count', Post.find(:all).count * -1) do
         post :manage, :posts => ids, :act => "delete"
       end
     end
@@ -53,19 +53,21 @@ class Admin::PostsControllerTest < ActionController::TestCase
 
   test "managing posts user can publish all posts" do
     as :quentin do
-      @post = Post.create! :title => "hi", :body => 'hi'
-      assert_difference('Post.public.count', 1) do
-        post :manage, :posts => [ @post.id ], :act => "publish"
-      end
+      post_ids = Post.find(:all).map(&:id)
+
+      post :manage, :posts => post_ids, :act => "publish"
+
+      assert_equal Post.all.count, Post.public.count
     end
   end
 
   test "managing posts user can unpublish all posts" do
     as :quentin do
-      ids = Post.find(:all, :select => "id")
-      assert_difference('Post.private.count', 2) do
-        post :manage, :posts => ids, :act => "unpublish"
-      end
+      post_ids = Post.find(:all).map(&:id)
+
+      post :manage, :posts => post_ids, :act => "unpublish"
+
+      assert_equal Post.all.count, Post.private.count
     end
   end
 
@@ -86,7 +88,7 @@ class Admin::PostsControllerTest < ActionController::TestCase
 
     post :create, :post => { :title => "Test Post Title",:summary => "Test Summary", :body_md => "This is some content" }
 
-    assert_redirected_to edit_admin_post_path :id => 3
+    assert_redirected_to edit_admin_post_path :id => 4
   end
 
   test "create post with tags redirects to edit page" do
@@ -98,7 +100,7 @@ class Admin::PostsControllerTest < ActionController::TestCase
       :body_md => "This is some content",
       :tags => "Test1, Test2, Test3" }
 
-    assert_redirected_to edit_admin_post_path :id => 3
+    assert_redirected_to edit_admin_post_path :id => 4
   end
 
   test "post with content param instead of body reports error" do
@@ -116,7 +118,7 @@ class Admin::PostsControllerTest < ActionController::TestCase
 
     post :create, :post => { :title => "Test Post Title",:summary => "Test Summary", :body_md => "This is some content" }
 
-    post = Post.find_by_id(3)
+    post = Post.find_by_id(4)
 
     assert_equal "This is some content", post.body_md
     assert_equal "<p>This is some content</p>", post.body
@@ -128,7 +130,7 @@ class Admin::PostsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should update post" do
+  test "should display flash notice when post is updated" do
     login_as :quentin
     put :update, :id => posts(:one).id, :post => {
       :title => "foo",
@@ -136,7 +138,82 @@ class Admin::PostsControllerTest < ActionController::TestCase
       :body_md => "foobar"
     }
 
-    assert_redirected_to :controller => 'posts', :action => 'index'
+    assert_not_nil flash[:success]
+  end
+
+  test "update should update post fields" do
+    as :quentin do
+      post = posts(:one)
+      put :update, :id => post.id, :post => {
+        :title => "foo",
+        :summary => "bar",
+        :body_md => "foobar"
+      }
+
+      post.reload
+
+      assert_equal "foo", post.title
+      assert_equal "bar", post.summary
+      assert_equal "foobar", post.body_md
+    end
+  end
+
+  test "flash notice should have link to live post url" do
+    as :quentin do
+      post = posts(:one)
+      put :update, :id => post.id, :post => {
+        :title => "foo",
+        :summary => "bar",
+        :body_md => "foobar"
+      }
+
+      d = post.created_at
+
+      post.reload
+
+      expected_text = "Post saved successfully. <a href='/#{d.year}/#{d.month}/#{d.day}/#{post.to_perm}'>View Post</a>"
+
+      assert_equal expected_text, flash[:success]
+    end
+  end
+
+  test "user can mark post as unpublished when updating" do
+    as :quentin do
+      post = posts(:one)
+
+      put :update, :id => post.id, :post => { :published => false }
+
+      assert_equal false, post.reload.published
+    end
+  end
+
+  test "user can mark post as published when updating" do
+    as :quentin do
+      post = posts(:unpublished)
+
+      put :update, :id => post.id, :post => { :published => true }
+
+      assert_equal true, post.reload.published
+    end
+  end
+
+  test "flash notice should only have link to view post if post is published" do
+    as :quentin do
+      post = posts(:one)
+      put :update, :id => post.id, :post => {
+        :title => "foo",
+        :summary => "bar",
+        :body_md => "foobar"
+      }, :post_published => false
+
+      d = post.created_at
+
+      post.reload
+
+      expected_text = "Post saved successfully. <a href='/#{d.year}/#{d.month}/#{d.day}/#{post.to_perm}'>View Post</a>"
+
+      assert_equal expected_text, flash[:success]
+    end
   end
 
   test "should destroy post" do

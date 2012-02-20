@@ -8,10 +8,11 @@ class Admin::PostsController < Admin::BaseController
 
   def manage
     num_posts = params[:posts].size
+
     if params[:act] == "delete"
       Post.bulk_delete(params[:posts])
     else
-      Post.bulk_set_published(params[:posts],params[:act] == "publish")
+      Post.bulk_set_published(params[:posts], params[:act] == "publish")
     end
     flash[:success] = "#{num_posts} posts were #{params[:act]}ed."
     redirect_to "/admin/posts"
@@ -22,11 +23,6 @@ class Admin::PostsController < Admin::BaseController
   def new
     @post = Post.default
 
-<<<<<<< HEAD
-    @tags = Post.tag_counts_on(:tags)
-
-=======
->>>>>>> master
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => post }
@@ -36,17 +32,7 @@ class Admin::PostsController < Admin::BaseController
   # POST /admin/posts
   # POST /admin/posts.xml
   def create
-<<<<<<< HEAD
     @post = Post.new params[:post]
-=======
-    @post = Post.new  :title => params[:post][:title],
-                      :summary => params[:post][:summary],
-                      :body => params[:post][:body]
-
-    @post.tag_list = params[:post][:tags]
->>>>>>> master
-
-    logger.debug params[:post].inspect
 
     respond_to do |format|
       if @post.save
@@ -66,10 +52,6 @@ class Admin::PostsController < Admin::BaseController
 
   def edit
     @post = Post.find_by_id(params[:id])
-<<<<<<< HEAD
-    @tags = Post.tag_counts_on(:tags)
-=======
->>>>>>> master
   end
 
   # PUT /admin/posts/1
@@ -77,37 +59,21 @@ class Admin::PostsController < Admin::BaseController
   def update
     @post = Post.find(params[:id])
 
-<<<<<<< HEAD
-    @post.update_attributes params[:post] if params[:post]
+    @post.update_attributes params[:post]
 
-    @post.published = params[:post_published] if not params[:post_published].blank?
-
-=======
-    @post.update_attributes params
-
-    @post.published = params[:post_published] if not params[:post_published].blank?
-
-    @post.tag_list = params[:tags]
-
->>>>>>> master
     should_change_date = params[:date_type].blank? ? false : params[:date_type] != "default"
     if should_change_date
       if params[:date_type] == "today"
         @post.created_at = Date.today
       else
         @post.created_at = Date.parse params[:post_created_at]
-<<<<<<< HEAD
       end
     end
-=======
-    end
-  end
->>>>>>> master
 
     respond_to do |format|
       if @post.save
-        flash[:success] = 'Changes saved successfully.'
-        format.html { redirect_to :action => "index" }
+        flash[:success] = "Post saved successfully. #{view_post_link(@post) if @post.published}"
+        format.html { render :action => "edit" }
         format.json { render :json => @post }
         format.xml  { head :ok }
       else
