@@ -107,6 +107,15 @@ pre.logs {
 }
 
 /*
+ * Twitter Bootstrap overrides
+ *********************/
+input.btn { margin-bottom: 0px; } /* keep buttons aligned vertically */
+legend + .control-group {
+  margin-top: 18px;
+  -webkit-margin-top-collapse: separate;
+} /* put a "line" between the legend and the first control */
+
+/*
  * Sprites
  *********************/
 .soc-sprite { background: url('/images/admin/social/social.png') no-repeat 0 0; height: 24px; width: 24px; }
@@ -210,56 +219,87 @@ pre.logs {
 .soc-sprite-yelp{ background-position: -222px -1184px; width: 24px; height: 24px; }
 .soc-sprite-youtube{ background-position: -222px -1258px; width: 24px; height: 24px; }
 
-/* AUTOCOMPLETE PLUGIN STYLES
-----------------------------------------------------------*/
-
-.ac_results {
-	padding: 0px;
-	border: 1px solid black;
-	background-color: white;
-	overflow: hidden;
-	z-index: 99999;
+/*Page down styles*/
+.wmd-panel
+{
+    min-width: 500px;
 }
 
-.ac_results ul {
-	width: 100%;
-	list-style-position: outside;
-	list-style: none;
-	padding: 0;
-	margin: 0;
+.wmd-button-bar
+{
+    width: 100%;
+    margin-left: 0;
 }
 
-.ac_results li {
-	margin: 0px;
-	padding: 2px 5px;
-	cursor: default;
-	display: block;
-	/*
-	if width will be 100% horizontal scrollbar will apear
-	when scroll mode will be used
-	*/
-	/*width: 100%;*/
-	font: menu;
-	font-size: 12px;
-	/*
-	it is very important, if line-height not setted or setted
-	in relative units scroll will be broken in firefox
-	*/
-	line-height: 16px;
-	overflow: hidden;
+.wmd-input
+{
+    height: 300px;
+    width: 100%;
 }
 
-.ac_loading {
-	background: white url('/images/ajax-load.gif') right center no-repeat;
+.wmd-button-row
+{
+    position: relative;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    padding: 0px;
+    height: 20px;
 }
 
-.ac_odd {
-	background-color: #eee;
+.wmd-spacer
+{
+    display: none;
 }
 
-.ac_over {
-	background-color: #0A246A;
-	color: white;
+.wmd-button {
+    width: 20px;
+    height: 20px;
+    padding-left: 2px;
+    padding-right: 3px;
+    position: absolute;
+    display: inline-block;
+    list-style: none;
+    cursor: pointer;
+}
+
+.wmd-button > span {
+    background-image: url(/images/admin/wmd-buttons.png);
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}
+
+.wmd-prompt-background
+{
+    background-color: Black;
+}
+
+.wmd-prompt-dialog
+{
+    border: 1px solid #999999;
+    background-color: #F5F5F5;
+}
+
+.wmd-prompt-dialog > div {
+    font-size: 0.8em;
+    font-family: arial, helvetica, sans-serif;
+}
+
+
+.wmd-prompt-dialog > form > input[type="text"] {
+    border: 1px solid #999999;
+    color: black;
+}
+
+.wmd-prompt-dialog > form > input[type="button"]{
+    border: 1px solid #888888;
+    font-family: trebuchet MS, helvetica, sans-serif;
+    font-size: 0.8em;
+    font-weight: bold;
 }
 
 /* Tag cloud */

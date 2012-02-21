@@ -10,7 +10,7 @@ class Admin::TidyupControllerTest < ActionController::TestCase
   end
 
   test "tidyup index returns success" do
-    
+
     as :quentin do
       get :index
 
@@ -19,8 +19,8 @@ class Admin::TidyupControllerTest < ActionController::TestCase
   end
 
   test "tidyposts route is recoginized" do
-    assert_recognizes({ 
-        :controller => "admin/tidyup", 
+    assert_recognizes({
+        :controller => "admin/tidyup",
         :action => "tidyposts"
       }, {
         :path => "/admin/tidyup/tidyposts",
@@ -30,9 +30,9 @@ class Admin::TidyupControllerTest < ActionController::TestCase
 
   test "post_type all removes all posts" do
     as :quentin do
-      assert_difference("Post.count", -2) do
-        post :tidyposts, :post_type => "all"
-      end
+      post :tidyposts, :post_type => "all"
+
+      assert_equal 0, Post.all.count
     end
   end
 
@@ -53,7 +53,7 @@ class Admin::TidyupControllerTest < ActionController::TestCase
   end
 
   test "tidyposts displays flash notice when posts are deleted" do
-    as :quentin do 
+    as :quentin do
       post :tidyposts, :post_type => "all"
 
       expected_flash = "All your posts have been removed from the blog"

@@ -1,19 +1,53 @@
-<h1>Create your admin account</h1>
-<p>Hey, it looks like you haven't created your admin account yet! You need the admin account in order to import posts from your old blog, create new content and manage existing content.</p>
-<big>It's pretty imporant.</big>
-<p>So use the form below to create your admin account now!</p>
+<!DOCTYPE html>
+<html xml:lang="en" lang="en">
+  <head>
+    <title><%= artigo_config("head_title") %> - Artigo</title>
+    <!-- Le <HEAD></HEAD>TML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <%= stylesheet_link_tag 'bootstrap', 'bootstrap-responsive', 'admin', :cache => is_dev? %>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span4">&nbsp;</div>
+        <div class="offset4 span8">
+          <%= render :partial => "admin/shared/alert" %>
 
-<% @user.password = @user.password_confirmation = nil %>
-<%= error_messages_for :user %>
-<%= form_for :user, :url => users_path do |f| %>
-    <p><%= f.label :login %></p>
-    <p><%= f.text_field :login, :class => 'text' %></p>
-    <p><%= f.label :email %></p>
-    <p><%= f.text_field :email, :class => 'text' %></p>
-    <p><%= f.label :password %></p>
-    <p><%= f.password_field :password, :class => 'text' %></p>
-    <p><%= f.label :password_confirmation, 'Confirm Password' %></p>
-    <p><%= f.password_field :password_confirmation, :class => 'text' %></p>
+          <div class="row-fluid">
+              <div class="span6 well">
 
-    <p><%= submit_tag 'Sign up', :class => 'button' %></p>
-<% end %>
+                <h1>Create your admin account</h1>
+                <p>Hey, it looks like you haven't created your admin account yet! You need the admin account in order to import posts from your old blog, create new content and manage existing content.</p>
+                <big>It's pretty imporant.</big>
+                <p>So use the form below to create your admin account now!</p>
+
+                <% @user.password = @user.password_confirmation = nil %>
+                <%= error_messages_for :user %>
+                <%= form_for :user, :url => users_path do |f| %>
+                    <p><%= f.label :login %></p>
+                    <p><%= f.text_field :login, :class => 'text' %></p>
+                    <p><%= f.label :email %></p>
+                    <p><%= f.text_field :email, :class => 'text' %></p>
+                    <p><%= f.label :password %></p>
+                    <p><%= f.password_field :password, :class => 'text' %></p>
+                    <p><%= f.label :password_confirmation, 'Confirm Password' %></p>
+                    <p><%= f.password_field :password_confirmation, :class => 'text' %></p>
+
+                    <p><%= submit_tag 'Sign up', :class => 'btn btn-primary' %></p>
+                <% end %>
+
+                <p>&copy; Codeimpossible 2012</p>
+              </div>
+          </div>
+        </div>
+      </div><!--/row-->
+
+    </div><!--/.fluid-container-->
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+
+    <%= javascript_include_tag 'bootstrap/bootstrap' %>
+  </body>
+</html>
