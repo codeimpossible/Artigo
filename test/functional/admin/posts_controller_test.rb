@@ -177,6 +177,14 @@ class Admin::PostsControllerTest < ActionController::TestCase
     end
   end
 
+  test "when editing post content is displayed to user" do
+    as :quentin do
+      get :edit, :id => posts(:one).id
+
+      assert_select "textarea#wmd-input", :text => posts(:one).body_md
+    end
+  end
+
   test "user can mark post as unpublished when updating" do
     as :quentin do
       post = posts(:one)

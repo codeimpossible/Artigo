@@ -164,29 +164,29 @@ EOF
             :published => true,
             :title => "Sample Post",
             :summary => "This is just a sample blog post. Take a look and use it to test any themes you install.",
-            :body => <<eos
-<h2>Header 2</h2>
-<p>This is an example of a artigo page, you could edit this to put information about yourself or your site so readers know where you are coming from. You can create as many pages like this one or sub-pages as you like and manage all of your content inside of artigo.</p>
-<blockquote>This is an example of a artigo page, you could edit this to put information about yourself or your site so readers know where you are coming from. You can create as many pages like this one or sub-pages as you like and manage all of your content inside of artigo.</blockquote>
-<h3>Header 3</h3>
-<p>This is an example of a artigo page, you could edit this to put information about yourself or your site so readers know where you are coming from. You can create as many pages like this one or sub-pages as you like and manage all of your content inside of artigo. This is an example of a artigo page, you could edit this to put information about yourself or your site so readers know where you are coming from. You can create as many pages like this one or sub-pages as you like and manage all of your content inside of artigo.</p>
-<p>Here are some of my favorite movies</p>
-<ul>
-    <li>Hi Fidelity</li>
-    <li>American President</li>
-    <li>Americas Sweethearts</li>
-    <li>Die Hard</li>
-    <li>L.A. Confidential</li>
-</ul>
-  <h4>Header 4</h4>
-<p>Here are my favorite movies in an ordered list</p>
-<ol>
-    <li>Hi Fidelity</li>
-    <li>American President</li>
-    <li>Americas Sweethearts</li>
-    <li>Die Hard</li>
-    <li>L.A. Confidential</li>
-</ol>
+            :body_md => <<eos
+## Header 2
+This is an example of a artigo blog post, you could edit this to put information about yourself or your site so readers know where you are coming from. You can create as many blog posts like this one as you like.
+>> This is an example of an artigo blog post, you could edit this to put information about yourself or your site so readers know where you are coming from.
+### Header 3
+This is an example of an artigo blog post, you could edit this to put information about yourself or your site so readers know where you are coming from.
+
+Here are some of my favorite movies
+
+ * Hi Fidelity
+ * American President
+ * Americas Sweethearts
+ * Die Hard
+ * L.A. Confidential
+
+#### Header 4
+Here are my favorite movies in an ordered list
+
+ 1. Hi Fidelity
+ 2. American President
+ 3. Americas Sweethearts
+ 4. Die Hard
+ 5. L.A. Confidential
 eos
         })
         @post.tag_list = "Artigo, Die-Hard, Post Example"
@@ -198,15 +198,13 @@ eos
             :published => true,
             :title => "Welcome to Artigo, release 1: Die Hard",
             :summary => "This is your first blog post. You can delete this or edit it and start blogging!",
-            :body => <<eos
-<img src="/images/admin/die-hard.jpg" />
-<p>
-    Welcome to Artigo release 1, &quot;Die Hard&quot;. Artigo, Portuguese for Article, is a blog platform written in Ruby. Artigo is painstakingly developed by me, Jared Barboza of <a href="http://codeimpossible.com">Codeimpossible.com</a>.</p>
-<p>
-    I&#39;ve tried to build a very reliable, fast and easy to use bloging software but if you encounter any issues, use the &quot;I found a bug&quot; feature in the <a href="/admin">admin area</a>.</p>
-<p>
-    Feel free to follow me on any of the sites below: <a href="http://twitter.com/codeimpossible">twitter</a>
-</p>
+            :body_md => <<eos
+![Die Hard](/images/admin/die-hard.jpg)
+Welcome to Artigo release 1, "Die Hard". Artigo, Portuguese for Article, is a blog platform written in Ruby. Artigo is painstakingly developed by me, Jared Barboza of [Codeimpossible.com](http://codeimpossible.com).
+
+I&#39;ve tried to build a very reliable, fast and easy way to blog but if you encounter any issues, use the "I found a bug" feature in the [Admin Area](/admin).
+
+For more updates on Artigo or to let me know about issues, [follow me on twitter](http://twitter.com/codeimpossible)!
 eos
         })
         @post.tag_list = "Artigo, Die-Hard, Post Example, First Post, Bruce Willis"
