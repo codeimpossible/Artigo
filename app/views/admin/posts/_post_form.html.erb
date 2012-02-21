@@ -2,25 +2,18 @@
 
 <div id="post" class="new">
     <fieldset>
-        <legend>Create a new post</legend>
+        <legend>Delay not; swift the flight of fortune's greatest favours.</legend>
+
         <div class="control-group">
-            <label class="control-label">Title:</label>
             <div class="controls">
-                <%= f.text_field :title, :class => "span5" %>
+                <%= f.text_field :title, :class => "span5 post-title" %>
+                <p class="help-block">your post will be available at: <%= artigo_config('blog_url') %>/<span id="url-preview"><%= @post.to_perm %></span></p>
             </div>
         </div>
 
         <div class="control-group">
-            <label class="control-label">Summary:</label>
             <div class="controls">
-                <%= f.text_area :summary, :class => "span5" %>
-            </div>
-        </div>
-
-        <div class="control-group">
-            <label class="control-label">Body</label>
-            <div class="controls">
-                <%= f.text_area :body %>
+                <%= render :partial => 'body_editor', :locals => { :post => post, :form => f } %>
             </div>
         </div>
 
@@ -30,17 +23,32 @@
                 <%= f.text_field :tags, :value => post.tag_list.join(','), :class => "span5", 'data-items' => '10', 'data-provide' => "typeahead", 'data-source' => "[#{tags.map{|t| "\"#{t}\"" }.join(',')}]", 'data-mode' => 'multiple' %>
             </div>
         </div>
+
+        <div class="control-group">
+            <label class="control-label">Summary:</label>
+            <div class="controls">
+                <%= f.text_area :summary, :class => "span5" %>
+            </div>
+        </div>
     </fieldset>
 </div>
-<div class="actions">
-    <%= f.submit 'Save Post', :class => "btn" %>
-</div>
 
+<%= content_for :sidebar do %>
+    <%= f.submit 'Save Post', :class => "btn", :id => "save" %>
+<% end %>
 
 <%= content_for :foot do %>
-    <%= javascript_include_tag "jquery.autocomplete.pack",
-        defined?(LOAD_FULL_CKEDITOR) && LOAD_FULL_CKEDITOR ? "ckeditor/ckeditor_source": "ckeditor/ckeditor",
-        "ckeditor/adapters/jquery",
-        "artigo-edit",
-        "artigo-ckeditor", :cache => "post_form" %>
+    <%= javascript_include_tag "artigo-edit",
+        "pagedown/Markdown.Converter",
+        "pagedown/Markdown.Sanitizer",
+        "pagedown/Markdown.Editor",
+        :cache => "post_form" %>
+
+    <script type="text/javascript">
+        (function () {
+            var converter1 = Markdown.getSanitizingConverter();
+            var editor1 = new Markdown.Editor(converter1);
+            editor1.run();
+        })();
+    </script>
 <% end %>

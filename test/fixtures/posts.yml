@@ -3,7 +3,7 @@
 one:
   id: 1
   title: MyString
-  body: MyText
+  body_md: MyText
   summary: MyString
   created_at: <%= 10.days.ago.to_s :db  %>
   published: true
@@ -12,8 +12,17 @@ one:
 two:
   id: 2
   title: Another Post
-  body: MyText
+  body_md: MyText
   summary: MyString
   created_at: <%= 5.days.ago.to_s :db  %>
   published: true
   permalink: Another-Post
+
+unpublished:
+  id: 3
+  title: Another Post That Is Private
+  body_md: MyText
+  summary: MyString
+  created_at: <%= 7.days.ago.to_s :db  %>
+  published: false
+  permalink: Another-Post-That-Is-Private

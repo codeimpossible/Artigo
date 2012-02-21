@@ -1,0 +1,14 @@
+<% if post.content_type == :html %>
+    <%= form.text_area :body_html, :class => "html_editor" %>
+<% else %>
+  <div class="row-fluid wmd-panel">
+    <div class="span10">
+      <div id="wmd-button-bar" class="span9 wmd-button-bar"></div>
+      <div class="row-fluid">
+        <div class="span10">
+          <%= form.text_area :body_md, :class => "wmd-input md-editor", :id => "wmd-input" %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

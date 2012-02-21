@@ -1,4 +1,4 @@
 <% content_for :thetitle do %>Create a new post<% end %>
-<%= form_for @post, :url => admin_posts_path do |f| %>
+<%= form_for @post, :html => { :class => "post-form" }, :url => admin_posts_path do |f| %>
 	<%= render :partial => "post_form", :locals => {:f => f, :post => @post, :tags => @tags} %>
-<% end %>    
+<% end %>
