@@ -11,7 +11,7 @@ To read more about setting up and configuring Artigo please read the [wiki](wiki
 
 
 ## Installation
-It's recommended that you install Artigo by cloning it in mercurial.
+It's recommended that you install Artigo by cloning it in git.
 
     $ git clone http://github.com/codeimpossible/Artigo.git
 
