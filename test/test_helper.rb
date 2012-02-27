@@ -7,9 +7,15 @@ class ActiveSupport::TestCase
   include AuthenticatedTestHelper
   fixtures :all
 
+  setup :restore_config
+
   def as(user)
     login_as user
     yield if block_given?
+  end
+
+  def restore_config
+    Artigo.set_conf "app_theme", "metro"
   end
 
   #

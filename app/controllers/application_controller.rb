@@ -41,7 +41,7 @@ class ApplicationController < ActionController::Base
   end
 
   def permalink(p)
-		d = p.created_at
+		d = p.created_at || Time.now
 		post_permalink_path :year => d.year,
 						            :month => d.month,
 						            :day => d.day,

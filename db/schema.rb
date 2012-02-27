@@ -12,6 +12,16 @@
 
 ActiveRecord::Schema.define(:version => 20120220042258) do
 
+  create_table "medias", :force => true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.string   "path"
+    t.string   "content_type"
+    t.integer  "size"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "posts", :force => true do |t|
     t.string   "title"
     t.datetime "created_at"

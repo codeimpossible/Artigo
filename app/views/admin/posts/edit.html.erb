@@ -2,6 +2,6 @@
 
 <%= form_for @post, :url => admin_post_path(@post), :html => { :class => "form-stacked post-form" }, :method => :put do |f| %>
   <fieldset>
-    <%= render :partial => "post_form", :locals => {:f => f, :post => @post, :tags => @tags} %>
+    <%= render :partial => "post_form", :locals => {:f => f, :post => @post, :tags => @tags, :show_view_link => true } %>
   </fieldset>
 <% end %>

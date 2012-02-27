@@ -1,0 +1,26 @@
+<p><strong>Change things up</strong>. Here you can pick a new theme for your Artigo blog.</p>
+<ul class="thumbnails">
+<% @themes.each do |theme| %>
+  <li class="span3">
+    <div class="thumbnail">
+      <img src="<%= theme.image %>" alt="">
+      <div class="caption">
+        <h5><%= theme.title %></h5>
+        <p><%= raw theme.description ||= "no description provided." %></p>
+        <p>
+          <% unless theme.title == artigo_config("app_theme") %>
+            <%= form_tag( "/admin/themes/#{theme.title}/choose", :method => "post", :style => 'display: inline;' ) do %>
+              <%= submit_tag "Choose", :class => "btn btn-primary" %>
+            <% end %>
+          <% else %>
+            <a href="#" class="btn btn-primary disabled" theme="<%= theme.title %>">This is your theme</a>
+          <% end %>
+          <% if theme.has_settings %>
+            <%= link_to "Configure", { :controller => "admin/theme_settings", :action => "edit", :theme => theme.title }, :class => "btn" %>
+          <% end %>
+        </p>
+      </div>
+    </div>
+  </li>
+  <% end %>
+</ul>

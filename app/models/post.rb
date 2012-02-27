@@ -35,8 +35,7 @@ class Post < ActiveRecord::Base
 		title = "Your new posts title"
 		summary = "Write 2-3 sentences to grab your readers' attention. The ending should act as an introduction into your main body."
 		body = <<-MARKDOWN
-Your main body should fully realize the ideas you set into motion in the introduction section. Keep your posts short
-    and to the point as shorter blog posts are easier to read and remember.
+Your main body should fully realize the ideas you set into motion in the introduction section. Keep your posts short and to the point as shorter blog posts are easier to read and remember.
 
 Use a consistent style in your writing, once you've picked a style that suites you and your audience, stick to it.
 

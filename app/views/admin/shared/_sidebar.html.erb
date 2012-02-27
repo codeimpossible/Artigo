@@ -2,10 +2,9 @@
   <div class="well sidebar-nav">
     <ul class="nav nav-list">
       <li class="nav-header">Sidebar</li>
-      <li><a href="/admin">Admin Home</a></li>
-      <li><a href="#">Manage Posts</a></li>
-      <li><a href="#">Create New Post</a></li>
-      <li><a href="#">Link</a></li>
+      <li><%= link_to "Admin Home", admin_path %></li>
+      <li><%= link_to "Manage your posts", admin_posts_path %></li>
+      <li><%= link_to "Create a new post", new_admin_post_path %></li>
       <li>&nbsp;</li>
       <li><%= content_for :sidebar %></li>
     </ul>

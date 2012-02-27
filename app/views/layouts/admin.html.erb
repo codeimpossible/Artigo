@@ -34,6 +34,7 @@
           <% unless is_active?( :controller => "admin/dashboard", :action => "index") -%>
             <%= link_to "<< Admin Home", :controller => "admin/dashboard", :action => "index" %>
           <% end -%>
+
           <div class="modal fade hide" id="notEnabled" style="display: none;">
             <div class="modal-header">
               <a class="close" data-dismiss="modal">×</a>

@@ -34,6 +34,7 @@ Artigo::Application.routes.draw do
 
     get   '/themes/:theme/settings',        :to => 'theme_settings#edit', :as => 'theme_settings'
     post  '/themes/:theme/settings/save',   :to => 'theme_settings#save', :as => 'theme_settings_save'
+    post  '/themes/:theme/choose',          :to => 'theme_settings#choose', :as => 'theme_choose'
   end
 
   match '/tags/:id(.:format)',              :to => 'tags#show', :defaults => { :format => 'html' }

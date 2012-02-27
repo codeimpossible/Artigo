@@ -1,13 +1,14 @@
 <% if f.error_messages %><%= f.error_messages %><% end %>
-
+<% show_view_link ||= false %>
 <div id="post" class="new">
     <fieldset>
         <legend>Delay not; swift the flight of fortune's greatest favours.</legend>
 
         <div class="control-group">
             <div class="controls">
-                <%= f.text_field :title, :class => "span5 post-title" %>
-                <p class="help-block">your post will be available at: <%= artigo_config('blog_url') %>/<span id="url-preview"><%= @post.to_perm %></span></p>
+                <%= f.text_field :title, :class => "span7 post-title" %>
+                <p class="help-block">post url: <%= artigo_config('blog_url') %>/<span id="url-preview"><%= permalink(@post) %></span> <%= link_to "View Post", permalink(@post), :class => "btn", :target => "_blank" if show_view_link %>
+             </p>
             </div>
         </div>
 
@@ -20,26 +21,28 @@
         <div class="control-group">
             <label class="control-label">Tags:</label>
             <div class="controls">
-                <%= f.text_field :tags, :value => post.tag_list.join(','), :class => "span5", 'data-items' => '10', 'data-provide' => "typeahead", 'data-source' => "[#{tags.map{|t| "\"#{t}\"" }.join(',')}]", 'data-mode' => 'multiple' %>
+                <%= f.text_field :tags, :value => post.tag_list.join(','), :class => "span7", 'data-items' => '10', 'data-provide' => "typeahead", 'data-source' => "[#{tags.map{|t| "\"#{t}\"" }.join(',')}]", 'data-mode' => 'multiple' %>
             </div>
         </div>
 
         <div class="control-group">
             <label class="control-label">Summary:</label>
             <div class="controls">
-                <%= f.text_area :summary, :class => "span5" %>
+                <%= f.text_area :summary, :class => "span7" %>
             </div>
         </div>
     </fieldset>
 </div>
 
 <%= content_for :sidebar do %>
-    <%= f.submit 'Save Post', :class => "btn", :id => "save" %>
+    <div class="btn-group">
+        <%= f.submit 'Save Post', :class => "btn btn-primary", :id => "save" %>
+        <%= link_to "View Post", permalink(@post), :class => "btn", :target => "_blank" if show_view_link %>
+    </div>
 <% end %>
 
 <%= content_for :foot do %>
-    <%= javascript_include_tag "artigo-edit",
-        "pagedown/Markdown.Converter",
+    <%= javascript_include_tag "pagedown/Markdown.Converter",
         "pagedown/Markdown.Sanitizer",
         "pagedown/Markdown.Editor",
         :cache => "post_form" %>

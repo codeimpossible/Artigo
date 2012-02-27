@@ -2,17 +2,11 @@ require 'test_helper'
 
 # todo: look into mocking out the configuration item
 class Admin::ConfigControllerTest < ActionController::TestCase
-  test "update responds to post" do
-    login_as :quentin
-    put :update, :newtheme => "test"
-    assert_response :success
-  end
-
   test "non authenticated user is redirected to login" do
     put :update, :newtheme => "wont_work"
     assert_redirected_to login_path
   end
-  
+
   test "changetheme route is registered correctly" do
     assert_recognizes({:controller => 'admin/config', :action => 'edit'}, {:path => "/admin/config/edit"})
   end

@@ -3,12 +3,12 @@
 <head>
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 	<% if content_exists?(:title)-%>
-        <title><%= artigo_config("head_title") %> - <%= content_for :title%></title>
-    <% end -%>
-	
+    <title><%= artigo_config("head_title") %> - <%= content_for :title %></title>
+  <% end -%>
+
 	<link rel="stylesheet" href="<%= Artigo.theme_dir %>/metro.css" />
 	<link rel="stylesheet" href="<%= Artigo.theme_dir %>/prettify.css" />
-	
+
 	<link rel="alternate" type="application/rss+xml" title="RSS" href="/rss" />
 	<%= content_for :head %>
 </head>
@@ -27,9 +27,6 @@
 		</div>
 		<div class="main clear">
 			<div class="posts left">
-				<p style="color: green" id="notice"><%= flash[:notice] %></p>
-				<p style="color: red" id="error"><%= flash[:error] %></p>
-			
 				<%= yield %>
 			</div>
 			<div class="sidebarcontainer right">
@@ -37,7 +34,8 @@
 					<div class="sidebaritem">
 						<h2>about me</h2>
 						<div>
-							<p><%= raw @model.get_opt('about') %></div>
+							<p><%= raw @model.get_opt('about') %></p>
+						</div>
 					</div>
 					<div class="sidebaritem">
 						<div class="softwarenotice ">Unless otherwise noted, source code on this blog is Licensed under the Open Software License version 3.0.</div>

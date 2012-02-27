@@ -8,26 +8,24 @@ body {
 
 #post_title {
 	font-size: 24px;
-	width: 740px;
-    border: 1px solid #DDD;
-    padding: 5px;
+  border: 1px solid #DDD;
+  padding: 5px;
 }
 
 #post_summary {
 	font-size: 18px;
-	width: 740px;
-    height: 80px;
-    border: 1px solid #DDD;
-    padding: 5px;
+  height: 80px;
+  border: 1px solid #DDD;
+  padding: 5px;
 }
 
 .login input#login, .login input#password, .login input.text {
-    border: 1px solid #CCCCCC;
-    font-family: Helvetica,Arial,sans-serif;
-    font-size: 1.1em;
-    font-weight: bold;
-    padding: 4px;
-    width: 90%;
+  border: 1px solid #CCCCCC;
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 1.1em;
+  font-weight: bold;
+  padding: 4px;
+  width: 90%;
 }
 
 .button {
@@ -235,6 +233,7 @@ legend + .control-group {
 {
     height: 300px;
     width: 100%;
+    font-size: 16px;
 }
 
 .wmd-button-row
