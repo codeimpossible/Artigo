@@ -1495,7 +1495,7 @@
       var val = this.$menu.find('.active').attr('data-value')
       if( this.mode === 'multiple' ) {
         this.selections.push(val)
-        val = this.selections.join(this.delimiter)
+        val = this.selections.join(this.formatteddelimiter()) + this.formatteddelimiter()
       }
       this.$element.val( val )
       return this.hide()
@@ -1527,6 +1527,8 @@
         , items
         , q
         , input = this.mode === 'multiple' ? this.$element.val().split(this.delimiter) : [this.$element.val()]
+
+      this.selections = input.slice(0, input.length - 1)
 
       this.query = $.trim(input[input.length - 1])
 
@@ -1623,6 +1625,10 @@
         .on('mouseenter', 'li', $.proxy(this.mouseenter, this))
     }
 
+  , formatteddelimiter: function(){
+      return this.delimiter + ' '
+    }
+
   , keyup: function (e) {
       e.stopPropagation()
       e.preventDefault()
@@ -1650,6 +1656,7 @@
 
   , keypress: function (e) {
       e.stopPropagation()
+
       if (!this.shown) return
 
       switch(e.keyCode) {

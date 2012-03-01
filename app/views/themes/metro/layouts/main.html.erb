@@ -2,9 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-	<% if content_exists?(:title)-%>
-    <title><%= artigo_config("head_title") %> - <%= content_for :title %></title>
-  <% end -%>
+
+  <title><%= artigo_config("head_title") %> - <%= content_for :title %></title>
 
 	<link rel="stylesheet" href="<%= Artigo.theme_dir %>/metro.css" />
 	<link rel="stylesheet" href="<%= Artigo.theme_dir %>/prettify.css" />
@@ -36,9 +35,6 @@
 						<div>
 							<p><%= raw @model.get_opt('about') %></p>
 						</div>
-					</div>
-					<div class="sidebaritem">
-						<div class="softwarenotice ">Unless otherwise noted, source code on this blog is Licensed under the Open Software License version 3.0.</div>
 					</div>
 				</div>
 			</div>
