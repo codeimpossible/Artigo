@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=640" />
+
+    <link rel="stylesheet" href="stylesheets/core.css" media="screen"/>
+    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)"/>
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
+
+    <script type="text/javascript" src="javascripts/modernizr.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#main_content').headsmart()
+      })
+    </script>
+    <title>Artigo by codeimpossible</title>
+  </head>
+
+  <body>
+    <a id="forkme_banner" href="https://github.com/codeimpossible/Artigo">Fork Me on GitHub</a>
+    <div class="shell">
+
+      <header>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <h1>Artigo</h1>
+            <h2>Blog software written in ruby</h2>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </header>
+
+      <section id="downloads">
+        <span class="inner">
+          <a href="https://github.com/codeimpossible/Artigo/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/codeimpossible/Artigo/tarball/master" class="tgz"><em>download</em> .TGZ</a>
+        </span>
+      </section>
+
+      <span class="banner-fix"></span>
+
+      <section id="main_content">
+        <p><a href="http://travis-ci.org/codeimpossible/Artigo"><img src="https://secure.travis-ci.org/codeimpossible/Artigo.png" alt="Build Status"></a>
+<a href="https://gemnasium.com/codeimpossible/Artigo"><img src="https://gemnasium.com/codeimpossible/Artigo.png" alt="Dependency Status"></a></p>
+
+<h1>Artigo</h1>
+
+<h2>What is Artigo?</h2>
+
+<p>Artigo (Portuguese for Article) is a blog engine written in <a href="http://ruby-lang.org">Ruby</a> running on the <a href="http://rubyonrails.org">Rails</a> web platform.</p>
+
+<p>To read more about setting up and configuring Artigo please read the <a href="wiki">wiki</a></p>
+
+<h2>Installation</h2>
+
+<p>It's recommended that you install Artigo by cloning it in git.</p>
+
+<pre><code>$ git clone <a href="http://github.com/codeimpossible/Artigo.git">http://github.com/codeimpossible/Artigo.git</a>
+</code></pre>
+
+<p>Once you have this on your local machine just run the first time config and the unit tests to ensure everything is setup correctly.</p>
+
+<pre><code>$ bundle install
+
+# ... bundler will now go and download all the gems needed
+
+$ rake artigo:first_time
+
+# ... snip you'll see some database migration stuff here, the unit tests will run at the end
+# ... everything should pass, now you're ready to configure your install of Artigo
+</code></pre>
+
+<h2>Configuration</h2>
+
+<p>Artigo configuration is stored in two files within the /config directory: database.yml and artigo.yml. All the database settings are stored in the, you guessed it, database.yml and any blog specific settings are stored in the artigo.yml.</p>
+      </section>
+
+      <footer>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <p>this project by <a href="https://github.com/codeimpossible">codeimpossible</a> can be found on <a href="https://github.com/codeimpossible/Artigo">GitHub</a></p>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+        <p>Generated with <a href="http://pages.github.com">GitHub Pages</a> using Merlot</p>
+        <span class="octocat"></span>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
